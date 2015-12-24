@@ -11,7 +11,7 @@ Any usable command
 
 - (Setup Postgres user for the first time)[http://suite.opengeo.org/opengeo-docs/dataadmin/pgGettingStarted/firstconnect.html#dataadmin-pggettingstarted-firstconnect]
 
-- (Update GRUB)[http://www.howtogeek.com/196655/how-to-configure-the-grub2-boot-loaders-settings/]
+- [Update GRUB](http://www.howtogeek.com/196655/how-to-configure-the-grub2-boot-loaders-settings/)
 
 - Run file backgorund
 `nohup sudo root-0.1-SNAPSHOT/bin/root -Dhttp.port=8080 &`
