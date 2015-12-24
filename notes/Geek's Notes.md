@@ -31,6 +31,8 @@ Any usable command
 - Close port
 `sudo ufw disallow 8081/tcp`
 
+- [Set Network Interface on Ubuntu 14.04](https://sites.cns.utexas.edu/oit-blog/blog/how-set-static-ip-linux-machine)
+
 ## PHP
 Installing module and enable it manually
 eg: sudo apt-get install php5-mcrypt && sudo php5enmod mcrypt
