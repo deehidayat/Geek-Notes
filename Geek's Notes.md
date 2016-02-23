@@ -11,7 +11,7 @@ Any usable command
 
 - (Setup Postgres user for the first time)[http://suite.opengeo.org/opengeo-docs/dataadmin/pgGettingStarted/firstconnect.html#dataadmin-pggettingstarted-firstconnect]
 
-- (Update GRUB)[http://www.howtogeek.com/196655/how-to-configure-the-grub2-boot-loaders-settings/]
+- [Update GRUB](http://www.howtogeek.com/196655/how-to-configure-the-grub2-boot-loaders-settings/)
 
 - Run file backgorund
 `nohup sudo root-0.1-SNAPSHOT/bin/root -Dhttp.port=8080 &`
@@ -30,6 +30,8 @@ Any usable command
 
 - Close port
 `sudo ufw disallow 8081/tcp`
+
+- [Set Network Interface on Ubuntu 14.04](https://sites.cns.utexas.edu/oit-blog/blog/how-set-static-ip-linux-machine)
 
 ## PHP
 Installing module and enable it manually
