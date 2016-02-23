@@ -1,0 +1,637 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0026)http://a2fahmi.com/?p=1758 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" class="cufon-active cufon-ready" style="height: 100%; "><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="distribution" content="global">
+<meta name="robots" content="follow, all">
+<meta name="language" content="en">
+<meta name="description" content="Private Trainer And Web  Programmer">
+<title>  Mengambil Record dari hasil query di CodeIgniter : Notes For My Knowledge</title>
+<meta name="generator" content="WordPress 3.1.3">
+<meta name="keywords" content="">
+<link rel="stylesheet" href="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="Notes For My Knowledge RSS Feed" href="http://a2fahmi.com/?feed=rss2">
+<link rel="alternate" type="application/atom+xml" title="Notes For My Knowledge Atom Feed" href="http://a2fahmi.com/?feed=atom">
+<link rel="pingback" href="http://a2fahmi.com/xmlrpc.php">
+
+<link rel="stylesheet" type="text/css" href="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/glide.css" media="screen">	
+
+
+
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+sfHover = function() {
+	if (!document.getElementsByTagName) return false;
+	var sfEls1 = document.getElementById("catmenu").getElementsByTagName("li");
+	for (var i=0; i<sfEls1.length; i++) {
+		sfEls1[i].onmouseover=function() {
+			this.className+=" sfhover1";
+		}
+		sfEls1[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" sfhover1\\b"), "");
+		}
+	}
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+//--><!]]></script>
+
+	<link rel="archives" title="October 2011" href="http://a2fahmi.com/?m=201110">
+	<link rel="archives" title="September 2011" href="http://a2fahmi.com/?m=201109">
+	<link rel="archives" title="August 2011" href="http://a2fahmi.com/?m=201108">
+	<link rel="archives" title="July 2011" href="http://a2fahmi.com/?m=201107">
+	<link rel="archives" title="June 2011" href="http://a2fahmi.com/?m=201106">
+	<link rel="archives" title="May 2011" href="http://a2fahmi.com/?m=201105">
+	<link rel="archives" title="April 2011" href="http://a2fahmi.com/?m=201104">
+	<link rel="archives" title="March 2011" href="http://a2fahmi.com/?m=201103">
+	<link rel="archives" title="February 2011" href="http://a2fahmi.com/?m=201102">
+	<link rel="archives" title="January 2011" href="http://a2fahmi.com/?m=201101">
+	<link rel="archives" title="December 2010" href="http://a2fahmi.com/?m=201012">
+	<link rel="archives" title="November 2010" href="http://a2fahmi.com/?m=201011">
+	<link rel="archives" title="October 2010" href="http://a2fahmi.com/?m=201010">
+	<link rel="archives" title="September 2010" href="http://a2fahmi.com/?m=201009">
+	<link rel="archives" title="August 2010" href="http://a2fahmi.com/?m=201008">
+	<link rel="archives" title="July 2010" href="http://a2fahmi.com/?m=201007">
+	<link rel="archives" title="June 2010" href="http://a2fahmi.com/?m=201006">
+	<link rel="archives" title="May 2010" href="http://a2fahmi.com/?m=201005">
+	<link rel="archives" title="April 2010" href="http://a2fahmi.com/?m=201004">
+	<link rel="archives" title="March 2010" href="http://a2fahmi.com/?m=201003">
+	<link rel="archives" title="February 2010" href="http://a2fahmi.com/?m=201002">
+	<link rel="archives" title="January 2010" href="http://a2fahmi.com/?m=201001">
+	<link rel="archives" title="December 2009" href="http://a2fahmi.com/?m=200912">
+	<link rel="archives" title="November 2009" href="http://a2fahmi.com/?m=200911">
+	<link rel="archives" title="October 2009" href="http://a2fahmi.com/?m=200910">
+	<link rel="archives" title="August 2009" href="http://a2fahmi.com/?m=200908">
+	<link rel="archives" title="July 2009" href="http://a2fahmi.com/?m=200907">
+	<link rel="archives" title="June 2009" href="http://a2fahmi.com/?m=200906">
+	<link rel="archives" title="May 2009" href="http://a2fahmi.com/?m=200905">
+	<link rel="archives" title="April 2009" href="http://a2fahmi.com/?m=200904">
+<link rel="alternate" type="application/rss+xml" title="Notes For My Knowledge » Mengambil Record dari hasil query di CodeIgniter Comments Feed" href="http://a2fahmi.com/?feed=rss2&p=1758">
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/l10n.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/jquery.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/jcarousel.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/cufon.js"></script><style type="text/css">.cufon-canvas{text-indent:0!important;}@media screen,projection{.cufon-canvas{display:inline!important;display:inline-block!important;position:relative!important;vertical-align:middle!important;font-size:1px!important;line-height:1px!important;}.cufon-canvas .cufon-alt{display:-moz-inline-box!important;display:inline-block!important;width:0!important;height:0!important;overflow:hidden!important;text-indent:-10000in!important;}.cufon-canvas canvas{position:relative!important;}}@media print{.cufon-canvas{padding:0!important;}.cufon-canvas canvas{display:none!important;}.cufon-canvas .cufon-alt{display:inline!important;}}</style>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/jquery.easing.1.1.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/MankSans-Medium_500.font.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/ChunkFive_400.font.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/effects.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/sprinkle.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/jquery-ui-personalized-1.5.2.packed.js"></script>
+<script type="text/javascript" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/comment-reply.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://a2fahmi.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://a2fahmi.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Notes For My Knowledge" href="http://a2fahmi.com/">
+<link rel="start" title="Update data MySQL dengan GetUpdateSQL ADOdb" href="http://a2fahmi.com/?p=3">
+<link rel="prev" title="Menambahkan property CSS dengan JQuery" href="http://a2fahmi.com/?p=1717">
+<link rel="next" title="Mengambil potongan string di PHP" href="http://a2fahmi.com/?p=1781">
+<meta name="generator" content="WordPress 3.1.3">
+<link rel="canonical" href="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge.htm">
+<script type="text/javascript">
+<!--
+/*****************************************************************
+***   COPY PROTECTED BY CHETANGOLE.COM/BLOG/WP-COPYPROTECT    ****
+******************************************************************/
+var message="Maaf Ya, Karena banyak Plagiat dilarang Copy Paste";
+function clickIE4(){
+if (event.button==2){
+alert(message);
+return false;
+}
+}
+
+function clickNS4(e){
+if (document.layers||document.getElementById&&!document.all){
+if (e.which==2||e.which==3){
+alert(message);
+return false;
+}
+}
+}
+
+if (document.layers){
+document.captureEvents(Event.MOUSEDOWN);
+document.onmousedown=clickNS4;
+}
+else if (document.all&&!document.getElementById){
+document.onmousedown=clickIE4;
+}
+document.oncontextmenu=new Function("alert(message);return false")
+// --> 
+</script>
+
+<script type="text/javascript">
+
+function disableSelection(target){
+if (typeof target.onselectstart!="undefined") //For IE 
+	target.onselectstart=function(){return false}
+else if (typeof target.style.MozUserSelect!="undefined") //For Firefox
+	target.style.MozUserSelect="none"
+else //All other route (For Opera)
+	target.onmousedown=function(){return false}
+target.style.cursor = "default"
+}
+</script>
+
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/main_id.js"></script><script type="text/javascript" charset="UTF-8" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/element_main.js"></script></head>
+<body style="cursor: default; position: relative; min-height: 100%; top: 0px; ">
+
+<div id="wrapper">
+<div id="top"> 
+<div class="blogname">
+	<h1><a href="http://a2fahmi.com/" title="Notes For My Knowledge"><span class="cufon cufon-canvas" style="width: 111px; height: 36px; "><canvas width="140" height="38" style="width: 140px; height: 38px; top: -2px; left: 0px; "></canvas><span class="cufon-alt">Notes </span></span><span class="cufon cufon-canvas" style="width: 66px; height: 36px; "><canvas width="95" height="38" style="width: 95px; height: 38px; top: -2px; left: 0px; "></canvas><span class="cufon-alt">For </span></span><span class="cufon cufon-canvas" style="width: 67px; height: 36px; "><canvas width="96" height="38" style="width: 96px; height: 38px; top: -2px; left: 0px; "></canvas><span class="cufon-alt">My </span></span><span class="cufon cufon-canvas" style="width: 204px; height: 36px; "><canvas width="222" height="38" style="width: 222px; height: 38px; top: -2px; left: 0px; "></canvas><span class="cufon-alt">Knowledge</span></span></a></h1>
+	<h2><span class="cufon cufon-canvas" style="width: 44px; height: 12px; "><canvas width="51" height="13" style="width: 51px; height: 13px; top: 0px; left: 0px; "></canvas><span class="cufon-alt">Private </span></span><span class="cufon cufon-canvas" style="width: 51px; height: 12px; "><canvas width="58" height="13" style="width: 58px; height: 13px; top: 0px; left: 0px; "></canvas><span class="cufon-alt">Trainer </span></span><span class="cufon cufon-canvas" style="width: 29px; height: 12px; "><canvas width="37" height="13" style="width: 37px; height: 13px; top: 0px; left: 0px; "></canvas><span class="cufon-alt">And </span></span><span class="cufon cufon-canvas" style="width: 27px; height: 12px; "><canvas width="35" height="13" style="width: 35px; height: 13px; top: 0px; left: 0px; "></canvas><span class="cufon-alt">Web </span></span><span class="cufon cufon-canvas" style="width: 78px; height: 12px; "><canvas width="83" height="13" style="width: 83px; height: 13px; top: 0px; left: 0px; "></canvas><span class="cufon-alt">Programmer</span></span></h2>
+
+
+</div>
+
+<div id="search">
+
+<form method="get" id="searchform" action="http://a2fahmi.com/">
+			<input id="s" type="text" name="s" value="">
+			<input id="searchsubmit" type="submit" value="Search">
+			</form>
+</div>	
+
+
+</div>
+<div class="clear">&lt;</div>
+
+<div id="catmenucontainer">
+		<div id="catmenu">
+		<ul>
+			<li class="page_item "><a href="http://a2fahmi.com/" title="Home">Home</a></li>
+			<li class="page_item page-item-2"><a href="http://a2fahmi.com/?page_id=2" title="About">About</a></li>
+<li class="page_item page-item-10443"><a href="http://a2fahmi.com/?page_id=10443" title="Cari Sampingan">Cari Sampingan</a></li>
+		
+		</ul>
+	</div>		
+		
+		
+</div>
+
+
+<div id="casing">		
+<div id="content">
+
+
+
+<div class="single" id="post-1758">
+<div class="title">
+
+<h2><a href="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge.htm" rel="bookmark" title="Permanent Link to Mengambil Record dari hasil query di CodeIgniter">Mengambil Record dari hasil query di CodeIgniter</a></h2>
+
+
+</div>
+<div class="date"><span class="author"> Fahmi Basya Kartapura</span> <span class="clock"> On January - 19 - 2010</span></div>	
+<div class="cover">
+<div class="entry">
+
+
+
+
+<p style="text-align: justify;">Terdapat 4 metode untuk mengambil&nbsp; record dari hasil query CodeIgniter:</p>
+<ol style="text-align: justify;">
+<li><strong>result()</strong>,&nbsp; Metode ini mengembalikan hasil query sebagai array dari objek.</li>
+<li><strong>result_array()</strong>, Metode ini mengembalikan hasil query sebagai array.</li>
+<li><strong>row()</strong>, Metode ini mengembalikan hasil query sebagai satu baris objek saja dimana baris yang diambil adalah baris pertama.</li>
+<li><strong>row_array()</strong>, Metode ini mengembalikan hasil query sebagai satu baris array saja dimana baris yang diambil adalah baris pertama.</li>
+</ol>
+<h2 style="text-align: justify;"><span style="color: #000000;">1. Penggunaan result()</span></h2>
+<p style="text-align: justify;">Metode ini mengembalikan hasil query sebagai array dari objek. Biasanya digunakan dengan perulangan foreach, lihat contoh dibawah ini:</p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$dataPerusahaan</span> =<span style="color: #008000;"> $this-&gt;db-&gt;query(</span><span style="color: #ff0000;">“select nama_perusahaan,nama_direktur,alamat&nbsp; from perusahaan”</span><span style="color: #008000;">);</span></p>
+<p style="text-align: justify;"><span style="color: #008000;">foreach (</span><span style="color: #0000ff;">$dataPerusahaan</span>-&gt;<span style="color: #0000ff;">result() </span>as <span style="color: #0000ff;">$row</span><span style="color: #008000;">)</span><br>
+<span style="color: #008000;">{</span><br>
+<span style="color: #008000;">echo</span> <span style="color: #0000ff;">$row</span>-&gt;<span style="color: #ff0000;">nama_perusahaan</span>;<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$row</span>-&gt;<span style="color: #ff0000;">nama_direktur</span>;<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$row</span>-&gt;<span style="color: #ff0000;">alamat</span>;<br>
+<span style="color: #008000;">}</span></p>
+<p style="text-align: justify;"><strong><span style="color: #000000;">Keterangan:</span></strong></p>
+<ol style="text-align: justify;">
+<li style="text-align: justify;"><span style="color: #000000;"><span style="color: #0000ff;">$dataPerusahaan</span> <span style="color: #0000ff;"><span style="color: #000000;"><span style="color: #888888;"> berisi hasil query dari objek</span><span style="color: #008000;"> $this-&gt;db. <span style="color: #888888;">Masing-masing record dari hasil query menjadi variabel dari objek </span>$dataPerusahaan <span style="color: #888888;">dimana nama variabelnya sama dengan nama recordnya</span></span>.</span></span></span></li>
+<li style="text-align: justify;"><span style="color: #0000ff;">$dataPerusahaan</span>-&gt;<span style="color: #0000ff;">result() <span style="color: #888888;">berisi array dari objek sehingga </span></span><span style="color: #888888;">kita memerlukan perulangan foreach untuk mengambil variabelnya satu persatu .</span></li>
+<li style="text-align: justify;"><span style="color: #0000ff;">$row</span>-&gt;<span style="color: #ff0000;">nama_perusahaan <span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_perusahaan</span>, </span></span><span style="color: #0000ff;">$row</span>-&gt;<span style="color: #ff0000;">nama_direktur</span><span style="color: #ff0000;"><span style="color: #888888;"> </span> </span><span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_direktur</span> dan </span></span><span style="color: #0000ff;">$row</span>-&gt;<span style="color: #ff0000;">alamat </span><span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">alamat.</span></span></span></li>
+</ol>
+<h2 style="text-align: justify;"><span style="color: #000000;">2. Penggunaan result_array()</span></h2>
+<p style="text-align: justify;">Metode ini mengembalikan hasil query sebagai array. Biasanya digunakan dengan perulangan foreach, lihat contoh dibawah ini:</p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$dataPerusahaan</span> =<span style="color: #008000;"> $this-&gt;db-&gt;query(</span><span style="color: #ff0000;">“select nama_perusahaan,nama_direktur,alamat&nbsp; from perusahaan”</span><span style="color: #008000;">);</span></p>
+<p style="text-align: justify;"><span style="color: #008000;">foreach (</span><span style="color: #0000ff;">$dataPerusahaan</span>-&gt;<span style="color: #0000ff;">result_array() </span>as <span style="color: #0000ff;">$row</span><span style="color: #008000;">)</span><br>
+<span style="color: #008000;">{</span><br>
+<span style="color: #008000;">echo</span> <span style="color: #0000ff;">$row</span>[<span style="color: #ff0000;">'</span><span style="color: #ff0000;">nama_perusahaan'<span style="color: #000000;">]</span></span>;<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$row</span>[<span style="color: #ff0000;">'nama_direktur'</span>];<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$row</span>[<span style="color: #ff0000;">'alamat'</span>];<br>
+<span style="color: #008000;">}</span></p>
+<p style="text-align: justify;"><span style="color: #008000;"><strong><span style="color: #000000;">Keterangan:</span></strong></span></p>
+<ol style="text-align: justify;">
+<li><span style="color: #000000;"><span style="color: #0000ff;">$dataPerusahaan</span> <span style="color: #0000ff;"><span style="color: #000000;"><span style="color: #888888;"> berisi hasil query dari objek</span><span style="color: #008000;"> $this-&gt;db. <span style="color: #888888;">Masing-masing record dari hasil query menjadi variabel dari objek </span>$dataPerusahaan <span style="color: #888888;">dimana nama variabelnya sama dengan nama recordnya</span></span>.</span></span></span></li>
+<li><span style="color: #0000ff;">$dataPerusahaan</span>-&gt;<span style="color: #0000ff;">result_array() <span style="color: #888888;">berisi array sehingga </span></span><span style="color: #888888;">kita memerlukan perulangan foreach untuk mengambil variabelnya satu persatu .</span></li>
+<li><span style="color: #0000ff;">$row</span>[<span style="color: #ff0000;">'</span><span style="color: #ff0000;">nama_perusahaan'<span style="color: #000000;">]</span></span><span style="color: #ff0000;"> <span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_perusahaan</span>, </span></span><span style="color: #0000ff;">$row</span>[<span style="color: #ff0000;">'nama_direktur'</span>]<span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_direktur</span> dan </span></span><span style="color: #0000ff;">$row</span>[<span style="color: #ff0000;">'alamat'</span>]<span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">alamat.</span></span></span></li>
+</ol>
+<h2 style="text-align: justify;"><span style="color: #000000;">3. Penggunaan row()</span></h2>
+<p style="text-align: justify;">Metode ini mengembalikan hasil query sebagai satu baris objek saja dimana baris yang diambil adalah baris pertama.&nbsp; lihat contoh dibawah ini:</p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$dataPerusahaan</span> =<span style="color: #008000;"> $this-&gt;db-&gt;query(</span><span style="color: #ff0000;">“select nama_perusahaan,nama_direktur,alamat&nbsp; from perusahaan”</span><span style="color: #008000;">);</span></p>
+<p style="text-align: justify;"><span style="color: #008000;">if (</span><span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span>-&gt;num_rows()</span> &gt; 0<span style="color: #008000;">)</span></p>
+<p style="text-align: justify;"><span style="color: #008000;">{</span><span style="color: #008000;"> </span></p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$hasil</span>= <span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row()</span>;</p>
+<p style="text-align: justify;"><span style="color: #008000;">echo</span> <span style="color: #0000ff;">$hasil</span>-&gt;<span style="color: #ff0000;">nama_perusahaan</span>;<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$hasil</span>-&gt;<span style="color: #ff0000;">nama_direktur</span>;<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$hasil</span>-&gt;<span style="color: #ff0000;">alamat</span>;<br>
+<span style="color: #008000;">}</span></p>
+<p style="text-align: justify;"><strong><span style="color: #000000;">Keterangan:</span></strong></p>
+<ol style="text-align: justify;">
+<li><span style="color: #000000;"><span style="color: #0000ff;">$dataPerusahaan</span> <span style="color: #0000ff;"><span style="color: #000000;"><span style="color: #888888;"> berisi hasil query dari objek</span><span style="color: #008000;"> $this-&gt;db. <span style="color: #888888;">Masing-masing record dari hasil query menjadi variabel dari objek </span>$dataPerusahaan <span style="color: #888888;">dimana nama variabelnya sama dengan nama recordnya</span></span>.</span></span></span></li>
+<li>if ($dataPerusahaan-&gt;num_rows() &gt; 0) digunakan untuk menguji apakah jumlah baris dari hasil query objek $dataPerusahaan itu lebih besar dari 0 dan jika benar maka perintah dalam blok<strong><span style="color: #008000;"> if</span></strong> akan dieksekusi.</li>
+<li><span style="color: #0000ff;">$hasil</span>= <span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row()</span><span style="color: #0000ff;"><span style="color: #000000;">, kode ini menyatakan bahwa metode row() mengambil baris pertama dari hasil query $dataPerusahaan dan memberikan hasilnya ke variabel</span> $hasil.</span></li>
+<li><span style="color: #0000ff;">$hasil</span>-&gt;<span style="color: #ff0000;">nama_perusahaan <span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_perusahaan</span>, </span></span><span style="color: #0000ff;">$hasil</span>-&gt;<span style="color: #ff0000;">nama_direktur</span><span style="color: #ff0000;"><span style="color: #888888;"> </span> </span><span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_direktur</span> dan </span></span><span style="color: #0000ff;">$hasil</span>-&gt;<span style="color: #ff0000;">alamat </span><span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">alamat.</span></span></span></li>
+</ol>
+<p style="text-align: justify;"><strong>Muncul Pertanyaan:</strong></p>
+<p style="text-align: justify;">Bagaimana caranya agar kita mengambil baris tertentu saja … ?</p>
+<p style="text-align: justify;"><strong>Jawaban:</strong></p>
+<p style="text-align: justify;"><strong>Kita bisa sebutkan baris keberapa, contohnya lihat dibawah ini:</strong></p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$hasil</span>= <span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row(3)</span>;</p>
+<p style="text-align: justify;"><strong>Keterangan:</strong></p>
+<p style="text-align: justify;">Kode<strong> </strong><span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row(3)<span style="color: #888888;"> menyatakan bahwa metode row mengambil baris ke-3 dari hasil query objek </span><span style="color: #0000ff;">$dataPerusahaan</span>.</span></p>
+<h2 style="text-align: justify;"><span style="color: #000000;">4. Penggunaan row_array()</span></h2>
+<p style="text-align: justify;">Metode ini mengembalikan hasil query sebagai satu baris array saja dimana baris yang diambil adalah baris pertama.&nbsp; lihat contoh dibawah ini:</p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$dataPerusahaan</span> =<span style="color: #008000;"> $this-&gt;db-&gt;query(</span><span style="color: #ff0000;">“select nama_perusahaan,nama_direktur,alamat&nbsp; from perusahaan”</span><span style="color: #008000;">);</span></p>
+<p style="text-align: justify;"><span style="color: #008000;">if (</span><span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span>-&gt;num_rows()</span> &gt; 0<span style="color: #008000;">)</span></p>
+<p style="text-align: justify;"><span style="color: #008000;">{</span><span style="color: #008000;"> </span></p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$hasil</span>= <span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row_array()</span>;</p>
+<p style="text-align: justify;"><span style="color: #008000;">echo</span> <span style="color: #0000ff;">$hasil</span>[<span style="color: #ff0000;">'</span><span style="color: #ff0000;">nama_perusahaan'<span style="color: #000000;">]</span></span>;<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$hasil</span>[<span style="color: #ff0000;">'nama_direktur'</span>];<br>
+<span style="color: #008000;">echo </span><span style="color: #0000ff;">$hasil</span>[<span style="color: #ff0000;">'alamat'</span>];<br>
+<span style="color: #008000;">}</span></p>
+<p style="text-align: justify;"><strong><span style="color: #000000;">Keterangan:</span></strong></p>
+<ol style="text-align: justify;">
+<li><span style="color: #000000;"><span style="color: #0000ff;">$dataPerusahaan</span> <span style="color: #0000ff;"><span style="color: #000000;"><span style="color: #888888;"> berisi hasil query dari objek</span><span style="color: #008000;"> $this-&gt;db. <span style="color: #888888;">Masing-masing record dari hasil query menjadi variabel dari objek </span>$dataPerusahaan <span style="color: #888888;">dimana nama variabelnya sama dengan nama recordnya</span></span>.</span></span></span></li>
+<li>if ($dataPerusahaan-&gt;num_rows() &gt; 0) digunakan untuk menguji apakah jumlah baris dari hasil query objek $dataPerusahaan itu lebih besar dari 0 dan jika benar maka perintah dalam blok<strong><span style="color: #008000;"> if</span></strong> akan dieksekusi.</li>
+<li><span style="color: #0000ff;">$hasil</span>= <span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row_array()</span><span style="color: #0000ff;"><span style="color: #000000;">, kode ini menyatakan bahwa metode row_array() mengambil baris pertama dari hasil query $dataPerusahaan dan memberikan hasilnya ke variabel</span> $hasil.</span></li>
+<li><span style="color: #0000ff;">$hasil</span>[<span style="color: #ff0000;">'</span><span style="color: #ff0000;">nama_perusahaan'<span style="color: #000000;">]</span></span><span style="color: #ff0000;"> <span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_perusahaan</span>, </span></span><span style="color: #0000ff;">$hasil</span>[<span style="color: #ff0000;">'nama_direktur'</span>]<span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">nama_direktur</span> dan </span></span><span style="color: #0000ff;">$hasil</span>[<span style="color: #ff0000;">'alamat'</span>]<span style="color: #ff0000;"><span style="color: #888888;">digunakan untuk mengambil variabel <span style="color: #0000ff;">alamat.</span></span></span></li>
+</ol>
+<p style="text-align: justify;"><strong>Muncul Pertanyaan:</strong></p>
+<p style="text-align: justify;">Bagaimana caranya agar kita mengambil baris tertentu saja … ?</p>
+<p style="text-align: justify;"><strong>Jawaban:</strong></p>
+<p style="text-align: justify;"><strong>Kita bisa sebutkan baris keberapa, contohnya lihat dibawah ini:</strong></p>
+<p style="text-align: justify;"><span style="color: #0000ff;">$hasil</span>= <span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row_array(3)</span>;</p>
+<p style="text-align: justify;"><strong>Keterangan:</strong></p>
+<p style="text-align: justify;">Kode<strong> </strong><span style="color: #008000;"><span style="color: #0000ff;">$dataPerusahaan</span></span><span style="color: #008000;">-&gt;row_array(3)<span style="color: #888888;"> menyatakan bahwa metode row mengambil baris ke-3 dari hasil query objek </span><span style="color: #0000ff;">$dataPerusahaan</span>.</span></p>
+<p style="text-align: justify;"><span style="color: #008000;"><strong><span style="color: #000000;">Jika Tutorial ini bermanfaat silahkan katakan</span><span style="color: #ff6600;"> “Terima Kasih Fahmi Basya Kartapura”</span></strong>.<br>
+</span></p>
+<p style="text-align: justify;"><span style="color: #008000;"><br>
+</span></p>
+
+<iframe src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/like.htm" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:450px; height:25px;"></iframe>
+<div class="clear"></div>
+ </div>
+
+</div>
+
+<div class="singleinfo">
+
+<span class="category">Categories: <a href="http://a2fahmi.com/?cat=108" title="View all posts in CodeIgniter" rel="category">CodeIgniter</a> </span>
+
+</div>
+
+
+
+</div>
+
+
+<!-- You can start editing here. -->
+<div class="comments" id="comment">
+	<div id="comnums"> <h3> 2 Responses </h3> </div>
+
+
+
+	<ol class="commentlist">
+		<li class="comment even thread-even depth-1" id="comment-1726">
+				<div id="div-comment-1726" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/ce2ba9fe80501d85c30026391648d7bf" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn"><a href="http://fanjavaakhmad.wordpress.com/" rel="external nofollow" class="url">Fandi Akhmad</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://a2fahmi.com/?p=1758&cpage=1#comment-1726">
+			October 27, 2010 at 11:34 pm</a>		</div>
+
+		<p>Gan, gw mau tanya ne..</p>
+<p>kan gw buat model yang isinya mengambil data dari database.</p>
+<p>db-&gt;get(‘buku_tamu’)-&gt;result();<br>
+		}<br>
+	}<br>
+?&gt;</p>
+<p>foreachnya gimana ,gan…bingung… <img src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/icon_surprised.gif" alt=":o" class="wp-smiley"> </p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+		<li class="comment byuser comment-author-admin bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1728">
+				<div id="div-comment-1728" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/1e0de82c4285020ec237ab00bdf45143" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">admin</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://a2fahmi.com/?p=1758&cpage=1#comment-1728">
+			October 29, 2010 at 7:19 pm</a>		</div>
+
+		<p>Waduh, baca di user guidenya dong, nih udah ada</p>
+<p>$query = $this-&gt;db-&gt;get(‘table_name’);</p>
+<p>foreach ($query-&gt;result() as $row)<br>
+{<br>
+    echo $row-&gt;title;<br>
+}</p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+
+	</ol>
+		<ol class="pinglist">
+	</ol>
+	<div class="navigation">
+		<div class="alignleft"></div>
+		<div class="alignright"></div>
+	</div>
+ 
+
+<div class="clear"></div>
+<div id="respond">
+
+<h3>Leave a Reply</h3>
+
+<div class="cancel-comment-reply">
+	<small><a rel="nofollow" id="cancel-comment-reply-link" href="http://a2fahmi.com/?p=1758#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="http://a2fahmi.com/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" aria-required="true">
+<label for="author"><small>Name (required)</small></label></p>
+
+<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" aria-required="true">
+<label for="email"><small>Mail (will not be published) (required)</small></label></p>
+
+<p><input type="text" name="url" id="url" value="" size="22" tabindex="3">
+<label for="url"><small>Website</small></label></p>
+
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags: <code>&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </code></small></p>-->
+
+<p><textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea></p>
+
+<p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment">
+<input type="hidden" name="comment_post_ID" value="1758" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+
+</form>
+
+</div>
+
+</div>
+	
+</div>
+
+<div class="right">
+
+<div class="squarebanner">
+
+<ul>
+
+			
+
+
+<li>
+<a href="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/sponsor_codeigniter.png" rel="bookmark" title=""><img src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/sponsor_codeigniter.png" width="265px" alt="" style="vertical-align:bottom;"></a>
+</li>
+
+<li>
+<a href="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/sponsor_php_mysql.png" rel="bookmark" title=""><img src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/sponsor_php_mysql.png" width="265px" alt="" style="vertical-align:bottom;"></a>
+</li>
+<li>
+
+
+</li><li>
+
+
+
+
+
+</li>
+
+</ul>
+</div>	
+<div class="clear"></div>
+<div id="tabzine" class="widgets">
+    <ul class="tabnav ui-tabs-nav">
+        <li class="fea ui-tabs-selected"><a href="http://a2fahmi.com/?p=1758#recent"> RECENT </a></li>
+		<li class="rec"><a href="http://a2fahmi.com/?p=1758#popular"> POPULAR  </a></li>
+		<li class="pop"><a href="http://a2fahmi.com/?p=1758#tags"> TAGS </a></li>
+    </ul>
+
+            
+<div id="recent" class="tabdiv ui-tabs-panel" style="display: block; ">
+	<ul>
+			<li><a href="http://a2fahmi.com/?p=16062" title="Intent untuk menjalankan Acitivity dalam Android">Intent untuk menjalankan Acitivity dalam Android</a></li>
+	<li><a href="http://a2fahmi.com/?p=16057" title="java.lang.NullPointerException dalam Android">java.lang.NullPointerException dalam Android</a></li>
+	<li><a href="http://a2fahmi.com/?p=16012" title="Activity dalam Android">Activity dalam Android</a></li>
+	<li><a href="http://a2fahmi.com/?p=15992" title="Membuat Image Gallery dalam Android">Membuat Image Gallery dalam Android</a></li>
+	<li><a href="http://a2fahmi.com/?p=15979" title="Interface dalam Java">Interface dalam Java</a></li>
+	<li><a href="http://a2fahmi.com/?p=15961" title="Metode copyValueOf() dalam String Java">Metode copyValueOf() dalam String Java</a></li>
+	<li><a href="http://a2fahmi.com/?p=15945" title="String dalam Java">String dalam Java</a></li>
+	<li><a href="http://a2fahmi.com/?p=15922" title="Mendownload Teks dari Internet dalam Android">Mendownload Teks dari Internet dalam Android</a></li>
+    </ul>
+
+</div>
+			
+ <div id="popular" class="tabdiv ui-tabs-panel ui-tabs-hide">
+    <ul>
+<li> <a href="http://a2fahmi.com/?p=6259" title="Membuat Form Pendaftaran Mahasiswa Baru dengan PHP dan MySQL">Membuat Form Pendaftaran Mahasiswa Baru dengan PHP dan MySQL</a> </li><li> <a href="http://a2fahmi.com/?p=1544" title="Membuat template di CodeIgniter  Versi 2">Membuat template di CodeIgniter  Versi 2</a> </li><li> <a href="http://a2fahmi.com/?p=12273" title="Membuat Form Login dalam CodeIgniter Versi 2">Membuat Form Login dalam CodeIgniter Versi 2</a> </li><li> <a href="http://a2fahmi.com/?p=2579" title="Validasi Form dalam CodeIgniter Versi 2">Validasi Form dalam CodeIgniter Versi 2</a> </li><li> <a href="http://a2fahmi.com/?p=9137" title="Membuat Form Login dengan PHP dan MySQL">Membuat Form Login dengan PHP dan MySQL</a> </li><li> <a href="http://a2fahmi.com/?p=1284" title="Mengambil tanggal dengan datepicker JQuery UI">Mengambil tanggal dengan datepicker JQuery UI</a> </li>    </ul>
+</div>
+
+<div id="tags" class="tabdiv ui-tabs-panel ui-tabs-hide">
+<a href="http://a2fahmi.com/?tag=ajax" class="tag-link-818" title="2 topics" style="font-size: 22pt;">Ajax</a>
+<a href="http://a2fahmi.com/?tag=array" class="tag-link-55" title="2 topics" style="font-size: 22pt;">array</a>
+<a href="http://a2fahmi.com/?tag=cek-variabel" class="tag-link-146" title="2 topics" style="font-size: 22pt;">cek variabel</a>
+<a href="http://a2fahmi.com/?tag=clear-css" class="tag-link-183" title="2 topics" style="font-size: 22pt;">clear css</a>
+<a href="http://a2fahmi.com/?tag=codeigniter-helper" class="tag-link-112" title="2 topics" style="font-size: 22pt;">codeigniter helper</a>
+<a href="http://a2fahmi.com/?tag=codeigniter-view" class="tag-link-255" title="2 topics" style="font-size: 22pt;">codeigniter view</a>
+<a href="http://a2fahmi.com/?tag=controller-codeigniter" class="tag-link-251" title="2 topics" style="font-size: 22pt;">controller codeigniter</a>
+<a href="http://a2fahmi.com/?tag=css-jquery" class="tag-link-125" title="2 topics" style="font-size: 22pt;">css jquery</a>
+<a href="http://a2fahmi.com/?tag=float-css" class="tag-link-182" title="2 topics" style="font-size: 22pt;">float css</a>
+<a href="http://a2fahmi.com/?tag=format-tanggal-dalam-php" class="tag-link-389" title="2 topics" style="font-size: 22pt;">format tanggal dalam php</a>
+<a href="http://a2fahmi.com/?tag=fungsi-this-uri-segment" class="tag-link-451" title="2 topics" style="font-size: 22pt;">fungsi $this-&gt;uri-&gt;segment</a>
+<a href="http://a2fahmi.com/?tag=fungsi-dari-overloading-di-java" class="tag-link-977" title="2 topics" style="font-size: 22pt;">fungsi dari overloading di java</a>
+<a href="http://a2fahmi.com/?tag=getupdatesql" class="tag-link-4" title="1 topic" style="font-size: 8pt;">getupdatesql</a>
+<a href="http://a2fahmi.com/?tag=geupdatesql" class="tag-link-5" title="1 topic" style="font-size: 8pt;">GeUpdateSQL</a>
+<a href="http://a2fahmi.com/?tag=if-dalam-c" class="tag-link-829" title="2 topics" style="font-size: 22pt;">if dalam c++</a>
+<a href="http://a2fahmi.com/?tag=input-tanggal" class="tag-link-597" title="2 topics" style="font-size: 22pt;">input tanggal</a>
+<a href="http://a2fahmi.com/?tag=input-tanggal-php" class="tag-link-598" title="2 topics" style="font-size: 22pt;">input tanggal php</a>
+<a href="http://a2fahmi.com/?tag=is_object" class="tag-link-475" title="2 topics" style="font-size: 22pt;">is_object</a>
+<a href="http://a2fahmi.com/?tag=konstanta" class="tag-link-58" title="2 topics" style="font-size: 22pt;">konstanta</a>
+<a href="http://a2fahmi.com/?tag=kursus-php" class="tag-link-15" title="1 topic" style="font-size: 8pt;">Kursus PHP</a>
+<a href="http://a2fahmi.com/?tag=kursus-php-bogor" class="tag-link-14" title="1 topic" style="font-size: 8pt;">Kursus PHP bogor</a>
+<a href="http://a2fahmi.com/?tag=kursus-php-private" class="tag-link-16" title="1 topic" style="font-size: 8pt;">Kursus PHP Private</a>
+<a href="http://a2fahmi.com/?tag=library-codeigniter" class="tag-link-115" title="2 topics" style="font-size: 22pt;">library codeigniter</a>
+<a href="http://a2fahmi.com/?tag=list" class="tag-link-281" title="2 topics" style="font-size: 22pt;">list</a>
+<a href="http://a2fahmi.com/?tag=lupa-password-joomla" class="tag-link-26" title="1 topic" style="font-size: 8pt;">Lupa password joomla</a>
+<a href="http://a2fahmi.com/?tag=membuat-daftar-siswa-pada-joomla" class="tag-link-492" title="2 topics" style="font-size: 22pt;">membuat daftar siswa pada joomla</a>
+<a href="http://a2fahmi.com/?tag=membuat-database-mysql" class="tag-link-1202" title="2 topics" style="font-size: 22pt;">membuat database mysql</a>
+<a href="http://a2fahmi.com/?tag=membuat-layout-html" class="tag-link-1289" title="2 topics" style="font-size: 22pt;">membuat layout html</a>
+<a href="http://a2fahmi.com/?tag=membuat-layout-website" class="tag-link-1279" title="2 topics" style="font-size: 22pt;">membuat layout website</a>
+<a href="http://a2fahmi.com/?tag=membuat-tabel-mysql" class="tag-link-1203" title="2 topics" style="font-size: 22pt;">membuat tabel mysql</a>
+<a href="http://a2fahmi.com/?tag=membuat-tabel-visual-foxpro" class="tag-link-82" title="2 topics" style="font-size: 22pt;">membuat tabel visual foxpro</a>
+<a href="http://a2fahmi.com/?tag=membuat-user-di-mysql" class="tag-link-44" title="1 topic" style="font-size: 8pt;">membuat user di mysql</a>
+<a href="http://a2fahmi.com/?tag=memformat-tanggal-dalam-php" class="tag-link-388" title="2 topics" style="font-size: 22pt;">memformat tanggal dalam php</a>
+<a href="http://a2fahmi.com/?tag=memisahkan-string-sehingga-menjadi-array" class="tag-link-27" title="1 topic" style="font-size: 8pt;">Memisahkan string sehingga menjadi array</a>
+<a href="http://a2fahmi.com/?tag=mootools" class="tag-link-1505" title="2 topics" style="font-size: 22pt;">mootools</a>
+<a href="http://a2fahmi.com/?tag=pembuatan-back-end-joomla" class="tag-link-91" title="2 topics" style="font-size: 22pt;">pembuatan back end joomla</a>
+<a href="http://a2fahmi.com/?tag=penggunaan-explode-di-php" class="tag-link-28" title="1 topic" style="font-size: 8pt;">penggunaan explode di php</a>
+<a href="http://a2fahmi.com/?tag=penggunaan-ini_get-di-php" class="tag-link-29" title="1 topic" style="font-size: 8pt;">Penggunaan ini_get di php</a>
+<a href="http://a2fahmi.com/?tag=radio-button" class="tag-link-559" title="2 topics" style="font-size: 22pt;">radio button</a>
+<a href="http://a2fahmi.com/?tag=session-expired-codeigniter" class="tag-link-1482" title="2 topics" style="font-size: 22pt;">session expired codeigniter</a>
+<a href="http://a2fahmi.com/?tag=strtotime" class="tag-link-386" title="2 topics" style="font-size: 22pt;">strtotime</a>
+<a href="http://a2fahmi.com/?tag=substring" class="tag-link-422" title="2 topics" style="font-size: 22pt;">substring</a>
+<a href="http://a2fahmi.com/?tag=tabel-vfp" class="tag-link-80" title="2 topics" style="font-size: 22pt;">tabel vfp</a>
+<a href="http://a2fahmi.com/?tag=tabel-visual-foxpro" class="tag-link-83" title="2 topics" style="font-size: 22pt;">tabel visual foxpro</a>
+<a href="http://a2fahmi.com/?tag=untuk-mendapatkan-nilai-konfigurasi-dari-phpini" class="tag-link-30" title="1 topic" style="font-size: 8pt;">Untuk mendapatkan nilai konfigurasi dari PHP.ini</a>
+</div>
+
+</div>	
+
+<div class="sidebar" width="700">
+
+	<ul>
+<div class="sidebox">			<div class="textwidget"><div id="google_translate_element"><div class="skiptranslate goog-te-gadget" style=""><div id=":0.targetLanguage"><select class="goog-te-combo"><option value="">Pilih Bahasa</option><option value="id">Bahasa Indonesia</option><option value="af">Afrikaans</option><option value="sq">Albania</option><option value="ar">Arab</option><option value="nl">Belanda</option><option value="bg">Bulgar</option><option value="be">Byelorusia</option><option value="cs">Cek</option><option value="da">Dansk</option><option value="et">Esti</option><option value="fa">Farsi</option><option value="gl">Galisia</option><option value="hi">Hindi</option><option value="iw">Ibrani</option><option value="ga">Irlandia</option><option value="is">Islan</option><option value="it">Italia</option><option value="ja">Jepang</option><option value="de">Jerman</option><option value="ca">Katalana</option><option value="ko">Korea</option><option value="ht">Kreol Haiti</option><option value="hr">Kroat</option><option value="lv">Latvi</option><option value="lt">Lituavi</option><option value="hu">Magyar</option><option value="mk">Makedonia</option><option value="mt">Malta</option><option value="zh-CN">Mandarin (Aks. Sederhana)</option><option value="zh-TW">Mandarin (Aks. Tradisional)</option><option value="ms">Melayu</option><option value="no">Norsk</option><option value="tl">Pilipino</option><option value="pl">Polski</option><option value="pt">Portugis</option><option value="fr">Prancis</option><option value="ro">Rumania</option><option value="ru">Rusia</option><option value="sr">Serb</option><option value="sl">Sloven</option><option value="sk">Slowakia</option><option value="es">Spanyol</option><option value="fi">Suomi</option><option value="sw">Swahili</option><option value="sv">Swensk</option><option value="th">Thai</option><option value="tr">Turki</option><option value="uk">Ukraina</option><option value="vi">Vietnam</option><option value="cy">Wales</option><option value="yi">Yiddish</option><option value="el">Yunani</option></select></div>Diberdayakan oleh <span style="white-space:nowrap"><a class="goog-logo-link" href="http://translate.google.com/" target="_blank"><img src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/mini_google.png">Terjemahan</a></span></div></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+</script><script src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/element.js"></script></div>
+		</div><div class="sidebox">			<div class="textwidget"><iframe src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/activity.htm" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:300px;" allowtransparency="true"></iframe></div>
+		</div><div class="sidebox">			<div class="textwidget"><iframe src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/recommendations.htm" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:250px; height:300px;" allowtransparency="true"></iframe></div>
+		</div><div class="sidebox">			<div class="textwidget"><p><a href="http://en-gb.facebook.com/people/Fahmi-Basya-Kartapura/100000594464153" title="Fahmi Basya Kartapura" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;">Fahmi Basya Kartapura</a><br><a href="http://en-gb.facebook.com/people/Fahmi-Basya-Kartapura/100000594464153" title="Fahmi Basya Kartapura" target="_TOP"><img src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/100000594464153.1784.1889585977.png" width="120" height="227" style="border: 0px;"></a></p>
+</div>
+		</div><div class="sidebox"><h3 class="sidetitl"><span class="cufon cufon-canvas" style="width: 105px; height: 20px; "><canvas width="116" height="21" style="width: 116px; height: 21px; top: -1px; left: 0px; "></canvas><span class="cufon-alt">Categories</span></span></h3>		<ul>
+	<li class="cat-item cat-item-818"><a href="http://a2fahmi.com/?cat=818" title="View all posts filed under Ajax">Ajax</a>
+</li>
+	<li class="cat-item cat-item-1539"><a href="http://a2fahmi.com/?cat=1539" title="View all posts filed under Android">Android</a>
+</li>
+	<li class="cat-item cat-item-395"><a href="http://a2fahmi.com/?cat=395" title="View all posts filed under Bash">Bash</a>
+</li>
+	<li class="cat-item cat-item-996"><a href="http://a2fahmi.com/?cat=996" title="View all posts filed under C Sharp">C Sharp</a>
+</li>
+	<li class="cat-item cat-item-808"><a href="http://a2fahmi.com/?cat=808" title="View all posts filed under C++">C++</a>
+</li>
+	<li class="cat-item cat-item-154"><a href="http://a2fahmi.com/?cat=154" title="View all posts filed under CSS">CSS</a>
+</li>
+	<li class="cat-item cat-item-752"><a href="http://a2fahmi.com/?cat=752" title="View all posts filed under Django">Django</a>
+</li>
+	<li class="cat-item cat-item-819"><a href="http://a2fahmi.com/?cat=819" title="View all posts filed under Dom">Dom</a>
+</li>
+	<li class="cat-item cat-item-1252"><a href="http://a2fahmi.com/?cat=1252" title="View all posts filed under Dreamweaver">Dreamweaver</a>
+</li>
+	<li class="cat-item cat-item-49"><a href="http://a2fahmi.com/?cat=49" title="All about Excel VBA">Excel VBA</a>
+</li>
+	<li class="cat-item cat-item-641"><a href="http://a2fahmi.com/?cat=641" title="View all posts filed under Facebook">Facebook</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="http://a2fahmi.com/?cat=46" title="View all posts filed under Hardware">Hardware</a>
+</li>
+	<li class="cat-item cat-item-870"><a href="http://a2fahmi.com/?cat=870" title="View all posts filed under HTML">HTML</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://a2fahmi.com/?cat=8" title="View all posts filed under Iklan">Iklan</a>
+</li>
+	<li class="cat-item cat-item-1224"><a href="http://a2fahmi.com/?cat=1224" title="View all posts filed under J2EE">J2EE</a>
+<ul class="children">
+	<li class="cat-item cat-item-1420"><a href="http://a2fahmi.com/?cat=1420" title="View all posts filed under Java Server Pages">Java Server Pages</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-165"><a href="http://a2fahmi.com/?cat=165" title="View all posts filed under Jaringan Komputer">Jaringan Komputer</a>
+</li>
+	<li class="cat-item cat-item-809"><a href="http://a2fahmi.com/?cat=809" title="View all posts filed under Java">Java</a>
+<ul class="children">
+	<li class="cat-item cat-item-838"><a href="http://a2fahmi.com/?cat=838" title="View all posts filed under Swing">Swing</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-188"><a href="http://a2fahmi.com/?cat=188" title="View all posts filed under JavaScript">JavaScript</a>
+<ul class="children">
+	<li class="cat-item cat-item-1505"><a href="http://a2fahmi.com/?cat=1505" title="View all posts filed under mootools">mootools</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://a2fahmi.com/?cat=19" title="View all posts filed under Joomla">Joomla</a>
+</li>
+	<li class="cat-item cat-item-117"><a href="http://a2fahmi.com/?cat=117" title="View all posts filed under jQuery">jQuery</a>
+</li>
+	<li class="cat-item cat-item-211"><a href="http://a2fahmi.com/?cat=211" title="View all posts filed under Lain-lain">Lain-lain</a>
+</li>
+	<li class="cat-item cat-item-43"><a href="http://a2fahmi.com/?cat=43" title="All about Linux">Linux</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://a2fahmi.com/?cat=7" title="View all posts filed under Motivasi">Motivasi</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://a2fahmi.com/?cat=6" title="View all posts filed under MySQL">MySQL</a>
+</li>
+	<li class="cat-item cat-item-398"><a href="http://a2fahmi.com/?cat=398" title="View all posts filed under Perl">Perl</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://a2fahmi.com/?cat=3" title="View all posts filed under PHP">PHP</a>
+</li>
+	<li class="cat-item cat-item-619"><a href="http://a2fahmi.com/?cat=619" title="View all posts filed under PHP &amp; MySQL">PHP &amp; MySQL</a>
+</li>
+	<li class="cat-item cat-item-566"><a href="http://a2fahmi.com/?cat=566" title="View all posts filed under PHP Framework">PHP Framework</a>
+<ul class="children">
+	<li class="cat-item cat-item-179"><a href="http://a2fahmi.com/?cat=179" title="View all posts filed under CakePHP">CakePHP</a>
+</li>
+	<li class="cat-item cat-item-108"><a href="http://a2fahmi.com/?cat=108" title="View all posts filed under CodeIgniter">CodeIgniter</a>
+</li>
+	<li class="cat-item cat-item-1429"><a href="http://a2fahmi.com/?cat=1429" title="View all posts filed under Yii">Yii</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-753"><a href="http://a2fahmi.com/?cat=753" title="View all posts filed under PostgreSQL">PostgreSQL</a>
+</li>
+	<li class="cat-item cat-item-770"><a href="http://a2fahmi.com/?cat=770" title="View all posts filed under Python">Python</a>
+</li>
+	<li class="cat-item cat-item-995"><a href="http://a2fahmi.com/?cat=995" title="View all posts filed under Ruby">Ruby</a>
+</li>
+	<li class="cat-item cat-item-686"><a href="http://a2fahmi.com/?cat=686" title="View all posts filed under security">security</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://a2fahmi.com/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+	<li class="cat-item cat-item-990"><a href="http://a2fahmi.com/?cat=990" title="View all posts filed under Visual Basic .NET 2008">Visual Basic .NET 2008</a>
+</li>
+	<li class="cat-item cat-item-69"><a href="http://a2fahmi.com/?cat=69" title="View all posts filed under Visual Foxpro">Visual Foxpro</a>
+</li>
+	<li class="cat-item cat-item-1534"><a href="http://a2fahmi.com/?cat=1534" title="View all posts filed under WML">WML</a>
+</li>
+	<li class="cat-item cat-item-1111"><a href="http://a2fahmi.com/?cat=1111" title="View all posts filed under wordpress">wordpress</a>
+</li>
+	<li class="cat-item cat-item-356"><a href="http://a2fahmi.com/?cat=356" title="View all posts filed under XML">XML</a>
+</li>
+		</ul>
+</div>	</ul>
+
+</div>
+
+
+</div></div>
+
+
+<div id="footer">
+	
+<div class="fleft">
+
+ Web Hosting by: <a href="http://www.4cheapwebhosting.com/">Affordable Web Hosting</a> <br>
+Copyright © 2011 Notes For My Knowledge – Private Trainer And Web  Programmer</div>
+
+<div class="fright">
+<a href="http://a2fahmi.com/?feed=rss2">Subscribe to Posts</a> <br> <a href="http://a2fahmi.com/?feed=comments-rss2">Subscribe to Comments</a> <br>
+	</div>
+	</div>
+</div>	
+<script type="text/javascript">
+disableSelection(document.body)
+</script><div id="goog-gt-tt" class="skiptranslate"><div class="top"><div class="title left">Original Text:</div><a class="close-button" href="javascript:void(0)" title="Close"><img src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/cleardot.gif" width="15" height="15" style="background-image:url(http://translate.googleapis.com/translate_static/img/te_ctrl3.gif); background-position:-28px 0px"></a></div><div class="middle"><div class="original-text"></div></div><div class="bottom"><div class="activity-links"><span class="activity-link">Tunjukkan terjemahan alternatif</span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div><div class="logo"><img src="./Mengambil Record dari hasil query di CodeIgniter   Notes For My Knowledge_files/mini_google.png"></div></div><div class="status-message" style="display: none; "></div></div>
+
+ 
+     </body></html>

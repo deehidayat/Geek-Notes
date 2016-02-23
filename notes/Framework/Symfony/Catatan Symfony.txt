@@ -1,0 +1,632 @@
+Catatan Pribadi :
+
+###########################################################################################################
+
+web/app.php -> app/AppKernel.php -> app/config/routing.yml
+
+Symfony2 can read/import the routing information from different files written in YAML, XML, PHP, or even embedded in PHP annotations
+
+Bundle adalah : A bundle is similar to a plugin in other software, but even better. The key difference is that everything is a bundle in Symfony2, including both the core framework functionality and the code written for your application. Bundles are first-class citizens in Symfony2. This gives you the flexibility to use pre-built  features packaged in third-party bundles5 or to distribute your own bundles. It makes it easy to pick and choose which features to enable in your application and to optimize them the way you want.
+
+Entity : Sama dengan Model di YII / PHP Object untuk menggambil tabel
+
+EntityRepository : Untuk membuat method baru yang mungkin akan sering digunakan
+
+###########################################################################################################
+
+## COMMON
+php app/console => Keluar semua perintah untuk console symfony\
+php app/console server:run => PHP 5.4 Internal Host
+php app/console generate:bundle --namespace=BelajarSym/UserBundle --format=yml  ==> Membuat Bundle cek di app/AppKernel.php
+php app/console cache:clear
+
+## DOCTRINE
+php app/console doctrine:database:drop --force  # Menghapus database sesuai dengan parameter doctrine
+php app/console doctrine:database:create        # Membuat database sesuai dengan prameter
+
+php app/console doctrine:generate:entity --entity="AcmeStoreBundle:Category" --fields="name:string(255)" # Membuat Entity baru u/ Database dengan memasukkan prop dan tipe data.
+php app/console doctrine:generate:entities Acme/StoreBundle/Entity/Product  # Generating Getters and Setters dari Entity yg sudah ada, Entity Class bisa hanya berupa attr dan mapping 
+
+php app/console doctrine:schema:update --force  # Creating the Database Tables/Schema
+
+php app/console doctrine:mapping:import  AcmeBlogBundle xml  # Create Bundle Entity From Existing Database Table
+php app/console doctrine:mapping:convert --namespace="WGSBlogBundle" annotation ./src       # Merubah metadata / mapping dari satu format ke format lain / tempat penyimpanan bebas
+
+php app/console generate:doctrine:crud --entity="WGSDeeHiedayBundle:User"  # Membuat CRUD HARUS ada field id dan method getId()
+php app/console generate:doctrine:form WGSDeeHiedayBundle:User              # Membuat Form
+
+## ASSETS
+php app/console assets:install --symlink
+
+## [COMPOSER](http://getcomposer.org)
+curl -s https://getcomposer.org/installer | php
+php composer.phar create-project symfony/framework-standard-edition /path/to/webroot/Symfony 2.3.0
+php composer.phar update doctrine/doctrine-fixtures-bundle
+php composer.phar require doctrine/doctrine-fixtures-bundle:@dev
+php composer.phar require friendsofsymfony/rest-bundle 1.0.*  ## Menambahkan module kedalam composer.json
+
+## BUNDLE PENTING
+# Instalasi disarankan pake Composer supaya dependency jg ikut terinstall
+# Setiap install Bundle baru dari vendor, harus di cache:clear dan ubah vendor\Composer\autoload_namespace.php
+FOSUserBundle => Untuk membuat user yang support login dan 
+FOSRestBundle => Untuk membuat Rest Service
+JMSSerializerBundle => Konvert Object ke JSON,XML,YML,etc dan sebaliknya
+Facebook
+Twitter
+
+###########################################################################################################
+
+## FOSUserBundle
+https://github.com/FriendsOfSymfony/FOSUserBundle/blob/master/Resources/doc/index.md
+--
+sudo apt-get install php5-intl
+php -m #untuk cek module yang terinstall di php
+Intl::getIcuVersion();
+Intl::getIcuDataVersion();
+--
+/** Untuk menggunakan FOSUserBundle 1.3 php harus load module "intl" */
+"require": {
+        "friendsofsymfony/user-bundle": "*"
+}
+php composer.phar update friendsofsymfony/user-bundle
+
+# Services
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb'
+    firewall_name: main
+    user_class: Antiqua\UserBundle\Entity\User
+
+# Routing
+# fos_user_security:
+    # resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+# 
+# fos_user_profile:
+    # resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    # prefix: /profile
+# 
+# fos_user_register:
+    # resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
+    # prefix: /register
+# 
+# fos_user_resetting:
+    # resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
+    # prefix: /resetting
+# 
+# fos_user_change_password:
+    # resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
+    # prefix: /profile
+    
+    
+## FOSRestBundle :
+- Belum semua browser support method PUT/DELETE
+- untuk mengontrol nama field yang ditampilkan => http://jmsyst.com/libs/serializer/master/reference/annotations @SerializedName
+- Untuk validasi menggunakan RESTANGULAR dan FormType tidak boleh ada field tambahan (trik remove var dari Client)
+
+
+###########################################################################################################
+## INSTALLATION:
+    #instalasi composer
+    $ curl -s https://getcomposer.org/installer | php
+    $ php composer.phar create-project symfony/framework-standard-edition /path/to/webroot/Symfony 2.3.0
+
+    chmod +a:
+    $ rm -rf app/cache/* && rm -rf app/logs/*
+
+    $ APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd' | grep -v root | head -1 | cut -d\  -f1`
+    $ sudo chmod +a "$APACHEUSER allow delete,write,append,file_inherit,directory_inherit" app/cache app/logs
+    $ sudo chmod +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" app/cache app/logs
+
+    chmod +a not support:
+    $ APACHEUSER=`ps aux | grep -E '[a]pache|[h]ttpd' | grep -v root | head -1 | cut -d\  -f1` && sudo setfacl -R -m u:$APACHEUSER:rwX -m u:`whoami`:rwX app/cache app/logs && sudo setfacl -dR -m u:$APACHEUSER:rwX -m u:`whoami`:rwX app/cache app/logs
+    
+    Without ACL:
+    umask(0002); // This will let the permissions be 0775
+    // or
+    umask(0000); // This will let the permissions be 0777
+
+    <VirtualHost *:80>
+        ServerName domain.tld
+        ServerAlias www.domain.tld
+
+        DocumentRoot /var/www/project/web
+        <Directory /var/www/project/web>
+            # enable the .htaccess rewrites
+            AllowOverride All
+            Order allow,deny
+            Allow from All
+        </Directory>
+
+        ErrorLog /var/log/apache2/project_error.log
+        CustomLog /var/log/apache2/project_access.log combined
+    </VirtualHost>
+    
+    For performance reasons, you will probably want to set AllowOverride None and implement the rewrite rules in the web/.htaccess into the virtualhost config.
+
+    php app/check.php  atau   web/config.php #untuk memeriksa server
+## ROUTE :
+    app/config/routing.yml
+    Route adalah : Semacam konfigurasi yang akan mengarahkan url ke mana request akan di teruskan di dalam applikasi kita.
+        
+    nama_unik: #nama/id Route
+        pattern: /user/{name} # pattern daru URI
+        defaults: {_controller: BelajarSymUserBundle:User:index}
+        
+        ## Kita bisa membuat route langsung dari Controller kita
+        resource: "@AcmeDemoBundle/Controller/DemoController.php"
+        type:     annotation
+        prefix:   /demo
+     
+    Contoh
+    user:
+        pattern: /user/{name} 
+        defaults: { _controller: BelajarSymUserBundle:User:index }
+        
+    
+## CONTROLLER:
+    Controller adalah PHP method yang mengmbalikan sesuatu untuk dijadikan View
+    BASE CONTROLLER CLASS :use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+    
+    ## Untuk mengambil view dari sebuat template
+    return $this->render('AcmeDemoBundle:Welcome:index.html.twig'); untuk merender template;
+    
+    #Didalam controller Kita bisa mengambil request / session : 
+    #$this->getRequest() / $this->getRequest()->getSession();
+
+    $request = $this->getRequest();
+    $request->isXmlHttpRequest(); // is it an Ajax request?
+    $request->getPreferredLanguage(array('en', 'fr'));
+    $request->query->get('page'); // get a $_GET parameter
+    $request->request->get('page'); // get a $_POST parameter
+    
+    $session = $this->getRequest()->getSession();
+    // store an attribute for reuse during a later user request
+    $session->set('foo', 'bar');
+    // in another controller for another request
+    $foo = $session->get('foo');
+    // use a default value if the key doesn't exist
+    $filters = $session->get('filters', array());
+
+    // store a message for the very next request (in a controller)
+    $session->getFlashBag()->add('notice', 'Congratulations, your action succeeded!');
+    // display any messages back in the next request (in a template)
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div>{{ flashMessage }}</div>
+    {% endfor %}
+    
+    
+    #atau dari template :    
+    {{ app.request.query.get('page') }}
+    {{ app.request.parameter('page') }}
+    
+    
+    Common Controller Tasks:
+    Redirecting :   $this->redirect($this->generateUrl('homepage'));
+                    return $this->redirect($this->generateUrl('homepage'), 301);
+    
+    Forwarding :    $response = $this->forward('AcmeHelloBundle:Hello:fancy', array(
+                        'name'  => $name,
+                        'color' => 'green',
+                    ));
+                    
+    Rendering Templates :   use Symfony\Component\HttpFoundation\Response;
+                            $content = $this->renderView(
+                                'AcmeHelloBundle:Hello:index.html.twig',
+                                array('name' => $name)
+                            );
+                            return new Response($content);          
+                            
+                            return $this->render(
+                                'AcmeHelloBundle:Hello:index.html.twig',
+                                array('name' => $name)
+                            );      
+                    
+                    
+## SECURITY: # app/config/security.yml
+    
+## CACHE: 
+    As soon as your website starts to generate more traffic, you will want to avoid generating the same resource again and again. Symfony2 uses HTTP cache headers to manage resources cache. For simple caching strategies, use the convenient @Cache() annotation:
+
+    use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+    use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+    use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+
+    /**
+     * @Route("/hello/{name}", name="_demo_hello")
+     * @Template()
+     * @Cache(maxage="86400")
+     */
+    public function helloAction($name)
+    {
+        return array('name' => $name);
+    }
+
+    In this example, the resource will be cached for a day. But you can also use validation instead of expiration or a combination of both if that fits your needs better.
+    Resource caching is managed by the Symfony2 built-in reverse proxy. But because caching is managed using regular HTTP cache headers, you can replace the built-in reverse proxy with Varnish or Squid and easily scale your application.
+
+
+## DATABASE :
+    app/config/parameters.yml
+    
+    SQLIte
+    # app/config/config.yml
+    doctrine:
+        dbal:
+            driver: pdo_sqlite
+            path: "%kernel.root_dir%/sqlite.db"
+            charset: UTF8
+    
+    Persisting Objects to the Database ## NEW
+        $product = new Product();
+        $product->setName('A Foo Bar');
+        $product->setPrice('19.99');
+        $product->setDescription('Lorem ipsum dolor');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($product);
+        $em->flush();
+        
+    Fetching Objects from the Database ## VIEW
+        $product = $this->getDoctrine()
+            ->getRepository('AcmeStoreBundle:Product')
+            ->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+        
+        ------------------------------
+        $repository = $this->getDoctrine()
+            ->getRepository('AcmeStoreBundle:Product');
+        
+        // query by the primary key (usually "id")
+        $product = $repository->find($id);
+
+        // dynamic method names to find based on a column value
+        $product = $repository->findOneById($id);
+        $product = $repository->findOneByName('foo');
+
+        // find *all* products
+        $products = $repository->findAll();
+
+        // find a group of products based on an arbitrary column value
+        $products = $repository->findByPrice(19.99);
+        
+        // query for one product matching be name and price
+        $product = $repository->findOneBy(array('name' => 'foo', 'price' => 19.99));
+
+        // query for all products matching the name, ordered by price
+        $products = $repository->findBy(
+            array('name' => 'foo'),
+            array('price' => 'ASC')
+        );
+        
+        
+    Updating an Object:
+        1. fetching the object from Doctrine;
+        2. modifying the object;
+        3. calling flush() on the entity manager 
+        
+        public function updateAction($id)
+        {
+            $em = $this->getDoctrine()->getManager();
+            $product = $em->getRepository('AcmeStoreBundle:Product')->find($id);
+
+            if (!$product) {
+                throw $this->createNotFoundException(
+                    'No product found for id '.$id
+                );
+            }
+
+            $product->setName('New product name!');
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('homepage'));
+        }
+    
+    Deleting an Object
+        $em->remove($product);
+        $em->flush();
+    
+    Querying for Objects with DQL:
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'SELECT p
+            FROM AcmeStoreBundle:Product p
+            WHERE p.price > :price
+            ORDER BY p.price ASC'
+        )->setParameter('price', '19.99');
+
+        $products = $query->getResult();
+        $product = $query->getSingleResult();
+    
+    Lifecycle Callbacks:    
+        
+        * @ORM\HasLifecycleCallbacks()
+        
+        /**
+         * @ORM\PrePersist
+         */
+        public function setCreatedAtValue()
+        {
+            $this->createdAt = new \DateTime();
+        }
+        
+        preRemove
+        postRemove
+        prePersist
+        postPersist
+        preUpdate
+        postUpdate
+        postLoad
+        loadClassMetadata
+    
+## REQUEST:
+    The Request as a Controller Argument
+    For convenience, you can also have Symfony pass you the Request object as an argument to your controller. This is especially convenient when you're working with forms, for example:
+
+    use Symfony\Component\HttpFoundation\Request;
+
+    public function updateAction(Request $request)
+    {
+        $form = $this->createForm(...);
+
+        $form->handleRequest($request);
+        // ...
+    }
+    
+        
+## TEMPLATING:
+
+    How to render a Template without a custom Controller:
+    Usually, when you need to create a page, you need to create a controller and render a template from within that controller. But if you're rendering a simple template that doesn't need any data passed into it, you can avoid creating the controller entirely, by using the built-in FrameworkBundle:Template:template controller.
+    For example, suppose you want to render a AcmeBundle:Static:privacy.html.twig template, which doesn't require that any variables are passed to it. You can do this without creating a controller:
+    acme_privacy:
+        path: /privacy
+        defaults:
+            _controller: FrameworkBundle:Template:template
+            template: 'AcmeBundle:Static:privacy.html.twig'
+            maxAge: 86400
+            sharedMaxAge: 86400
+        
+        
+    {{ title|upper }}
+    {% set var = 'inner variable' %}  # Membuat Variabel
+    {% for i in 0..10 %}
+        <div class="{{ cycle(['odd', 'even'], i) }}">
+          <!-- some HTML here -->
+        </div>
+    {% endfor %}
+    
+    {{ users|length }}
+    <ul>
+        {% for user in users if user.active %}
+            <li>{{ user.username }}</li>
+        {% else %}
+            <li>No users found</li>
+        {% endfor %}
+    </ul>
+    
+    The key to template inheritance is the {% extends %} tag
+    
+    When working with template inheritance, here are some tips to keep in mind:
+   
+    If you use {% extends %} in a template, it must be the first tag in that template;
+   
+    The more {% block %} tags you have in your base templates, the better. Remember, child templates don't have to define all parent blocks, so create as many blocks in your base templates as you want and give each a sensible default. The more blocks your base templates have, the more flexible your layout will be;
+   
+    If you find yourself duplicating content in a number of templates, it probably means you should move that content to a {% block %} in a parent template. In some cases, a better solution may be to move the content to a new template and include it (see Including other Templates);
+   
+    If you need to get the content of a block from the parent template, you can use the {{ parent() }} function. This is useful if you want to add to the contents of a parent block instead of completely overriding it:
+
+        {% block sidebar %}
+            <h3>Table of Contents</h3>
+
+            {# ... #}
+
+            {{ parent() }}
+        {% endblock %}
+        
+    
+    Including other Templates
+        {# src/Acme/ArticleBundle/Resources/views/Article/articleDetails.html.twig #}
+        <h2>{{ article.title }}</h2>
+        <h3 class="byline">by {{ article.authorName }}</h3>
+
+        <p>
+            {{ article.body }}
+        </p>
+        
+    Including this template from any other template is simple:
+        {# src/Acme/ArticleBundle/Resources/views/Article/list.html.twig #}
+        {% extends 'AcmeArticleBundle::layout.html.twig' %}
+
+        {% block body %}
+            <h1>Recent Articles<h1>
+
+            {% for article in articles %}
+                {{ include(
+                    'AcmeArticleBundle:Article:articleDetails.html.twig',
+                    { 'article': article }
+                ) }}
+            {% endfor %}
+        {% endblock %}
+        
+    Embedding Controllers:
+        // src/Acme/ArticleBundle/Controller/ArticleController.php
+        class ArticleController extends Controller
+        {
+            public function recentArticlesAction($max = 3)
+            {
+                // make a database call or other logic
+                // to get the "$max" most recent articles
+                $articles = ...;
+
+                return $this->render(
+                    'AcmeArticleBundle:Article:recentList.html.twig',
+                    array('articles' => $articles)
+                );
+            }
+        }
+        --------------------------------------------
+        {# app/Resources/views/base.html.twig #}
+        {# ... #}
+        <div id="sidebar">
+            {{ render(controller('AcmeArticleBundle:Article:recentArticles', {
+                'max': 3
+            })) }}
+        </div>
+        
+    $form = $this->createFormBuilder($task)
+        ->setAction($this->generateUrl('target_route'))
+        ->setMethod('GET')
+        ->add('task', 'text')
+        ->add('dueDate', 'date')
+        ->add('save', 'submit')
+        ->getForm();
+        
+    // data is an array with "name", "email", and "message" keys
+    $data = $form->getData();
+    
+    'form' => $form->createView()
+    
+    {{ form(form) }}
+    {{ form_start() )}}
+    {{ form_row() )}}
+    {{ form_label() )}}
+    {{ form_error() )}}
+    {{ form_widget() )}}
+    
+    Asynchronous Content with hinclude.js
+        hinclude.js needs to be included in your page to work.
+
+        When using a controller instead of a URL, you must enable the Symfony fragments configuration:
+        # app/config/config.yml
+        framework:
+            # ...
+            fragments: { path: /_fragment }
+
+        {{ render_hinclude(controller('...')) %}
+        {{ render_hinclude(url('...')) %}
+        
+        
+        Default content (while loading or if javascript is disabled) can be set globally in your application configuration:
+        # app/config/config.yml
+        framework:
+            # ...
+            templating:
+                hinclude_default_template: AcmeDemoBundle::hinclude.html.twig
+                
+        You can define default templates per render function (which will override any global default template that is defined):
+            {{ render_hinclude(controller('...'),  {
+                'default': 'AcmeDemoBundle:Default:content.html.twig'
+            }) }}
+            {{ render_hinclude(controller('...'), {'default': 'Loading...'}) }}
+
+    Linking to Pages:
+        _welcome:
+            path:     /
+            defaults: { _controller: AcmeDemoBundle:Welcome:index }
+        <a href="{{ path('_welcome') }}">Home</a>
+        
+        {# src/Acme/ArticleBundle/Resources/views/Article/recentList.html.twig #}
+        {% for article in articles %}
+            <a href="{{ path('article_show', {'slug': article.slug}) }}">
+                {{ article.title }}
+            </a>
+        {% endfor %}
+        
+        <a href="{{ url('_welcome') }}">Home</a>
+        
+    Linking to Assets:
+        # asset_path mengambil path dari assets
+        <img src="{{ asset('images/logo.png') }}" alt="Symfony!" />
+        <link href="{{ asset('css/blog.css') }}" rel="stylesheet" type="text/css" />
+
+        Assetics:
+            {% javascripts '@AcmeFooBundle/Resources/public/js/*' %}
+                <script type="text/javascript" src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            
+            {% stylesheets 'bundles/acme_foo/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+            But because Assetic changes the paths to your assets, this will break any background images (or other paths) that uses relative paths, unless you use the cssrewrite filter.
+            When using the cssrewrite filter, don't refer to your CSS files using the @AcmeFooBundle syntax. See the note in the above section for details.
+            
+        Combining Assets
+            {% javascripts
+                '@AcmeFooBundle/Resources/public/js/*'
+                '@AcmeBarBundle/Resources/public/js/form.js'
+                '@AcmeBarBundle/Resources/public/js/calendar.js' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+            
+    Global Template Variables
+        app.security - The security context.
+        app.user - The current user object.
+        app.request - The request object.
+        app.session - The session object.
+        app.environment - The current environment (dev, prod, etc).
+        app.debug - True if in debug mode. False otherwise.
+        
+        # app/config/config.yml
+        twig:
+            # ...
+            globals:
+                ga_tracking: UA-xxxxx-x
+        
+        Using Service Container Parameters
+        # app/config/parameters.yml
+        parameters:
+            ga_tracking: UA-xxxxx-x
+            
+        # app/config/config.yml
+        twig:
+            globals:
+                ga_tracking: "%ga_tracking%"
+
+    Configuring and using the templating Service
+        return $this->render('AcmeArticleBundle:Article:index.html.twig');
+
+        is equivalent to:
+
+        use Symfony\Component\HttpFoundation\Response;
+        $engine = $this->container->get('templating');
+        $content = $engine->render('AcmeArticleBundle:Article:index.html.twig');
+        return $response = new Response($content);
+        
+    
+    {% extends "TwigBundle::layout.html.twig" %} ==> app/Resource/views/base.html.twig
+    
+    
+    {{ article.body|raw }}
+    {{ dump(articles) }}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="...">Delete</a>
+    {% endif %}
+
+    Syntax Checking
+    php app/console twig:lint @AcmeArticleBundle
+    php app/console twig:lint src/Acme/ArticleBundle/Resources/views
+    
+    
+    $format = $this->getRequest()->getRequestFormat();
+    return $this->render('AcmeBlogBundle:Blog:index.'.$format.'.twig');
+    
+    <a href="{{ path('article_show', {'id': 123, '_format': 'pdf'}) }}">
+        PDF Version
+    </a>
+    
+    
+## MULTI LANGUAGE:
+http://symfony.com/doc/current/cmf/cookbook/handling_multilang_documents.html
+http://symfony.com/doc/current/book/translation.html
+
+Translation Resource/File Names and Locations¶
+Symfony2 looks for message files (i.e. translations) in the following locations:
+the app/Resources/translations directory;
+the app/Resources/<bundle name>/translations directory;
+the Resources/translations/ directory inside of any bundle.

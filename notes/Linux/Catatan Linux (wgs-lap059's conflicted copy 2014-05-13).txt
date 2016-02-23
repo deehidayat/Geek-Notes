@@ -1,0 +1,85 @@
+sudo gedit /etc/init.d/rc.local [Auto Run Folder]
+
+passwd -> merubah password user
+sudo gedit /etc/init.d/rc.local [Auto Run Folder]
+
+service apache2 status|start|stop|restart
+php -v
+mysql -v
+mysql root:12345678
+
+sudo gedit /etc/hosts # Menambahkan VHost
+
+cd ~ untuk pindah ke Home/User
+cd - untuk pindah ke prev dir
+sudo chmod 777 namafolder atau file [-R untuk Rekrusif]
+
+Program Files => /opt
+Link Shortcut app => /usr/share/applications/AptanaStudio3.desktop
+
+--
+sudo apt-get install php5-intl
+php -m #untuk cek module yang terinstall di php
+Intl::getIcuVersion();
+Intl::getIcuDataVersion();
+--
+
+## Upgrade NODEJS
+sudo apt-get install python-software-properties 
+sudo add-apt-repository ppa:richarvey/nodejs
+sudo apt-get update
+sudo apt-get install nodejs
+
+## POST Data via CLI
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"user":{"name":"nama","username":"foo", "email": "foo@example.org", "password":{"first":"hahaha","second":"hahaha"}}}' http://www.mysymfony.wgs/api/users
+
+Zip Contents of current directory
+zip -r zipfile.zip *
+
+Unzip Contents into current directory
+unzip zipfile.zip
+
+Unzip (and extract) the tar'd, gzipped archive (tarball) Contents into current directory
+tar zxvf  tarballfile.tar.gz
+
+Remove a directory and its contents (Use with extra care)
+rm -rf directoryname
+
+Copy all files / directories from one server to other (Both servers should have SSH Support)
+rsync -avz --progress username@servername:sourcefolder destinationfolder
+
+sudo apt-get remove package / sudo apt-get --purge remove package
+sudo apt-get install ssmtp
+ssmtp deehieday@gmail.com < file [to: from: subject: body:]
+
+
+/usr/bin/composer ; usr/bin/drush
+
+#Intsall Aptana
+1. sudo apt-get install openjdk-7-jdk libjpeg62 libwebkitgtk-1.0-0 git-core
+   sudo apt-get install libjpeg62 libwebkitgtk-1.0-0 git-core
+   sudo add-apt-repository ppa:webupd8team/java
+   sudo apt-get update
+   sudo apt-get install oracle-java7-installer
+2. sudo unzip [name of Aptana Studio ZIP file here].zip -d /opt
+3. wget http://www.samclarke.com/wp-content/uploads/2012/04/AptanaStudio3.desktop
+   sudo mv AptanaStudio3.desktop /usr/share/applications/AptanaStudio3.desktop
+
+AptanaStudio3.desktop
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Aptana Studio 3
+GenericName=Integrated Development Environment
+Comment=Aptana Strudio 3 Integrated Development Environment
+Exec=/opt/Aptana_Studio_3/AptanaStudio3 %F
+TryExec=/opt/Aptana_Studio_3/AptanaStudio3
+Icon=/opt/Aptana_Studio_3/icon.xpm
+StartupNotify=true
+#StartupWMClass="Aptana Studio 3"
+Terminal=false
+Type=Application
+MimeType=text/xml;application/xhtml+xml;application/x-javascript;application/x-php;application/x-java;text/x-javascript;text/html;text/plain
+Categories=GNOME;Development;IDE;
+
+

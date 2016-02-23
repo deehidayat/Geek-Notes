@@ -1,0 +1,107 @@
+## untuk menampilkan semua route yang ada pada aplikasi
+$ php app/console router:debug
+$ php app/console router:debug article_show
+$ php app/console router:match /blog/my-latest-post
+
+The routing system should also be used to generate URLs. In reality, routing is a bi-directional system: 
+mapping the URL to a controller+parameters and a route+parameters back to a URL. 
+The match() and generate() methods form this bi-directional system. Take the blog_show example route from earlier:
+$params = $this->get('router')->match('/blog/my-blog-post');
+// array(
+//     'slug'        => 'my-blog-post',
+//     '_controller' => 'AcmeBlogBundle:Blog:show',
+// )
+
+$uri = $this->get('router')->generate('blog_show', array('slug' => 'my-blog-post'));
+// /blog/my-blog-post
+
+
+var url = Routing.generate(
+    'blog_show',
+    {"slug": 'my-blog-post'}
+);
+
+# Generating Absolute URLs
+$this->get('router')->generate('blog_show', array('slug' => 'my-blog-post'), true);
+
+# app/config/config.yml
+framework:
+    # ...
+    router:        { resource: "%kernel.root_dir%/config/routing.yml" }
+
+article_show:
+  path:     /articles/{culture}/{year}/{title}.{_format}
+  defaults: { _controller: AcmeDemoBundle:Article:show, _format: html }
+  requirements:
+      culture:  en|fr
+      _format:  html|rss
+      year:     \d+
+
+contact:
+    path:     /contact
+    defaults: { _controller: AcmeDemoBundle:Main:contact }
+    methods:  [GET]
+    
+
+contact_process:
+    path:     /contact
+    defaults: { _controller: AcmeDemoBundle:Main:contactProcess }
+    methods:  [POST]
+    
+mobile_homepage:
+    path:     /
+    host:     m.example.com
+    defaults: { _controller: AcmeDemoBundle:Main:mobileHomepage }
+
+homepage:
+    path:     /
+    defaults: { _controller: AcmeDemoBundle:Main:homepage }
+
+secure:
+    path:     /secure
+    defaults: { _controller: AcmeDemoBundle:Main:secure }
+    schemes:  [https]
+
+#How to allow a "/" character in a route parameter
+_hello:
+    path:     /hello/{name}
+    defaults: { _controller: AcmeDemoBundle:Demo:hello }
+    requirements:
+        name: ".+"
+        
+# How to configure a redirect to another route without a custom controller        
+AppBundle:
+    resource: "@App/Controller/"
+    type:     annotation
+    prefix:   /app
+
+root:
+    path:     /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /app
+        permanent: true
+        
+# The host hello.example.com will be set on each route loaded from the new routing resource.
+# app/config/routing.yml
+acme_hello:
+    resource: "@AcmeHelloBundle/Resources/config/routing.yml"
+    host:     "hello.example.com"
+    
+The Special _format Routing Parameter
+This example also highlights the special _format routing parameter. 
+When using this parameter, the matched value becomes the "request format" of the Request object. 
+Ultimately, the request format is used for such things such as setting the Content-Type of the response 
+(e.g. a json request format translates into a Content-Type of application/json). It can also be used in the controller to render a different template for each value of _format. 
+The _format parameter is a very powerful way to render the same content in different formats.
+
+Special Routing Parameters
+_controller: As you've seen, this parameter is used to determine which controller is executed when the route is matched;
+_format: Used to set the request format (read more);
+_locale: Used to set the locale on the request (read more);
+
+
+Controller Naming Pattern:
+1. logical controller name => bundle:controller:action
+2. fully-qualified class name and method: Acme\BlogBundle\Controller\BlogController::showAction
+3. Services Name : Symfony supports a third way of referring to a controller. This method uses just one colon separator (e.g. service_name:indexAction) and refers to the controller as a service

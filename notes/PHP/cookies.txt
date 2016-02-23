@@ -1,0 +1,2 @@
+@setcookie('updategempadirasakan','no',time()+3600*1);
+setcookie('updategempadirasakan',NULL,-1);

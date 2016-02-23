@@ -1,0 +1,21 @@
+$('#pmIndicatorContainer').css({top:'5px', right:'5px'}).show();
+
+ $("p").find("span").css('color','red');
+
+
+<script>
+  var newText = $("p").text().split(" ").join("</span> <span>");
+  newText = "<span>" + newText + "</span>";
+
+  $("p").html( newText )
+    .find('span')
+    .hover(function() { 
+      $(this).addClass("hilite"); 
+    },
+      function() { $(this).removeClass("hilite"); 
+    })
+  .end()
+    .find(":contains('t')")
+    .css({"font-style":"italic", "font-weight":"bolder"});
+
+</script>

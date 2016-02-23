@@ -1,0 +1,11 @@
+
+					if($.trim(value) != "") {
+						var reg=new RegExp("^[0-9a-zA-Z]+@[0-9a-zA-Z]+[\.]{1}[0-9a-zA-Z]+[\.]?[0-9a-zA-Z]+$");
+						if(!reg.test(value)) return "Alamat E-Mail Salah";
+					}
+
+
+$(document).on('click','.tbrelational-column', function(){});
+
+Merge Object 
+$.extend({$data}, {id:rowid});

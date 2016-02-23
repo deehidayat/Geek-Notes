@@ -1,0 +1,11 @@
+$this->widget('ext.EFlowPlayer.EFlowPlayer', array(
+         'flv'=>array(
+             'd180'=>'http://ringtales.s3.amazonaws.com/d180.flv',
+             'd181'=>'http://ringtales.s3.amazonaws.com/d181.flv',
+             'd182'=>'http://ringtales.s3.amazonaws.com/d182.flv',
+         ),
+         'htmlOptions'=>array(
+             'id'=>'testingplayer',
+             'style'=>'width: 320px; height: 160px;',
+         ),
+     ));

@@ -1,0 +1,2 @@
+
+	echo "<script>parent.location='../admin/';</script>";

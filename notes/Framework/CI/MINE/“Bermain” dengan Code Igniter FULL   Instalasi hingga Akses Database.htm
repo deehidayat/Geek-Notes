@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/ -->
+<html dir="ltr" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>“Bermain” dengan Code Igniter FULL : Instalasi hingga Akses Database</title>
+
+<link rel="stylesheet" href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/language-selector.css" type="text/css" media="all">
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest post RSS" href="http://itx.web.id/feed/">
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest comment RSS" href="http://itx.web.id/comments/feed/">
+<link rel="pingback" href="http://itx.web.id/xmlrpc.php">
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie6.css">
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie7.css">
+<![endif]-->
+<link rel="stylesheet" href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/style.css" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita » Feed" href="http://itx.web.id/feed/">
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita » Comments Feed" href="http://itx.web.id/comments/feed/">
+<meta name="description" content="Hal yang juga menarik: var sitti_pub_id = &#39;BC0004948&#39;; var sitti_ad_width = &#39;250&#39;; var sitti_ad_height = &#39;250&#39;; var sitti_ad_type = &#39;10&#39;; var sitti_ad_number =...">
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita » “Bermain” dengan Code Igniter FULL : Instalasi hingga Akses Database Comments Feed" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/feed/">
+<meta name="keywords" content="akses databaseci, ci, codeigniter, framework php, mysql, tutorial">
+<meta name="robots" content="index,follow,noodp,noydir">
+<link rel="canonical" href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm">
+<link rel="stylesheet" id="openid-css" href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/openid.css" type="text/css" media="all">
+<link rel="stylesheet" id="itx-css" href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/saved_resource" type="text/css" media="all">
+<link rel="stylesheet" id="wp_dlmp_styles-css" href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/styles.css" type="text/css" media="all">
+<script type="text/javascript" async="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ga.js"></script><script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/jquery.js"></script>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/openid.js"></script>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/comment-reply.js"></script>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/saved_resource(1)"></script>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/external-tracking.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://itx.web.id/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://itx.web.id/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita" href="http://itx.web.id/">
+<link rel="start" title="Postingan pertama kita:" href="http://itx.web.id/selingan/postingan-pertama-kita/">
+<link rel="prev" title="Menjalankan Query SQL via PHP" href="http://itx.web.id/php/menjalankan-query-sql-via-php/">
+<link rel="next" title="Tombol ShareThis untuk WordPress" href="http://itx.web.id/wordpress/tombol-sharethis-untuk-wordpress/">
+<meta name="generator" content="WordPress 3.0.3">
+<link rel="shortlink" href="http://wp.me/pQDEl-9g">
+<meta name="framework" content="Alkivia Framework 0.8">
+<!-- WALL= --><script type="text/javascript">
+function limitChars(textid, limit, infodiv)
+{
+	var text = jQuery('#'+textid).val();	
+	var textlength = text.length;
+	if(textlength > limit)
+	{
+		jQuery('#' + infodiv).html('You cannot write more then '+limit+' characters!');
+		jQuery('#'+textid).val(text.substr(0,limit));
+		return false;
+	}
+	else
+	{
+		jQuery('#' + infodiv).html('You have '+ (limit - textlength) +' characters left.');
+		return true;
+	}
+}
+function displayVals() {
+      var t3 = jQuery("#t3").val();
+      var amount = jQuery("#amount").val();
+      if(t3 != 0){
+	    jQuery('#a3').val(amount);
+	    jQuery('#p3').val(1);
+		jQuery('#cmd').val('_xclick-subscriptions')
+	  }else{
+	  	jQuery('#a3').val(0);
+	  	jQuery('#p3').val(0);
+	  	jQuery('#cmd').val('_donations');
+	  }
+	  if( !t3 ) jQuery('#cmd').val('_donations');
+	  
+}
+
+jQuery(function(){
+ 	jQuery('#donor_comment').keyup(function(){
+ 		limitChars('donor_comment', 199, 'charinfo');
+ 	})
+
+ 	jQuery("#amount").change(displayVals);
+ 	jQuery("#t3").change(displayVals);
+ 	displayVals();
+ 	
+ 	var WallOps1 = '<p class="show_onwall" id="wallops"><input type="hidden" name="item_number" value="0:0" /></p>';
+ 	var WallOps2 = '<p class="show_onwall" id="wallops"><label for="show_onwall">Show on Wall:</label><br /><select name="item_number"><option value="1:0">Donation Amount, User Details &amp; Comments</option><option value="2:0">User Details &amp; Comments Only</option></select></p>';
+
+ 	if( jQuery('#recognize').is(':checked') == false){ 
+ 		jQuery('#wallinfo').hide();
+ 		jQuery("#wallops").html(WallOps1);
+ 	}
+ 	
+ 	jQuery("#recognize").click(function(){
+ 		jQuery("#wallinfo").toggle('slow');
+ 		if(jQuery('#wallops input').val() == '0:0'){ 
+ 			jQuery("#wallops").html(WallOps2);
+ 		}else{
+ 			jQuery("#wallops").html(WallOps1);
+ 		}
+ 	})
+ 	
+		
+});
+
+</script>
+        <style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border-spacing:0;border:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size: 11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size: 24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size: 14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/yO/r/_j03izEX40U.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle
+white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size: 12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size: 12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size: 16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{position:relative;display:-moz-inline-block;display:inline-block}
+.fb_iframe_widget iframe{position:relative;vertical-align:text-bottom}
+.fb_iframe_widget span{position:relative}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v1/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_button_simple,
+.fb_button_simple_rtl{background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yH/r/eIpbnVKI9lR.png);background-repeat:no-repeat;cursor:pointer;outline:none;text-decoration:none}
+.fb_button_simple_rtl{background-position:right 0}
+.fb_button_simple .fb_button_text{margin:0 0 0 20px;padding-bottom:1px}
+.fb_button_simple_rtl .fb_button_text{margin:0 10px 0 0}
+a.fb_button_simple:hover .fb_button_text,
+a.fb_button_simple_rtl:hover .fb_button_text,
+.fb_button_simple:hover .fb_button_text,
+.fb_button_simple_rtl:hover .fb_button_text{text-decoration:underline}
+.fb_button,
+.fb_button_rtl{background:#29447e url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);background-repeat:no-repeat;cursor:pointer;display:inline-block;padding:0 0 0 1px;text-decoration:none;outline:none}
+.fb_button .fb_button_text,
+.fb_button_rtl .fb_button_text{background:#5f78ab url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);border-top:solid 1px #879ac0;border-bottom:solid 1px #1a356e;color:#fff;display:block;font-family:"lucida grande",tahoma,verdana,arial,sans-serif;font-weight:bold;padding:2px 6px 3px 6px;margin:1px 1px 0 21px;text-shadow:none}
+a.fb_button,
+a.fb_button_rtl,
+.fb_button,
+.fb_button_rtl{text-decoration:none}
+a.fb_button:active .fb_button_text,
+a.fb_button_rtl:active .fb_button_text,
+.fb_button:active .fb_button_text,
+.fb_button_rtl:active .fb_button_text{border-bottom:solid 1px #29447e;border-top:solid 1px #45619d;background:#4f6aa3;text-shadow:none}
+.fb_button_xlarge,
+.fb_button_xlarge_rtl{background-position:left -60px;font-size: 24px;line-height:30px}
+.fb_button_xlarge .fb_button_text{padding:3px 8px 3px 12px;margin-left:38px}
+a.fb_button_xlarge:active{background-position:left -99px}
+.fb_button_xlarge_rtl{background-position:right -268px}
+.fb_button_xlarge_rtl .fb_button_text{padding:3px 8px 3px 12px;margin-right:39px}
+a.fb_button_xlarge_rtl:active{background-position:right -307px}
+.fb_button_large,
+.fb_button_large_rtl{background-position:left -138px;font-size: 13px;line-height:16px}
+.fb_button_large .fb_button_text{margin-left:24px;padding:2px 6px 4px 6px}
+a.fb_button_large:active{background-position:left -163px}
+.fb_button_large_rtl{background-position:right -346px}
+.fb_button_large_rtl .fb_button_text{margin-right:25px}
+a.fb_button_large_rtl:active{background-position:right -371px}
+.fb_button_medium,
+.fb_button_medium_rtl{background-position:left -188px;font-size: 11px;line-height:14px}
+a.fb_button_medium:active{background-position:left -210px}
+.fb_button_medium_rtl{background-position:right -396px}
+.fb_button_text_rtl,
+.fb_button_medium_rtl .fb_button_text{padding:2px 6px 3px 6px;margin-right:22px}
+a.fb_button_medium_rtl:active{background-position:right -418px}
+.fb_button_small,
+.fb_button_small_rtl{background-position:left -232px;font-size: 10px;line-height:10px}
+.fb_button_small .fb_button_text{padding:2px 6px 3px;margin-left:17px}
+a.fb_button_small:active,
+.fb_button_small:active{background-position:left -250px}
+.fb_button_small_rtl{background-position:right -440px}
+.fb_button_small_rtl .fb_button_text{padding:2px 6px;margin-right:18px}
+a.fb_button_small_rtl:active{background-position:right -458px}
+.fb_share_count_wrapper{position:relative;float:left}
+.fb_share_count{background:#b0b9ec none repeat scroll 0 0;color:#333;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;text-align:center}
+.fb_share_count_inner{background:#e8ebf2;display:block}
+.fb_share_count_right{margin-left:-1px;display:inline-block}
+.fb_share_count_right .fb_share_count_inner{border-top:solid 1px #e8ebf2;border-bottom:solid 1px #b0b9ec;margin:1px 1px 0 1px;font-size: 10px;line-height:10px;padding:2px 6px 3px;font-weight:bold}
+.fb_share_count_top{display:block;letter-spacing:-1px;line-height:34px;margin-bottom:7px;font-size: 22px;border:solid 1px #b0b9ec}
+.fb_share_count_nub_top{border:none;display:block;position:absolute;left:7px;top:35px;margin:0;padding:0;width:6px;height:7px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yU/r/bSOHtKbCGYI.png)}
+.fb_share_count_nub_right{border:none;display:inline-block;padding:0;width:5px;height:10px;background-repeat:no-repeat;background-image:url(http://static.ak.fbcdn.net/rsrc.php/v1/yX/r/i_oIVTKMYsL.png);vertical-align:top;background-position:right 5px;z-index:10;left:2px;margin:0 2px 0 0;position:relative}
+.fb_share_no_count{display:none}
+.fb_share_size_Small .fb_share_count_right .fb_share_count_inner{font-size: 10px}
+.fb_share_size_Medium .fb_share_count_right .fb_share_count_inner{font-size: 11px;padding:2px 6px 3px;letter-spacing:-1px;line-height:14px}
+.fb_share_size_Large .fb_share_count_right .fb_share_count_inner{font-size: 13px;line-height:16px;padding:2px 6px 4px;font-weight:normal;letter-spacing:-1px}
+.fb_share_count_hidden .fb_share_count_nub_top,
+.fb_share_count_hidden .fb_share_count_top,
+.fb_share_count_hidden .fb_share_count_nub_right,
+.fb_share_count_hidden .fb_share_count_right{visibility:hidden}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size: 13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size: 11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_ltr{left:-4px}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget iframe.fb_rtl{left:2px}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{left:0;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbar{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}
+</style><script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/minimall"></script></head><body class="single single-post postid-574"><div id="fb-root" class=" fb_reset"><script async="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/all.js"></script><div style="position: absolute; top: -10000px; height: 0px; width: 0px; "><div><iframe id="f21eac62" name="f2256e6ea" scrolling="no" style="border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; height: 240px; width: 575px; " class="FB_UI_Hidden" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/login_status.htm"></iframe></div></div></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '113869198637480', status: true, cookie: true, xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<script type="text/javascript">var icl_lang = 'id';var icl_home = 'http://itx.web.id/';</script>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/sitepress.js"></script>
+<meta name="generator" content="WPML ver:2.0.4.1 stt:25,1;0;0;0">
+<meta name="tweetmeme-title" content="“Bermain” dengan Code Igniter FULL : Instalasi hingga Akses Database"><meta http-equiv="X-XRDS-Location" content="http://itx.web.id/?xrds">
+<meta http-equiv="X-Yadis-Location" content="http://itx.web.id/?xrds">
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3">
+<!-- Google Analytics Tracking by Google Analyticator 6.2: http://ronaldheft.com/code/analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2930741-12']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+
+    <div class="wrap">
+        <div id="top-menu">
+            <ul id="menu-atas" class="sf-menu top-menu sf-js-enabled sf-shadow"><li id="menu-item-356" class="menu-item menu-item-type-custom menu-item-home menu-item-356"><a href="http://itx.web.id/">Home</a></li>
+<li id="menu-item-354" class="menu-item menu-item-type-post_type menu-item-354"><a href="http://itx.web.id/donate/">Donate</a></li>
+<li id="menu-item-355" class="menu-item menu-item-type-post_type menu-item-355"><a href="http://itx.web.id/tentang-kita/">Tentang kita :</a></li>
+<li id="menu-item-1969" class="menu-item menu-item-type-post_type menu-item-1969"><a href="http://itx.web.id/menggunakan-jasa-itx/" style="color: rgb(0, 0, 0); ">Menggunakan Jasa itx</a></li>
+<li id="menu-item-1702" class="menu-item menu-item-type-custom menu-item-1702"><a title="PulsaSuper" href="http://itx.web.id/selingan/pulsasuper-pulsa-elektronik-yang-handal-cepat-dan-murah/">Bonus Pulsa</a></li>
+</ul>        </div>
+    </div>
+    
+        <div id="headerwrap"><div class="clear"></div>
+        <div id="header" class="wrap"><div class="header"><a href="http://itx.web.id/">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a></div><span class="tagline">bukan untuk membenci, bukan untuk mencaci, tapi untuk memahami</span>
+        </div>
+        </div>    <div id="menucont" class="ui-widget-header">
+        <div class="wrap">
+            <div id="menu">
+                <ul id="menu-standar" class="sf-menu sf-js-enabled sf-shadow"><li id="menu-item-349" class="menu-item menu-item-type-taxonomy current-post-ancestor current-menu-parent current-post-parent menu-item-349"><a href="http://itx.web.id/category/php/">PHP</a></li>
+<li id="menu-item-351" class="menu-item menu-item-type-taxonomy menu-item-351"><a href="http://itx.web.id/category/wordpress/">WordPress</a>
+<ul class="sub-menu" style="display: none; visibility: hidden; ">
+	<li id="menu-item-352" class="menu-item menu-item-type-taxonomy menu-item-352"><a href="http://itx.web.id/category/wordpress/plugin/">WordPress Plugins</a></li>
+</ul>
+</li>
+<li id="menu-item-345" class="menu-item menu-item-type-taxonomy menu-item-345"><a href="http://itx.web.id/category/english/">Bahasa Inggris</a></li>
+<li id="menu-item-346" class="menu-item menu-item-type-taxonomy menu-item-346"><a href="http://itx.web.id/category/indonesia/">Indonesia</a></li>
+<li id="menu-item-1359" class="menu-item menu-item-type-taxonomy menu-item-1359"><a href="http://itx.web.id/category/jawa/">Jawa</a></li>
+<li id="menu-item-348" class="menu-item menu-item-type-taxonomy menu-item-348"><a href="http://itx.web.id/category/jquery/">jQuery</a></li>
+<li id="menu-item-350" class="menu-item menu-item-type-taxonomy menu-item-350"><a href="http://itx.web.id/category/selingan/">Selingan</a></li>
+<li id="menu-item-353" class="menu-item menu-item-type-post_type menu-item-353"><a title="Lowongan Penulis Lepas / Freelance Writer" href="http://itx.web.id/lowongan-penulis/">Lowongan Penulis</a></li>
+</ul>		<ul id="links">
+		<li>
+		<a href="http://twitter.com/itx_" rel="nofollow">
+			<img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/twitter.png" alt="my twitter" title="Follow our twitter">
+		</a></li>
+		
+		<li>
+		<a href="http://www.facebook.com/itxitx" rel="nofollow">
+			<img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/facebook.png" alt="my facebook" title="Follow our facebook">
+		</a></li>
+		
+				<li><a href="http://itx.web.id/feed/">
+			<img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/rss.png" alt="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita" title="Follow our RSS">
+		</a></li>
+			</ul>
+	                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div id="on" class="sidebaron"></div><div id="off" class="sidebaroff"></div>
+<div class="clear"></div><div id="main" class="wrap">
+<div id="mainwrap">
+<div id="content">
+<div id="contentpad">
+<div id="contentwrap">
+    <div class="post-574 post type-post hentry category-php tag-akses-databaseci tag-ci tag-codeigniter tag-framework-php tag-mysql tag-tutorial singlepost">
+        <div class="postwrap ui-widget-content">
+			<div class="titlewrap">
+				<div class="commentcount ui-state-hover"><span class="ui-icon ui-icon-comment"></span><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comments">11</a></div>												<h1 class="title">
+					<a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" rel="bookmark" style="color: rgb(0, 68, 0); ">“Bermain” dengan Code Igniter FULL : Instalasi hingga Akses Database</a>
+				</h1>
+								<div class="clear"></div>
+				<div class="meta ui-state-default">
+					<div class="date ">October 22, 2010</div>					<div class="author ">by <a href="http://itx.web.id/author/littleflow3r/" title="Posts by littleflow3r">littleflow3r</a></div>					<div class="clear"></div>
+				</div>
+				<small></small>
+			</div>
+			<div class="entry">
+			<!-- Chitika|Premium - WordPress Plugin --><div class="chitika-adspace above"><script type="text/javascript"><!--
+ch_client = "itx";
+ch_type = "mpu";
+ch_width = 500;
+ch_height = 250;
+ch_color_bg = "";
+ch_color_title = "";
+ch_color_site_link = "";
+ch_color_text = "";
+ch_non_contextual = 4;
+ch_vertical = "premium";
+ch_font_title = "";
+ch_font_text = "";
+ch_sid = "itx";
+var ch_queries = new Array( );
+var ch_selected=Math.floor((Math.random()*ch_queries.length));
+if ( ch_selected < ch_queries.length ) {
+ch_query = ch_queries[ch_selected];
+}
+//--></script>
+<script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/amm.js" type="text/javascript"></script><div id="chitikaAdBeacon-554"></div><div style="position: static; "><iframe src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; " frameborder="0" marginwidth="0" marginheight="0" scrolling="no" class="chitikaAdBlock" allowtransparency="allowTransparency" name="ch_ad_ctr554" id="ch_ad_ctr554" width="500" height="250"></iframe></div><iframe id="ch_ad554" name="ch_ad554" width="0" height="0" frameborder="0" src="about:blank" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no"></iframe></div>
+<script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/all(1).js"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Fbermain-dengan-code-igniter-full-instalasi-hingga-akses-database%2F" style="margin:0px 0px 0px 0px;" class=" fb_edge_widget_with_comment fb_iframe_widget"><span><iframe id="f1dc21ee18" name="f2ff0b0aac" scrolling="no" style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 450px; height: 24px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; " title="Like this content on Facebook." class="fb_ltr" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/like(1).htm"></iframe></span></fb:like><div class="tweetmeme_button" style="padding-top:12px;"><iframe src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/button.htm" frameborder="0" scrolling="no" height="20" width="90"></iframe></div>
+<p style="text-align: right;"><a rel="attachment wp-att-635" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/attachment/code-igniter-logo/"><img class="aligncenter size-full wp-image-635" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/code-igniter-logo.jpg" alt="CodeIgniter" width="245" height="141"></a>Courtesy Image : www.icpep.org</p>
+<p><strong>Stud</strong><strong>i K</strong><strong>asus</strong> : Instalasi sampai Akses Database dengan Code Igniter</p>
+<p><strong>Kebutuhan </strong>: Paket Webserver (<a href="http://appserv.com/" target="_blank">AppServ</a>, <a href="http://xampp.com/">XAMPP</a>, <a href="http://xampp.com/">EasyPHP</a>, dll) &amp; <a href="http://codeigniter.com/" target="_blank">Code Igniter</a></p>
+<p>Codeigniter (CI) merupakan sebuah PHP framework, katakanlah, untuk orang yang ingin membangun website dengan menggunakan PHP. Dengan menggunakan arsitektur <em>model-view-controller</em> yang memisahkan antara bagian logic dan tampilan dari program, CI cukup “menyenangkan” untuk digunakan. Tidak sulit. Cukup siapkan 2 gelas kopi panas untuk mulai mempelajarinya <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+<p><strong>Step 1 : Instalasi</strong></p>
+<ol>
+<li>Ekstrak bundle CodeIgniter yang      telah anda download dalam direktori root web server anda.</li>
+<li>Anda akan melihat banyak folder….      oke, jangan cemas. Masuk ke dalam folder <strong>system-application.</strong></li>
+<li>Nah.. bagian dalam folder      application inilah yang akan sering anda “bongkar” entar <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_smile.gif" alt=":)" class="wp-smiley"> </li>
+</ol>
+<p><strong>Step 2 : Konfigurasi </strong></p>
+<ol>
+<li>Buka file <strong>config.php</strong> yang berada dalam folder system<strong>-application-config-config.php</strong></li>
+<li>Ubah <em>base url</em>, sesuaikan dengan lokasi dimana folder CI-mu berada      (tempat ekstrak-an tadi). Contoh : Folder CI anda berada dalam folder      www/ci<br>
+maka ubah baris <code>$config['base_url']="http://example.com/";</code><br>
+<em>dengan</em><br>
+<code>$config['base_url'] = "http://localhost/ci/";</code><br>
+Mengapa localhost? Karena dalam tutorial ini kita akan membangun CI dalam      server lokal kita <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_smile.gif" alt=":)" class="wp-smiley"> </li>
+<li>Setting database. Buka file <em>database.php</em> yang berada dalam      folder yang sama dengan <em>config.php</em>.      Ubah <em>hostname</em>, <em>username</em>, <em>password</em>, dan nama database (database akan kita buat entar,      untuk sementara siapkan namanya dulu saja) sesuaikan dengan pengaturan <em>mysql</em> anda. Contoh :<br>
+<code>$db['default']['hostname']      = "localhost";<br>
+$db['default']['username'] = "root";<br>
+$db['default']['password'] = "";<br>
+$db['default']['database'] = "db_ci";</code></li>
+</ol>
+<p>Selesai dengan instalasi dan konfigurasi, next step siapkan database yang akan kita gunakan dalam praktikum kali ini (<strong>praktikum</strong> ha ha, <em>please dont imagine like we’re done something biology okay </em>J )</p>
+<p><strong>Step 3 : Siapkan database</strong></p>
+<ol>
+<li>Buat database dengan nama db_ci      melalui <em>phpmyadmin</em> anda (saya      asumsikan anda sudah terbiasa menggunakan tool hebat ini).</li>
+<li>Siapkan tabel dengan nama tb_buku      (field : id_buku, judul_buku, stok_buku).<br>
+<code>CREATE TABLE IF NOT EXISTS `tb_buku` (<br>
+`id_buku` varchar(10) NOT NULL,<br>
+`judul_buku` varchar(50) DEFAULT NULL,<br>
+`stok_buku` year(4) DEFAULT NULL,<br>
+PRIMARY KEY (`id_buku`)<br>
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;</code></li>
+<li>Insert-kan beberapa sample data ke      dalam tb_buku.<br>
+<code>INSERT INTO `tb_buku` (`id_buku`, `judul_buku`, `stok_buku`) VALUES<br>
+('1', 'Mencari Tombol Tab', 2003),<br>
+('2', 'Guna Guna dari Raja', 2033);<br>
+</code></li>
+<li>Ok, <em>we’re done with database !</em></li>
+</ol>
+<p><strong>Step 4 : Bekerja dengan CI</strong></p>
+<ol>
+<li>Membuat model. Ketikkan script      berikut ini<br>
+<code>&lt;?php<br>
+class Buku_model extends Model {<br>
+function Buku_model()<br>
+{<br>
+parent::Model();<br>
+}<br>
+db-&gt;select('*');<br>
+$this-&gt;db-&gt;from('tb_buku');<br>
+$this-&gt;db-&gt;order_by('id_buku','DESC');<br>
+$data = $this-&gt;db-&gt;get('');<br>
+return $data;<br>
+}<br>
+}<br>
+?&gt;</code></li>
+<li>Simpan dengan nama <strong>buku_model.php</strong>. Simpan dalam      folder<strong> system-application-models</strong></li>
+<li>Membuat Controller. Ketikkan script      berikut ini,<br>
+<code>&lt;?php<br>
+class Buku_con extends Controller {</code><br>
+<code><br>
+public function Buku_con()<br>
+{<br>
+parent::__construct();<br>
+$this-&gt;load-&gt;model('buku_model');<br>
+}<br>
+</code> <code><br>
+public function getBuku () {<br>
+$data['title'] = 'menampilkan isi buku';<br>
+$data['detail'] = $this-&gt;buku_model-&gt;getBuku();<br>
+$this-&gt;load-&gt;view('buku_view', $data);<br>
+}<br>
+}<br>
+?&gt;</code></li>
+<li> Simpan dengan nama <strong>buku_con.php</strong>. Simpan dalam folder <strong>system-application-controller</strong></li>
+<li>Membuat View. Ketikkan script,<br>
+<code>&lt;h4&gt;Data Buku&lt;/h4&gt;<br>
+&lt;?php foreach($detail-&gt;result() as $rows) :<br>
+echo $rows-&gt;id_buku; echo "&lt;br&gt;";<br>
+echo $rows-&gt;judul_buku; echo "&lt;br&gt;";<br>
+echo $rows-&gt;stok_buku; echo "&lt;br&gt;";<br>
+endforeach<br>
+?&gt;</code></li>
+<li>Simpan dengan nama <strong>buku_view.php</strong>. Simpan dalam folder      <strong>system-application-view</strong></li>
+<li>Nah. Kita sudah membuat sebuah      fungsi untuk menampilkan data dari database dengan <em>controller, model, dan view</em>. Sekarang masuk ke <em>browser</em> anda.</li>
+<li>Ketikkan <a href="http://localhost/ci/buku_con/getBuku/">http://localhost/ci/buku_con/getBuku/</a>.      Dan… TADAAAA<br>
+<a rel="attachment wp-att-577" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/attachment/databuku-2/"></a></li>
+<p style="text-align: center;"><a rel="attachment wp-att-577" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/attachment/databuku-2/" style="color: rgb(255, 17, 17); "><img class="aligncenter size-full wp-image-577" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/databuku1.png" alt="Data Buku dari Database" width="212" height="196"></a></p>
+<li>Anda sudah boleh tidur setelah      melihat gambar seperti diatas J</li>
+</ol>
+<p><strong>Step 5 : Menyiapkan kopi ketiga dan membuka Yahoo! Messenger</strong></p>
+<p>Happy <span style="text-decoration: line-through;">Coding</span> Chatting ! <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_biggrin.gif" alt=":D" class="wp-smiley"> </p>
+<div style="overflow: hidden; width: 1px; height: 1px;">
+<p><!--[if gte mso 9]&gt;  Normal 0     false false false  EN-US X-NONE X-NONE                            &lt;![endif]--><!--[if gte mso 9]&gt;                                                                                                                                            &lt;![endif]--><!--[if gte mso 10]&gt; &lt;!   /* Style Definitions */  table.MsoNormalTable 	{mso-style-name:&quot;Table Normal&quot;; 	mso-tstyle-rowband-size:0; 	mso-tstyle-colband-size:0; 	mso-style-noshow:yes; 	mso-style-priority:99; 	mso-style-qformat:yes; 	mso-style-parent:&quot;&quot;; 	mso-padding-alt:0mm 5.4pt 0mm 5.4pt; 	mso-para-margin:0mm; 	mso-para-margin-bottom:.0001pt; 	mso-pagination:widow-orphan; 	font-size:10.0pt; 	font-family:&quot;Calibri&quot;,&quot;sans-serif&quot;;} --> <!--[endif]--></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span>&amp;lt;?php</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span>class Buku_con extends Controller {</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span> </span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>public function Buku_con()</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>{</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>parent::__construct();</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>$this-&amp;gt;load-&amp;gt;model(&amp;apos;buku_model&amp;apos;); </span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>}</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span></span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>public function getBuku () {</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>$data[&amp;apos;title&amp;apos;] = &amp;apos;menampilkan isi buku&amp;apos;;</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>$data[&amp;apos;detail&amp;apos;] = $this-&amp;gt;buku_model-&amp;gt;getBuku();</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>$this-&amp;gt;load-&amp;gt;view(&amp;apos;buku_view&amp;apos;, $data);</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span><span> </span>}</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span>}</span></p>
+<p class="MsoNormal" style="margin: 0mm 0mm 0.0001pt 36pt;"><span>?&amp;gt;</span></p>
+</div>
+<p>Hal yang juga menarik:<br>
+<script>
+var sitti_pub_id = "BC0004948";
+var sitti_ad_width = "250";
+var sitti_ad_height = "250";
+var sitti_ad_type = "10";
+var sitti_ad_number = "3";
+var sitti_ad_name = "bawah post";
+var sitti_dep_id = "8111";
+</script><br>
+<script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/sittiad.b1.js"></script><iframe src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ad.bigtable.htm" width="250" height="250" marginwidth="0" marginheight="0" vspace="0" hspace="0" scrolling="no" frameborder="0" style="margin:0px 0px 0px 0px;padding:0px;display:inline;">
+&lt;p&gt;Your browser does not support iframes.&lt;/p&gt;
+</iframe></p>
+<blockquote><h3>Hak Cipta</h3>
+<p>Semua skrip dan teknik dalam artikel di itx.web.id boleh digunakan sebagaimana kehendakmu tanpa perlu mencantumkan sumber. Kamu tidak boleh mengkopi seluruh artikel, dalam Bahasa Indonesia ataupun diterjemahkan ke dalam bahasa lain.
+</p></blockquote>
+<div class="tweetmeme_button" style="padding-top:12px;"><iframe src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/button.htm" frameborder="0" scrolling="no" height="20" width="90"></iframe></div>
+<script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/all(1).js"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Fbermain-dengan-code-igniter-full-instalasi-hingga-akses-database%2F" style="margin:0px 0px 0px 0px;" class=" fb_edge_widget_with_comment fb_iframe_widget"><span><iframe id="f1cc0ad0b8" name="f3a5f8e038" scrolling="no" style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 450px; height: 24px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; " title="Like this content on Facebook." class="fb_ltr" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/like.htm"></iframe></span></fb:like><h4>Pencarian ke sini:</h4><div> <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="codeigniter">codeigniter</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="code igniter">code igniter</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="code ignitier">code ignitier</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="codeigniter database">codeigniter database</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="Database codeigniter">Database codeigniter</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="setting database di codeigniter">setting database di codeigniter</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="tutorial codeigniter 2 0 3">tutorial codeigniter 2 0 3</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="codeigniter 2 0 3 tutorial">codeigniter 2 0 3 tutorial</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="cara instalasi codeigniter 2 0 3">cara instalasi codeigniter 2 0 3</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="tutorial codeigniter indonesia">tutorial codeigniter indonesia</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="codeigniter tutorial indonesia">codeigniter tutorial indonesia</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="database ci">database ci</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="menampilkan data di ci">menampilkan data di ci</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="codeigniter 2 tutorial">codeigniter 2 tutorial</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="codeigniter indonesia">codeigniter indonesia</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="codecnitter">codecnitter</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="install codeigniter di appserv">install codeigniter di appserv</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="tutorial codeigniter 2 0">tutorial codeigniter 2 0</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="instalasi ci">instalasi ci</a>, <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" title="ci database">ci database</a>.</div><p>This post is also available in: <a href="http://en.itx.web.id/php-en/playing-with-the-code-igniter-full-from-installation-till-access-database/">English</a></p><div class="clear"></div><br><h3>Related Articles:</h3><ul id="related_posts_thumbnails"><li><a href="http://itx.web.id/php/menjalankan-query-sql-via-php/"><img alt="Menjalankan Query SQL via PHP" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/indexof-16x16.png" width="16" height="16"></a><a href="http://itx.web.id/php/menjalankan-query-sql-via-php/"><span>Menjalankan Query SQL via PHP</span></a></li><li><a href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/"><img alt="Penggunaan Fungsi Date / Time pada PHP" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/addDate-16x16.png" width="16" height="16"></a><a href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/"><span>Penggunaan Fungsi Date / Time pada PHP</span></a></li><li><a href="http://itx.web.id/php/membuat-pagination-dalam-codeigniter/"><img alt="Membuat Pagination dalam CodeIgniter" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/page1-16x16.png" width="16" height="16"></a><a href="http://itx.web.id/php/membuat-pagination-dalam-codeigniter/"><span>Membuat Pagination dalam CodeIgniter</span></a></li><li><a href="http://en.itx.web.id/php-en/tutorial-searching-data-with-php-and-mysql/"><img alt="Tutorial Searching Data with PHP and Mysql" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/hasil1-16x16.png" width="16" height="16"></a><a href="http://en.itx.web.id/php-en/tutorial-searching-data-with-php-and-mysql/"><span>Tutorial Searching Data with PHP and Mysql</span></a></li><li><a href="http://itx.web.id/php/regular-expression-regex-dengan-php/"><img alt="Regular Expression (Regex) dengan PHP" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/regex-16x16.png" width="16" height="16"></a><a href="http://itx.web.id/php/regular-expression-regex-dengan-php/"><span>Regular Expression (Regex) dengan PHP</span></a></li><li><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/"><img alt="Code Igniter : Export Data ke File PDF" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/pdf-16x16.png" width="16" height="16"></a><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/"><span>Code Igniter : Export Data ke File PDF</span></a></li></ul><div style="clear: both"></div>			</div>
+			<div class="clear"></div>
+            <div class="linkpages"></div>
+            <div class="clear"></div>
+                        <div class="footmeta">
+                <div class="categories "><span class="ui-icon ui-icon-folder-open"></span> : <a href="http://itx.web.id/category/php/" title="View all posts in PHP" rel="category tag">PHP</a></div><div class="tags "><span class="ui-icon ui-icon-tag"></span> : <a href="http://itx.web.id/tag/akses-databaseci/" rel="tag">akses databaseci</a>, <a href="http://itx.web.id/tag/ci/" rel="tag">ci</a>, <a href="http://itx.web.id/tag/codeigniter/" rel="tag">codeigniter</a>, <a href="http://itx.web.id/tag/framework-php/" rel="tag">framework php</a>, <a href="http://itx.web.id/tag/mysql/" rel="tag">mysql</a>, <a href="http://itx.web.id/tag/tutorial/" rel="tag">tutorial</a></div><div class="author_info "><h4>About the author</h4><img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/1d76e024a2685e42d489efd861e08325" class="avatar avatar-48 photo" height="48" width="48"><span>obviously, a girl. with sweet smile, off course. turning her 21 years trapped on Informatics departement and just started to having some crush with it lately. she uses wordpress. she loves php. she lo</span><div class="author_url"><a href="http://littleflow3r.wordpress.com/">littleflow3r.wordpress.com/</a></div><div class="clear"></div></div>            </div>
+                        <div class="clear"></div>
+        
+<div id="comments">
+    
+    
+    <div class="commentmeta ui-state-default ">
+	<h3 id="commentstitle"><b>11</b> Comments</h3>
+            </div>
+    <ul class="commentlist">
+				<li class="comment even thread-even depth-1" id="comment-2713">
+				<div id="div-comment-2713" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/f963b25f06f7f80ec16ad2efe906245d" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">abdul</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-2713">
+			April 12, 2011 at 12:24 pm</a>		</div>
+
+		<p> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/yupi.gif" alt="(yahoo)" class="wp-smiley"> makasih tutornya   moga ilmunye terus bertambah</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=2713#respond" onclick="return addComment.moveForm(&quot;div-comment-2713&quot;, &quot;2713&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3043">
+				<div id="div-comment-3043" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/e0c6c993ac5abca9349bca99deb2c754" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">Umardin</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3043">
+			May 9, 2011 at 7:26 pm</a>		</div>
+
+		<p> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_smile.gif" alt=":)" class="wp-smiley">   <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_smile.gif" alt=":)" class="wp-smiley">   <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/bye.gif" alt="(wave)" class="wp-smiley"> makash banya tutorialnya…!!! <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/dance.gif" alt="(dance)" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3043#respond" onclick="return addComment.moveForm(&quot;div-comment-3043&quot;, &quot;3043&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3378">
+				<div id="div-comment-3378" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ae7770134f0c6879a2e78a8cc380c6ab" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">ira</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3378">
+			June 21, 2011 at 10:20 am</a>		</div>
+
+		<p>wah, bermanfaat ilmunya….mohon ijin dunlud ya…. thank u…… <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/grin.gif" alt=":-D" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3378#respond" onclick="return addComment.moveForm(&quot;div-comment-3378&quot;, &quot;3378&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3408">
+				<div id="div-comment-3408" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/6bc0cecb0de130993501fbb06c2f8ee9" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">sal_discus</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3408">
+			July 1, 2011 at 4:15 pm</a>		</div>
+
+		<p>makasih banyak tutornya,jadi ada gambaran saya..</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3408#respond" onclick="return addComment.moveForm(&quot;div-comment-3408&quot;, &quot;3408&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3409">
+				<div id="div-comment-3409" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/6bc0cecb0de130993501fbb06c2f8ee9" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">sal_discus</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3409">
+			July 1, 2011 at 4:16 pm</a>		</div>
+
+		<p>makasih infonya Om</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3409#respond" onclick="return addComment.moveForm(&quot;div-comment-3409&quot;, &quot;3409&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3410">
+				<div id="div-comment-3410" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/6bc0cecb0de130993501fbb06c2f8ee9" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn"><a href="http://forediobatkuat.wordpress.com/" rel="external nofollow" class="openid_link url">faisal</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3410">
+			July 1, 2011 at 4:20 pm</a>		</div>
+
+		<p>mantap kang ilmunya..sy jadi ada gambaran</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3410#respond" onclick="return addComment.moveForm(&quot;div-comment-3410&quot;, &quot;3410&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3565">
+				<div id="div-comment-3565" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/59674d5a46d781ae4316e5088745ffe5" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn"><a href="http://blogazine21.tk/index.php/blog/" rel="external nofollow" class="url">Rully</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3565">
+			August 17, 2011 at 4:14 pm</a>		</div>
+
+		<p>Kenapa ga di terapkan langsung mas secara online.. sedangkan blog ini menggunakan wp sebagai sistem pengelolaan kontentya  <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_smile.gif" alt=":)" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3565#respond" onclick="return addComment.moveForm(&quot;div-comment-3565&quot;, &quot;3565&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-3780">
+				<div id="div-comment-3780" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ba748a21ee38b77f274cb4d7697eeb6b" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">abutiara</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3780">
+			August 28, 2011 at 2:28 pm</a>		</div>
+
+		<p>gagal…  <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_mad.gif" alt=":-x" class="wp-smiley"><br>
+saya menggnakan CI versi 2.0.3 apakah ada pengaruhnya ?</p>
+<p>walam</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3780#respond" onclick="return addComment.moveForm(&quot;div-comment-3780&quot;, &quot;3780&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		<ul class="children">
+		<li class="comment even depth-2" id="comment-3781">
+				<div id="div-comment-3781" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ba748a21ee38b77f274cb4d7697eeb6b" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">abutiara</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3781">
+			August 28, 2011 at 2:34 pm</a>		</div>
+
+		<p>pesan error yang muncul ketika saya ketik alamatnya</p>
+<p>Object not found!</p>
+<p>alamat local saya : <a href="http://localhost/www.ci203.com/buku_con/getbuku/" rel="nofollow">http://localhost/www.ci203.com/buku_con/getbuku/</a></p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-3955">
+				<div id="div-comment-3955" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ed75ed1e3eb6305a2e28663617d6de11" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">dewokaji</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3955">
+			October 13, 2011 at 3:19 pm</a>		</div>
+
+		<p>matur nuwun kang…semoga bermanfaat ilmunye ye… <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/applause.gif" alt="(applause)" class="wp-smiley"> </p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3955#respond" onclick="return addComment.moveForm(&quot;div-comment-3955&quot;, &quot;3955&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-3979">
+				<div id="div-comment-3979" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt="" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/352afbb6b91729232625dbe1c0da389e" class="avatar avatar-60 photo" height="60" width="60">		<cite class="fn">ajad</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3979">
+			October 18, 2011 at 3:47 pm</a>		</div>
+
+		<p>step 1<br>
+select(‘*’);<br>
+$this-&gt;db-&gt;from(‘tb_buku’);<br>
+$this-&gt;db-&gt;order_by(‘id_buku’,'DESC’);<br>
+$data = $this-&gt;db-&gt;get(”);<br>
+return $data;<br>
+}<br>
+}<br>
+?&gt;</p>
+<p>error di listing : db-&gt;select(‘*’);</p>
+
+		<div class="reply">
+		<a rel="nofollow" class="comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/?replytocom=3979#respond" onclick="return addComment.moveForm(&quot;div-comment-3979&quot;, &quot;3979&quot;, &quot;respond&quot;, &quot;574&quot;)">Reply</a>		</div>
+				</div>
+		</li>
+    </ul>
+    
+    
+    
+
+<div class="clear"></div>
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://itx.web.id/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"><span id="openid_comment" style="display: none; ">
+			<label>
+				<input type="checkbox" id="login_with_openid" name="login_with_openid" checked="checked">
+				Authenticate this comment using <span class="openid_link">OpenID</span>.			</label>
+		</span></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" class="ui-state-active">
+							<input type="hidden" name="comment_post_ID" value="574" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="bb5334abf1"></p>
+	<!-- Custom Smilies - Version 2.9.1 -->
+	<style type="text/css">
+	img.wp-smiley-select {cursor: pointer;}
+	</style>
+    <script type="text/javascript">
+    function grin(tag) {
+    	if (typeof tinyMCE != 'undefined') {
+    		grin_tinymcecomments(tag);
+    	} else {
+    		grin_plain(tag);
+    	}
+    }
+    function grin_tinymcecomments(tag) {
+    	tinyMCE.execCommand('mceInsertContent', false, ' ' + tag + ' ');
+    }
+    
+    function grin_plain(tag) {
+    	var myField;
+    	var myCommentTextarea = "comment";
+    	tag = ' ' + tag + ' ';
+        if (document.getElementById(myCommentTextarea) && document.getElementById(myCommentTextarea).type == 'textarea') {
+    		myField = document.getElementById(myCommentTextarea);
+    	} else {
+    		return false;
+    	}
+    	if (document.selection) {
+    		myField.focus();
+    		sel = document.selection.createRange();
+    		sel.text = tag;
+    		myField.focus();
+    	}
+    	else if (myField.selectionStart || myField.selectionStart == '0') {
+    		var startPos = myField.selectionStart;
+    		var endPos = myField.selectionEnd;
+    		var cursorPos = endPos;
+    		myField.value = myField.value.substring(0, startPos)
+    					  + tag
+    					  + myField.value.substring(endPos, myField.value.length);
+    		cursorPos += tag.length;
+    		myField.focus();
+    		myField.selectionStart = cursorPos;
+    		myField.selectionEnd = cursorPos;
+    	}
+    	else {
+    		myField.value += tag;
+    		myField.focus();
+    	}
+    }
+    
+    function moreSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'inline';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:lessSmilies()">&laquo;&nbsp;less</a></span>';
+    }
+    
+    function lessSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'none';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:moreSmilies()">more&nbsp;&raquo;</a>';
+    }
+    </script>
+<img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/angry1.gif" alt="x(" onclick="grin(&quot;x(&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/angry_002.gif" alt="X-(" onclick="grin(&quot;X-(&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/cool.gif" alt="B-)" onclick="grin(&quot;B-)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/wink.gif" alt=";-)" onclick="grin(&quot;;-)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_wink.gif" alt=":wink:" onclick="grin(&quot;:wink:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_twisted.gif" alt=":twisted:" onclick="grin(&quot;:twisted:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_rolleyes.gif" alt=":roll:" onclick="grin(&quot;:roll:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_redface.gif" alt=":oops:" onclick="grin(&quot;:oops:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_mrgreen.gif" alt=":mrgreen:" onclick="grin(&quot;:mrgreen:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_lol.gif" alt=":lol:" onclick="grin(&quot;:lol:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_idea.gif" alt=":idea:" onclick="grin(&quot;:idea:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_evil.gif" alt=":evil:" onclick="grin(&quot;:evil:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_cry.gif" alt=":cry:" onclick="grin(&quot;:cry:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_arrow.gif" alt=":arrow:" onclick="grin(&quot;:arrow:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_biggrin.gif" alt=":D" onclick="grin(&quot;:D&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_question.gif" alt=":?:" onclick="grin(&quot;:?:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_neutral.gif" alt=":-|" onclick="grin(&quot;:-|&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_mad.gif" alt=":-x" onclick="grin(&quot;:-x&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/surprised.gif" alt=":-o" onclick="grin(&quot;:-o&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/tongue.gif" alt=":-P" onclick="grin(&quot;:-P&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/grin.gif" alt=":-D" onclick="grin(&quot;:-D&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_confused.gif" alt=":-?" onclick="grin(&quot;:-?&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/joyful.gif" alt=":-))" onclick="grin(&quot;:-))&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/smile.gif" alt=":-)" onclick="grin(&quot;:-)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/crying.gif" alt=":-(" onclick="grin(&quot;:-(&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/sick.gif" alt=":-&amp;" onclick="grin(&quot;:-&amp;&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_smile.gif" alt=":)" onclick="grin(&quot;:)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_sad.gif" alt=":(" onclick="grin(&quot;:(&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_exclaim.gif" alt=":!:" onclick="grin(&quot;:!:&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_eek.gif" alt="8-O" onclick="grin(&quot;8-O&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/nerd.gif" alt="8-)" onclick="grin(&quot;8-)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/icon_cool.gif" alt="8)" onclick="grin(&quot;8)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/russian.gif" alt="(Русский)" onclick="grin(&quot;(Русский)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/yupi.gif" alt="(yahoo)" onclick="grin(&quot;(yahoo)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/worship.gif" alt="(worship)" onclick="grin(&quot;(worship)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/w00t.gif" alt="(woot)" onclick="grin(&quot;(woot)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/bye.gif" alt="(wave)" onclick="grin(&quot;(wave)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/unsure_002.gif" alt="(unsure)" onclick="grin(&quot;(unsure)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/tongue_002.gif" alt="(tongue)" onclick="grin(&quot;(tongue)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/thinking.gif" alt="(thinking)" onclick="grin(&quot;(thinking)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/tears.gif" alt="(tears)" onclick="grin(&quot;(tears)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/taser.gif" alt="(taser)" onclick="grin(&quot;(taser)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/smiley-dance.gif" alt="(smileydance)" onclick="grin(&quot;(smileydance)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/sleeping.gif" alt="(sleeping)" onclick="grin(&quot;(sleeping)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/fever.gif" alt="(sick)" onclick="grin(&quot;(sick)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/scenic.gif" alt="(scenic)" onclick="grin(&quot;(scenic)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/lol.gif" alt="(rofl)" onclick="grin(&quot;(rofl)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/rock_n_roll.gif" alt="(rock)" onclick="grin(&quot;(rock)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/party.gif" alt="(party)" onclick="grin(&quot;(party)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/startled.gif" alt="(panic)" onclick="grin(&quot;(panic)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/unsure1.gif" alt="(okok)" onclick="grin(&quot;(okok)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/not_talking.gif" alt="(nottalking)" onclick="grin(&quot;(nottalking)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ninja.gif" alt="(ninja)" onclick="grin(&quot;(ninja)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/listening_music.gif" alt="(music)" onclick="grin(&quot;(music)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/muscle.gif" alt="(muscle)" onclick="grin(&quot;(muscle)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/muhaha.gif" alt="(muhaha)" onclick="grin(&quot;(muhaha)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/money.gif" alt="(money)" onclick="grin(&quot;(money)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/like_food.gif" alt="(mmm)" onclick="grin(&quot;(mmm)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/lonely.gif" alt="(lonely)" onclick="grin(&quot;(lonely)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/laugh.gif" alt="(lol)" onclick="grin(&quot;(lol)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/lmao.gif" alt="(lmao)" onclick="grin(&quot;(lmao)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/idiot.gif" alt="(idiot)" onclick="grin(&quot;(idiot)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/hungry.gif" alt="(hungry)" onclick="grin(&quot;(hungry)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/wave.gif" alt="(highfive)" onclick="grin(&quot;(highfive)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/heart_beat.gif" alt="(heart_beat)" onclick="grin(&quot;(heart_beat)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/heart.gif" alt="(heart)" onclick="grin(&quot;(heart)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/headspin.gif" alt="(headspin)" onclick="grin(&quot;(headspin)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/silly_couple.gif" alt="(hassle)" onclick="grin(&quot;(hassle)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/haha.gif" alt="(haha)" onclick="grin(&quot;(haha)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/gym.gif" alt="(gym)" onclick="grin(&quot;(gym)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/gril_tongue.png" alt="(griltongue)" onclick="grin(&quot;(griltongue)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/fingerscrossed.gif" alt="(goodluck)" onclick="grin(&quot;(goodluck)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/girl_kiss.gif" alt="(girlkiss)" onclick="grin(&quot;(girlkiss)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/dance_moves.gif" alt="(funkydance)" onclick="grin(&quot;(funkydance)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/fish-hit.gif" alt="(fish_hit)" onclick="grin(&quot;(fish_hit)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/eyeroll.gif" alt="(eyeroll)" onclick="grin(&quot;(eyeroll)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/evilsmirk.gif" alt="(evilsmirk)" onclick="grin(&quot;(evilsmirk)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/evil_grin.gif" alt="(evil_grin)" onclick="grin(&quot;(evil_grin)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/drinking.gif" alt="(drinking)" onclick="grin(&quot;(drinking)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/doh.gif" alt="(doh)" onclick="grin(&quot;(doh)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/devil.gif" alt="(devil)" onclick="grin(&quot;(devil)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/dance.gif" alt="(dance)" onclick="grin(&quot;(dance)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/cry.gif" alt="(cry)" onclick="grin(&quot;(cry)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/cozy.gif" alt="(cozy)" onclick="grin(&quot;(cozy)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/coffee.gif" alt="(coffee)" onclick="grin(&quot;(coffee)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/broken_heart.gif" alt="(brokenheart)" onclick="grin(&quot;(brokenheart)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/bring_it_on.gif" alt="(bringit)" onclick="grin(&quot;(bringit)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/blush.gif" alt="(blush)" onclick="grin(&quot;(blush)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/big_eyed.gif" alt="(bigeyes)" onclick="grin(&quot;(bigeyes)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/beer.gif" alt="(beer)" onclick="grin(&quot;(beer)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/bananarock.gif" alt="(banana_rock)" onclick="grin(&quot;(banana_rock)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/banana-ninja.gif" alt="(banana_ninja)" onclick="grin(&quot;(banana_ninja)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/banana_cool.gif" alt="(banana_cool)" onclick="grin(&quot;(banana_cool)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/applause.gif" alt="(applause)" onclick="grin(&quot;(applause)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/annoyed.gif" alt="(annoyed)" onclick="grin(&quot;(annoyed)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/angry.gif" alt="(angry)" onclick="grin(&quot;(angry)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/kiss.gif" alt="(K)" onclick="grin(&quot;(K)&quot;)" class="wp-smiley-select"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/tired.gif" alt="(:" onclick="grin(&quot;(:&quot;)" class="wp-smiley-select"> 		
+		<script type="text/javascript">jQuery(function(){ add_openid_to_comment_form('http://itx.web.id/index.php', '40861b7c88') })</script>
+        
+        <input type="hidden" name="icl_comment_language" value="id">
+        
+          
+        					</form>
+							</div><!-- #respond -->
+						</div>        </div>
+	</div>
+	<div class="clear"></div>
+    <div class="clear"></div>
+    <div id="extrastuff">
+        			<span id="rssleft"><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/feed/"><abbr title="Really Simple Syndication">RSS</abbr> feed for this post (comments)</a></span>
+        			<span id="trackright"> · <a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a></span>
+        		<div class="clear"></div>
+    </div>
+
+</div>
+    <div class="nextprevious ui-state-active">
+        <div class="alignleft"><span>Previous Post</span><br>« <a href="http://itx.web.id/php/menjalankan-query-sql-via-php/" rel="prev">Menjalankan Query SQL via PHP</a></div>
+        <div class="alignright"><span>Next Post</span><br><a href="http://itx.web.id/wordpress/tombol-sharethis-untuk-wordpress/" rel="next">Tombol ShareThis untuk WordPress</a> »</div>
+        <div class="clear"></div>
+    </div>
+</div>
+</div> <!--/content-->
+<div id="sidebar-left" class="sidebar"><div class="sidebar-1"><ul><li id="text-6" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget">Like <b>itx.web.id</b>? <br>
+<script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/all(1).js"></script><fb:like href="http://itx.web.id" show_faces="true" width="150" class=" fb_edge_widget_with_comment fb_iframe_widget"><span><iframe id="f235bdabdc" name="fb8b65b24" scrolling="no" style="border-width: initial; border-color: initial; overflow-x: hidden; overflow-y: hidden; width: 225px; height: 28px; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; " title="Like this content on Facebook." class="fb_ltr" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/like(2).htm"></iframe></span></fb:like></div>
+		</div></li><li id="text-8" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget"><div>
+<a href="http://sambadafarm.com/">Domba Garut</a>
+<br>	
+<a href="http://sambadafarm.com/produk/">Domba Kurban</a>
+<br>	
+<a href="http://agromaret.com/jual/33529/domba_kurban_qurban_wilayah_yogyakarta">Domba Kurban</a>
+<br>
+<a href="http://www.kaskus.us/showthread.php?t=11046165">Domba Kurban</a>
+</div></div>
+		</div></li><li id="search-3" class="widget left widget_search"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Search</h3><form method="get" action="http://itx.web.id/" id="searchform"><div id="searchformwrap">
+<div class="searchbox"><div class="scont">
+<input type="text" value="Search here ...." name="s" id="searchbox" onfocus="this.value=&#39;&#39;">
+</div></div>
+<div class="searchopen"></div>
+<div class="searchclose"><button type="submit" class="submitbutton" value="search"></button></div>
+</div><input type="hidden" name="lang" value="id"></form></div></li><li id="itx_tabbed_sidebar-3" class="widget left itx_tabbed_sidebar"><div class="widgetwrap  ">
+<script type="text/javascript">/* <![CDATA[ */
+jQuery(function () {
+    jQuery("#widget-itx_tabbed_sidebar-3-thetab").tabs({ event: "mouseover" });
+});
+/* ]]> */</script>
+	<div class="tabbed ui-tabs ui-widget ui-widget-content ui-corner-all" id="widget-itx_tabbed_sidebar-3-thetab"><ul class="tabheader ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"><li class="ui-state-default ui-corner-top ui-tabs-selected ui-state-active"><a class="tabbed-a" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#widget-itx_tabbed_sidebar-3-thetab0">Hai</a></li><li class="ui-state-default ui-corner-top"><a class="tabbed-a" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#widget-itx_tabbed_sidebar-3-thetab1">Posts</a></li><li class="ui-state-default ui-corner-top"><a class="tabbed-a" href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#widget-itx_tabbed_sidebar-3-thetab2">Comments</a></li></ul><div class="tabbedtab ui-tabs-panel ui-widget-content ui-corner-bottom" id="widget-itx_tabbed_sidebar-3-thetab0"><div>Inilah blog itx.... seorang yang suka pemrograman web khususnya PHP dan WordPress... jangan ragu tinggalkan pesan di sini ... :)
+<br>
+Sebagian besar artikel di sini <b>tidak</b> saya tulis, melainkan ditulis oleh teman-teman author (penulis lepas). Jadi kalo menyapa jangan salah alamat yaaa... lihat dulu siapa penulis artikel ybs.</div></div><div class="tabbedtab ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="widget-itx_tabbed_sidebar-3-thetab1"><ul>	<li><a href="http://itx.web.id/wordpress/membuat-multi-user-dalam-cms-wordpress/" title="Membuat Multi-user dalam CMS WordPress">Membuat Multi-user dalam CMS WordPress</a></li>
+	<li><a href="http://itx.web.id/php/fungsi-sorting-pengurutan-instan-dengan-php/" title="Fungsi Sorting (Pengurutan) Instan dengan PHP">Fungsi Sorting (Pengurutan) Instan dengan PHP</a></li>
+	<li><a href="http://itx.web.id/wordpress/menginstall-tema-baru-dalam-cms-wordpress/" title="Menginstall Tema Baru dalam CMS WordPress">Menginstall Tema Baru dalam CMS WordPress</a></li>
+	<li><a href="http://itx.web.id/wordpress/membuat-halaman-statis-page-dalam-wordpress-beginner-only/" title="Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)">Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)</a></li>
+	<li><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/" title="Code Igniter : Export Data ke File PDF">Code Igniter : Export Data ke File PDF</a></li>
+	<li><a href="http://itx.web.id/php/fungsi-fungsi-string-dalam-php/" title="Fungsi – Fungsi String dalam PHP">Fungsi – Fungsi String dalam PHP</a></li>
+	<li><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/" title="Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI">Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI</a></li>
+	<li><a href="http://itx.web.id/php/pembulatan-bilangan-dalam-php/" title="Pembulatan Bilangan dalam PHP">Pembulatan Bilangan dalam PHP</a></li>
+	<li><a href="http://itx.web.id/wordpress/memasang-album-foto-flickr-dalam-wordpress/" title="Memasang Album Foto Flickr dalam WordPress">Memasang Album Foto Flickr dalam WordPress</a></li>
+	<li><a href="http://itx.web.id/wordpress/memasukkan-gambar-dalam-postingan-wordpress-untuk-pemula/" title="Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)">Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)</a></li>
+</ul></div><div class="tabbedtab ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="widget-itx_tabbed_sidebar-3-thetab2"><ul><li class="recentcomments"><strong>anggi: </strong><a href="http://en.itx.web.id/php-en/simple-md5-login-system-logout-with-codeigniter/#comment-3988">kok ndak mvc ya mas???  <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/fever.gif" alt="(sick)" class="wp-smiley">  <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/fever.gif" alt="(sick)" class="wp-smiley"> </a></li><li class="recentcomments"><strong>mongga: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-3985">om thanks tutor nya, udah berhasil <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/bananarock.gif" alt="(banana_rock)" class="wp-smiley"> 
+
+tapi tapi om, saya bingung gimana caranya mengupdate file gambar yang sudah di ...</a></li><li class="recentcomments"><strong>illmore: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-3984">username : Romli </a></li><li class="recentcomments"><strong>illmore: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-3983">Ini username saya : Romli </a></li><li class="recentcomments"><strong>illmore: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-3982">Saya ingin menjadi penulis. Ini username saya : Romli
+Terima kasih </a></li><li class="recentcomments"><strong>illmore: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-3981">Saya ingin menjadi penulis. Berikut username saya : Romli </a></li><li class="recentcomments"><strong>ya: </strong><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/#comment-3980">ga jalan program lo, boss.. , kasih sample nya yg bisa didownload donk, jadi ngasih tutorial gak nanggung2 </a></li><li class="recentcomments"><strong>ajad: </strong><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/#comment-3979">step 1 
+select('*');
+$this-&gt;db-&gt;from('tb_buku');
+$this-&gt;db-&gt;order_by('id_buku','DESC');
+$data = $this-&gt;db-&gt;get('');
+return $data;
+}
+}
+?&gt;
+
+error di listing : db-&gt;select('*'); </a></li><li class="recentcomments"><strong><a href="http://basicsavez.blogspot.com/" rel="external nofollow" class="openid_link url">sv</a>: </strong><a href="http://itx.web.id/php/tutorial-searching-pencarian-data-dengan-php-dan-mysql/#comment-3978">thx sob atas infonya//..... <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/wink.gif" alt=";-)" class="wp-smiley">  </a></li><li class="recentcomments"><strong>regsita: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-3977">Saya berminat, saya sudah mendaftar dg username:regsita. </a></li><li class="recentcomments"><strong><a href="http://massol507.wordpress.com/" rel="external nofollow" class="openid_link url">massol</a>: </strong><a href="http://itx.web.id/wordpress/plugin/membuat-form-pada-wordpress-dengan-plugin-cforms/#comment-3973">nambahin lagi: mksdnya di-zip, terus upload ke hosting di wp-content/plugin baru diekstrak </a></li><li class="recentcomments"><strong><a href="http://massol507.wordpress.com/" rel="external nofollow" class="openid_link url">massol</a>: </strong><a href="http://itx.web.id/wordpress/plugin/membuat-form-pada-wordpress-dengan-plugin-cforms/#comment-3972">Buat mas @Kurnia: mungkin ekstensinya mas di zip dulu baru di-ekstrak. setelah itu diaktifin di menu plugin. Semoga bisa membantu </a></li><li class="recentcomments"><strong><a href="http://bandungcamp.wordpress.com/" rel="external nofollow" class="url">irfan doank</a>: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-3970">daftar donk bro, username gw : bandungcamp
+contoh tulisan gw : http://bandungcamp.wordpress.com
+owh iy gw maw tanya klo ada demo ntar di ...</a></li><li class="recentcomments"><strong>canal: </strong><a href="http://itx.web.id/php/validasi-form-dalam-codeigniter/#comment-3969"> <img src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/rock_n_roll.gif" alt="(rock)" class="wp-smiley">  pengen enjoy dengan PHP tapi gw gak punya dasar php, bisa gak gan tekhnik2 yg ada di website ...</a></li><li class="recentcomments"><strong><a href="http://www.hade63.co.cc/siskaon" rel="external nofollow" class="url">Avil</a>: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-3968">Saya sadah berhasil untuk move gambar, tetapi pada saat akan membuka gambar hasil copy an menggunakan windows photo galery, enggak ...</a></li></ul></div></div></div></li><li id="wppp-3" class="widget left widget_wppp"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Postingan populer</h3>
+<ul class="wppp_list">
+	<li><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/" title="Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql">Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql</a></li>
+	<li><a href="http://itx.web.id/php/membuat-form-combobox-dinamis-dari-database-mysql-dengan-php/" title="Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP">Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP</a></li>
+	<li><a href="http://itx.web.id/php/form-input-tanggal-php-dengan-datetimepicker-jquery/" title="Form Input Tanggal PHP dengan Datetimepicker JQuery">Form Input Tanggal PHP dengan Datetimepicker JQuery</a></li>
+	<li><a href="http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/" title="Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami">Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami</a></li>
+	<li><a href="http://itx.web.id/php/tutorial-searching-pencarian-data-dengan-php-dan-mysql/" title="Tutorial Searching / Pencarian Data dengan PHP dan Mysql">Tutorial Searching / Pencarian Data dengan PHP dan Mysql</a></li>
+	<li><a href="http://itx.web.id/php/editor-php-gratisan-untuk-kita/" title="Editor PHP gratisan untuk kita:">Editor PHP gratisan untuk kita:</a></li>
+	<li><a href="http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/" title="Membuat Fungsi Update Data dalam Database dengan PHP Mysql">Membuat Fungsi Update Data dalam Database dengan PHP Mysql</a></li>
+</ul>
+</div></li><li id="tag_cloud-4" class="widget left widget_tag_cloud"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Tags</h3><div><a href="http://itx.web.id/tag/ajax/" class="tag-link-15" title="4 topics" style="font-size: 14.3636363636pt;">ajax</a>
+<a href="http://itx.web.id/tag/basic/" class="tag-link-48" title="4 topics" style="font-size: 14.3636363636pt;">basic</a>
+<a href="http://itx.web.id/tag/cms-wordpress/" class="tag-link-72" title="3 topics" style="font-size: 12.7727272727pt;">cms wordpress</a>
+<a href="http://itx.web.id/tag/codeigniter/" class="tag-link-66" title="6 topics" style="font-size: 16.75pt;">codeigniter</a>
+<a href="http://itx.web.id/tag/codeigniter-export-to-excel/" class="tag-link-106" title="2 topics" style="font-size: 10.8636363636pt;">codeigniter export to excel</a>
+<a href="http://itx.web.id/tag/date-function/" class="tag-link-81" title="2 topics" style="font-size: 10.8636363636pt;">date function</a>
+<a href="http://itx.web.id/tag/device-recognition/" class="tag-link-91" title="2 topics" style="font-size: 10.8636363636pt;">device recognition</a>
+<a href="http://itx.web.id/tag/effect/" class="tag-link-18" title="1 topic" style="font-size: 8pt;">effect</a>
+<a href="http://itx.web.id/tag/fadeout/" class="tag-link-16" title="1 topic" style="font-size: 8pt;">fadeout</a>
+<a href="http://itx.web.id/tag/form-validation/" class="tag-link-79" title="2 topics" style="font-size: 10.8636363636pt;">form validation</a>
+<a href="http://itx.web.id/tag/free-wordpress-theme/" class="tag-link-23" title="3 topics" style="font-size: 12.7727272727pt;">free wordpress theme</a>
+<a href="http://itx.web.id/tag/fun-mode/" class="tag-link-52" title="2 topics" style="font-size: 10.8636363636pt;">fun mode</a>
+<a href="http://itx.web.id/tag/gpl/" class="tag-link-29" title="2 topics" style="font-size: 10.8636363636pt;">GPL</a>
+<a href="http://itx.web.id/tag/javascript/" class="tag-link-17" title="1 topic" style="font-size: 8pt;">JavaScript</a>
+<a href="http://itx.web.id/tag/javascript-library/" class="tag-link-14" title="1 topic" style="font-size: 8pt;">JavaScript Library</a>
+<a href="http://itx.web.id/tag/jquery/" class="tag-link-13" title="2 topics" style="font-size: 10.8636363636pt;">jQuery</a>
+<a href="http://itx.web.id/tag/jquery-ui/" class="tag-link-166" title="3 topics" style="font-size: 12.7727272727pt;">jquery UI</a>
+<a href="http://itx.web.id/tag/kelirumologi/" class="tag-link-6" title="2 topics" style="font-size: 10.8636363636pt;">kelirumologi</a>
+<a href="http://itx.web.id/tag/koneksi/" class="tag-link-19" title="1 topic" style="font-size: 8pt;">koneksi</a>
+<a href="http://itx.web.id/tag/login-multi-user/" class="tag-link-75" title="2 topics" style="font-size: 10.8636363636pt;">login multi user</a>
+<a href="http://itx.web.id/tag/mobile-programming/" class="tag-link-89" title="2 topics" style="font-size: 10.8636363636pt;">mobile programming</a>
+<a href="http://itx.web.id/tag/multisite/" class="tag-link-33" title="3 topics" style="font-size: 12.7727272727pt;">multisite</a>
+<a href="http://itx.web.id/tag/mysql/" class="tag-link-63" title="8 topics" style="font-size: 18.3409090909pt;">mysql</a>
+<a href="http://itx.web.id/tag/mysql-to-excel/" class="tag-link-109" title="2 topics" style="font-size: 10.8636363636pt;">mysql to excel</a>
+<a href="http://itx.web.id/tag/openid/" class="tag-link-12" title="1 topic" style="font-size: 8pt;">OpenID</a>
+<a href="http://itx.web.id/tag/pagination/" class="tag-link-101" title="2 topics" style="font-size: 10.8636363636pt;">pagination</a>
+<a href="http://itx.web.id/tag/paging/" class="tag-link-103" title="2 topics" style="font-size: 10.8636363636pt;">paging</a>
+<a href="http://itx.web.id/tag/parse-xml-with-php/" class="tag-link-156" title="2 topics" style="font-size: 10.8636363636pt;">parse xml with php</a>
+<a href="http://itx.web.id/tag/personal-settings/" class="tag-link-50" title="2 topics" style="font-size: 10.8636363636pt;">personal settings</a>
+<a href="http://itx.web.id/tag/php/" class="tag-link-10" title="14 topics" style="font-size: 22pt;">PHP</a>
+<a href="http://itx.web.id/tag/php-string/" class="tag-link-213" title="2 topics" style="font-size: 10.8636363636pt;">php string</a>
+<a href="http://itx.web.id/tag/post/" class="tag-link-168" title="2 topics" style="font-size: 10.8636363636pt;">post</a>
+<a href="http://itx.web.id/tag/posting-code/" class="tag-link-115" title="2 topics" style="font-size: 10.8636363636pt;">posting code</a>
+<a href="http://itx.web.id/tag/posting-sourcecode/" class="tag-link-116" title="2 topics" style="font-size: 10.8636363636pt;">posting sourcecode</a>
+<a href="http://itx.web.id/tag/splitting-content/" class="tag-link-169" title="2 topics" style="font-size: 10.8636363636pt;">splitting content</a>
+<a href="http://itx.web.id/tag/surprise-me/" class="tag-link-51" title="2 topics" style="font-size: 10.8636363636pt;">surprise me</a>
+<a href="http://itx.web.id/tag/syntax-highlighter/" class="tag-link-117" title="2 topics" style="font-size: 10.8636363636pt;">syntax highlighter</a>
+<a href="http://itx.web.id/tag/theme/" class="tag-link-31" title="3 topics" style="font-size: 12.7727272727pt;">theme</a>
+<a href="http://itx.web.id/tag/users/" class="tag-link-49" title="2 topics" style="font-size: 10.8636363636pt;">users</a>
+<a href="http://itx.web.id/tag/wordpress/" class="tag-link-11" title="3 topics" style="font-size: 12.7727272727pt;">WordPress</a>
+<a href="http://itx.web.id/tag/wordpress-com/" class="tag-link-47" title="4 topics" style="font-size: 14.3636363636pt;">wordpress.com</a>
+<a href="http://itx.web.id/tag/wordpress-mobile/" class="tag-link-188" title="2 topics" style="font-size: 10.8636363636pt;">wordpress mobile</a>
+<a href="http://itx.web.id/tag/wordpress-plugin/" class="tag-link-39" title="2 topics" style="font-size: 10.8636363636pt;">wordpress plugin</a>
+<a href="http://itx.web.id/tag/wordpress-theme/" class="tag-link-24" title="3 topics" style="font-size: 12.7727272727pt;">wordpress theme</a>
+<a href="http://itx.web.id/tag/xml-to-mysql/" class="tag-link-154" title="2 topics" style="font-size: 10.8636363636pt;">xml to mysql</a></div>
+</div></li></ul><div class="clear"></div></div></div><div id="sidebar-right" class="sidebar"><div class="sidebar-2"><ul><li id="language-selector" class="widget right icl_languages_selector"><div class="widgetwrap  ">		
+<div id="lang_sel_list">           
+            <ul>
+                                <li class="icl-en">          
+                    <a href="http://en.itx.web.id/php-en/playing-with-the-code-igniter-full-from-installation-till-access-database/" class="lang_sel_other">
+                                    
+                    <img class="iclflag" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/en.png" alt="en">&nbsp;                    
+                                        English                    </a>
+                </li>
+                                <li class="icl-id">          
+                    <a href="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database.htm" class="lang_sel_sel">
+                                    
+                    <img class="iclflag" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/id.png" alt="id">&nbsp;                    
+                                        Indonesia                    </a>
+                </li>
+                            </ul>
+</div>
+</div></li><li id="text-2" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Theme Buatan itx</h3>			<div class="textwidget"><h4><a href="http://albizia.itx.web.id/">
+Albizia Theme
+</a><br>
+<a href="http://wordpress.org/extend/themes/albizia" rel="nofollow">
+- Download Albizia
+</a></h4>
+<h4><a href="http://bombax.itx.web.id/">
+Bombax Theme
+</a><br>
+<a href="http://wordpress.org/extend/themes/bombax" rel="nofollow">
+- Download Bombax
+</a></h4>
+<h4><a href="http://calotropis.itx.web.id/">
+Calotropis Theme
+</a><br>
+<a href="http://wordpress.org/extend/themes/calotropis" rel="nofollow">
+- Download Calotropis 
+</a></h4></div>
+		</div></li><li id="text-3" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Plugin Buatan itx</h3>			<div class="textwidget"><h4><a href="http://itx.web.id/wordpress/plugins/exclude-plugins/">
+Exclude Plugins
+</a><br>
+<a href="http://wordpress.org/extend/plugins/exclude-plugins/" rel="nofollow">
+- Download Exclude Plugins
+</a></h4></div>
+		</div></li><li id="text-4" class="widget right widget_text"><div class="widgetwrap  ">			<div class="textwidget">Jika memiliki pertanyaan tentang theme atau plugin buatan itx, silahkan menuju <a href="http://forum.itx.web.id/">forum</a>.
+</div>
+		</div></li>												<li id="ask2link" class="widget right widget_ask2link"><div class="widgetwrap  "><!-- zz,b78dc8fc3eccc96c396b1312211272,1312211949 -->
+</div></li>		<li id="advanced_text-7" class="widget right advanced_text"><div class="widgetwrap  "><div class="AdvancedText"><br></div></div></li>
+						</ul><div class="clear"></div></div></div><div class="clear"></div>
+</div>
+</div> <!--/main-->
+<div id="footwrap">
+    <div id="footwrap2">
+    <div class="wrap">
+    <div id="footer" class="footer"><div class="footer-"></div></div>    <div class="clear"></div>
+    </div>
+	</div>
+	<div id="footerfoot">
+	<div class="wrap">
+		<div id="footerleft">
+		<a href="http://itx.web.id/">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a>
+				</div><div id="footerright">
+<a href="http://themes.itx.web.id/bombax/"><strong>Bombax Theme</strong> designed by <strong>itx</strong></a></div></div></div></div><!-- bombax 1.3 --><strong>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ui.core.js"></script>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/ui.tabs.js"></script>
+<script type="text/javascript" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/jquery.color.js"></script>
+<script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/button.js" type="text/javascript"></script><!--stats_footer_test--><script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/e-201142.js" type="text/javascript"></script><script src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/quant.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'12545473',v:'ext',post:'574'});
+var load_cmc = function(){linktracker_init(12545473,574,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script><img id="wpstats" src="./“Bermain” dengan Code Igniter FULL   Instalasi hingga Akses Database_files/g.gif" alt="">
+
+</strong></body></html>

@@ -1,0 +1,27 @@
+Looping though visible elements
+The next example uses the following HTML:
+
+1
+<div id="foo">
+2
+    <div>abc</div>
+3
+    <div style="display:none">def</div>
+4
+    <div>ghi</div>
+5
+</div>
+To loop through the visible divs under #foo do something do this:
+
+1
+$("#foo div:visible").each( function() {
+2
+    document.write($(this).html()+'<br />');
+3
+});
+The above example would write the following out to the document:
+
+1
+abc
+2
+ghi

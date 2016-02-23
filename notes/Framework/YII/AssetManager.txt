@@ -1,0 +1,26 @@
+Auto-Magically Include CSS
+
+To automagically include a css scriptfile in Yii Framework v 1.8, simply use :
+
+<?php  Yii::app()->clientScript->registerCssFile(Yii::app()->request->baseUrl . "/css/main.css", ''); ?>
+Auto-Magically Register and Include JS
+
+And for a javascript script file:
+
+<?php  Yii::app()->clientScript->registerScriptFile(Yii::app()->request->baseUrl . "/js/script.js", ''); ?>
+Place Scripts in the HEAD section of your webpage
+
+You may register your CSS and JS files anywhere you would like and still have them placed in the ‘head’ section of your html document.
+The following is an example of how to register a JS file, and then place it in the header.
+
+$urlJsScript = Yii::app()->assetManager->publish(Yii::app()->request->baseUrl .'/assets/script.js');
+Yii::app()->clientScript->registerScriptFile($urlJsScript, CClientScript::POS_HEAD);
+// publish and insert script.js into the <head> section
+Register a CSS File and place it in the header.
+
+$urlCssScript = Yii::app()->assetManager->publish(Yii::app()->request->baseUrl .'/assets/style.css');
+Yii::app()->clientScript->registerCssFile($urlCssScript, CClientScript::POS_HEAD);
+// publish and insert style.css into the <head> section
+
+
+Yii::app()->getAssetManager()->publish($assets);

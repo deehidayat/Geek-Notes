@@ -1,0 +1,158 @@
+Scope Events Propagation
+$scope.$on('MyEvent', function() {
+    $scope.count++;
+  });
+Scopes can propagate events in similar fashion to DOM events. The event can be broadcasted to the scope children or emitted to scope parents.
+$emit('MyEvent') -> ke parent
+$broadcast('MyEvent') -> ke child
+
+## Utama
+In AngularJS, applications are structured in modules. A module can depend on other modules and a module can contain controllers, services, directives and filters.
+
+In order to make sure that you can test your application easily, AngularJS also comes with a $httpBackend mock to test HTTP requests without a web server.
+
+ng-app
+    ng-controller
+        ng-model
+# ng-model="checked" ng-init="checked=tru"
+
+
+## LOGIC
+ng-repeat
+ng-if
+ng-switch on="key" -> ng-when="1"
+
+## EVENT
+ng-click / ng-change / ng-mouseover / ng-keypress / etc     # Event Listener $event
+ng-show # Untuk mengontrol apakah tag akan ditampilkan (Boolean)
+ng-hide # Untuk mengontrol apakah tag akan disembunyikan (Boolean)
+
+## ATTRIBUTE
+ng-class    # Untuk menambah atau menghapus (Boolean) Class => ng-class="{active: aShow}"
+ng-style    #
+ng-src      # Supaya Image (src) yang diload tidak error ketika Angular belum siap
+
+## MODULE
+    (Select 2)[https://github.com/angular-ui/ui-select2] : bower install angular-ui-select2
+    (RESTAngular)[https://github.com/mgonto/restangular] : bower install restangular
+    (UI Bootstrap)[https://github.com/angular-ui/bootstrap] : bower install angular-bootstrap
+    (Angular Slider)[https://github.com/prajwalkman/angular-slider] : bower install angular-slider
+    (UI Router)[] : bower install angular-ui-router
+
+## UI-ROUTER (https://github.com/angular-ui/ui-router/wiki/Quick-Reference)
+$state.get('namestate').url;
+ui-sref="namastate({id:value})"
+
+## Membuat Service bisa dg 3 cara => service / factory / provider (Link)[http://jsfiddle.net/pkozlowski_opensource/PxdSP/14/]
+services.factory('UserService', ['$resource','$http',function($resource,$http){
+	return $resource('http://www.mysymfony.wgs/test1/user/:id', 
+		{id:0}, // Default Params 
+		{} // Actions
+	);    
+}]);
+
+## XHR
+## ngResource => $resource, $http (Link)[http://docs.angularjs.org/api/ngResource.$resource]
+$resource('http://www.mysymfony.wgs/test1/user/:id', 
+		{id:0}, // Default Params 
+		{} // Actions
+	);
+{ 'get':    {method:'GET'},
+  'save':   {method:'POST'},
+  'query':  {method:'GET', isArray:true},
+  'remove': {method:'DELETE'},
+  'delete': {method:'DELETE'} };
+
+Default get hanya mau mengembalikan Object tidak bisa array, untuk mensiasati maka buat suatu fungsi baru dg isArray:true
+
+## Untuk menghilangkan tag # di url
+<base href="{{ app.request.uri }}/" />
+$locationProvider.html5Mode(true); // Untuk membuat url ke base /  gunakan didalam Route
+
+## Gunakan didalam template
+<pre>$location.path() = {{$location.path()}}</pre>
+<pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+<pre>$route.current.params = {{$route.current.params}}</pre>
+<pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+<pre>$routeParams = {{$routeParams}}</pre>
+
+
+## UI
+<select ng-model="show" ng-options="c.text for c in choices"></select>
+
+## SERVICE 
+var services = angular.module('Services', ['ngResource']);
+
+services.factory('UserService', ['$resource',function($resource){
+	return $resource('/api/users/:id', 
+		{}, // Default Params 
+		{
+			getAllUser: {url:'/api/users' , method:'GET', isArray:true },
+			removeUser: {url:'/api/users/removes', method:'POST'}
+		} // Actions
+	);    
+}]);
+  
+$http.post('/api/users', {user:$scope.user}).success(function(data, status, headers, config){
+    //console.log(data,status,header,config);
+    if(data.success){
+        $location.path('/user');
+    }
+}).error(function(data, status, headers, config) {
+});
+  
+## Membuat Template dlm 1 Halaman
+ <script type="text/ng-template" id="hello.html">
+      <div>
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="Enter a name here">
+        <hr>
+        <h1>Hello {{yourName}}!</h1>
+      </div>
+    </script>
+    <style type="text/css" id="todo.css">
+      .done-true {
+        text-decoration: line-through;
+        color: grey;
+      }
+    </style>
+    <script id="todo.js">
+      function TodoCtrl($scope) {
+        $scope.todos = [
+          {text:'learn angular', done:true},
+          {text:'build an angular app', done:false}];
+
+        $scope.addTodo = function() {
+          $scope.todos.push({text:$scope.todoText, done:false});
+          $scope.todoText = '';
+        };
+
+        $scope.remaining = function() {
+          var count = 0;
+          angular.forEach($scope.todos, function(todo) {
+            count += todo.done ? 0 : 1;
+          });
+          return count;
+        };
+
+        $scope.archive = function() {
+          var oldTodos = $scope.todos;
+          $scope.todos = [];
+          angular.forEach(oldTodos, function(todo) {
+            if (!todo.done) $scope.todos.push(todo);
+          });
+        };
+      }
+    </script>
+
+Filter array 
+ng-repeat="item in filteredBacklog = (backlog | filter:{$: criteria,done: false})"
+Then, counting filtered results boils down to displaying the length of a saved array:
+Total: {{filteredBacklog.length}}
+
+
+<input type="checkbox" ng-model="user.role" ng-true-value="admin" ng-
+false-value="basic">
+
+interpolate (@), data-bind (=), and expression (&) (isolate scope)
+

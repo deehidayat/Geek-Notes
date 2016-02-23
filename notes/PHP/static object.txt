@@ -1,0 +1,2 @@
+tudak boleh menggunakan $this
+gunakan self:: untuk menunjuk ke methode sendiri

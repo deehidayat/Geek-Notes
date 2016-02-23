@@ -1,0 +1,52 @@
+String Object
+
+The String object is used to manipulate a stored piece of text.
+
+String objects are created with new String().
+Syntax
+var txt = new String(string);
+
+or more simply:
+var txt = string;
+
+For a tutorial about the String object, read our JavaScript String Object tutorial.
+String Object Properties
+Property 	Description
+constructor 	Returns the function that created the String object's prototype
+length 	Returns the length of a string
+prototype 	Allows you to add properties and methods to an object
+String Object Methods
+Method 	Description
+charAt() 	Returns the character at the specified index
+charCodeAt() 	Returns the Unicode of the character at the specified index
+concat() 	Joins two or more strings, and returns a copy of the joined strings
+fromCharCode() 	Converts Unicode values to characters
+indexOf() 	Returns the position of the first found occurrence of a specified value in a string
+lastIndexOf() 	Returns the position of the last found occurrence of a specified value in a string
+match() 	Searches for a match between a regular expression and a string, and returns the matches
+replace() 	Searches for a match between a substring (or regular expression) and a string, and replaces the matched substring with a new substring
+search() 	Searches for a match between a regular expression and a string, and returns the position of the match
+slice() 	Extracts a part of a string and returns a new string
+split() 	Splits a string into an array of substrings
+substr() 	Extracts the characters from a string, beginning at a specified start position, and through the specified number of character
+substring() 	Extracts the characters from a string, between two specified indices
+toLowerCase() 	Converts a string to lowercase letters
+toUpperCase() 	Converts a string to uppercase letters
+valueOf() 	Returns the primitive value of a String object
+String HTML Wrapper Methods
+
+The HTML wrapper methods return the string wrapped inside the appropriate HTML tag.
+Method 	Description
+anchor() 	Creates an anchor
+big() 	Displays a string using a big font
+blink() 	Displays a blinking string
+bold() 	Displays a string in bold
+fixed() 	Displays a string using a fixed-pitch font
+fontcolor() 	Displays a string using a specified color
+fontsize() 	Displays a string using a specified size
+italics() 	Displays a string in italic
+link() 	Displays a string as a hyperlink
+small() 	Displays a string using a small font
+strike() 	Displays a string with a strikethrough
+sub() 	Displays a string as subscript text
+sup() 	Displays a string as superscript text

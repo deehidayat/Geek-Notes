@@ -1,0 +1,38 @@
+zf show version
+zf create project zf-tutorial
+zf create controller Index
+zf create view
+zf create model
+zf create action add Index
+zf create action edit Index
+zf create action delete Index
+zf create db-table Albums albums
+zf enable layout
+
+Zend_Db_Table
+Zend_View
+Zend_Model 
+the view script rendered is views/scripts/{controller
+name}/{action_name}.phtml
+
+
+Each page of the application is known as an action and actions are grouped into controllers.
+For a URL of the format http://localhost/zf-tutorial/public/news/view, the controller is News
+and the action is view.
+Zend Framework’s MVC system also supports modules for
+grouping controllers together.
+
+By default, Zend Framework’s controller reserves a special action called index as a default action. This is
+for cases like http://localhost/zf-tutorial/public/news/ where the index action within the
+News controller will be executed. There is also a default controller name, which is also called index and so
+the URL http://localhost/zf-tutorial/public/ will cause the index action in the Index
+controller to be executed.
+
+Setting up the Controller
+We are now ready to set up our controller. In Zend Framework, the controller is a class that must be called
+{Controller name}Controller. Note that {Controller name} must start with a capital letter. This
+class must be within a file called {Controller name}Controller.php within the application/
+controllers directory. Each action is a public function within the controller class that must be named
+{action name}Action. In this case {action name} starts with a lower case letter and again must be
+completely lowercase. Mixed case controller and action names are allowed, but have special rules that you
+must understand before you use them. Check the documentation first!

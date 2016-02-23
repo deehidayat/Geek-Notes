@@ -1,0 +1,57 @@
+Untuk membuat CLASS / (OOP dalam javascript), karena javascript tidak mengenal class
+
+define([
+    "dojo/_base/declare",
+    "dijit/form/Button"
+], function(declare, Button){
+    return declare("mynamespace.Button", Button, {
+        label: "My Button",
+        onClick: function(evt){
+            console.log("I was clicked!");
+            this.inherited(arguments);
+        }
+    });
+});
+
+
+var Twitter = declare(null, {
+    // The default username
+    username: "defaultUser",
+ 
+    // The constructor
+    constructor: function(args){
+        declare.safeMixin(this,args);
+    }
+});
+
+var myInstance = new Twitter({
+    username: "sitepen"
+});
+
+
+
+Inheritance
+As stated above, inheritance is defined within the second argument of declare. Classes are mixed-in from left to right with each subsequent class' properties and methods getting priority over the previous if a property has already been defined. Take the following:
+
+// Define class A
+var A = declare(null, {
+    // A few properties...
+    propertyA: "Yes",
+    propertyB: 2
+});
+ 
+// Define class B
+var B = declare(A, {
+    // A few properties...
+    propertyA: "Maybe",
+    propertyB: 1,
+    propertyC: true
+});
+ 
+// Define class C
+var C = declare([mynamespace.A, mynamespace.B], {
+    // A few properties...
+    propertyA: "No",
+    propertyB: 99,
+    propertyD: false
+})

@@ -1,0 +1,10 @@
+timeout di fungsi file_get_contents()
+
+		$context = stream_context_create(array(
+				'http' => array(
+					'timeout' => 3      // Timeout in seconds
+				)
+			));
+		$content = @call_user_func_array('file_get_contents', array($page,0,$context));
+
+header("HTTP/1.0 404 Not Found");

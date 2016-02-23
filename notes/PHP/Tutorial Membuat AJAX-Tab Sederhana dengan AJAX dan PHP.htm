@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+<title>Tutorial Membuat AJAX-Tab Sederhana dengan AJAX dan PHP</title>
+
+<link rel="stylesheet" href="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector.css?v=2.0.4.1" type="text/css" media="all" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest post RSS" href="http://itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest comment RSS" href="http://itx.web.id/comments/feed/" />
+<link rel="pingback" href="http://itx.web.id/xmlrpc.php" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie6.css">
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie7.css">
+<![endif]-->
+<link rel="stylesheet" href="http://itx.web.id/wp-content/themes/bombax/style.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Feed" href="http://itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Comments Feed" href="http://itx.web.id/comments/feed/" />
+<meta name="description" content="Hal yang juga menarik: var sitti_pub_id = 'BC0004948'; var sitti_ad_width = '250'; var sitti_ad_height = '250'; var sitti_ad_type = '10'; var sitti_ad_number =..." />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Tutorial Membuat AJAX-Tab Sederhana dengan AJAX dan PHP Comments Feed" href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/feed/" />
+<meta name="keywords" content="ajax, ajax dan php, simple ajax tab, tutorial ajax sederhana" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<link rel="canonical" href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" />
+<link rel='stylesheet' id='openid-css'  href='http://itx.web.id/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all' />
+<link rel='stylesheet' id='itx-css'  href='http://itx.web.id/?itx=css&#038;ver=3.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='http://itx.web.id/wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/openid/f/openid.js?ver=519'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<script type='text/javascript' src='http://itx.web.id/?itx=js&#038;ver=3.0.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://itx.web.id/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://itx.web.id/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita' href='http://itx.web.id/' />
+<link rel='start' title='Postingan pertama kita:' href='http://itx.web.id/selingan/postingan-pertama-kita/' />
+<link rel='prev' title='Membuat Menu Administrasi Kustom' href='http://itx.web.id/wordpress/plugin/membuat-menu-administrasi-kustom/' />
+<link rel='next' title='Membuat WordPress Kustom' href='http://itx.web.id/wordpress/membuat-wordpress-kustom/' />
+<meta name="generator" content="WordPress 3.0.3" />
+<link rel='shortlink' href='http://wp.me/pQDEl-j4' />
+<meta name="framework" content="Alkivia Framework 0.8" />
+<!-- WALL= --><script type="text/javascript">
+function limitChars(textid, limit, infodiv)
+{
+	var text = jQuery('#'+textid).val();	
+	var textlength = text.length;
+	if(textlength > limit)
+	{
+		jQuery('#' + infodiv).html('You cannot write more then '+limit+' characters!');
+		jQuery('#'+textid).val(text.substr(0,limit));
+		return false;
+	}
+	else
+	{
+		jQuery('#' + infodiv).html('You have '+ (limit - textlength) +' characters left.');
+		return true;
+	}
+}
+function displayVals() {
+      var t3 = jQuery("#t3").val();
+      var amount = jQuery("#amount").val();
+      if(t3 != 0){
+	    jQuery('#a3').val(amount);
+	    jQuery('#p3').val(1);
+		jQuery('#cmd').val('_xclick-subscriptions')
+	  }else{
+	  	jQuery('#a3').val(0);
+	  	jQuery('#p3').val(0);
+	  	jQuery('#cmd').val('_donations');
+	  }
+	  if( !t3 ) jQuery('#cmd').val('_donations');
+	  
+}
+
+jQuery(function(){
+ 	jQuery('#donor_comment').keyup(function(){
+ 		limitChars('donor_comment', 199, 'charinfo');
+ 	})
+
+ 	jQuery("#amount").change(displayVals);
+ 	jQuery("#t3").change(displayVals);
+ 	displayVals();
+ 	
+ 	var WallOps1 = '<p class="show_onwall" id="wallops"><input type="hidden" name="item_number" value="0:0" /></p>';
+ 	var WallOps2 = '<p class="show_onwall" id="wallops"><label for="show_onwall">Show on Wall:</label><br /><select name="item_number"><option value="1:0">Donation Amount, User Details &amp; Comments</option><option value="2:0">User Details &amp; Comments Only</option></select></p>';
+
+ 	if( jQuery('#recognize').is(':checked') == false){ 
+ 		jQuery('#wallinfo').hide();
+ 		jQuery("#wallops").html(WallOps1);
+ 	}
+ 	
+ 	jQuery("#recognize").click(function(){
+ 		jQuery("#wallinfo").toggle('slow');
+ 		if(jQuery('#wallops input').val() == '0:0'){ 
+ 			jQuery("#wallops").html(WallOps2);
+ 		}else{
+ 			jQuery("#wallops").html(WallOps1);
+ 		}
+ 	})
+ 	
+		
+});
+
+</script>
+        <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '113869198637480', status: true, cookie: true, xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<script type="text/javascript">var icl_lang = 'id';var icl_home = 'http://itx.web.id/';</script>
+<script type="text/javascript" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js"></script>
+<meta name="generator" content="WPML ver:2.0.4.1 stt:25,1;0;0;0" />
+<meta name="tweetmeme-title" content="Tutorial Membuat AJAX-Tab Sederhana dengan AJAX dan PHP" /><meta http-equiv="X-XRDS-Location" content="http://itx.web.id/?xrds" />
+<meta http-equiv="X-Yadis-Location" content="http://itx.web.id/?xrds" />
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3" />
+<!-- Google Analytics Tracking by Google Analyticator 6.2: http://ronaldheft.com/code/analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2930741-12']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+<body class="single single-post postid-1182">
+    <div class="wrap">
+        <div id="top-menu">
+            <ul id="menu-atas" class="sf-menu top-menu"><li id="menu-item-356" class="menu-item menu-item-type-custom menu-item-home menu-item-356"><a href="http://itx.web.id/">Home</a></li>
+<li id="menu-item-354" class="menu-item menu-item-type-post_type menu-item-354"><a href="http://itx.web.id/donate/">Donate</a></li>
+<li id="menu-item-355" class="menu-item menu-item-type-post_type menu-item-355"><a href="http://itx.web.id/tentang-kita/">Tentang kita :</a></li>
+<li id="menu-item-1969" class="menu-item menu-item-type-post_type menu-item-1969"><a href="http://itx.web.id/menggunakan-jasa-itx/">Menggunakan Jasa itx</a></li>
+<li id="menu-item-1702" class="menu-item menu-item-type-custom menu-item-1702"><a title="PulsaSuper" href="http://itx.web.id/selingan/pulsasuper-pulsa-elektronik-yang-handal-cepat-dan-murah/">Bonus Pulsa</a></li>
+</ul>        </div>
+    </div>
+    
+        <div id="headerwrap"><div class="clear"></div>
+        <div id="header" class="wrap"><div class="header"><a href="http://itx.web.id/">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a></div><span class="tagline">bukan untuk membenci, bukan untuk mencaci, tapi untuk memahami</span>
+        </div>
+        </div>    <div id="menucont" class="ui-widget-header">
+        <div class="wrap">
+            <div id="menu">
+                <ul id="menu-standar" class="sf-menu"><li id="menu-item-349" class="menu-item menu-item-type-taxonomy current-post-ancestor current-menu-parent current-post-parent menu-item-349"><a href="http://itx.web.id/category/php/">PHP</a></li>
+<li id="menu-item-351" class="menu-item menu-item-type-taxonomy menu-item-351"><a href="http://itx.web.id/category/wordpress/">WordPress</a>
+<ul class="sub-menu">
+	<li id="menu-item-352" class="menu-item menu-item-type-taxonomy menu-item-352"><a href="http://itx.web.id/category/wordpress/plugin/">WordPress Plugins</a></li>
+</ul>
+</li>
+<li id="menu-item-345" class="menu-item menu-item-type-taxonomy menu-item-345"><a href="http://itx.web.id/category/english/">Bahasa Inggris</a></li>
+<li id="menu-item-346" class="menu-item menu-item-type-taxonomy menu-item-346"><a href="http://itx.web.id/category/indonesia/">Indonesia</a></li>
+<li id="menu-item-1359" class="menu-item menu-item-type-taxonomy menu-item-1359"><a href="http://itx.web.id/category/jawa/">Jawa</a></li>
+<li id="menu-item-348" class="menu-item menu-item-type-taxonomy menu-item-348"><a href="http://itx.web.id/category/jquery/">jQuery</a></li>
+<li id="menu-item-350" class="menu-item menu-item-type-taxonomy menu-item-350"><a href="http://itx.web.id/category/selingan/">Selingan</a></li>
+<li id="menu-item-353" class="menu-item menu-item-type-post_type menu-item-353"><a title="Lowongan Penulis Lepas / Freelance Writer" href="http://itx.web.id/lowongan-penulis/">Lowongan Penulis</a></li>
+</ul>		<ul id="links">
+		<li>
+		<a href="http://twitter.com/itx_" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/twitter.png" alt ="my twitter" title="Follow our twitter" />
+		</a></li>
+		
+		<li>
+		<a href="http://www.facebook.com/itxitx" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/facebook.png" alt ="my facebook" title="Follow our facebook" />
+		</a></li>
+		
+				<li><a href="http://itx.web.id/feed/">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/rss.png" alt="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita" title="Follow our RSS" />
+		</a></li>
+			</ul>
+	                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div id="on" class="sidebaron"></div><div id="off" class="sidebaroff"></div>
+<div class="clear"></div><div id="main" class="wrap">
+<div id="mainwrap">
+<div id="content">
+<div id="contentpad">
+<div id="contentwrap">
+    <div class="post-1182 post type-post hentry category-php tag-ajax tag-ajax-dan-php tag-simple-ajax-tab tag-tutorial-ajax-sederhana singlepost">
+        <div class="postwrap ui-widget-content">
+			<div class="titlewrap">
+				<div class='commentcount ui-state-hover'><span class="ui-icon ui-icon-comment"></span><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/#comments">5</a></div>												<h1 class="title">
+					<a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" rel="bookmark">Tutorial Membuat AJAX-Tab Sederhana dengan AJAX dan PHP</a>
+				</h1>
+								<div class="clear"></div>
+				<div class="meta ui-state-default">
+					<div class='date '>December 26, 2010</div>					<div class='author '>by <a href="http://itx.web.id/author/littleflow3r/" title="Posts by littleflow3r">littleflow3r</a></div>					<div class="clear"></div>
+				</div>
+				<small></small>
+			</div>
+			<div class="entry">
+			<!-- Chitika|Premium - WordPress Plugin --><div class="chitika-adspace above"><script type="text/javascript"><!--
+ch_client = "itx";
+ch_type = "mpu";
+ch_width = 500;
+ch_height = 250;
+ch_color_bg = "";
+ch_color_title = "";
+ch_color_site_link = "";
+ch_color_text = "";
+ch_non_contextual = 4;
+ch_vertical = "premium";
+ch_font_title = "";
+ch_font_text = "";
+ch_sid = "itx";
+var ch_queries = new Array( );
+var ch_selected=Math.floor((Math.random()*ch_queries.length));
+if ( ch_selected < ch_queries.length ) {
+ch_query = ch_queries[ch_selected];
+}
+//--></script>
+<script  src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript"></script></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Ftutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php%2F" style="margin:0px 0px 0px 0px;"></fb:like><div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/"></a></div>
+<p><strong>Studi Kasus </strong>: Membuat contoh aplikasi AJAX sederhana (Tab Ajax) dengan PHP</p>
+<p><strong>Kebutuhan</strong> : Webserver Package, already installed.</p>
+<p><strong>Step 1 : Membuat struktur folder kerja</strong></p>
+<ol>
+<li>Siapkan folder dengan nama <strong>simpleajax</strong> pada folder document root anda.</li>
+<li>Simpan file gif berikut ini pada folder simpleajax (simpan gambar dengan cara : klik pada gambar dan save as). Gambar ini akan digunakan sebagai loader animation, yaitu gambar yang akan ditampilkan ketika transaksi ajax sedang dilakukan.<br />
+<a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/attachment/flickr-loader/" rel="attachment wp-att-1183"><img src="http://itx.web.id/uploads/2010/12/flickr-loader.gif" alt="" width="24" height="12" class="aligncenter size-full wp-image-1183" /></a>
+</li>
+<li>Simpan semua file pada praktikum hari ini pada folder ini.</li>
+</ol>
+<p><strong>Step 2 : Membuat file Index</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;ajax.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h3&gt; Simple AJAX Tabs&lt;/h3&gt;
+&lt;div id=&quot;tabs&quot;&gt;
+&lt;a href=&quot;fallback1.php&quot; id=&quot;tab1&quot; class=&quot;tab&quot; onclick=&quot;return handleOnClick(1);&quot;&gt; News 1&lt;/a&gt;
+&lt;a href=&quot;fallback2.php&quot; id=&quot;tab2&quot; class=&quot;tab&quot; onclick=&quot;return handleOnClick(2);&quot;&gt;News 2&lt;/a&gt;
+&lt;/div&gt;
+&lt;br&gt;
+&lt;div id=&quot;content&quot;&gt;Klik pada tab untuk mengaktifkannya.&lt;/div&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</li>
+<li>Simpan dengan nama <strong>index.php</strong></li>
+<li>Penjelasan : Index.php adalah file utama dalam aplikasi ini. Bagian yang paling penting untuk implementasi Ajax adalah pada baris 9 &#8211; 14. Setiap  link pada  tab memiliki masing – masing sebuah atribut value href dan onclick event handler, seperti pada script dibawah,
+<pre class="brush: php; title: ; notranslate" title="">&lt;a href=&quot;fallback1.php&quot; id=&quot;tab1&quot; class=&quot;tab&quot; onclick=&quot;return handleOnClick(1);&quot;&gt; News 1&lt;/a&gt;</pre>
+<p>Pada kasus ini, AJAX diinisiasi ketika user mengaktifkan tab dengan meng-kliknya.</p>
+<p>Ketika transaksi AJAX berhasil dieksekusi = fungsi handleOnClick() mengembalikan nilai false sehingga akan membatalkan event klik. AJAX kemudian mengontrol proses update pada dokumen dan href tidak diikuti.<br />
+Ketika transaksi AJAX gagal (XMLHttpRequest objek tidak dapat diinstansiasi, dengan kata lain browser tidak support AJAX) = Fungsi handleOnClick mengembalikan nilai true dan href diikuti, menavigasi dokumen pada halaman dokumen baru (yaitu halaman fallback).</p>
+<p><strong>Kenapa aplikasi menyediakan masing-masing event handler onClick dan sebuah href URL untuk setiap tab?</strong></p>
+<p>Hal ini untuk mengatasi apabila browser dari device yang digunakan tidak mensupport AJAX. Jadi apabila device mensupport AJAX, transaksi AJAX untuk menampilkan berita akan dilakukan. Namun apabila tidak support, berita tetap ditampilkan tetapi dengan mengarahkannya pada halaman web baru (halaman fallback) berisi berita yang sama dari halaman yang dihasilkan oleh transaksi AJAX.</li>
+</ol>
+<p><strong>Step 3 : Membuat file ajax.js</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: jscript; title: ; notranslate" title="">
+var req = null;
+// Function to obtain an instance of XMLHttpRequest used in an AJAX request
+function getXHR() {
+if (window.XMLHttpRequest) {
+return new XMLHttpRequest();
+}
+else try {
+return new ActiveXObject('Msxml2.XMLHTTP');
+} catch(e) {
+try {
+return new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+} catch(e) {
+return null;
+}
+}
+}
+// Use AJAX to update the page content.
+// Returns true if the AJAX request succeeded, or false otherwise.
+function updateContent(url, id) {
+req = getXHR();
+if (req != null) {
+// Create a HTTP get request
+req.open('GET', url);
+// Anonymous callback function to handle state changes for the web request
+req.onreadystatechange = function() {
+// State &quot;4&quot; is response received.
+if (req.readyState == 4) {
+// Check for HTTP 200 - successful response from web server
+if (req.status == 200) {
+document.getElementById(id).innerHTML = req.responseText;
+} else {
+document.getElementById(id).innerHTML = 'Could not retrieve data.';
+}
+}
+// For all other states, show an animated gif indicating that content is loading
+else {
+document.getElementById(id).innerHTML = '&lt;img id=&quot;loading&quot; src=&quot;flickr-loader.gif&quot;/&gt;'; //result of download step 1
+}
+return false;
+}
+// Start the AJAX transaction
+req.send('');
+} else {
+return false;
+}
+return true;
+}
+// This is the onClick event handler for the tab links
+// index - the zero-based index of the tab that was clicked
+function handleOnClick(index) {
+// Construct the ID of the clicked tab
+var tabId = &quot;tab&quot; + index;
+// Update the style of the active tab.
+document.getElementById(tabId).setAttribute('class', 'activeTab');
+// Update the styles of the inactive tabs. This could also be achieved in a for loop.
+if (index != 1) {
+document.getElementById(&quot;tab&quot; + 1).setAttribute('class', 'tab');
+}
+if (index != 2) {
+document.getElementById(&quot;tab&quot; + 2).setAttribute('class', 'tab');
+}
+// Use AJAX to update the &quot;content&quot; div.
+// Construct the URL to use to retrieve the updated content
+var url = &quot;http://localhost/helloMobile/getNews&quot;+index+&quot;.php&quot;;
+// If the AJAX request succeeded, do not follow the original link
+if (updateContent(url, &quot;content&quot;)) {
+return false;
+}
+// If we are here, then the AJAX transaction failed.
+// Follow the link and load the static page.
+return true;
+}
+</pre>
+</li>
+<li>Simpan dengan nama ajax.js</li>
+<li>Penjelasan : Kunci utama dari AJAX adalah objek XMLHttpRequest. Objek tersebut terletak pada browser sehingga masing – masing browser memiliki cara tersendiri untuk membuat objek tersebut. Function getXHR() pada script ajax2.js diatas adalah fungsi untuk menciptakan instance dari XMLHttpRequest (XHR) yang akan digunakan pada AJAX (Catatan : untuk IE, mensupport ajax via ActiveX objects, bukan XHR).Function updateContent() merupakan fungsi yang akan mengupdate content dari tab via AJAX, fungsi ini akan mengembalikan nilai true apabila transaksi AJAX berhasil, dan false jika gagal.<br />
+Setelah itu fungsi akan menciptakan Http get request dan mengecek progress dari update dengan onreadystatechange event.<br />
+onreadystatechange event menjalankan 3 hal,<br />
+a.     Jika asynchronous web request sedang dalam progress, maka animasi loading akan ditampilkan.<br />
+b.    Jika AJAX request completed, maka body dari web response akan digunakan sebagai content dari elemen.<br />
+c.     Jika AJAX request terminate dengan sebuah eror, maka eror akan ditampilkan pada user, yaitu “Could not retrieve data”Transaksi AJAX menggunakan document.getElementById dan element.innerHTML untuk mengupdate bagian dinamis dari dokumen (dalam kasus ini adalah berita sebagai bagian dinamis dari mobile web).</p>
+<p>Function handleOnClick() merupakan fungsi event handler ketika tab di klik. Fungsi ini menggunakan parameter index, sesuai dengan index dari tab yang diklik oleh user. Fungsi ini akan mengupdate style dari tab (untuk membedakan tab yang aktif dan yang tidak aktif) dan mengupdate isi dari div content. Isi dari div content merupakan file berita sesuai dengan tab yang diklik user. Content ini didapat dari URL var url = &#8220;http://localhost/simpleajax/getNews&#8221;+index+&#8221;.php&#8221;;<br />
+Jadi script tersebut akan me-retrieve halaman dari getNews(index) dengan menggunakan AJAX, sesuai dengan index dari tab yang diklik oleh user.</li>
+</ol>
+<p><strong>Step 4 : Membuat file get News</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+sleep(2);
+echo &quot;News 1&quot;;
+echo &quot;Ini adalah isi berita 1&quot;;
+?&gt;
+</pre>
+</li>
+<li>Simpan dengan nama <strong>getNews1.php</strong></li>
+<li>Kemudian ketiikan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+sleep(2);
+echo &quot;News 2&quot;;
+echo &quot;Ini adalah isi berita 2&quot;;
+?&gt;
+</pre>
+</li>
+<li>Simpan dengan nama <strong>getNews2.php</strong></li>
+<li>Penjelasan : Dua file ini merupakan original link (yang dijalankan via AJAX) dari tab pertama dan kedua (tab berindex 1 dan 2). Jadi getNews1.php dan getNews2.php akan dijalankan apabila user meng-klik tab index 1 dan 2, serta browser yang digunakan mensupport AJAX.</li>
+</ol>
+<p><strong>Step 5 : Membuat file fallback</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;ajax.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h3&gt; Simple AJAX Tabs&lt;/h3&gt;
+&lt;div id=&quot;tabs&quot;&gt;
+&lt;a href=&quot;fallback1.php&quot; id=&quot;tab1&quot; class=&quot;tab&quot; onclick=&quot;return handleOnClick(1);&quot;&gt; News 1&lt;/a&gt;
+&lt;a href=&quot;fallback2.php&quot; id=&quot;tab2&quot; class=&quot;tab&quot; onclick=&quot;return handleOnClick(2);&quot;&gt;News 2&lt;/a&gt;
+&lt;/div&gt;
+&lt;div id=&quot;content&quot;&gt;
+&lt;?php echo &quot;News 1&quot;;
+echo &quot;Ini adalah isi berita 1&quot;;
+?&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</li>
+<li>Simpan dengan nama <strong>fallback1.php</strong></li>
+<li>Kemudian ketiikan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;ajax2.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;
+&lt;h3&gt; Simple AJAX Tabs&lt;/h3&gt;
+&lt;div id=&quot;tabs&quot;&gt;
+&lt;a href=&quot;fallback1.php&quot; id=&quot;tab1&quot; class=&quot;tab&quot; onclick=&quot;return handleOnClick(1);&quot;&gt; News 1&lt;/a&gt;
+&lt;a href=&quot;fallback2.php&quot; id=&quot;tab2&quot; class=&quot;tab&quot; onclick=&quot;return handleOnClick(2);&quot;&gt;News 2&lt;/a&gt;
+&lt;/div&gt;
+&lt;div id=&quot;content&quot;&gt;
+&lt;?php echo &quot;News 2&quot;;
+echo &quot;Ini adalah isi berita 2&quot;;
+?&gt;
+&lt;/div&gt;
+&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</li>
+<li>Simpan dengan nama <strong>fallback2.php</strong></li>
+<li>Penjelasan : File fallback1.php dan fallback2.php merupakan file webpage statis yang akan dijalankan apabila user meng-klik tab index 1 dan 2, serta browser yang digunakan TIDAK mensupport AJAX. Jadi berita tetap ditampilkan namun dengan cara yang berbeda (tidak menggunakan AJAX).</li>
+</ol>
+<p><strong>Step 6 : Testing Code</strong></p>
+<ol>
+<li>Pergi ke http://localhost/simpleajax/</li>
+<li>Maka file index.php akan ditampilkan, seperti gambar dibawah ini,<br />
+<a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/attachment/index-2/" rel="attachment wp-att-1185"><img src="http://itx.web.id/uploads/2010/12/index.png" alt="" width="248" height="105" class="aligncenter size-full wp-image-1185" /></a>
+</li>
+<li>Klik pada salah satu tab, maka jika browser anda support ajax, animasi loading akan ditampilkan. Lihat gambar dibawah.<br />
+<a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/attachment/load1/" rel="attachment wp-att-1186"><img src="http://itx.web.id/uploads/2010/12/load1.png" alt="" width="155" height="106" class="aligncenter size-full wp-image-1186" /></a>
+</li>
+<li>Setelah loading selesai, maka isi dari tab tersebut akan ditampilkan (dari getNews.php)<br />
+<a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/attachment/news1/" rel="attachment wp-att-1187"><img src="http://itx.web.id/uploads/2010/12/news1.png" alt="" width="192" height="105" class="aligncenter size-full wp-image-1187" /></a>
+</li>
+<li>Coba matikan ajax pada browser anda (dengan me-nonaktifkan javascript browser &#8211; untuk browser Firefox, caranya adalah dengan klik tools &#8211; options &#8211; content &#8211; hilangkan tanda centang pada activated javascript ). Lihat gambar dibawah.<br />
+<a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/attachment/fire/" rel="attachment wp-att-1188"><img src="http://itx.web.id/uploads/2010/12/fire.png" alt="" width="182" height="157" class="aligncenter size-full wp-image-1188" /></a>
+</li>
+<li>Coba lagi dengan mengklik salah satu tab.</li>
+<li>Maka berita akan ditampilkan tanpa animasi loading (without AJAX) dari file fallback.php</li>
+</ol>
+<p>Okay, silahkan berkreasi dengan AJAX <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />  Happy AJAX-ing <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /><br />
+Hal yang juga menarik:<br />
+<script>
+var sitti_pub_id = "BC0004948";
+var sitti_ad_width = "250";
+var sitti_ad_height = "250";
+var sitti_ad_type = "10";
+var sitti_ad_number = "3";
+var sitti_ad_name = "bawah post";
+var sitti_dep_id = "8111";
+</script><br />
+<script src="http://202.52.131.5/delivery/sittiad.b1.js"></script></p>
+<blockquote><h3>Hak Cipta</h3>
+<p>Semua skrip dan teknik dalam artikel di itx.web.id boleh digunakan sebagaimana kehendakmu tanpa perlu mencantumkan sumber. Kamu tidak boleh mengkopi seluruh artikel, dalam Bahasa Indonesia ataupun diterjemahkan ke dalam bahasa lain.
+</p></blockquote>
+<div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/"></a></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Ftutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php%2F" style="margin:0px 0px 0px 0px;"></fb:like><h4>Pencarian ke sini:</h4><div> <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="ajax adalah">ajax adalah</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="ajax tab">ajax tab</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="contoh ajax">contoh ajax</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="ajax">ajax</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="ajax php">ajax php</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="membuat tab di php">membuat tab di php</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="tab php">tab php</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="contoh ajax php">contoh ajax php</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="cara membuat ajax">cara membuat ajax</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="membuat tab dengan php">membuat tab dengan php</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="tab ajax">tab ajax</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="event pada php">event pada php</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="tab in php">tab in php</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="membuat tab pada halaman web">membuat tab pada halaman web</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="tab dengan ajax">tab dengan ajax</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="script membuat ajax load more">script membuat ajax load more</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="membuat tab dengan ajax">membuat tab dengan ajax</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="membuat ajax tab">membuat ajax tab</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="membuat web dengan ajax">membuat web dengan ajax</a>, <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" title="cara membuat web ajax">cara membuat web ajax</a>.</div><p>This post is also available in: <a href="http://en.itx.web.id/php-en/tutorial-to-create-simple-tabs-ajax-with-ajax-and-php/">English</a></p><div class='clear'></div><br><h3>Related Articles:</h3><ul id="related_posts_thumbnails"><li ><a href="http://itx.web.id/php/editor-php-gratisan-untuk-kita/" ><img alt="Editor PHP gratisan untuk kita:" src="http://itx.web.id/wp-content/plugins/related-posts-thumbnails/img/default.png" width="16" height="16" /></a><a href="http://itx.web.id/php/editor-php-gratisan-untuk-kita/"><span>Editor PHP gratisan untuk kita:</span></a></li><li ><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/" ><img alt="“Bermain” dengan Code Igniter FULL : Instalasi hingga Akses Database" src="http://itx.web.id/uploads/2010/10/code-igniter-logo-16x16.jpg" width="16" height="16" /></a><a href="http://itx.web.id/php/bermain-dengan-code-igniter-full-instalasi-hingga-akses-database/"><span>“Bermain” dengan Code Igniter FULL : Instalasi hingga Akses Database</span></a></li><li ><a href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/" ><img alt="Penggunaan Fungsi Date / Time pada PHP" src="http://itx.web.id/uploads/2010/11/addDate-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/"><span>Penggunaan Fungsi Date / Time pada PHP</span></a></li><li ><a href="http://en.itx.web.id/php-en/tutorial-to-create-simple-tabs-ajax-with-ajax-and-php/" ><img alt="Tutorial to Create Simple Tabs-AJAX with AJAX and PHP" src="http://itx.web.id/uploads/2010/12/load1-16x16.png" width="16" height="16" /></a><a href="http://en.itx.web.id/php-en/tutorial-to-create-simple-tabs-ajax-with-ajax-and-php/"><span>Tutorial to Create Simple Tabs-AJAX with AJAX and PHP</span></a></li><li ><a href="http://en.itx.web.id/php-en/tutorial-searching-data-with-php-and-mysql/" ><img alt="Tutorial Searching Data with PHP and Mysql" src="http://itx.web.id/uploads/2010/12/hasil1-16x16.png" width="16" height="16" /></a><a href="http://en.itx.web.id/php-en/tutorial-searching-data-with-php-and-mysql/"><span>Tutorial Searching Data with PHP and Mysql</span></a></li><li ><a href="http://itx.web.id/php/guestbook-sederhana-dengan-php-mysql/" ><img alt="GuestBook Sederhana dengan PHP &amp;amp; Mysql" src="http://itx.web.id/uploads/2011/01/formguestb-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/guestbook-sederhana-dengan-php-mysql/"><span>GuestBook Sederhana dengan PHP &amp;amp; Mysql</span></a></li></ul><div style="clear: both"></div>			</div>
+			<div class="clear"></div>
+            <div class="linkpages"></div>
+            <div class="clear"></div>
+                        <div class="footmeta">
+                <div class='categories '><span class="ui-icon ui-icon-folder-open"></span> : <a href="http://itx.web.id/category/php/" title="View all posts in PHP" rel="category tag">PHP</a></div><div class='tags '><span class="ui-icon ui-icon-tag"></span> : <a href="http://itx.web.id/tag/ajax/" rel="tag">ajax</a>, <a href="http://itx.web.id/tag/ajax-dan-php/" rel="tag">ajax dan php</a>, <a href="http://itx.web.id/tag/simple-ajax-tab/" rel="tag">simple ajax tab</a>, <a href="http://itx.web.id/tag/tutorial-ajax-sederhana/" rel="tag">tutorial ajax sederhana</a></div><div class='author_info '><h4>About the author</h4><img alt='' src='http://1.gravatar.com/avatar/1d76e024a2685e42d489efd861e08325?s=48&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' /><span>obviously, a girl. with sweet smile, off course. turning her 21 years trapped on Informatics departement and just started to having some crush with it lately. she uses wordpress. she loves php. she lo</span><div class="author_url"><a href="http://littleflow3r.wordpress.com/">littleflow3r.wordpress.com/</a></div><div class="clear"></div></div>            </div>
+                        <div class="clear"></div>
+        
+<div id="comments">
+    
+    
+    <div class="commentmeta ui-state-default ">
+	<h3 id="commentstitle"><b>5</b> Comments</h3>
+            </div>
+    <ul class="commentlist">
+				<li class="comment even thread-even depth-1 parent" id="comment-1313">
+				<div id="div-comment-1313" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/624f1ee5cf365e807d7f37eecdc39613?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://belalangtue.wordpress.com/' rel='external nofollow' class='openid_link url'>belalangtue</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/#comment-1313">
+			January 20, 2011 at 7:01 pm</a>		</div>
+
+		<p>makasih om,,mau nanya nih om,? klo bikin tampilan profil user gimana y om,?<br />
+seandainya gini,?</p>
+<p>kita dah buat form pendaftaran user,login n logoutnya,,disitu tersedia layanan public tanpa login, user harus login, admin udh pasti login,<br />
+kemuadian setiap user yg login akan tampil profilnya di halaman profil punya user itu sendiri,? itu gimana buatnya y om,? mohon pencerahannya y om,,,,,</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/?replytocom=1313#respond' onclick='return addComment.moveForm("div-comment-1313", "1313", "respond", "1182")'>Reply</a>		</div>
+				</div>
+		<ul class='children'>
+		<li class="comment odd alt depth-2" id="comment-1322">
+				<div id="div-comment-1322" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/de449bf1e362bc573e7b5f7c06462717?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://littleflow3r.wordpress.com/' rel='external nofollow' class='openid_link url'>littleflow3r</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/#comment-1322">
+			January 20, 2011 at 9:36 pm</a>		</div>
+
+		<p>coba cek posting ini (<a href="http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/" rel="nofollow">http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/</a>), tinggal di modif aja <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' class='wp-smiley' />  yg mirip kek gini gak yang kamu maksud?</p>
+<p>btw, the author is a girl <img src='http://itx.web.id/wp-includes/images/smilies/icon_sad.gif' alt=':(' class='wp-smiley' /> </p>
+
+		<div class="reply">
+				</div>
+				</div>
+		</li>
+</ul>
+</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-1563">
+				<div id="div-comment-1563" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/3a8a069e7f40d89a3c3f6d6e507ee074?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">herik</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/#comment-1563">
+			February 9, 2011 at 11:08 am</a>		</div>
+
+		<p> <img src='http://itx.web.id/wp-includes/images/smilies/heart.gif' alt='(heart)' class='wp-smiley' />  <img src='http://itx.web.id/wp-includes/images/smilies/heart_beat.gif' alt='(heart_beat)' class='wp-smiley' />  <img src='http://itx.web.id/wp-includes/images/smilies/doh.gif' alt='(doh)' class='wp-smiley' />  <img src='http://itx.web.id/wp-includes/images/smilies/angry.gif' alt='(angry)' class='wp-smiley' />  <img src='http://itx.web.id/wp-includes/images/smilies/annoyed.gif' alt='(annoyed)' class='wp-smiley' />  <img src='http://itx.web.id/wp-includes/images/smilies/applause.gif' alt='(applause)' class='wp-smiley' />  <img src='http://itx.web.id/wp-includes/images/smilies/banana-ninja.gif' alt='(banana_ninja)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/?replytocom=1563#respond' onclick='return addComment.moveForm("div-comment-1563", "1563", "respond", "1182")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-even depth-1" id="comment-3088">
+				<div id="div-comment-3088" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/86cd7fa5de210cee418fa635c97fdd28?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">ardhan</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/#comment-3088">
+			May 25, 2011 at 2:15 pm</a>		</div>
+
+		<p>mba, mw tanya, cara membuat skrip ajax yang akan me-retrieve data RSS dari CNN, gimana?</p>
+<p>mohon bantuannya.  <img src='http://itx.web.id/wp-includes/images/smilies/grin.gif' alt=':-D' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/?replytocom=3088#respond' onclick='return addComment.moveForm("div-comment-3088", "3088", "respond", "1182")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-odd thread-alt depth-1" id="comment-3812">
+				<div id="div-comment-3812" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/ce29c7082b05fb4584f84163fa8de942?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://www.hotdistro.com' rel='external nofollow' class='url'>Ahma Indraki</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/#comment-3812">
+			September 9, 2011 at 11:39 pm</a>		</div>
+
+		<p>Asyik nich inponya. tinggal edit2 biar lebih menarik.   <img src='http://itx.web.id/wp-includes/images/smilies/banana_cool.gif' alt='(banana_cool)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/?replytocom=3812#respond' onclick='return addComment.moveForm("div-comment-3812", "3812", "respond", "1182")'>Reply</a>		</div>
+				</div>
+		</li>
+    </ul>
+    
+    
+    
+
+<div class="clear"></div>
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://itx.web.id/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='1182' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="b2cefd9917" /></p>
+	<!-- Custom Smilies - Version 2.9.1 -->
+	<style type="text/css">
+	img.wp-smiley-select {cursor: pointer;}
+	</style>
+    <script type="text/javascript">
+    function grin(tag) {
+    	if (typeof tinyMCE != 'undefined') {
+    		grin_tinymcecomments(tag);
+    	} else {
+    		grin_plain(tag);
+    	}
+    }
+    function grin_tinymcecomments(tag) {
+    	tinyMCE.execCommand('mceInsertContent', false, ' ' + tag + ' ');
+    }
+    
+    function grin_plain(tag) {
+    	var myField;
+    	var myCommentTextarea = "comment";
+    	tag = ' ' + tag + ' ';
+        if (document.getElementById(myCommentTextarea) && document.getElementById(myCommentTextarea).type == 'textarea') {
+    		myField = document.getElementById(myCommentTextarea);
+    	} else {
+    		return false;
+    	}
+    	if (document.selection) {
+    		myField.focus();
+    		sel = document.selection.createRange();
+    		sel.text = tag;
+    		myField.focus();
+    	}
+    	else if (myField.selectionStart || myField.selectionStart == '0') {
+    		var startPos = myField.selectionStart;
+    		var endPos = myField.selectionEnd;
+    		var cursorPos = endPos;
+    		myField.value = myField.value.substring(0, startPos)
+    					  + tag
+    					  + myField.value.substring(endPos, myField.value.length);
+    		cursorPos += tag.length;
+    		myField.focus();
+    		myField.selectionStart = cursorPos;
+    		myField.selectionEnd = cursorPos;
+    	}
+    	else {
+    		myField.value += tag;
+    		myField.focus();
+    	}
+    }
+    
+    function moreSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'inline';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:lessSmilies()">&laquo;&nbsp;less</a></span>';
+    }
+    
+    function lessSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'none';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:moreSmilies()">more&nbsp;&raquo;</a>';
+    }
+    </script>
+<img src='http://itx.web.id/wp-includes/images/smilies/angry1.gif' alt='x(' onclick='grin("x(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/angry_002.gif' alt='X-(' onclick='grin("X-(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cool.gif' alt='B-)' onclick='grin("B-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/wink.gif' alt=';-)' onclick='grin(";-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_wink.gif' alt=':wink:' onclick='grin(":wink:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_twisted.gif' alt=':twisted:' onclick='grin(":twisted:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_rolleyes.gif' alt=':roll:' onclick='grin(":roll:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_redface.gif' alt=':oops:' onclick='grin(":oops:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_mrgreen.gif' alt=':mrgreen:' onclick='grin(":mrgreen:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_lol.gif' alt=':lol:' onclick='grin(":lol:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_idea.gif' alt=':idea:' onclick='grin(":idea:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_evil.gif' alt=':evil:' onclick='grin(":evil:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_cry.gif' alt=':cry:' onclick='grin(":cry:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_arrow.gif' alt=':arrow:' onclick='grin(":arrow:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' onclick='grin(":D")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_question.gif' alt=':?:' onclick='grin(":?:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_neutral.gif' alt=':-|' onclick='grin(":-|")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_mad.gif' alt=':-x' onclick='grin(":-x")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/surprised.gif' alt=':-o' onclick='grin(":-o")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tongue.gif' alt=':-P' onclick='grin(":-P")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/grin.gif' alt=':-D' onclick='grin(":-D")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_confused.gif' alt=':-?' onclick='grin(":-?")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/joyful.gif' alt=':-))' onclick='grin(":-))")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' onclick='grin(":-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/crying.gif' alt=':-(' onclick='grin(":-(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/sick.gif' alt=':-&' onclick='grin(":-&")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' onclick='grin(":)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_sad.gif' alt=':(' onclick='grin(":(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_exclaim.gif' alt=':!:' onclick='grin(":!:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_eek.gif' alt='8-O' onclick='grin("8-O")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/nerd.gif' alt='8-)' onclick='grin("8-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_cool.gif' alt='8)' onclick='grin("8)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/russian.gif' alt='(Русский)' onclick='grin("(Русский)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/yupi.gif' alt='(yahoo)' onclick='grin("(yahoo)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/worship.gif' alt='(worship)' onclick='grin("(worship)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/w00t.gif' alt='(woot)' onclick='grin("(woot)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bye.gif' alt='(wave)' onclick='grin("(wave)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/unsure_002.gif' alt='(unsure)' onclick='grin("(unsure)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tongue_002.gif' alt='(tongue)' onclick='grin("(tongue)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/thinking.gif' alt='(thinking)' onclick='grin("(thinking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tears.gif' alt='(tears)' onclick='grin("(tears)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/taser.gif' alt='(taser)' onclick='grin("(taser)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/smiley-dance.gif' alt='(smileydance)' onclick='grin("(smileydance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/sleeping.gif' alt='(sleeping)' onclick='grin("(sleeping)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fever.gif' alt='(sick)' onclick='grin("(sick)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/scenic.gif' alt='(scenic)' onclick='grin("(scenic)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lol.gif' alt='(rofl)' onclick='grin("(rofl)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/rock_n_roll.gif' alt='(rock)' onclick='grin("(rock)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/party.gif' alt='(party)' onclick='grin("(party)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/startled.gif' alt='(panic)' onclick='grin("(panic)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/unsure1.gif' alt='(okok)' onclick='grin("(okok)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/not_talking.gif' alt='(nottalking)' onclick='grin("(nottalking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/ninja.gif' alt='(ninja)' onclick='grin("(ninja)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/listening_music.gif' alt='(music)' onclick='grin("(music)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/muscle.gif' alt='(muscle)' onclick='grin("(muscle)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/muhaha.gif' alt='(muhaha)' onclick='grin("(muhaha)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/money.gif' alt='(money)' onclick='grin("(money)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/like_food.gif' alt='(mmm)' onclick='grin("(mmm)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lonely.gif' alt='(lonely)' onclick='grin("(lonely)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/laugh.gif' alt='(lol)' onclick='grin("(lol)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lmao.gif' alt='(lmao)' onclick='grin("(lmao)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/idiot.gif' alt='(idiot)' onclick='grin("(idiot)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/hungry.gif' alt='(hungry)' onclick='grin("(hungry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/wave.gif' alt='(highfive)' onclick='grin("(highfive)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/heart_beat.gif' alt='(heart_beat)' onclick='grin("(heart_beat)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/heart.gif' alt='(heart)' onclick='grin("(heart)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/headspin.gif' alt='(headspin)' onclick='grin("(headspin)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/silly_couple.gif' alt='(hassle)' onclick='grin("(hassle)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/haha.gif' alt='(haha)' onclick='grin("(haha)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/gym.gif' alt='(gym)' onclick='grin("(gym)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/gril_tongue.png' alt='(griltongue)' onclick='grin("(griltongue)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fingerscrossed.gif' alt='(goodluck)' onclick='grin("(goodluck)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/girl_kiss.gif' alt='(girlkiss)' onclick='grin("(girlkiss)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/dance_moves.gif' alt='(funkydance)' onclick='grin("(funkydance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fish-hit.gif' alt='(fish_hit)' onclick='grin("(fish_hit)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/eyeroll.gif' alt='(eyeroll)' onclick='grin("(eyeroll)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/evilsmirk.gif' alt='(evilsmirk)' onclick='grin("(evilsmirk)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/evil_grin.gif' alt='(evil_grin)' onclick='grin("(evil_grin)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/drinking.gif' alt='(drinking)' onclick='grin("(drinking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/doh.gif' alt='(doh)' onclick='grin("(doh)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/devil.gif' alt='(devil)' onclick='grin("(devil)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/dance.gif' alt='(dance)' onclick='grin("(dance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cry.gif' alt='(cry)' onclick='grin("(cry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cozy.gif' alt='(cozy)' onclick='grin("(cozy)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/coffee.gif' alt='(coffee)' onclick='grin("(coffee)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/broken_heart.gif' alt='(brokenheart)' onclick='grin("(brokenheart)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bring_it_on.gif' alt='(bringit)' onclick='grin("(bringit)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/blush.gif' alt='(blush)' onclick='grin("(blush)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/big_eyed.gif' alt='(bigeyes)' onclick='grin("(bigeyes)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/beer.gif' alt='(beer)' onclick='grin("(beer)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bananarock.gif' alt='(banana_rock)' onclick='grin("(banana_rock)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/banana-ninja.gif' alt='(banana_ninja)' onclick='grin("(banana_ninja)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/banana_cool.gif' alt='(banana_cool)' onclick='grin("(banana_cool)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/applause.gif' alt='(applause)' onclick='grin("(applause)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/annoyed.gif' alt='(annoyed)' onclick='grin("(annoyed)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/angry.gif' alt='(angry)' onclick='grin("(angry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/kiss.gif' alt='(K)' onclick='grin("(K)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tired.gif' alt='(:' onclick='grin("(:")' class='wp-smiley-select' /> 		<span id="openid_comment">
+			<label>
+				<input type="checkbox" id="login_with_openid" name="login_with_openid" checked="checked" />
+				Authenticate this comment using <span class="openid_link">OpenID</span>.			</label>
+		</span>
+		<script type="text/javascript">jQuery(function(){ add_openid_to_comment_form('http://itx.web.id/index.php', '30e3e98b04') })</script>
+        
+        <input type="hidden" name="icl_comment_language" value="id" />
+        
+          
+        					</form>
+							</div><!-- #respond -->
+						</div>        </div>
+	</div>
+	<div class="clear"></div>
+    <div class="clear"></div>
+    <div id="extrastuff">
+        			<span id="rssleft"><a href='http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/feed/'><abbr title="Really Simple Syndication">RSS</abbr> feed for this post (comments)</a></span>
+        			<span id="trackright"> &#183; <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a></span>
+        		<div class="clear"></div>
+    </div>
+
+</div>
+    <div class="nextprevious ui-state-active">
+        <div class="alignleft"><span>Previous Post</span><br />&laquo; <a href="http://itx.web.id/wordpress/plugin/membuat-menu-administrasi-kustom/" rel="prev">Membuat Menu Administrasi Kustom</a></div>
+        <div class="alignright"><span>Next Post</span><br /><a href="http://itx.web.id/wordpress/membuat-wordpress-kustom/" rel="next">Membuat WordPress Kustom</a> &raquo;</div>
+        <div class="clear"></div>
+    </div>
+</div>
+</div> <!--/content-->
+<div id="sidebar-left" class="sidebar"><div class='sidebar-1'><ul><li id="text-6" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget">Like <b>itx.web.id</b>? <br>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://itx.web.id" show_faces="true" width="150"></fb:like></div>
+		</div></li><li id="text-8" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget"><div>
+<a href="http://sambadafarm.com">Domba Garut</a>
+<br>	
+<a href="http://sambadafarm.com/produk/">Domba Kurban</a>
+<br>	
+<a href="http://agromaret.com/jual/33529/domba_kurban_qurban_wilayah_yogyakarta">Domba Kurban</a>
+<br>
+<a href="http://www.kaskus.us/showthread.php?t=11046165">Domba Kurban</a>
+</div></div>
+		</div></li><li id="search-3" class="widget left widget_search"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Search</h3><form method="get" action="http://itx.web.id/" id="searchform"><div id="searchformwrap">
+<div class="searchbox"><div class="scont">
+<input type="text" value="Search here ...." name="s" id="searchbox" onfocus="this.value=''"/>
+</div></div>
+<div class="searchopen"></div>
+<div class="searchclose"><button type="submit" class="submitbutton" value="search"></button></div>
+</div></form></div></li><li id="itx_tabbed_sidebar-3" class="widget left itx_tabbed_sidebar"><div class="widgetwrap  ">
+<script type="text/javascript">/* <![CDATA[ */
+jQuery(function () {
+    jQuery("#widget-itx_tabbed_sidebar-3-thetab").tabs({ event: "mouseover" });
+});
+/* ]]> */</script>
+	<div class="tabbed" id="widget-itx_tabbed_sidebar-3-thetab"><ul class="tabheader"><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab0">Hai</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab1">Posts</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab2">Comments</a></li></ul><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab0"><div>Inilah blog itx.... seorang yang suka pemrograman web khususnya PHP dan WordPress... jangan ragu tinggalkan pesan di sini ... :)
+<br>
+Sebagian besar artikel di sini <b>tidak</b> saya tulis, melainkan ditulis oleh teman-teman author (penulis lepas). Jadi kalo menyapa jangan salah alamat yaaa... lihat dulu siapa penulis artikel ybs.</div></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab1"><ul>	<li><a href='http://itx.web.id/wordpress/membuat-multi-user-dalam-cms-wordpress/' title='Membuat Multi-user dalam CMS WordPress'>Membuat Multi-user dalam CMS WordPress</a></li>
+	<li><a href='http://itx.web.id/php/fungsi-sorting-pengurutan-instan-dengan-php/' title='Fungsi Sorting (Pengurutan) Instan dengan PHP'>Fungsi Sorting (Pengurutan) Instan dengan PHP</a></li>
+	<li><a href='http://itx.web.id/wordpress/menginstall-tema-baru-dalam-cms-wordpress/' title='Menginstall Tema Baru dalam CMS WordPress'>Menginstall Tema Baru dalam CMS WordPress</a></li>
+	<li><a href='http://itx.web.id/wordpress/membuat-halaman-statis-page-dalam-wordpress-beginner-only/' title='Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)'>Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)</a></li>
+	<li><a href='http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/' title='Code Igniter : Export Data ke File PDF'>Code Igniter : Export Data ke File PDF</a></li>
+	<li><a href='http://itx.web.id/php/fungsi-fungsi-string-dalam-php/' title='Fungsi &#8211; Fungsi String dalam PHP'>Fungsi &#8211; Fungsi String dalam PHP</a></li>
+	<li><a href='http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/' title='Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI'>Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI</a></li>
+	<li><a href='http://itx.web.id/php/pembulatan-bilangan-dalam-php/' title='Pembulatan Bilangan dalam PHP'>Pembulatan Bilangan dalam PHP</a></li>
+	<li><a href='http://itx.web.id/wordpress/memasang-album-foto-flickr-dalam-wordpress/' title='Memasang Album Foto Flickr dalam WordPress'>Memasang Album Foto Flickr dalam WordPress</a></li>
+	<li><a href='http://itx.web.id/wordpress/memasukkan-gambar-dalam-postingan-wordpress-untuk-pemula/' title='Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)'>Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)</a></li>
+</ul></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab2"><ul><li class="recentcomments"><strong><a href='http://www.juust.org/index.php/2010/12/' rel='external nofollow' class='url'>wordpress search engine optimization by juust</a>: </strong><a href="http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/#comment-4189">Thanks for the auspicious writeup. It if truth be told was once a entertainment account it. Glance complex to far ...</a></li><li class="recentcomments"><strong>edy: </strong><a href="http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/#comment-4184">kenapa belum bisa ya? statement yang keluar seperti ini :
+
+Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource ...</a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4182">problem had been resolved... <img src='http://itx.web.id/wp-includes/images/smilies/dance.gif' alt='(dance)' class='wp-smiley' /> 
+ありがとうございますのマスタ―　arigatou gozaimasu no masutaa <img src='http://itx.web.id/wp-includes/images/smilies/yupi.gif' alt='(yahoo)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4181">kakang master kayanya udah cape ngeladenin orang2 di atas ya... <img src='http://itx.web.id/wp-includes/images/smilies/laugh.gif' alt='(lol)' class='wp-smiley' /> 
+sekedar bertanya, sukur2 dijawab... image kaga nampil nih kang.. ...</a></li><li class="recentcomments"><strong>lutfia: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4179">kok muncul error seperti ini ?
+"Cannot use object of type stdClass as array in C:\wamp\www\Intranet\application\libraries\cezpdf.php on line 695" </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4178">jaahh.....yg ane malah undefine index si picturenya.... aneh. <img src='http://itx.web.id/wp-includes/images/smilies/eyeroll.gif' alt='(eyeroll)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong><a href='http://oke-djiextray.blogspot.com' rel='external nofollow' class='url'>Djiextray</a>: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4177">wah thanks gan ... work .... walaupun dengan mgutak ngatik lagi... tadi sempat ga bisa.. terus di otak atik lagi ...</a></li><li class="recentcomments"><strong>agung: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4176">k.. gambarnya ga bisa nampil 
+muncul ini
+Warning: mysql_fetch_array() expects parameter 1 to be resource, boolean given in E:\Local\xampp\htdocs\coba\helloMobile\proses.php on line ...</a></li><li class="recentcomments"><strong>Eric Winslet: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4175">saat saya coba buka url ini
+
+http://localhost/www/CodeIgniter/index.php/member_con
+
+kug gini ya? salahnya apa ya?
+
+Deprecated: Assigning the return value of new by reference is ...</a></li><li class="recentcomments"><strong>dudiriadi: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4174">saya tertarik menjadi penulis, usernya dudiriadi </a></li><li class="recentcomments"><strong>iska: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4171">mas kta menulis topiknya PHP atau wordpres maksudnya gimana ya?  <img src='http://itx.web.id/wp-includes/images/smilies/wink.gif' alt=';-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong>nora: </strong><a href="http://itx.web.id/menggunakan-jasa-itx/#comment-4169">mas sy mau tanya bagaimana caranya membuat icon web jika thema sy tdk include dgn program utk membuat icon,,,, sy ...</a></li><li class="recentcomments"><strong><a href='http://tombolenter.blogspot.com/' rel='external nofollow' class='openid_link url'>kharisma</a>: </strong><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/#comment-4168">nice tutorial, keep sharing <img src='http://itx.web.id/wp-includes/images/smilies/drinking.gif' alt='(drinking)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>mentari: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4166">kak aaq tetarik mau jadi penulis part time, tapi musti punya blogspot ya?? <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong><a href='http://lailatoel.wordpress.com/2011/11/20/login-multi-user-php/' rel='external nofollow' class='url'>Login Multi User PHP | L41Latul</a>: </strong><a href="http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/#comment-4165">[...] Kalo mau artikel yang asli masuk aja ke http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/ [...] </a></li></ul></div></div></div></li><li id="wppp-3" class="widget left widget_wppp"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Postingan populer</h3>
+<ul class='wppp_list'>
+	<li><a href='http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/' title='Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql'>Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/membuat-form-combobox-dinamis-dari-database-mysql-dengan-php/' title='Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP'>Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP</a></li>
+	<li><a href='http://itx.web.id/php/form-input-tanggal-php-dengan-datetimepicker-jquery/' title='Form Input Tanggal PHP dengan Datetimepicker JQuery'>Form Input Tanggal PHP dengan Datetimepicker JQuery</a></li>
+	<li><a href='http://itx.web.id/php/tutorial-searching-pencarian-data-dengan-php-dan-mysql/' title='Tutorial Searching / Pencarian Data dengan PHP dan Mysql'>Tutorial Searching / Pencarian Data dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/editor-php-gratisan-untuk-kita/' title='Editor PHP gratisan untuk kita:'>Editor PHP gratisan untuk kita:</a></li>
+	<li><a href='http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/' title='Membuat Fungsi Update Data dalam Database dengan PHP Mysql'>Membuat Fungsi Update Data dalam Database dengan PHP Mysql</a></li>
+	<li><a href='http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/' title='Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami'>Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami</a></li>
+</ul>
+</div></li><li id="tag_cloud-4" class="widget left widget_tag_cloud"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Tags</h3><div><a href='http://itx.web.id/tag/ajax/' class='tag-link-15' title='4 topics' style='font-size: 14.3636363636pt;'>ajax</a>
+<a href='http://itx.web.id/tag/basic/' class='tag-link-48' title='4 topics' style='font-size: 14.3636363636pt;'>basic</a>
+<a href='http://itx.web.id/tag/cms-wordpress/' class='tag-link-72' title='3 topics' style='font-size: 12.7727272727pt;'>cms wordpress</a>
+<a href='http://itx.web.id/tag/codeigniter/' class='tag-link-66' title='6 topics' style='font-size: 16.75pt;'>codeigniter</a>
+<a href='http://itx.web.id/tag/codeigniter-export-to-excel/' class='tag-link-106' title='2 topics' style='font-size: 10.8636363636pt;'>codeigniter export to excel</a>
+<a href='http://itx.web.id/tag/date-function/' class='tag-link-81' title='2 topics' style='font-size: 10.8636363636pt;'>date function</a>
+<a href='http://itx.web.id/tag/device-recognition/' class='tag-link-91' title='2 topics' style='font-size: 10.8636363636pt;'>device recognition</a>
+<a href='http://itx.web.id/tag/effect/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>effect</a>
+<a href='http://itx.web.id/tag/fadeout/' class='tag-link-16' title='1 topic' style='font-size: 8pt;'>fadeout</a>
+<a href='http://itx.web.id/tag/form-validation/' class='tag-link-79' title='2 topics' style='font-size: 10.8636363636pt;'>form validation</a>
+<a href='http://itx.web.id/tag/free-wordpress-theme/' class='tag-link-23' title='3 topics' style='font-size: 12.7727272727pt;'>free wordpress theme</a>
+<a href='http://itx.web.id/tag/fun-mode/' class='tag-link-52' title='2 topics' style='font-size: 10.8636363636pt;'>fun mode</a>
+<a href='http://itx.web.id/tag/gpl/' class='tag-link-29' title='2 topics' style='font-size: 10.8636363636pt;'>GPL</a>
+<a href='http://itx.web.id/tag/javascript/' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>JavaScript</a>
+<a href='http://itx.web.id/tag/javascript-library/' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>JavaScript Library</a>
+<a href='http://itx.web.id/tag/jquery/' class='tag-link-13' title='2 topics' style='font-size: 10.8636363636pt;'>jQuery</a>
+<a href='http://itx.web.id/tag/jquery-ui/' class='tag-link-166' title='3 topics' style='font-size: 12.7727272727pt;'>jquery UI</a>
+<a href='http://itx.web.id/tag/kelirumologi/' class='tag-link-6' title='2 topics' style='font-size: 10.8636363636pt;'>kelirumologi</a>
+<a href='http://itx.web.id/tag/koneksi/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>koneksi</a>
+<a href='http://itx.web.id/tag/login-multi-user/' class='tag-link-75' title='2 topics' style='font-size: 10.8636363636pt;'>login multi user</a>
+<a href='http://itx.web.id/tag/mobile-programming/' class='tag-link-89' title='2 topics' style='font-size: 10.8636363636pt;'>mobile programming</a>
+<a href='http://itx.web.id/tag/multisite/' class='tag-link-33' title='3 topics' style='font-size: 12.7727272727pt;'>multisite</a>
+<a href='http://itx.web.id/tag/mysql/' class='tag-link-63' title='8 topics' style='font-size: 18.3409090909pt;'>mysql</a>
+<a href='http://itx.web.id/tag/mysql-to-excel/' class='tag-link-109' title='2 topics' style='font-size: 10.8636363636pt;'>mysql to excel</a>
+<a href='http://itx.web.id/tag/openid/' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>OpenID</a>
+<a href='http://itx.web.id/tag/pagination/' class='tag-link-101' title='2 topics' style='font-size: 10.8636363636pt;'>pagination</a>
+<a href='http://itx.web.id/tag/paging/' class='tag-link-103' title='2 topics' style='font-size: 10.8636363636pt;'>paging</a>
+<a href='http://itx.web.id/tag/parse-xml-with-php/' class='tag-link-156' title='2 topics' style='font-size: 10.8636363636pt;'>parse xml with php</a>
+<a href='http://itx.web.id/tag/personal-settings/' class='tag-link-50' title='2 topics' style='font-size: 10.8636363636pt;'>personal settings</a>
+<a href='http://itx.web.id/tag/php/' class='tag-link-10' title='14 topics' style='font-size: 22pt;'>PHP</a>
+<a href='http://itx.web.id/tag/php-string/' class='tag-link-213' title='2 topics' style='font-size: 10.8636363636pt;'>php string</a>
+<a href='http://itx.web.id/tag/post/' class='tag-link-168' title='2 topics' style='font-size: 10.8636363636pt;'>post</a>
+<a href='http://itx.web.id/tag/posting-code/' class='tag-link-115' title='2 topics' style='font-size: 10.8636363636pt;'>posting code</a>
+<a href='http://itx.web.id/tag/posting-sourcecode/' class='tag-link-116' title='2 topics' style='font-size: 10.8636363636pt;'>posting sourcecode</a>
+<a href='http://itx.web.id/tag/splitting-content/' class='tag-link-169' title='2 topics' style='font-size: 10.8636363636pt;'>splitting content</a>
+<a href='http://itx.web.id/tag/surprise-me/' class='tag-link-51' title='2 topics' style='font-size: 10.8636363636pt;'>surprise me</a>
+<a href='http://itx.web.id/tag/syntax-highlighter/' class='tag-link-117' title='2 topics' style='font-size: 10.8636363636pt;'>syntax highlighter</a>
+<a href='http://itx.web.id/tag/theme/' class='tag-link-31' title='3 topics' style='font-size: 12.7727272727pt;'>theme</a>
+<a href='http://itx.web.id/tag/users/' class='tag-link-49' title='2 topics' style='font-size: 10.8636363636pt;'>users</a>
+<a href='http://itx.web.id/tag/wordpress/' class='tag-link-11' title='3 topics' style='font-size: 12.7727272727pt;'>WordPress</a>
+<a href='http://itx.web.id/tag/wordpress-com/' class='tag-link-47' title='4 topics' style='font-size: 14.3636363636pt;'>wordpress.com</a>
+<a href='http://itx.web.id/tag/wordpress-mobile/' class='tag-link-188' title='2 topics' style='font-size: 10.8636363636pt;'>wordpress mobile</a>
+<a href='http://itx.web.id/tag/wordpress-plugin/' class='tag-link-39' title='2 topics' style='font-size: 10.8636363636pt;'>wordpress plugin</a>
+<a href='http://itx.web.id/tag/wordpress-theme/' class='tag-link-24' title='3 topics' style='font-size: 12.7727272727pt;'>wordpress theme</a>
+<a href='http://itx.web.id/tag/xml-to-mysql/' class='tag-link-154' title='2 topics' style='font-size: 10.8636363636pt;'>xml to mysql</a></div>
+</div></li></ul><div class="clear"></div></div></div><div id="sidebar-right" class="sidebar"><div class='sidebar-2'><ul><li id="language-selector" class="widget right icl_languages_selector"><div class="widgetwrap  ">		
+<div id="lang_sel_list">           
+            <ul>
+                                <li class="icl-en">          
+                    <a href="http://en.itx.web.id/php-en/tutorial-to-create-simple-tabs-ajax-with-ajax-and-php/" class="lang_sel_other">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" />&nbsp;                    
+                                        English                    </a>
+                </li>
+                                <li class="icl-id">          
+                    <a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" class="lang_sel_sel">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/id.png" alt="id" />&nbsp;                    
+                                        Indonesia                    </a>
+                </li>
+                            </ul>
+</div>
+</div></li><li id="text-2" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Theme Buatan itx</h3>			<div class="textwidget"><h4><a href="http://albizia.itx.web.id">
+Albizia Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/albizia" rel="nofollow">
+- Download Albizia
+</a></h4>
+<h4><a href="http://bombax.itx.web.id">
+Bombax Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/bombax" rel="nofollow">
+- Download Bombax
+</a></h4>
+<h4><a href="http://calotropis.itx.web.id">
+Calotropis Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/calotropis" rel="nofollow">
+- Download Calotropis 
+</a></h4></div>
+		</div></li><li id="text-3" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Plugin Buatan itx</h3>			<div class="textwidget"><h4><a href="http://itx.web.id/wordpress/plugins/exclude-plugins/">
+Exclude Plugins
+</a><br />
+<a href=" http://wordpress.org/extend/plugins/exclude-plugins/" rel="nofollow">
+- Download Exclude Plugins
+</a></h4></div>
+		</div></li><li id="text-4" class="widget right widget_text"><div class="widgetwrap  ">			<div class="textwidget">Jika memiliki pertanyaan tentang theme atau plugin buatan itx, silahkan menuju <a href="http://forum.itx.web.id">forum</a>.
+</div>
+		</div></li>												<li id="ask2link" class="widget right widget_ask2link"><div class="widgetwrap  "><!-- zz,b78dc8fc3eccc96c396b1312211272,1312211949 -->
+</div></li>		<li id="advanced_text-7" class="widget right advanced_text"><div class="widgetwrap  "><div class='AdvancedText'><br></div></div></li>
+						</ul><div class="clear"></div></div></div><div class="clear"></div>
+</div>
+</div> <!--/main-->
+<div id="footwrap">
+    <div id="footwrap2">
+    <div class="wrap">
+    <div id="footer" class="footer"><div class='footer-'></div></div>    <div class="clear"></div>
+    </div>
+	</div>
+	<div id="footerfoot">
+	<div class="wrap">
+		<div id="footerleft">
+		<a href="http://itx.web.id">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a>
+				</div><div id="footerright">
+<a href="http://themes.itx.web.id/bombax/"><strong>Bombax Theme</strong> designed by <strong>itx</itx></a></div></div></div></div><!-- bombax 1.3 -->
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.core.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.tabs.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.color.js?ver=2.0-4561m'></script>
+<script src="http://itx.web.id/wp-content/plugins/tweetmeme/button.js" type="text/javascript"></script><script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201148.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'12545473',v:'ext',post:'1182'});
+var load_cmc = function(){linktracker_init(12545473,1182,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0056)http://codeigniter.com/wiki/PDF_generation_using_dompdf/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta http-equiv="expires" content="-1">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta name="robots" content="all">
+	<meta name="description" content="CodeIgniter: an open source Web Application Framework that helps you write PHP programs">
+	<meta name="keywords" content="EllisLab CodeIgniter PHP CMS Content Management System software framework ">
+
+		<!-- Reverse Links from EllisLab network sites -->		
+	<link rev="expressionengine" href="http://expressionengine.com/" title="The most flexible publishing system you&#39;ll ever meet">
+
+	<link rev="ellislab" href="http://ellislab.com/" title="Where ideas hatch!">
+
+	<link rev="enginehosting" href="http://enginehosting.com/" title="High performance web hosting">
+	
+	<title>Wiki | CodeIgniter</title>
+	
+	<link rel="shortcut icon" href="http://static.codeigniter.com/design/favicon.ico" type="image/x-icon">
+	<link rel="home" href="http://codeigniter.com/" title="Home">
+
+	<link rel="stylesheet" href="./Wiki   CodeIgniter_files/saved_resource" type="text/css" media="screen, projection" charset="utf-8">
+	<link rel="stylesheet" href="./Wiki   CodeIgniter_files/support.css" type="text/css" media="screen, projection" charset="utf-8">
+		
+<style type="text/css" media="screen">
+	#createFindDialog {
+		width:				200px;
+		height:				76px;
+		padding-top:		6px;
+		background:			transparent url(http://static.codeigniter.com/themes/wiki_themes/support/images/bg_createfind.png) top left no-repeat;
+		position:			absolute;
+		margin-left:		5px;
+		margin-top:			-15px;
+		z-index:			10;
+		color:				#fff;
+		text-align:			center;
+		display:			none;
+	}
+	
+	#discussLink {
+		margin:					10px 0 0 0;
+		line-height:			15px;
+		text-indent:			20px;
+		background:				transparent url(http://static.expressionengine.com/design/wiki/discuss.gif) top left no-repeat;
+		float:					right;
+	}
+
+	#discussLink a:link, #discussLink a:visited {
+		text-decoration:		underline;
+	}
+
+	#discussLink a:hover {
+		text-decoration:		none;
+	}
+	
+	#article p {
+		margin: 6px 0px;
+	}
+	
+	.defaultBold {
+		font-weight:			bold;
+	}
+</style>
+
+
+<script type="text/javascript" src="./Wiki   CodeIgniter_files/jquery.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+ 
+ // toggles the slickbox on clicking the noted link 
+  $('a#createFindButton').click(function() {
+	if (document.getElementById('createFindDialog').style.display == 'block')
+	{
+		$('#createFindDialog').fadeOut('fast');
+	}
+	else
+	{
+		$('#createFindDialog').fadeIn('fast');
+		document.getElementById('createFindInput').focus();
+	}
+    return false;
+  });
+ 
+});
+
+function checkesc(e)
+{
+	var keyc = (window.event) ? event.keyCode : e.keyCode;
+	var esc = (window.event) ? 27 : e.DOM_VK_ESCAPE;
+	if (keyc == esc)
+	{
+		$('#createFindDialog').fadeOut('fast');
+	}
+}
+</script>
+
+	<meta name="MSSmartTagsPreventParsing" content="true">
+	<meta http-equiv="expires" content="-1">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta name="robots" content="all">
+	<meta name="description" content="CodeIgniter: an open source Web Application Framework that helps you write PHP programs">
+	<meta name="keywords" content="EllisLab CodeIgniter PHP CMS Content Management System software framework ">
+
+	<!-- Reverse Links from EllisLab network sites -->		
+<link rev="expressionengine" href="http://expressionengine.com/" title="The most flexible publishing system you&#39;ll ever meet">
+
+<link rev="ellislab" href="http://ellislab.com/" title="Where ideas hatch!">
+
+<link rev="enginehosting" href="http://enginehosting.com/" title="High performance web hosting">
+
+    <link rel="shortcut icon" href="http://static.codeigniter.com/design/favicon.ico" type="image/x-icon">
+
+<link rel="alternate" type="application/atom+xml" title="Wiki Recent Changes Atom feed" href="http://codeigniter.com/wikiSpecial:Recentchanges_Atom">
+<link rel="alternate" type="application/rss+xml" title="Wiki Recent Changes RSS feed" href="http://codeigniter.com/wikiSpecial:Recentchanges_RSS">
+</head>
+	<body>
+		<div id="supportMastHead">
+			<div class="viewport">
+		        <a href="http://ellislab.com/"><img src="./Wiki   CodeIgniter_files/ellislab_network.gif" width="287" height="23" alt="Part of the EllisLab Network"></a>
+			</div>
+		</div>
+
+		<div id="header">
+			<div class="viewport">
+				<div id="login">
+					
+			    			        <a href="http://codeigniter.com/forums/member/login/">Login</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://codeigniter.com/forums/member/register/">Register</a>
+			    
+				
+				</div>
+
+				<h1><a href="http://codeigniter.com/wiki" title="CodeIgniter Wiki"><img src="./Wiki   CodeIgniter_files/ci_logo.gif" width="160" height="73" alt="CodeIgniter Logo"></a></h1>
+			</div>
+		</div>
+		
+		<div id="subheader">
+			<div class="viewport">
+				<div id="searchBox">
+					<form method="post" action="http://codeigniter.com/wiki/Special:Search_results/">
+						<div><input type="hidden" name="XID" value="2be7a4f81a5bbfce23a35368af67686c59a7f21a"></div>
+						<input type="search" class="textfield" name="keywords" results="16" autosave="ee_wiki_search" placeholder="Search Wiki" title="Type your search keyword here please" value="" maxlength="80">
+						<input type="image" src="./Wiki   CodeIgniter_files/icon_search.png" class="search_button">
+					</form>
+				</div>
+
+
+
+				<div class="breadcrumb">
+					
+					<a href="http://codeigniter.com/">CodeIgniter</a>
+					<span class="breadcrumbspacer">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</span>
+					
+					<a href="http://codeigniter.com/wiki">Wiki</a>
+					<span class="breadcrumbspacer">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</span>
+
+										PDF generation using dompdf
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="content">
+
+			<div id="wikiNav">
+				<div id="createFindDialog">
+					<form id="createFindForm" method="post" action="http://codeigniter.com/wiki/Special:Find_page/">
+					<div><input type="hidden" name="XID" value="baab5fdb591e6bc63975b1b69c639448d47908ae"></div>
+					<div style="float:right;padding-right:15px;margin-top:-4px;"><a href="javascript:void(0);" onclick="$(&#39;#createFindDialog&#39;).fadeOut(&#39;fast&#39;);">x</a></div>
+					<label for="title" style="text-align:left;margin: 10px 0 6px 15px;display:block;"><strong>Page Title:</strong></label>
+					<input type="text" id="createFindInput" class="input" name="title" size="20" value="" maxlength="80" style="width:130px;" onkeyup="checkesc(event);return false;">
+					&nbsp;<input type="submit" class="submit" value="Go">
+
+					</form>
+				</div>
+				<a id="createFindButton"><img src="./Wiki   CodeIgniter_files/create_new_page.gif" width="211" height="40" alt="Create New Page"></a>
+				<ul>
+					<li class="current"><a href="http://codeigniter.com/wiki"><strong>Wiki Home</strong></a></li>
+					<li><a href="http://codeigniter.com/wiki/Special:Titles" title="List of Titles">All Pages</a></li>
+					<li><a href="http://codeigniter.com/wiki/Special:Uncategorized" title="Uncategorized Pages">Uncategorized Pages</a></li>
+					<li><a href="http://codeigniter.com/wiki/Special:Categories" title="Special:Categories">Categories</a></li>
+									<li><a href="http://codeigniter.com/wiki/Special:Recentchanges" title="Recent Changes Page">Recent Changes</a></li>
+					<li><a href="http://docs.expressionengine.com/modules/wiki/getting_started.html">Help</a></li>
+					<li><a href="http://codeigniter.com/wiki/Special:Associated_Pages/PDF_generation_using_dompdf/" title="What Links Here?">What Links Here?</a></li>				</ul>
+			</div>
+			
+			<div id="article">
+
+				<div id="articleInfo">
+																		&nbsp;<a href="http://codeigniter.com/wiki/PDF_generation_using_dompdf/history">View Previous Changes</a> &nbsp;&nbsp;
+					<span class="editInfo">( Last updated by Coccodrillo )</span>
+				</div>
+				
+									<div id="discussLink">
+						<form id="wiki_forum_talk_form" action="http://codeigniter.com/forums/viewthread/166687/" method="post" style="display:none;"><input type="hidden" name="wiki_page_info" value="{wiki_page_info}"></form>
+						<a href="javascript:void(0);" onclick="document.getElementById(&#39;wiki_forum_talk_form&#39;).submit();return false;">
+													Discuss Article (20 comments)
+												</a>
+					</div>
+				
+				<h2>
+
+				
+								
+								PDF generation using dompdf
+							
+				</h2>
+
+
+				
+				
+
+				<div id="articleBody">
+					
+					
+<p><a href="http://codeigniter.com/wiki/Category:Plugin::Data_Conversion" title="Category:Plugin::Data_Conversion">Category:Plugin -&gt; Data Conversion</a></p>
+
+<p>Well… its not so much of a helper as a “how-to”.&nbsp; I’ve needed to be able to generate PDFs on the fly for the application I’m building.&nbsp; I’ve played with <a href="http://www.fpdf.org/">FPDF</a> but found it the syntax to onerous to be practical (I want users to be able to control the look of their PDFs, and with FPDF they’d essentially need to learn a new language).&nbsp; So then I tried <a href="http://html2fpdf.sourceforge.net/">html2fpdf</a> to create them on the fly from HTML pages.&nbsp; I was very, very disappointed with its lack of support for simple HTML.&nbsp; I then found <a href="http://xhtml2pdf.mandragor.org/fr/index">xhtml2pdf</a> and <a href="http://user.it.uu.se/~jan/html2ps.html">html2ps</a>... same thing.&nbsp; Finally, I hit upon <a href="http://www.digitaljunkies.ca/dompdf/">dompdf</a>.&nbsp; EXCELLENT!&nbsp; Decent support for what I needed to do, and has decent (not great) support for many CSS styles and XHTML.</p>
+
+<p>So here’s how to implement it in your own project.<br>
+1) Get a copy from <a href="http://code.google.com/p/dompdf/">http://code.google.com/p/dompdf/</a></p>
+
+<p>2) Uncompress it.&nbsp; You’ll get a folder (I renamed it “dompdf”), and put the whole thing into your plugins folder, ie: /system/helpers/dompdf<br>
+3) Create the plugin.&nbsp; I’ve named it “dompdf_helper.php”</p><div class="codeblock"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php&nbsp;</span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'BASEPATH'</span><span style="color: #007700">))&nbsp;exit(</span><span style="color: #DD0000">'No&nbsp;direct&nbsp;script&nbsp;access&nbsp;allowed'</span><span style="color: #007700">);<br>function&nbsp;</span><span style="color: #0000BB">pdf_create</span><span style="color: #007700">(</span><span style="color: #0000BB">$html</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$filename</span><span style="color: #007700">=</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$stream</span><span style="color: #007700">=</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">)&nbsp;<br></span><span style="color: #0000BB">{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">require_once(</span><span style="color: #DD0000">"dompdf/dompdf_config.inc.php"</span><span style="color: #007700">);<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dompdf&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DOMPDF</span><span style="color: #007700">();<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dompdf</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load_html</span><span style="color: #007700">(</span><span style="color: #0000BB">$html</span><span style="color: #007700">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$dompdf</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">render</span><span style="color: #007700">();<br>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</span><span style="color: #0000BB">$stream</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$dompdf</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">stream</span><span style="color: #007700">(</span><span style="color: #0000BB">$filename</span><span style="color: #007700">.</span><span style="color: #DD0000">".pdf"</span><span style="color: #007700">);<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">}&nbsp;</span><span style="color: #007700">else&nbsp;</span><span style="color: #0000BB">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">$dompdf</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">output</span><span style="color: #007700">();<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">}<br>}<br>?&gt;&nbsp;</span>
+</span>
+</code></div>
+<p>4) use it in your controllers like this</p><div class="codeblock"><code><span style="color: #000000">
+<span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">pdf</span><span style="color: #007700">()<br></span><span style="color: #0000BB">{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">helper</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'dompdf'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'file'</span><span style="color: #007700">));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;page&nbsp;info&nbsp;here,&nbsp;db&nbsp;calls,&nbsp;etc.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$html&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">view</span><span style="color: #007700">(</span><span style="color: #DD0000">'controller/viewfile'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">true</span><span style="color: #007700">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">pdf_create</span><span style="color: #007700">(</span><span style="color: #0000BB">$html</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'filename'</span><span style="color: #007700">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$data&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">pdf_create</span><span style="color: #007700">(</span><span style="color: #0000BB">$html</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">write_file(</span><span style="color: #DD0000">'name'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$data)</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//if&nbsp;you&nbsp;want&nbsp;to&nbsp;write&nbsp;it&nbsp;to&nbsp;disk&nbsp;and/or&nbsp;send&nbsp;it&nbsp;as&nbsp;an&nbsp;attachment&nbsp;&nbsp;&nbsp;&nbsp;<br></span><span style="color: #0000BB">}&nbsp;</span>
+</span>
+</code></div>
+<p><i>A few notes:</i><br>
+- It is PHP 5 only.&nbsp; Sorry, I know that goes against what CI is doing here… but the level of support for CSS in the other projects wasn’t acceptable for my app<br>
+- You might find that there is limited or no support for a specific CSS style you want (ie: floating) and you’ll need to work around with old-school tables.&nbsp; Ugh &lt;shutter&gt;..... Sorry for that…<br>
+- I in no way can claim credit for writing this fine code.&nbsp; dompdf was released under an lgpl license, and you’ll obviously need to respect that in your apps if you choose to use it.</p>
+
+<p>Based on my forum post at <a href="http://www.codeigniter.com/forums/viewthread/45118/">http://www.codeigniter.com/forums/viewthread/45118/</a></p>
+
+
+
+<p><i>Another small note: </i></p><div class="codeblock"><code><span style="color: #000000">
+<span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">load</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">helper</span><span style="color: #007700">(</span><span style="color: #DD0000">'file'</span><span style="color: #007700">);&nbsp;</span>
+</span>
+</code></div>
+<p>needed if you use</p><div class="codeblock"><code><span style="color: #000000">
+<span style="color: #0000BB">write_file()&nbsp;</span>
+</span>
+</code></div><p> above.</p>
+
+<h3>Related</h3>
+<p>- <a href="http://codeigniter.com/news/codeigniter_community_voice_generating_pdf_files_using_codeigniter/">Generating PDF files using CodeIgniter</a> by Chris Monnat from CodeIgniter Community Voice</p>
+
+<!-- BEGIN 'Category' Namespace Stuff -->
+
+
+<!-- END 'Category' Namespace Stuff -->
+
+
+<!-- BEGIN Categories for Page -->
+
+				<div id="categories">
+			<h3>Categories:</h3>
+			<ul id="nav_categories">
+	<li><a href="http://codeigniter.com/wiki/Category:Plugin">Plugin</a>	<ul>
+		<li><a href="http://codeigniter.com/wiki/Category:Plugin::Data_Conversion">Data Conversion</a></li>
+	</ul>
+	</li>
+</ul>
+
+		</div>
+		
+<!-- END Categories for Page -->
+
+	
+				</div>
+				
+									<div id="discussLink">
+						<form id="wiki_forum_talk_form" action="http://codeigniter.com/forums/viewthread/166687/" method="post" style="display:none;"><input type="hidden" name="wiki_page_info" value="{wiki_page_info}"></form>
+						<a href="javascript:void(0);" onclick="document.getElementById(&#39;wiki_forum_talk_form&#39;).submit();return false;">
+													Discuss Article (20 comments)
+												</a>
+					</div>
+				
+			</div>
+		
+			<div class="clear"></div>
+
+		</div>
+
+		<div id="supportFooter">
+			<div class="viewport">
+				<div class="copyright">
+					Powered By ExpressionEngine<br>
+					ExpressionEngine Wiki - Version 2.3<br>
+					Script Executed in 0.2284 seconds
+				</div>
+			</div>
+		</div>
+
+	
+
+	</body></html>

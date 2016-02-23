@@ -1,0 +1,5 @@
+Primitive
+String, Number , boolean
+
+
+Object, Array

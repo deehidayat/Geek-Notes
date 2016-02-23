@@ -1,0 +1,144 @@
+Creating Word Documents on the Fly
+Khairul Amri Yunus
+Introduction
+
+Printing HTML pages directly from browsers usually does not give the best printing output, compared to output from word processors such as Microsoft Word. For web-based systems that generate letters, reports and documents, an output that looks authentic and original is very important. Furthermore, printing output directly from browsers is usually dependant on the browser's configuration. Therefore web-based applications may face difficulties in giving the best printing output especially when dealing with large user base.
+This article provides a guideline on how to generate documents and letters in MS Word format using a pre-defined template. My customer (a government agency) required for Reminder Letters to be generated automatically in MS Word format from the Loan Management System that I delivered to them. Using this approach, they can generate a Reminder Letter for each loan which then can be printed nicely and saved for future reference.
+This solution can be accomplished using COM extension. Please note that the server running this code MUST have MS Word installed.
+Overview
+
+Lets start with the big picture. This is how it works:
+First, we need to prepare a MS Word document (*.doc) that contains the sample output. The content of the Reminder Letter is normally the same, except for, in each case we need to put the Applicant Name, Loan Reference Number and Today's date in the letter to be generated.
+In this MS Word template document, we need to define places where PHP should insert the actual value (such as one pulled from database or evaluated from code). This can be done using the "Bookmark" feature in MS Word documents.
+Our PHP code will substitute the Bookmark with the actual value.
+And finally, we save it as a new document.
+Preparing the MS Word Template
+This step is actually simple, all we need is a MS Word document (*.doc) that contains the sample output and Bookmarks.
+To create a Bookmark in a MS Word document, click on Insert/Bookmark. You can highlight a word or sentence and make them a Bookmark. In this code, we will substitute the Bookmark with the actual value, therefore the word you highlighted and saved as a Bookmark will be substituted.
+A Bookmark name can only contain letters, numbers and underscores. To see all of bookmarks in the document, click on Tools/Options and check Bookmarks under Show group in the View tab.
+The code we use in the next section just substitutes a specified bookmark with text, therefore the formatting, images, tables and etc will not be lost.
+
+
+
+The following code opens the specified MS Word template document, substitutes the value and saves it as a new file. We defined a Bookmark named "TODAYDATE" in the document, which will be replaced with today's date.
+
+<?php
+//1. Instanciate Word
+$word = new COM("word.application") or die("Unable to instantiate Word");
+//2. specify the MS Word template document (with Bookmark TODAYDATE inside)
+$template_file = "C:/reminder.doc";
+//3. open the template document
+$word->Documents->Open($template_file);
+//4. get the current date MM/DD/YYYY
+$current_date = date("m/d/Y");
+//5. get the bookmark and create a new MS Word Range (to enable text substitution)
+$bookmarkname = "TODAYDATE";
+$objBookmark = $word->ActiveDocument->Bookmarks($bookmarkname);
+$range = $objBookmark->Range;
+//6. now substitute the bookmark with actual value
+$range->Text = $current_date;
+//7. save the template as a new document (c:/reminder_new.doc)
+$new_file = "c:/reminder_new.doc";
+$word->Documents[1]->SaveAs($new_file);
+//8. free the object
+$word->Quit();
+$word->Release();
+$word = null;
+?>
+That's it. Open the new document (c:/reminder_new.doc) and you will see today's date at the bookmark's location.
+Initially we instantiated the Word object using this code:
+
+<?php
+$word = new COM("word.application") or die("Unable to instanciate Word");
+?>
+Then we specified the template document that contains the sample output and the Bookmark TODAYDATE:
+
+<?php
+$template_file = "C:/reminder.doc";
+?>
+Next we opened the document:
+
+<?php
+$word->Documents->Open($template_file);
+?>
+Then we got today's date using date() function. The Bookmark TODAYDATE will be replaced with this value:
+
+<?php
+$current_date = date("m/d/Y");
+?>
+Next we found the Bookmark in the document and created a new MS Word Range. Range is used to perform text substitution or insertion.
+
+<?php
+$bookmarkname = "TODAYDATE";
+$objBookmark = $word->ActiveDocument->Bookmarks($bookmarkname);
+$range = $objBookmark->Range;
+?>
+Then we substituted the bookmark with actual value:
+
+<?php
+$range->Text = $current_date;
+?>
+Saved the template as a new document (c:/reminder_new.doc)
+
+<?php
+$new_file = "c:/reminder_new.doc";
+$word->Documents[1]->SaveAs($new_file);
+?>
+Finally, we free the object:
+
+<?php
+$word->Quit();
+$word->Release();
+$word = null;
+?>
+
+
+
+The above code will return an error if the specified bookmark is not found in the document. To check whether the bookmark exists in the template document, use this:
+
+<?php
+if($word->ActiveDocument->Bookmarks->Exists($bookmarkname)) 
+{
+    //then create a Range and perform the substitution<br>
+    $objBookmark = $word->ActiveDocument->Bookmarks($bookmarkname);
+    $range = $objBookmark->Range;
+    //now substitute the bookmark with actual value
+    $range->Text = $current_date;
+
+}
+?>
+The approach above replaces Bookmarks with the actual value, therefore the word highlighted and defined as the bookmark will be deleted. If you want to insert text before the bookmark, use the following:
+
+<?php
+$range->InsertBefore("Today's date is: ");
+?>
+Alternatively, to insert text after the bookmark, use this:
+
+<?php
+$range->InsertAfter("Have a nice day!");
+?>
+To select all of the text within the template document, use the following:
+
+<?php
+$pagecontent = $word->ActiveDocument->Content->Text;
+?>
+To automatically load the document, use header functions (add this to the end of the PHP file):
+
+<?php
+header('Content-Type: application/msword');
+header("Content-Disposition: attachment; filename=\"Reminder New.doc\"");
+readfile($new_file);
+?>
+Alternatively, to prompt Open/Save dialog box, use:
+
+<?php
+header('Content-Type: application/msword');
+header("Content-Disposition: attachment; filename=\"Reminder New.doc\"");
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+readfile($new_file);
+?>
+Note that the above two examples may not work on certain browsers and/or versions.
+You may want to terminate/kill WINWORD.EXE instance if the code triggers an error or terminates unexpectedly. Run Windows Task Manager and end WINWORD.EXE instance.
+That's it. Feel free to share your thoughts and improved versions of the above code.
+Khairul Amri Yunus
+Kometsoft (M) Sdn. Bhd.

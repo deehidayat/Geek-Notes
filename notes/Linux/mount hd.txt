@@ -1,0 +1,32 @@
+Auto mount hard drive di Ubuntu Jaunty
+May 23rd, 2009 -- aditya.perdana
+
+Sebenarnya cuman iseng untuk memounting secara otomatis partisi dimana aku biasa menyimpan data. Karena Ubuntu Jaunty yang aku pakai tidak memountnya secara otomatis ketika booting... jadi apa-apa yang aku ambil dari partisi lain tersebut. seperti wallpaper yang tidak bisa muncul kembali ketika komputer boot ulang dan lagu-lagu dalam amarok yang tidak terload secara otomatis ketika menjalankan amaroknya :( .
+
+Untuk itu aku perlu melakukan konfigurasi sedikit pada file /etc/fstab agar  partisi yang aku maksut dapat termounting secara otomatis ketika komputer booting. Misalkan partisi yang akan aku mounting secara otomatis tersebut berada pada alamat /dev/sda3 dengan file sistem vfat maka konfigurasi pada file /etc/fstab-nya aku buat seperti ini :
+
+sudo fdisk -l
+/dev/sda3    /media/data    vfat    auto,users,uid=1000,gid=1000,utf8,dmask=027,fmask=137    0    0
+
+Penjelasan dari Option-option yang aku gunakan aku reference dari artikel how to fstab :
+
+auto = mounted at boot
+noauto = not mounted at boot
+
+user = when mounted the mount point is owned by the user who mounted the partition
+users = when mounted the mount point is owned by the user who mounted the partition and the group users
+
+ro= read only rw = read/write
+
+VFAT/NTFS :
+
+uid = Sets owner. Syntax: may use user_name or user ID #.
+gid = sets group ownership of mount point. Again may use group_name or GID #.
+
+umask can be used to set permissions if you wish to change the default.
+Syntax is "odd" at first.
+To set a permissions of 777, umask=000
+To set permissions of 700, umask=077
+Best is to set directories with executable permissions and file with read write. To do this, use fmask and dmask (rather then umask):
+dmask = 027
+fmask = 137

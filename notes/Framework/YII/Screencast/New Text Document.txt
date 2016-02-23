@@ -1,0 +1,5 @@
+yiic webapp nama_web
+
+config main gii password -> cntroller
+
+create database - tbl_message - model generator - crud G -> view && cntroller

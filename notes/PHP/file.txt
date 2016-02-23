@@ -1,0 +1,5 @@
+
+$myFile = "testFile.txt";
+$fh = fopen($myFile, 'w') or die("can't open file");	
+fwrite($fh,addslashes($query));
+fclose($fh);

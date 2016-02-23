@@ -1,0 +1,21 @@
+Drush ( a Drupal command line tool)
+- composer drush/drush
+- chmod u+x /path/to/drush/drush && ln -s /path/to/drush/drush /usr/bin/drush 
+
+drush dl drupal
+drush si -y --db-url=mysql://root:root@localhost/namadb
+
+Doxygen-style (/** */)
+theming layer theme() -> item_list, image_style
+module_list() : Mengambil semua nama module
+
+l() url() base_path()
+
+global $user;
+debug($user);
+
+dsm($user); //devel module DRUPAL SET MESSAGE
+kpr($user); // KRUMO PRINT RECORDSET
+krumo($user)
+
+apabila setelah pindah server tidak bisa login coba untuk login dg parameter ?q=user, apabila bisa berarti mod_rewrite di apache blum di enable, 

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+<title>The Use of Date/Time Function in PHP</title>
+
+<link rel="stylesheet" href="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector.css?v=2.0.4.1" type="text/css" media="all" />
+<link rel="alternate" type="application/rss+xml" title="Machine Language :: Human Language :: Our Language latest post RSS" href="http://itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Machine Language :: Human Language :: Our Language latest comment RSS" href="http://itx.web.id/comments/feed/" />
+<link rel="pingback" href="http://itx.web.id/xmlrpc.php" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie6.css">
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie7.css">
+<![endif]-->
+<link rel="stylesheet" href="http://itx.web.id/wp-content/themes/bombax/style.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Machine Language :: Human Language :: Our Language &raquo; Feed" href="http://en.itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Machine Language :: Human Language :: Our Language &raquo; Comments Feed" href="http://en.itx.web.id/comments/feed/" />
+<meta name="description" content="Others that might interesting too: Copyright All scripts and techniques demonstrated on itx.web.id can be used in whatever manner you wish without attribution..." />
+<link rel="alternate" type="application/rss+xml" title="Machine Language :: Human Language :: Our Language &raquo; The Use of Date/Time Function in PHP Comments Feed" href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/feed/" />
+<meta name="keywords" content="date function, date time function, PHP" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<link rel="canonical" href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/" />
+<link rel='stylesheet' id='openid-css'  href='http://itx.web.id/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all' />
+<link rel='stylesheet' id='itx-css'  href='http://en.itx.web.id/?itx=css&#038;ver=3.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='http://itx.web.id/wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/openid/f/openid.js?ver=519'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<script type='text/javascript' src='http://en.itx.web.id/?itx=js&#038;ver=3.0.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://itx.web.id/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://itx.web.id/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Machine Language :: Human Language :: Our Language' href='http://en.itx.web.id/' />
+<link rel='start' title='Postingan pertama kita:' href='http://itx.web.id/selingan/postingan-pertama-kita/' />
+<link rel='prev' title='Form Validation on CodeIgniter' href='http://en.itx.web.id/php-en/form-validation-on-codeigniter/' />
+<link rel='next' title='Fixing and Optimizing WordPress Database' href='http://en.itx.web.id/wp/fixing-and-optimizing-wordpress-database/' />
+<meta name="generator" content="WordPress 3.0.3" />
+<link rel='shortlink' href='http://wp.me/pQDEl-fo' />
+<meta name="framework" content="Alkivia Framework 0.8" />
+<!-- WALL= --><script type="text/javascript">
+function limitChars(textid, limit, infodiv)
+{
+	var text = jQuery('#'+textid).val();	
+	var textlength = text.length;
+	if(textlength > limit)
+	{
+		jQuery('#' + infodiv).html('You cannot write more then '+limit+' characters!');
+		jQuery('#'+textid).val(text.substr(0,limit));
+		return false;
+	}
+	else
+	{
+		jQuery('#' + infodiv).html('You have '+ (limit - textlength) +' characters left.');
+		return true;
+	}
+}
+function displayVals() {
+      var t3 = jQuery("#t3").val();
+      var amount = jQuery("#amount").val();
+      if(t3 != 0){
+	    jQuery('#a3').val(amount);
+	    jQuery('#p3').val(1);
+		jQuery('#cmd').val('_xclick-subscriptions')
+	  }else{
+	  	jQuery('#a3').val(0);
+	  	jQuery('#p3').val(0);
+	  	jQuery('#cmd').val('_donations');
+	  }
+	  if( !t3 ) jQuery('#cmd').val('_donations');
+	  
+}
+
+jQuery(function(){
+ 	jQuery('#donor_comment').keyup(function(){
+ 		limitChars('donor_comment', 199, 'charinfo');
+ 	})
+
+ 	jQuery("#amount").change(displayVals);
+ 	jQuery("#t3").change(displayVals);
+ 	displayVals();
+ 	
+ 	var WallOps1 = '<p class="show_onwall" id="wallops"><input type="hidden" name="item_number" value="0:0" /></p>';
+ 	var WallOps2 = '<p class="show_onwall" id="wallops"><label for="show_onwall">Show on Wall:</label><br /><select name="item_number"><option value="1:0">Donation Amount, User Details &amp; Comments</option><option value="2:0">User Details &amp; Comments Only</option></select></p>';
+
+ 	if( jQuery('#recognize').is(':checked') == false){ 
+ 		jQuery('#wallinfo').hide();
+ 		jQuery("#wallops").html(WallOps1);
+ 	}
+ 	
+ 	jQuery("#recognize").click(function(){
+ 		jQuery("#wallinfo").toggle('slow');
+ 		if(jQuery('#wallops input').val() == '0:0'){ 
+ 			jQuery("#wallops").html(WallOps2);
+ 		}else{
+ 			jQuery("#wallops").html(WallOps1);
+ 		}
+ 	})
+ 	
+		
+});
+
+</script>
+        <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '113869198637480', status: true, cookie: true, xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<script type="text/javascript">var icl_lang = 'en';var icl_home = 'http://en.itx.web.id/';</script>
+<script type="text/javascript" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js"></script>
+<meta name="generator" content="WPML ver:2.0.4.1 stt:1,25;0;0;0" />
+<meta name="tweetmeme-title" content="The Use of Date/Time Function in PHP" /><meta http-equiv="X-XRDS-Location" content="http://en.itx.web.id/?xrds" />
+<meta http-equiv="X-Yadis-Location" content="http://en.itx.web.id/?xrds" />
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3" />
+<!-- Google Analytics Tracking by Google Analyticator 6.2: http://ronaldheft.com/code/analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2930741-12']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+<body class="single single-post postid-954">
+    <div class="wrap">
+        <div id="top-menu">
+            <ul id="menu-atas-en" class="sf-menu top-menu"><li id="menu-item-1971" class="menu-item menu-item-type-custom menu-item-1971"><a href="http://itx.web.id/">Home</a></li>
+<li id="menu-item-1970" class="menu-item menu-item-type-post_type menu-item-1970"><a href="http://en.itx.web.id/hire-me/">Hire me</a></li>
+</ul>        </div>
+    </div>
+    
+        <div id="headerwrap"><div class="clear"></div>
+        <div id="header" class="wrap"><div class="header"><a href="http://en.itx.web.id/">Machine Language :: Human Language :: Our Language</a></div><span class="tagline">not to hate, not to blame, but to understand</span>
+        </div>
+        </div>    <div id="menucont" class="ui-widget-header">
+        <div class="wrap">
+            <div id="menu">
+                <ul id="menu-standar" class="sf-menu"><li id="menu-item-349" class="menu-item menu-item-type-taxonomy menu-item-349"><a href="http://en.itx.web.id/category/php-en/">PHP</a></li>
+<li id="menu-item-351" class="menu-item menu-item-type-taxonomy menu-item-351"><a href="http://en.itx.web.id/category/wp/">WordPress</a>
+<ul class="sub-menu">
+	<li id="menu-item-352" class="menu-item menu-item-type-taxonomy menu-item-352"><a href="http://en.itx.web.id/category/wp/plugins/">WordPress Plugins</a></li>
+</ul>
+</li>
+<li id="menu-item-345" class="menu-item menu-item-type-taxonomy menu-item-345"><a href="http://en.itx.web.id/category/language/">English</a></li>
+<li id="menu-item-346" class="menu-item menu-item-type-taxonomy menu-item-346"><a href="http://en.itx.web.id/category/bahasa/">Bahasa Indonesia</a></li>
+<li id="menu-item-1359" class="menu-item menu-item-type-taxonomy menu-item-1359"><a href="http://en.itx.web.id/category/java/">Java</a></li>
+<li id="menu-item-348" class="menu-item menu-item-type-taxonomy menu-item-348"><a href="http://en.itx.web.id/category/jquery-en/">jQuery</a></li>
+<li id="menu-item-350" class="menu-item menu-item-type-taxonomy menu-item-350"><a href="http://en.itx.web.id/category/interlude/">Interlude</a></li>
+<li id="menu-item-353" class="menu-item menu-item-type-post_type menu-item-353"><a title="Lowongan Penulis Lepas / Freelance Writer" href="http://itx.web.id/lowongan-penulis/">Lowongan Penulis</a></li>
+</ul>		<ul id="links">
+		<li>
+		<a href="http://twitter.com/itx_" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/twitter.png" alt ="my twitter" title="Follow our twitter" />
+		</a></li>
+		
+		<li>
+		<a href="http://www.facebook.com/itxitx" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/facebook.png" alt ="my facebook" title="Follow our facebook" />
+		</a></li>
+		
+				<li><a href="http://itx.web.id/feed/">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/rss.png" alt="Machine Language :: Human Language :: Our Language" title="Follow our RSS" />
+		</a></li>
+			</ul>
+	                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div id="on" class="sidebaron"></div><div id="off" class="sidebaroff"></div>
+<div class="clear"></div><div id="main" class="wrap">
+<div id="mainwrap">
+<div id="content">
+<div id="contentpad">
+<div id="contentwrap">
+    <div class="post-954 post type-post hentry category-php-en tag-date-function tag-date-time-function tag-php singlepost">
+        <div class="postwrap ui-widget-content">
+			<div class="titlewrap">
+				<div class='commentcount ui-state-hover'><span class="ui-icon ui-icon-comment"></span><a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/#comments">1</a></div>												<h1 class="title">
+					<a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/" rel="bookmark">The Use of Date/Time Function in PHP</a>
+				</h1>
+								<div class="clear"></div>
+				<div class="meta ui-state-default">
+					<div class='date '>December 4, 2010</div>					<div class='author '>by <a href="http://en.itx.web.id/author/littleflow3r/" title="Posts by littleflow3r">littleflow3r</a></div>					<div class="clear"></div>
+				</div>
+				<small></small>
+			</div>
+			<div class="entry">
+			<!-- Chitika|Premium - WordPress Plugin --><div class="chitika-adspace above"><script type="text/javascript"><!--
+ch_client = "itx";
+ch_type = "mpu";
+ch_width = 500;
+ch_height = 250;
+ch_color_bg = "";
+ch_color_title = "";
+ch_color_site_link = "";
+ch_color_text = "";
+ch_non_contextual = 4;
+ch_vertical = "premium";
+ch_font_title = "";
+ch_font_text = "";
+ch_sid = "itx";
+var ch_queries = new Array( );
+var ch_selected=Math.floor((Math.random()*ch_queries.length));
+if ( ch_selected < ch_queries.length ) {
+ch_query = ch_queries[ch_selected];
+}
+//--></script>
+<script  src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript"></script></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fen.itx.web.id%2Fphp-en%2Fthe-use-of-datetime-function-in-php%2F" style="margin:0px 0px 0px 0px;"></fb:like><div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/"></a></div>
+<p><strong>Case Study</strong> : Using the the Date/Time Function in PHP<br />
+<strong>Requirements</strong> : Webserver Package (XAMPP, EasyPHP, APPServ), <em>already installed</em>.</p>
+<p><a rel="attachment wp-att-884" href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/attachment/php/"><img class="aligncenter size-full wp-image-884" src="http://itx.web.id/uploads/2010/11/php.gif" alt="" width="120" height="67" /></a></p>
+<p>If you developing PHP application, the date function is one of the function that will used most often. The simple example is, we will use this function to count some people&#8217;s age from her/his birth.</p>
+<p>Here are some examples of the use of the date / time function that is often used in develop applications with php.</p>
+<p><strong>1. Showing Current Date in various formats </strong></p>
+<p>Asumption : Today is Thursday, 25 November 2010</p>
+<ul>
+<li>Format : 2010-11-25<br />
+The code is : <code>date("Y-m-d");</code></li>
+<li>Format : November 25, 2010, 8:17 PM<br />
+Code : <code>date("F j, Y, g:i a");</code></li>
+</ul>
+<p>For more details about the output format of date, see the following table (click on the table to see table more clearly):</p>
+<p><a rel="attachment wp-att-885" href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/attachment/format/"><img class="aligncenter size-full wp-image-885" src="http://itx.web.id/uploads/2010/11/format.png" alt="Output Date Format" width="342" height="286" /></a></p>
+<p><a rel="attachment wp-att-887" href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/attachment/format2-2/"><img class="aligncenter size-full wp-image-887" src="http://itx.web.id/uploads/2010/11/format2.png" alt="" width="342" height="233" /></a></p>
+<p><strong>2. Calculating Range/Date differences<br />
+</strong></p>
+<p>Script:</p>
+<p><code>&lt;?php<br />
+function datediff($tgl1, $tgl2){<br />
+$tgl1 = strtotime($tgl1);<br />
+$tgl2 = strtotime($tgl2);<br />
+$diff_secs = abs($tgl1 - $tgl2);<br />
+$base_year = min(date("Y", $tgl1), date("Y", $tgl2));<br />
+$diff = mktime(0, 0, $diff_secs, 1, 1, $base_year);<br />
+return array( "years" =&gt; date("Y", $diff) - $base_year,  "months_total" =&gt; (date("Y", $diff) - $base_year) * 12 + date("n", $diff) - 1,  "months" =&gt; date("n", $diff) - 1,  "days_total" =&gt; floor($diff_secs / (3600 * 24)),  "days" =&gt; date("j", $diff) - 1,  "hours_total" =&gt; floor($diff_secs / 3600),  "hours" =&gt; date("G", $diff),  "minutes_total" =&gt; floor($diff_secs / 60),  "minutes" =&gt; (int) date("i", $diff),  "seconds_total" =&gt; $diff_secs,  "seconds" =&gt; (int) date("s", $diff)  );<br />
+}<br />
+$tgl1 = '1989-06-06';<br />
+$tgl2 = date("Y/m/d/ h:m:s");<br />
+$a = datediff($tgl1, $tgl2);<br />
+echo 'tanggal 1 = '.$tgl1; echo '&lt;br&gt;';<br />
+echo 'tanggal 2 = '.$tgl2; echo '&lt;br&gt;';<br />
+echo 'Selisih = '.$a[years].' tahun '.$a[months].' bulan '.$a[days].' hari '.$a[hours].' jam '.$a[minutes].' menit '.$a[seconds].' detik';<br />
+?&gt;<br />
+</code></p>
+<p>This script will produce output like the example image below:</p>
+<p><a rel="attachment wp-att-888" href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/attachment/selisih/"><img class="aligncenter size-full wp-image-888" src="http://itx.web.id/uploads/2010/11/selisih.png" alt="Difference Between 2 Date" width="348" height="73" /></a><br />
+<strong>3. Date Adding</strong></p>
+<p>In the script below we will try to add days, months, and years at current date so as to produce output in the form of a certain date results of the addition.</p>
+<p>Code :</p>
+<p><code>&lt;?php<br />
+$todayDate = date("Y-m-d");// current date<br />
+echo "Today: ".$todayDate."&lt;br&gt;";<br />
+$now = strtotime(date("Y-m-d"));<br />
+//Add one day to today<br />
+$date = date('Y-m-j', strtotime('+1 day', $now));<br />
+echo "After adding 1 day = ".$date."&lt;br&gt;";<br />
+$addMonth = 5;<br />
+//Add variabel addMonth to today<br />
+$date2 = date('Y-m-j', strtotime('+'.$addMonth.' month', $now));<br />
+echo "After adding $addMonth month = ".$date2."&lt;br&gt;";<br />
+//Add 6 year to today<br />
+$date3 = date('Y-m-j', strtotime('+6 year', $now));<br />
+echo "After adding 6 year = ".$date3."&lt;br&gt;";<br />
+?&gt;</code></p>
+<p>Output dari script diatas adalah seperti tertampil pada gambar dibawah :</p>
+<p><a rel="attachment wp-att-889" href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/attachment/adddate/"><img class="aligncenter size-full wp-image-889" src="http://itx.web.id/uploads/2010/11/addDate.png" alt="Date Adding" width="221" height="91" /></a></p>
+<p><strong>4. Knowing Whether Today is the Last Day of the Month </strong></p>
+<p>Script :</p>
+<p><code>&lt;?php<br />
+// If today is the last day of the month, do echo<br />
+if(date('j') == date('t')) {<br />
+echo 'Today is the Last Day of this month';<br />
+}<br />
+else echo 'Today is NOT the Last Day of this month';<br />
+?&gt;</code></p>
+<p>Output :</p>
+<p><a rel="attachment wp-att-890" href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/attachment/lastdate/"><img class="aligncenter size-full wp-image-890" src="http://itx.web.id/uploads/2010/11/lastdate.png" alt="Last Date ?" width="269" height="44" /></a></p>
+<p><strong>5. Calculating remaining days in this year</strong></p>
+<p>Script :</p>
+<p><code>&lt;?php<br />
+$today = getdate();<br />
+$yday = ($today['yday']);<br />
+$leap = date('L');<br />
+$tdl = $leap + 365;<br />
+$dliy = $tdl - $yday;<br />
+echo "Dari hari ini ".date('Y-m-d ').", Kita masih memiliki sisa " . $dliy . " hari dalam tahun ini.";<br />
+?&gt;</code></p>
+<p>Output :</p>
+<p><a rel="attachment wp-att-891" href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/attachment/sisahari/"><img class="aligncenter size-full wp-image-891" src="http://itx.web.id/uploads/2010/11/sisahari.png" alt="Day Remain in Year" width="447" height="44" /></a></p>
+<p>Hope that several examples from the use of date function above will be useful for all. I myself often use it, of course.</p>
+<p>Okay, Happy Coding <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /><br />
+Others that might interesting too:<br />
+<script type="text/javascript"><!--
+google_ad_client = "pub-8786239855394243";
+google_ad_slot = "6250047448";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script><br />
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></p>
+<blockquote><h3>Copyright</h3>
+<p>All scripts and techniques demonstrated on itx.web.id can be used in whatever manner you wish without attribution. You cannot copy whole tutorials, either in English or translated to another language.
+</p></blockquote>
+<div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/"></a></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fen.itx.web.id%2Fphp-en%2Fthe-use-of-datetime-function-in-php%2F" style="margin:0px 0px 0px 0px;"></fb:like><h4>Pencarian ke sini:</h4><div> <a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/" title="php date now">php date now</a>, <a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/" title="codeigniter date format">codeigniter date format</a>, <a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/" title="function time php">function time php</a>, <a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/" title="php datediff day">php datediff day</a>.</div><p>This post is also available in: <a href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/">Indonesian</a></p><div class='clear'></div><br><h3>Related Articles:</h3><ul id="related_posts_thumbnails"><li ><a href="http://en.itx.web.id/php-en/simple-md5-login-system-logout-with-codeigniter/" ><img alt="Simple MD5 Login System (+Logout) with CodeIgniter" src="http://itx.web.id/uploads/2010/12/formlog-16x16.png" width="16" height="16" /></a><a href="http://en.itx.web.id/php-en/simple-md5-login-system-logout-with-codeigniter/"><span>Simple MD5 Login System (+Logout) with CodeIgniter</span></a></li><li ><a href="http://en.itx.web.id/php-en/tutorial-to-create-simple-tabs-ajax-with-ajax-and-php/" ><img alt="Tutorial to Create Simple Tabs-AJAX with AJAX and PHP" src="http://itx.web.id/uploads/2010/12/load1-16x16.png" width="16" height="16" /></a><a href="http://en.itx.web.id/php-en/tutorial-to-create-simple-tabs-ajax-with-ajax-and-php/"><span>Tutorial to Create Simple Tabs-AJAX with AJAX and PHP</span></a></li><li ><a href="http://itx.web.id/php/fungsi-delete-data-dalam-mysql-dengan-php/" ><img alt="Fungsi Delete Data dalam Mysql dengan PHP" src="http://itx.web.id/uploads/2011/02/suks2-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/fungsi-delete-data-dalam-mysql-dengan-php/"><span>Fungsi Delete Data dalam Mysql dengan PHP</span></a></li><li ><a href="http://en.itx.web.id/php-en/delete-multiple-data-with-php/" ><img alt="Delete Multiple Data with PHP" src="http://itx.web.id/uploads/2011/02/data2-16x16.png" width="16" height="16" /></a><a href="http://en.itx.web.id/php-en/delete-multiple-data-with-php/"><span>Delete Multiple Data with PHP</span></a></li><li ><a href="http://en.itx.web.id/php-en/regular-expression-regex-with-php/" ><img alt="Regular Expression ( Regex ) with PHP" src="http://itx.web.id/uploads/2011/03/regex-16x16.png" width="16" height="16" /></a><a href="http://en.itx.web.id/php-en/regular-expression-regex-with-php/"><span>Regular Expression ( Regex ) with PHP</span></a></li><li ><a href="http://en.itx.web.id/php-en/code-igniter-export-data-into-pdf-file/" ><img alt="Code Igniter : Export Data into PDF File" src="http://itx.web.id/uploads/2011/04/pdf-16x16.png" width="16" height="16" /></a><a href="http://en.itx.web.id/php-en/code-igniter-export-data-into-pdf-file/"><span>Code Igniter : Export Data into PDF File</span></a></li></ul><div style="clear: both"></div>			</div>
+			<div class="clear"></div>
+            <div class="linkpages"></div>
+            <div class="clear"></div>
+                        <div class="footmeta">
+                <div class='categories '><span class="ui-icon ui-icon-folder-open"></span> : <a href="http://en.itx.web.id/category/php-en/" title="View all posts in PHP" rel="category tag">PHP</a></div><div class='tags '><span class="ui-icon ui-icon-tag"></span> : <a href="http://itx.web.id/tag/date-function/" rel="tag">date function</a>, <a href="http://en.itx.web.id/tag/date-time-function/" rel="tag">date time function</a>, <a href="http://itx.web.id/tag/php/" rel="tag">PHP</a></div><div class='author_info '><h4>About the author</h4><img alt='' src='http://1.gravatar.com/avatar/1d76e024a2685e42d489efd861e08325?s=48&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' /><span>obviously, a girl. with sweet smile, off course. turning her 21 years trapped on Informatics departement and just started to having some crush with it lately. she uses wordpress. she loves php. she lo</span><div class="author_url"><a href="http://littleflow3r.wordpress.com/">littleflow3r.wordpress.com/</a></div><div class="clear"></div></div>            </div>
+                        <div class="clear"></div>
+        
+<div id="comments">
+    
+    
+    <div class="commentmeta ui-state-default ">
+	<h3 id="commentstitle"><b>1</b> Comment</h3>
+            </div>
+    <ul class="commentlist">
+				<li class="comment even thread-even depth-1" id="comment-1931">
+				<div id="div-comment-1931" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/85077bc2047d39b3c8dfbf16087309e7?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">hakim</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/#comment-1931">
+			February 18, 2011 at 10:21 pm</a>		</div>
+
+		<p>good&#8230;.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php-en/the-use-of-datetime-function-in-php/?replytocom=1931#respond' onclick='return addComment.moveForm("div-comment-1931", "1931", "respond", "954")'>Reply</a>		</div>
+				</div>
+		</li>
+    </ul>
+    
+    
+    
+
+<div class="clear"></div>
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/php-en/the-use-of-datetime-function-in-php/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://itx.web.id/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='954' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="29eb266131" /></p>
+	<!-- Custom Smilies - Version 2.9.1 -->
+	<style type="text/css">
+	img.wp-smiley-select {cursor: pointer;}
+	</style>
+    <script type="text/javascript">
+    function grin(tag) {
+    	if (typeof tinyMCE != 'undefined') {
+    		grin_tinymcecomments(tag);
+    	} else {
+    		grin_plain(tag);
+    	}
+    }
+    function grin_tinymcecomments(tag) {
+    	tinyMCE.execCommand('mceInsertContent', false, ' ' + tag + ' ');
+    }
+    
+    function grin_plain(tag) {
+    	var myField;
+    	var myCommentTextarea = "comment";
+    	tag = ' ' + tag + ' ';
+        if (document.getElementById(myCommentTextarea) && document.getElementById(myCommentTextarea).type == 'textarea') {
+    		myField = document.getElementById(myCommentTextarea);
+    	} else {
+    		return false;
+    	}
+    	if (document.selection) {
+    		myField.focus();
+    		sel = document.selection.createRange();
+    		sel.text = tag;
+    		myField.focus();
+    	}
+    	else if (myField.selectionStart || myField.selectionStart == '0') {
+    		var startPos = myField.selectionStart;
+    		var endPos = myField.selectionEnd;
+    		var cursorPos = endPos;
+    		myField.value = myField.value.substring(0, startPos)
+    					  + tag
+    					  + myField.value.substring(endPos, myField.value.length);
+    		cursorPos += tag.length;
+    		myField.focus();
+    		myField.selectionStart = cursorPos;
+    		myField.selectionEnd = cursorPos;
+    	}
+    	else {
+    		myField.value += tag;
+    		myField.focus();
+    	}
+    }
+    
+    function moreSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'inline';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:lessSmilies()">&laquo;&nbsp;less</a></span>';
+    }
+    
+    function lessSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'none';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:moreSmilies()">more&nbsp;&raquo;</a>';
+    }
+    </script>
+<img src='http://itx.web.id/wp-includes/images/smilies/angry1.gif' alt='x(' onclick='grin("x(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/angry_002.gif' alt='X-(' onclick='grin("X-(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cool.gif' alt='B-)' onclick='grin("B-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/wink.gif' alt=';-)' onclick='grin(";-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_wink.gif' alt=':wink:' onclick='grin(":wink:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_twisted.gif' alt=':twisted:' onclick='grin(":twisted:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_rolleyes.gif' alt=':roll:' onclick='grin(":roll:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_redface.gif' alt=':oops:' onclick='grin(":oops:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_mrgreen.gif' alt=':mrgreen:' onclick='grin(":mrgreen:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_lol.gif' alt=':lol:' onclick='grin(":lol:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_idea.gif' alt=':idea:' onclick='grin(":idea:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_evil.gif' alt=':evil:' onclick='grin(":evil:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_cry.gif' alt=':cry:' onclick='grin(":cry:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_arrow.gif' alt=':arrow:' onclick='grin(":arrow:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' onclick='grin(":D")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_question.gif' alt=':?:' onclick='grin(":?:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_neutral.gif' alt=':-|' onclick='grin(":-|")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_mad.gif' alt=':-x' onclick='grin(":-x")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/surprised.gif' alt=':-o' onclick='grin(":-o")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tongue.gif' alt=':-P' onclick='grin(":-P")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/grin.gif' alt=':-D' onclick='grin(":-D")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_confused.gif' alt=':-?' onclick='grin(":-?")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/joyful.gif' alt=':-))' onclick='grin(":-))")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' onclick='grin(":-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/crying.gif' alt=':-(' onclick='grin(":-(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/sick.gif' alt=':-&' onclick='grin(":-&")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' onclick='grin(":)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_sad.gif' alt=':(' onclick='grin(":(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_exclaim.gif' alt=':!:' onclick='grin(":!:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_eek.gif' alt='8-O' onclick='grin("8-O")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/nerd.gif' alt='8-)' onclick='grin("8-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_cool.gif' alt='8)' onclick='grin("8)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/russian.gif' alt='(Русский)' onclick='grin("(Русский)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/yupi.gif' alt='(yahoo)' onclick='grin("(yahoo)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/worship.gif' alt='(worship)' onclick='grin("(worship)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/w00t.gif' alt='(woot)' onclick='grin("(woot)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bye.gif' alt='(wave)' onclick='grin("(wave)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/unsure_002.gif' alt='(unsure)' onclick='grin("(unsure)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tongue_002.gif' alt='(tongue)' onclick='grin("(tongue)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/thinking.gif' alt='(thinking)' onclick='grin("(thinking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tears.gif' alt='(tears)' onclick='grin("(tears)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/taser.gif' alt='(taser)' onclick='grin("(taser)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/smiley-dance.gif' alt='(smileydance)' onclick='grin("(smileydance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/sleeping.gif' alt='(sleeping)' onclick='grin("(sleeping)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fever.gif' alt='(sick)' onclick='grin("(sick)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/scenic.gif' alt='(scenic)' onclick='grin("(scenic)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lol.gif' alt='(rofl)' onclick='grin("(rofl)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/rock_n_roll.gif' alt='(rock)' onclick='grin("(rock)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/party.gif' alt='(party)' onclick='grin("(party)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/startled.gif' alt='(panic)' onclick='grin("(panic)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/unsure1.gif' alt='(okok)' onclick='grin("(okok)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/not_talking.gif' alt='(nottalking)' onclick='grin("(nottalking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/ninja.gif' alt='(ninja)' onclick='grin("(ninja)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/listening_music.gif' alt='(music)' onclick='grin("(music)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/muscle.gif' alt='(muscle)' onclick='grin("(muscle)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/muhaha.gif' alt='(muhaha)' onclick='grin("(muhaha)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/money.gif' alt='(money)' onclick='grin("(money)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/like_food.gif' alt='(mmm)' onclick='grin("(mmm)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lonely.gif' alt='(lonely)' onclick='grin("(lonely)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/laugh.gif' alt='(lol)' onclick='grin("(lol)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lmao.gif' alt='(lmao)' onclick='grin("(lmao)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/idiot.gif' alt='(idiot)' onclick='grin("(idiot)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/hungry.gif' alt='(hungry)' onclick='grin("(hungry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/wave.gif' alt='(highfive)' onclick='grin("(highfive)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/heart_beat.gif' alt='(heart_beat)' onclick='grin("(heart_beat)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/heart.gif' alt='(heart)' onclick='grin("(heart)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/headspin.gif' alt='(headspin)' onclick='grin("(headspin)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/silly_couple.gif' alt='(hassle)' onclick='grin("(hassle)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/haha.gif' alt='(haha)' onclick='grin("(haha)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/gym.gif' alt='(gym)' onclick='grin("(gym)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/gril_tongue.png' alt='(griltongue)' onclick='grin("(griltongue)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fingerscrossed.gif' alt='(goodluck)' onclick='grin("(goodluck)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/girl_kiss.gif' alt='(girlkiss)' onclick='grin("(girlkiss)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/dance_moves.gif' alt='(funkydance)' onclick='grin("(funkydance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fish-hit.gif' alt='(fish_hit)' onclick='grin("(fish_hit)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/eyeroll.gif' alt='(eyeroll)' onclick='grin("(eyeroll)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/evilsmirk.gif' alt='(evilsmirk)' onclick='grin("(evilsmirk)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/evil_grin.gif' alt='(evil_grin)' onclick='grin("(evil_grin)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/drinking.gif' alt='(drinking)' onclick='grin("(drinking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/doh.gif' alt='(doh)' onclick='grin("(doh)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/devil.gif' alt='(devil)' onclick='grin("(devil)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/dance.gif' alt='(dance)' onclick='grin("(dance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cry.gif' alt='(cry)' onclick='grin("(cry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cozy.gif' alt='(cozy)' onclick='grin("(cozy)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/coffee.gif' alt='(coffee)' onclick='grin("(coffee)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/broken_heart.gif' alt='(brokenheart)' onclick='grin("(brokenheart)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bring_it_on.gif' alt='(bringit)' onclick='grin("(bringit)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/blush.gif' alt='(blush)' onclick='grin("(blush)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/big_eyed.gif' alt='(bigeyes)' onclick='grin("(bigeyes)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/beer.gif' alt='(beer)' onclick='grin("(beer)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bananarock.gif' alt='(banana_rock)' onclick='grin("(banana_rock)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/banana-ninja.gif' alt='(banana_ninja)' onclick='grin("(banana_ninja)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/banana_cool.gif' alt='(banana_cool)' onclick='grin("(banana_cool)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/applause.gif' alt='(applause)' onclick='grin("(applause)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/annoyed.gif' alt='(annoyed)' onclick='grin("(annoyed)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/angry.gif' alt='(angry)' onclick='grin("(angry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/kiss.gif' alt='(K)' onclick='grin("(K)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tired.gif' alt='(:' onclick='grin("(:")' class='wp-smiley-select' /> 		<span id="openid_comment">
+			<label>
+				<input type="checkbox" id="login_with_openid" name="login_with_openid" checked="checked" />
+				Authenticate this comment using <span class="openid_link">OpenID</span>.			</label>
+		</span>
+		<script type="text/javascript">jQuery(function(){ add_openid_to_comment_form('http://itx.web.id/index.php', '30e3e98b04') })</script>
+        
+        <input type="hidden" name="icl_comment_language" value="en" />
+        
+          
+        					</form>
+							</div><!-- #respond -->
+						</div>        </div>
+	</div>
+	<div class="clear"></div>
+    <div class="clear"></div>
+    <div id="extrastuff">
+        			<span id="rssleft"><a href='http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/feed/'><abbr title="Really Simple Syndication">RSS</abbr> feed for this post (comments)</a></span>
+        			<span id="trackright"> &#183; <a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a></span>
+        		<div class="clear"></div>
+    </div>
+
+</div>
+    <div class="nextprevious ui-state-active">
+        <div class="alignleft"><span>Previous Post</span><br />&laquo; <a href="http://en.itx.web.id/php-en/form-validation-on-codeigniter/" rel="prev">Form Validation on CodeIgniter</a></div>
+        <div class="alignright"><span>Next Post</span><br /><a href="http://en.itx.web.id/wp/fixing-and-optimizing-wordpress-database/" rel="next">Fixing and Optimizing WordPress Database</a> &raquo;</div>
+        <div class="clear"></div>
+    </div>
+</div>
+</div> <!--/content-->
+<div id="sidebar-left" class="sidebar"><div class='sidebar-1'><ul><li id="text-6" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget">Like <b>itx.web.id</b>? <br>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://itx.web.id" show_faces="true" width="150"></fb:like></div>
+		</div></li><li id="text-8" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget"><div>
+<a href="http://sambadafarm.com">Domba Garut</a>
+<br>	
+<a href="http://sambadafarm.com/produk/">Domba Kurban</a>
+<br>	
+<a href="http://agromaret.com/jual/33529/domba_kurban_qurban_wilayah_yogyakarta">Domba Kurban</a>
+<br>
+<a href="http://www.kaskus.us/showthread.php?t=11046165">Domba Kurban</a>
+</div></div>
+		</div></li><li id="search-3" class="widget left widget_search"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Search</h3><form method="get" action="http://en.itx.web.id/" id="searchform"><div id="searchformwrap">
+<div class="searchbox"><div class="scont">
+<input type="text" value="Search here ...." name="s" id="searchbox" onfocus="this.value=''"/>
+</div></div>
+<div class="searchopen"></div>
+<div class="searchclose"><button type="submit" class="submitbutton" value="search"></button></div>
+</div></form></div></li><li id="itx_tabbed_sidebar-3" class="widget left itx_tabbed_sidebar"><div class="widgetwrap  ">
+<script type="text/javascript">/* <![CDATA[ */
+jQuery(function () {
+    jQuery("#widget-itx_tabbed_sidebar-3-thetab").tabs({ event: "mouseover" });
+});
+/* ]]> */</script>
+	<div class="tabbed" id="widget-itx_tabbed_sidebar-3-thetab"><ul class="tabheader"><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab0">Hai</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab1">Posts</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab2">Comments</a></li></ul><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab0"><div>Inilah blog itx.... seorang yang suka pemrograman web khususnya PHP dan WordPress... jangan ragu tinggalkan pesan di sini ... :)
+<br>
+Sebagian besar artikel di sini <b>tidak</b> saya tulis, melainkan ditulis oleh teman-teman author (penulis lepas). Jadi kalo menyapa jangan salah alamat yaaa... lihat dulu siapa penulis artikel ybs.</div></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab1"><ul>	<li><a href='http://en.itx.web.id/wp/create-multi-user-in-wordpress-cms/' title='Create Multi-User in WordPress CMS'>Create Multi-User in WordPress CMS</a></li>
+	<li><a href='http://en.itx.web.id/php-en/instant-sorting-function-with-php/' title='Instant Sorting Function with PHP'>Instant Sorting Function with PHP</a></li>
+	<li><a href='http://en.itx.web.id/wp/installing-new-theme-in-wordpress-cms/' title='Installing New Theme in WordPress CMS'>Installing New Theme in WordPress CMS</a></li>
+	<li><a href='http://en.itx.web.id/wp/create-page-statis-post-in-wordpress-beginner-only/' title='Create Page (Statis Post) in WordPress (Beginner Only)'>Create Page (Statis Post) in WordPress (Beginner Only)</a></li>
+	<li><a href='http://en.itx.web.id/php-en/code-igniter-export-data-into-pdf-file/' title='Code Igniter : Export Data into PDF File'>Code Igniter : Export Data into PDF File</a></li>
+	<li><a href='http://en.itx.web.id/php-en/string-functions-in-the-php/' title='String Functions in the PHP'>String Functions in the PHP</a></li>
+	<li><a href='http://en.itx.web.id/php-en/get-the-data-from-database-with-codeigniter-and-show-it-with-jquery-ui-tab/' title='Get the Data from Database with Codeigniter and Show it with JQuery UI Tab'>Get the Data from Database with Codeigniter and Show it with JQuery UI Tab</a></li>
+	<li><a href='http://en.itx.web.id/php-en/round-number-in-php/' title='Round Number in PHP'>Round Number in PHP</a></li>
+	<li><a href='http://en.itx.web.id/wp/put-flickr-album-photos-in-to-wordpress/' title='Put Flickr Album Photos in to WordPress'>Put Flickr Album Photos in to WordPress</a></li>
+	<li><a href='http://en.itx.web.id/wp/upload-image-in-to-wordpress-post-for-beginner/' title='Upload Image in to WordPress Post (for Beginner)'>Upload Image in to WordPress Post (for Beginner)</a></li>
+</ul></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab2"><ul><li class="recentcomments"><strong><a href='http://www.juust.org/index.php/2010/12/' rel='external nofollow' class='url'>wordpress search engine optimization by juust</a>: </strong><a href="http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/#comment-4189">Thanks for the auspicious writeup. It if truth be told was once a entertainment account it. Glance complex to far ...</a></li><li class="recentcomments"><strong>edy: </strong><a href="http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/#comment-4184">kenapa belum bisa ya? statement yang keluar seperti ini :
+
+Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource ...</a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4182">problem had been resolved... <img src='http://itx.web.id/wp-includes/images/smilies/dance.gif' alt='(dance)' class='wp-smiley' /> 
+ありがとうございますのマスタ―　arigatou gozaimasu no masutaa <img src='http://itx.web.id/wp-includes/images/smilies/yupi.gif' alt='(yahoo)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4181">kakang master kayanya udah cape ngeladenin orang2 di atas ya... <img src='http://itx.web.id/wp-includes/images/smilies/laugh.gif' alt='(lol)' class='wp-smiley' /> 
+sekedar bertanya, sukur2 dijawab... image kaga nampil nih kang.. ...</a></li><li class="recentcomments"><strong>lutfia: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4179">kok muncul error seperti ini ?
+"Cannot use object of type stdClass as array in C:\wamp\www\Intranet\application\libraries\cezpdf.php on line 695" </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4178">jaahh.....yg ane malah undefine index si picturenya.... aneh. <img src='http://itx.web.id/wp-includes/images/smilies/eyeroll.gif' alt='(eyeroll)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong><a href='http://oke-djiextray.blogspot.com' rel='external nofollow' class='url'>Djiextray</a>: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4177">wah thanks gan ... work .... walaupun dengan mgutak ngatik lagi... tadi sempat ga bisa.. terus di otak atik lagi ...</a></li><li class="recentcomments"><strong>agung: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4176">k.. gambarnya ga bisa nampil 
+muncul ini
+Warning: mysql_fetch_array() expects parameter 1 to be resource, boolean given in E:\Local\xampp\htdocs\coba\helloMobile\proses.php on line ...</a></li><li class="recentcomments"><strong>Eric Winslet: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4175">saat saya coba buka url ini
+
+http://localhost/www/CodeIgniter/index.php/member_con
+
+kug gini ya? salahnya apa ya?
+
+Deprecated: Assigning the return value of new by reference is ...</a></li><li class="recentcomments"><strong>dudiriadi: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4174">saya tertarik menjadi penulis, usernya dudiriadi </a></li><li class="recentcomments"><strong>iska: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4171">mas kta menulis topiknya PHP atau wordpres maksudnya gimana ya?  <img src='http://itx.web.id/wp-includes/images/smilies/wink.gif' alt=';-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong>nora: </strong><a href="http://itx.web.id/menggunakan-jasa-itx/#comment-4169">mas sy mau tanya bagaimana caranya membuat icon web jika thema sy tdk include dgn program utk membuat icon,,,, sy ...</a></li><li class="recentcomments"><strong><a href='http://tombolenter.blogspot.com/' rel='external nofollow' class='openid_link url'>kharisma</a>: </strong><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/#comment-4168">nice tutorial, keep sharing <img src='http://itx.web.id/wp-includes/images/smilies/drinking.gif' alt='(drinking)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>mentari: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4166">kak aaq tetarik mau jadi penulis part time, tapi musti punya blogspot ya?? <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong><a href='http://lailatoel.wordpress.com/2011/11/20/login-multi-user-php/' rel='external nofollow' class='url'>Login Multi User PHP | L41Latul</a>: </strong><a href="http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/#comment-4165">[...] Kalo mau artikel yang asli masuk aja ke http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/ [...] </a></li></ul></div></div></div></li><li id="wppp-3" class="widget left widget_wppp"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Postingan populer</h3>
+<ul class='wppp_list'>
+	<li><a href='http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/' title='Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql'>Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/membuat-form-combobox-dinamis-dari-database-mysql-dengan-php/' title='Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP'>Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP</a></li>
+	<li><a href='http://itx.web.id/php/form-input-tanggal-php-dengan-datetimepicker-jquery/' title='Form Input Tanggal PHP dengan Datetimepicker JQuery'>Form Input Tanggal PHP dengan Datetimepicker JQuery</a></li>
+	<li><a href='http://itx.web.id/php/tutorial-searching-pencarian-data-dengan-php-dan-mysql/' title='Tutorial Searching / Pencarian Data dengan PHP dan Mysql'>Tutorial Searching / Pencarian Data dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/editor-php-gratisan-untuk-kita/' title='Editor PHP gratisan untuk kita:'>Editor PHP gratisan untuk kita:</a></li>
+	<li><a href='http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/' title='Membuat Fungsi Update Data dalam Database dengan PHP Mysql'>Membuat Fungsi Update Data dalam Database dengan PHP Mysql</a></li>
+	<li><a href='http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/' title='Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami'>Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami</a></li>
+</ul>
+</div></li><li id="tag_cloud-4" class="widget left widget_tag_cloud"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Tags</h3><div><a href='http://en.itx.web.id/tag/ajax-tab/' class='tag-link-127' title='2 topics' style='font-size: 22pt;'>ajax tab</a>
+<a href='http://en.itx.web.id/tag/ceil/' class='tag-link-210' title='1 topic' style='font-size: 8pt;'>ceil</a>
+<a href='http://en.itx.web.id/tag/checkbox-delete-multiple-data/' class='tag-link-184' title='1 topic' style='font-size: 8pt;'>checkbox delete multiple data</a>
+<a href='http://en.itx.web.id/tag/codeigniter-login-system/' class='tag-link-114' title='1 topic' style='font-size: 8pt;'>codeigniter login system</a>
+<a href='http://en.itx.web.id/tag/codeigniter-pagination/' class='tag-link-105' title='1 topic' style='font-size: 8pt;'>codeigniter pagination</a>
+<a href='http://en.itx.web.id/tag/code-igniter-pdf/' class='tag-link-223' title='1 topic' style='font-size: 8pt;'>code igniter pdf</a>
+<a href='http://en.itx.web.id/tag/date-time-function/' class='tag-link-88' title='1 topic' style='font-size: 8pt;'>date time function</a>
+<a href='http://en.itx.web.id/tag/delete-function-with-php/' class='tag-link-183' title='1 topic' style='font-size: 8pt;'>delete function with php</a>
+<a href='http://en.itx.web.id/tag/dynamic-combobox/' class='tag-link-181' title='1 topic' style='font-size: 8pt;'>dynamic combobox</a>
+<a href='http://en.itx.web.id/tag/export-database-to-excel/' class='tag-link-119' title='1 topic' style='font-size: 8pt;'>export database to excel</a>
+<a href='http://en.itx.web.id/tag/export-to-pdf/' class='tag-link-222' title='1 topic' style='font-size: 8pt;'>export to pdf</a>
+<a href='http://en.itx.web.id/tag/floor/' class='tag-link-211' title='1 topic' style='font-size: 8pt;'>floor</a>
+<a href='http://en.itx.web.id/tag/image-gd-library/' class='tag-link-162' title='1 topic' style='font-size: 8pt;'>image GD library</a>
+<a href='http://en.itx.web.id/tag/image-thumbnail/' class='tag-link-164' title='1 topic' style='font-size: 8pt;'>image thumbnail</a>
+<a href='http://en.itx.web.id/tag/include-php/' class='tag-link-206' title='1 topic' style='font-size: 8pt;'>include php</a>
+<a href='http://en.itx.web.id/tag/install-wordpress/' class='tag-link-76' title='1 topic' style='font-size: 8pt;'>install wordpress</a>
+<a href='http://en.itx.web.id/tag/login-codeigniter/' class='tag-link-111' title='1 topic' style='font-size: 8pt;'>login codeigniter</a>
+<a href='http://en.itx.web.id/tag/login-system/' class='tag-link-112' title='1 topic' style='font-size: 8pt;'>login system</a>
+<a href='http://en.itx.web.id/tag/login-with-md5/' class='tag-link-113' title='1 topic' style='font-size: 8pt;'>login with md5</a>
+<a href='http://en.itx.web.id/tag/metadata-wordpress/' class='tag-link-200' title='1 topic' style='font-size: 8pt;'>metadata wordpress</a>
+<a href='http://en.itx.web.id/tag/object-oriented-php/' class='tag-link-198' title='1 topic' style='font-size: 8pt;'>object oriented php</a>
+<a href='http://en.itx.web.id/tag/oop-php/' class='tag-link-197' title='1 topic' style='font-size: 8pt;'>oop php</a>
+<a href='http://en.itx.web.id/tag/php-codeigniter/' class='tag-link-212' title='1 topic' style='font-size: 8pt;'>php codeigniter</a>
+<a href='http://en.itx.web.id/tag/php-round/' class='tag-link-209' title='1 topic' style='font-size: 8pt;'>php round</a>
+<a href='http://en.itx.web.id/tag/posting-code-in-the-wordpress/' class='tag-link-123' title='1 topic' style='font-size: 8pt;'>posting code in the wordpress</a>
+<a href='http://en.itx.web.id/tag/searching-script/' class='tag-link-140' title='1 topic' style='font-size: 8pt;'>searching script</a>
+<a href='http://en.itx.web.id/tag/simple-mobile/' class='tag-link-100' title='1 topic' style='font-size: 8pt;'>simple mobile</a>
+<a href='http://en.itx.web.id/tag/tab/' class='tag-link-126' title='1 topic' style='font-size: 8pt;'>tab</a>
+<a href='http://en.itx.web.id/tag/thumbnail-version/' class='tag-link-163' title='1 topic' style='font-size: 8pt;'>thumbnail version</a>
+<a href='http://en.itx.web.id/tag/update-data-with-php/' class='tag-link-182' title='1 topic' style='font-size: 8pt;'>update data with php</a>
+<a href='http://en.itx.web.id/tag/xml-to-database/' class='tag-link-161' title='1 topic' style='font-size: 8pt;'>xml to database</a></div>
+</div></li></ul><div class="clear"></div></div></div><div id="sidebar-right" class="sidebar"><div class='sidebar-2'><ul><li id="language-selector" class="widget right icl_languages_selector"><div class="widgetwrap  ">		
+<div id="lang_sel_list">           
+            <ul>
+                                <li class="icl-en">          
+                    <a href="http://en.itx.web.id/php-en/the-use-of-datetime-function-in-php/" class="lang_sel_sel">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" />&nbsp;                    
+                                        English                    </a>
+                </li>
+                                <li class="icl-id">          
+                    <a href="http://itx.web.id/php/penggunaan-fungsi-date-time-pada-php/" class="lang_sel_other">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/id.png" alt="id" />&nbsp;                    
+                                        Indonesia                    </a>
+                </li>
+                            </ul>
+</div>
+</div></li><li id="text-2" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Themes made by itx</h3>			<div class="textwidget"><h4><a href="http://albizia.itx.web.id">
+Albizia Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/albizia" rel="nofollow">
+- Download Albizia
+</a></h4>
+<h4><a href="http://bombax.itx.web.id">
+Bombax Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/bombax" rel="nofollow">
+- Download Bombax
+</a></h4>
+<h4><a href="http://calotropis.itx.web.id">
+Calotropis Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/calotropis" rel="nofollow">
+- Download Calotropis 
+</a></h4></div>
+		</div></li><li id="text-3" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Plugins made by itx</h3>			<div class="textwidget"><h4><a href="http://itx.web.id/wordpress/plugins/exclude-plugins/">
+Exclude Plugins
+</a><br />
+<a href=" http://wordpress.org/extend/plugins/exclude-plugins/" rel="nofollow">
+- Download Exclude Plugins
+</a></h4></div>
+		</div></li><li id="text-4" class="widget right widget_text"><div class="widgetwrap  ">			<div class="textwidget">Jika memiliki pertanyaan tentang theme atau plugin buatan itx, silahkan menuju <a href="http://forum.itx.web.id">forum</a>.
+</div>
+		</div></li>												<li id="ask2link" class="widget right widget_ask2link"><div class="widgetwrap  "><!-- zz,b78dc8fc3eccc96c396b1312211272,1312211949 -->
+</div></li>		<li id="advanced_text-7" class="widget right advanced_text"><div class="widgetwrap  "><div class='AdvancedText'><br></div></div></li>
+						</ul><div class="clear"></div></div></div><div class="clear"></div>
+</div>
+</div> <!--/main-->
+<div id="footwrap">
+    <div id="footwrap2">
+    <div class="wrap">
+    <div id="footer" class="footer"><div class='footer-'></div></div>    <div class="clear"></div>
+    </div>
+	</div>
+	<div id="footerfoot">
+	<div class="wrap">
+		<div id="footerleft">
+		<a href="http://en.itx.web.id">Machine Language :: Human Language :: Our Language</a>
+				</div><div id="footerright">
+<a href="http://themes.itx.web.id/bombax/"><strong>Bombax Theme</strong> designed by <strong>itx</itx></a></div></div></div></div><!-- bombax 1.3 -->
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.core.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.tabs.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.color.js?ver=2.0-4561m'></script>
+<script src="http://itx.web.id/wp-content/plugins/tweetmeme/button.js" type="text/javascript"></script><!--stats_footer_test--><script src="http://stats.wordpress.com/e-201148.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'12545473',v:'ext',post:'954'});
+var load_cmc = function(){linktracker_init(12545473,954,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+</body>
+</html>

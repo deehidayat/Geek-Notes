@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/ -->
+<html dir="ltr" lang="en-US"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>How to generate a word docx from a template with PHP ? | Made in Paté</title>
+
+<link rel="stylesheet" type="text/css" media="all" href="./How to generate a word docx from a template with PHP     Made in Paté_files/style.css">
+<link rel="pingback" href="http://djpate.com/xmlrpc.php">
+<link rel="pingback" href="http://djpate.com/xmlrpc.php">
+
+
+<link rel="alternate" type="application/rss+xml" title="Made in Paté » Feed" href="http://djpate.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Made in Paté » Comments Feed" href="http://djpate.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Made in Paté » How to generate a word docx from a template with PHP ? Comments Feed" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/feed/">
+<link rel="stylesheet" id="A2A_SHARE_SAVE-css" href="./How to generate a word docx from a template with PHP     Made in Paté_files/addtoany.min.css" type="text/css" media="all">
+<script type="text/javascript" async="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/page.js"></script><script type="text/javascript" src="./How to generate a word docx from a template with PHP     Made in Paté_files/l10n.js"></script>
+<script type="text/javascript" src="./How to generate a word docx from a template with PHP     Made in Paté_files/comment-reply.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://djpate.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://djpate.com/wp-includes/wlwmanifest.xml"> 
+<link rel="index" title="Made in Paté" href="http://djpate.com/">
+<link rel="start" title="A simple div slide down JS script" href="http://djpate.com/2009/02/22/a-simple-div-slide-down-js-script/">
+<link rel="prev" title="How to compile Spawner the Sql data generator on Ubuntu" href="http://djpate.com/2011/04/18/how-to-compile-spawner-the-sql-data-generator-on-ubuntu/">
+<meta name="generator" content="WordPress 3.2.1">
+<link rel="shortlink" href="http://djpate.com/?p=427">
+
+<script type="text/javascript"><!--
+var a2a_config=a2a_config||{},wpa2a={done:false,html_done:false,script_ready:false,script_load:function(){var a=document.createElement('script'),s=document.getElementsByTagName('script')[0];a.type='text/javascript';a.async=true;a.src='http://static.addtoany.com/menu/page.js';s.parentNode.insertBefore(a,s);wpa2a.script_load=function(){};},script_onready:function(){if(a2a.type=='page'){wpa2a.script_ready=true;if(wpa2a.html_done)wpa2a.init();}},init:function(){for(var i=0,el,target,targets=wpa2a.targets,length=targets.length;i<length;i++){el=document.getElementById('wpa2a_'+(i+1));target=targets[i];a2a_config.linkname=target.title;a2a_config.linkurl=target.url;if(el)a2a.init('page',{target:el});wpa2a.done=true;}}};a2a_config.tracking_callback=['ready',wpa2a.script_onready];
+//--></script>
+
+<!-- All in One SEO Pack 1.6.13.4 by Michael Torbert of Semper Fi Web Design[166,244] -->
+<meta name="description" content="Hey folks, A lot of clients of mine asked for docx generation in the past. The only solution that I knew of in PHP is the SOAP client">
+<link rel="canonical" href="./How to generate a word docx from a template with PHP     Made in Paté_files/How to generate a word docx from a template with PHP     Made in Paté.htm">
+<!-- /all in one seo pack -->
+<script type="text/javascript" src="./How to generate a word docx from a template with PHP     Made in Paté_files/anti-captcha-0.2.js.php"></script>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<!--[if IE]>
+<style type="text/css">
+.addtoany_list a img{filter:alpha(opacity=70)}
+.addtoany_list a:hover img,.addtoany_list a.addtoany_share_save img{filter:alpha(opacity=100)}
+</style>
+<![endif]-->
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3">
+
+<script charset="UTF-8" src="./How to generate a word docx from a template with PHP     Made in Paté_files/id.js"></script><style type="text/css">.a2a_menu,.a2a_menu *{float:none;margin:0;padding:0;height:auto;width:auto}.a2a_menu table{border-collapse:collapse;border-spacing:0;width:auto}.a2a_menu table,.a2a_menu tbody,.a2a_menu td,.a2a_menu tr{border:0;margin:0;padding:0;background-color:#FFF}.a2a_menu td{vertical-align:top}.a2a_menu,.a2a_menu_inside{-webkit-border-radius:16px;-moz-border-radius:16px}.a2a_menu{display:none;z-index:9999999;position:absolute;direction:ltr;min-width:200px;background:#EEE;background:rgba(238,238,238,.6);font:12px Arial,Helvetica,sans-serif;color:#000;line-height:12px;border:1px solid transparent;_border:1px solid #EEE;padding:7px;vertical-align:baseline;overflow:hidden}.a2a_menu_inside{background-color:#FFF;border:1px solid #CCC;padding:8px}.a2a_menu a span,.a2a_tabs .a2a_tab_selected span{color:#00F}.a2a_menu a:hover span,.a2a_tabs div span,.a2a_tabs a span{color:#000}.a2a_menu a,#a2a_hist_list a,.a2a_tabs div{color:#00F;text-decoration:none;font:12px Arial,Helvetica,sans-serif;line-height:12px;height:auto;width:auto;clear:none;outline:none;-moz-outline:none;-webkit-border-radius:8px;-moz-border-radius:8px}.a2a_menu a:visited,#a2a_hist_list a:visited{color:#00F;clear:right}.a2a_menu a:hover,.a2a_menu a:active,.a2a_menu a.a2a_i:focus,.a2a_tabs div:hover{color:#000;border:1px solid #CCC;background-color:#EEE;text-decoration:none}.a2a_menu span,.a2a_img{background:url(http://static.addtoany.com/menu/icons_19.png) no-repeat;border:0;display:block;line-height:16px}.a2a_menu span.a2a_i_find{height:16px;left:5px;position:absolute;top:2px;width:16px}#a2a_menu_container{display:inline-block}#a2a_menu_container{_display:inline}.a2a_menu_title_container{margin-bottom:2px;padding:6px}.a2a_menu_find_container{position:relative;text-align:left;margin:4px 1px;padding:1px 24px 1px 0;border:1px solid #CCC;-webkit-border-radius:8px;-moz-border-radius:8px}.a2a_menu input,.a2a_menu input[type="text"]{display:block;background-image:none;box-shadow:none;line-height:100%;margin:0;overflow:hidden;padding:0;-moz-box-shadow:none;-webkit-box-shadow:none;-webkit-appearance:none}.a2a_menu_title_container input.a2a_menu_title{color:#000;background-color:#FFF;border:0;margin:0;padding:0;width:100%}.a2a_menu_find_container input.a2a_menu_find{position:relative;left:24px;color:#000;font-size:12px;padding:2px 0;outline:0;border:0;background-color:transparent;_background-color:#FFF;width:250px}table.a2a_cols_container{width:100%}.a2a_cols{width:50%}.a2a_clear{clear:both} .a2a_default_style a{float:left;line-height:16px;padding:0 2px}.a2a_default_style .a2a_img{display:block;height:16px;line-height:16px;overflow:hidden;width:16px}.a2a_default_style .a2a_img,.a2a_default_style .a2a_dd{float:left}.a2a_default_style .a2a_img_text{margin-right:4px}.a2a_default_style .a2a_divider{border-left:1px solid #000;display:inline;float:left;height:16px;line-height:16px;margin:0 5px}.a2a_kit a{cursor:pointer}.a2a_hr{margin:0 12px 12px;padding:1px;background:none;background-color:#EEE}.a2a_nowrap{white-space:nowrap}.a2a_note{margin:0 auto;padding:9px;font-size:11px;text-align:center}.a2a_note .a2a_note_note{margin:0 0 9px;color:#000}.a2a_wide a{display:block;margin-top:3px;border:1px solid #EEE;padding:3px;text-align:center}.a2a_tabs{float:left;margin:0 0 3px}.a2a_tabs a,.a2a_tabs div{margin:1px;background-color:#EEE;border:1px solid #EEE;font-size:11px;padding:6px 12px 2px;white-space:nowrap}.a2a_tabs a span,.a2a_tabs div span{margin-bottom:4px;padding-left:20px}.a2a_tabs a,.a2a_tabs a:visited,.a2a_tabs a:hover,.a2a_tabs div,.a2a_tabs div:hover{cursor:pointer;border-bottom:1px solid #EEE;color:#000;-webkit-border-bottom-left-radius:0;-moz-border-radius-bottomleft:0;-webkit-border-bottom-right-radius:0;-moz-border-radius-bottomright:0}a.a2a_tab_selected,a.a2a_tab_selected:visited,a.a2a_tab_selected:hover,a.a2a_tab_selected:active,a.a2a_tab_selected:focus,div.a2a_tab_selected,div.a2a_tab_selected:hover{color:#00F;background-color:#FFF;border:1px solid #CCC;border-bottom:1px solid #FFF}a.a2a_i{display:block;padding:4px 6px;border:1px solid #FFF;text-align:left;white-space:nowrap}a.a2a_i span{padding-left:20px}a.a2a_sss{font-weight:700}a.a2a_ind{display:inline;margin:0;padding:0}a.a2a_emailer{display:inline-block;border:1px solid #EEE;margin:0 9px;text-align:center}a.a2a_email_client{padding-left:6px}a.a2a_email_client span{display:inline-block;height:16px;line-height:16px;margin:0 2px;padding-left:0;width:16px}a.a2a_menu_show_more_less{margin:4px 0 8px;padding:0}a.a2a_menu_show_more_less span{display:inline-block;height:14px;margin:0 auto;vertical-align:baseline;width:16px}div.a2a_menu_powered_by{background-color:#EEE;font-size:9px;color:#999;text-align:center;padding:4px;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px}div.a2a_menu_powered_by a,div.a2a_menu_powered_by a:visited{display:inline;font-size:9px;line-height:9px;color:#999}div.a2a_menu_powered_by a:hover{border:0;text-decoration:underline}iframe.a2a_shim{border:0;position:absolute;z-index:999999}.a2a_dd img{border:0}.a2a_i_a2a{background-position:0 0!important}.a2a_i_agregator{background-position:0 -17px!important}.a2a_i_aiderss{background-position:0 -34px!important}.a2a_i_aim{background-position:0 -51px!important}.a2a_i_allvoices{background-position:0 -68px!important}.a2a_i_amazon{background-position:0 -85px!important}.a2a_i_aol{background-position:0 -102px!important}.a2a_i_apple_mail{background-position:0 -119px!important}.a2a_i_arto{background-position:0 -136px!important}.a2a_i_ask{background-position:0 -153px!important}.a2a_i_avantgo{background-position:0 -170px!important}.a2a_i_backflip{background-position:0 -187px!important}.a2a_i_bebo{background-position:0 -204px!important}.a2a_i_bibsonomy{background-position:0 -221px!important}.a2a_i_bitty{background-position:0 -238px!important}.a2a_i_blinklist{background-position:0 -255px!important}.a2a_i_blogger{background-position:0 -272px!important}.a2a_i_bloglines{background-position:0 -289px!important}.a2a_i_blogmarks{background-position:0 -306px!important}.a2a_i_blogrovr{background-position:0 -323px!important}.a2a_i_bookmark{background-position:0 -340px!important}.a2a_i_bookmarks_fr{background-position:0 -357px!important}.a2a_i_box{background-position:0 -374px!important}.a2a_i_buddymarks{background-position:0 -391px!important}.a2a_i_buzmob{background-position:0 -408px!important}.a2a_i_buzz{background-position:0 -425px!important}.a2a_i_bzzster{background-position:0 -442px!important}.a2a_i_care2{background-position:0 -459px!important}.a2a_i_chrome{background-position:0 -476px!important}.a2a_i_citeulike{background-position:0 -493px!important}.a2a_i_clear{background-position:0 -510px!important}.a2a_i_connotea{background-position:0 -527px!important}.a2a_i_current{background-position:0 -544px!important}.a2a_i_dailyme{background-position:0 -561px!important}.a2a_i_dailyrotation{background-position:0 -578px!important}.a2a_i_darr{background-position:0 -595px!important}.a2a_i_darr_wt{background-position:0 -612px!important}.a2a_i_default{background-position:0 -629px!important}.a2a_i_delicious{background-position:0 -646px!important}.a2a_i_designfloat{background-position:0 -663px!important}.a2a_i_digg{background-position:0 -680px!important}.a2a_i_diglog{background-position:0 -697px!important}.a2a_i_diigo{background-position:0 -714px!important}.a2a_i_dzone{background-position:0 -731px!important}.a2a_i_email{background-position:0 -748px!important}.a2a_i_eskobo{background-position:0 -765px!important}.a2a_i_evernote{background-position:0 -782px!important}.a2a_i_excitemix{background-position:0 -799px!important}.a2a_i_expression{background-position:0 -816px!important}.a2a_i_facebook{background-position:0 -833px!important}.a2a_i_fark{background-position:0 -850px!important}.a2a_i_faves{background-position:0 -867px!important}.a2a_i_feed{background-position:0 -884px!important}.a2a_i_feedblitz{background-position:0 -901px!important}.a2a_i_feedbucket{background-position:0 -918px!important}.a2a_i_feedlounge{background-position:0 -935px!important}.a2a_i_feedm8{background-position:0 -952px!important}.a2a_i_feedmailer{background-position:0 -969px!important}.a2a_i_feedreader_net{background-position:0 -986px!important}.a2a_i_feedshow{background-position:0 -1003px!important}.a2a_i_find{background-position:0 -1020px!important}.a2a_i_fireant{background-position:0 -1037px!important}.a2a_i_firefox{background-position:0 -1054px!important}.a2a_i_flurry{background-position:0 -1071px!important}.a2a_i_folkd{background-position:0 -1088px!important}.a2a_i_foxiewire{background-position:0 -1105px!important}.a2a_i_friendfeed{background-position:0 -1122px!important}.a2a_i_friendster{background-position:0 -1139px!important}.a2a_i_funp{background-position:0 -1156px!important}.a2a_i_furl{background-position:0 -1173px!important}.a2a_i_fwicki{background-position:0 -1189px!important}.a2a_i_gabbr{background-position:0 -1206px!important}.a2a_i_global_grind{background-position:0 -1223px!important}.a2a_i_gmail{background-position:0 -1240px!important}.a2a_i_google{background-position:0 -1257px!important}.a2a_i_google_buzz{background-position:0 -1274px!important}.a2a_i_healthranker{background-position:0 -1291px!important}.a2a_i_hellotxt{background-position:0 -1308px!important}.a2a_i_hemidemi{background-position:0 -1325px!important}.a2a_i_hi5{background-position:0 -1342px!important}.a2a_i_hubdog{background-position:0 -1359px!important}.a2a_i_hugg{background-position:0 -1376px!important}.a2a_i_hyves{background-position:0 -1393px!important}.a2a_i_identica{background-position:0 -1410px!important}.a2a_i_im{background-position:0 -1427px!important}.a2a_i_imera{background-position:0 -1444px!important}.a2a_i_instapaper{background-position:0 -1461px!important}.a2a_i_iterasi{background-position:0 -1478px!important}.a2a_i_itunes{background-position:0 -1495px!important}.a2a_i_jamespot{background-position:0 -1512px!important}.a2a_i_jots{background-position:0 -1529px!important}.a2a_i_jumptags{background-position:0 -1546px!important}.a2a_i_khabbr{background-position:0 -1563px!important}.a2a_i_kledy{background-position:0 -1580px!important}.a2a_i_klipfolio{background-position:0 -1597px!important}.a2a_i_linkagogo{background-position:0 -1614px!important}.a2a_i_linkatopia{background-position:0 -1631px!important}.a2a_i_linkedin{background-position:0 -1648px!important}.a2a_i_live{background-position:0 -1665px!important}.a2a_i_livejournal{background-position:0 -1682px!important}.a2a_i_ma_gnolia{background-position:0 -1699px!important}.a2a_i_maple{background-position:0 -1716px!important}.a2a_i_meneame{background-position:0 -1733px!important}.a2a_i_mindbodygreen{background-position:0 -1750px!important}.a2a_i_miro{background-position:0 -1767px!important}.a2a_i_mister-wong{background-position:0 -1784px!important}.a2a_i_mixx{background-position:0 -1801px!important}.a2a_i_mobile{background-position:0 -1818px!important}.a2a_i_mozillaca{background-position:0 -1835px!important}.a2a_i_msdn{background-position:0 -1852px!important}.a2a_i_multiply{background-position:0 -1869px!important}.a2a_i_my_msn{background-position:0 -1886px!important}.a2a_i_mylinkvault{background-position:0 -1903px!important}.a2a_i_myspace{background-position:0 -1920px!important}.a2a_i_netimechannel{background-position:0 -1937px!important}.a2a_i_netlog{background-position:0 -1954px!important}.a2a_i_netomat{background-position:0 -1971px!important}.a2a_i_netvibes{background-position:0 -1988px!important}.a2a_i_netvouz{background-position:0 -2005px!important}.a2a_i_newgie{background-position:0 -2022px!important}.a2a_i_newsalloy{background-position:0 -2039px!important}.a2a_i_newscabby{background-position:0 -2056px!important}.a2a_i_newsgator{background-position:0 -2073px!important}.a2a_i_newshutch{background-position:0 -2090px!important}.a2a_i_newsisfree{background-position:0 -2107px!important}.a2a_i_newstrust{background-position:0 -2124px!important}.a2a_i_newsvine{background-position:0 -2141px!important}.a2a_i_nowpublic{background-position:0 -2158px!important}.a2a_i_odeo{background-position:0 -2175px!important}.a2a_i_oneview{background-position:0 -2192px!important}.a2a_i_openbm{background-position:0 -2209px!important}.a2a_i_orkut{background-position:0 -2226px!important}.a2a_i_outlook{background-position:0 -2243px!important}.a2a_i_pageflakes{background-position:0 -2260px!important}.a2a_i_pdf{background-position:0 -2277px!important}.a2a_i_phonefavs{background-position:0 -2294px!important}.a2a_i_ping{background-position:0 -2311px!important}.a2a_i_plaxo{background-position:0 -2328px!important}.a2a_i_plurk{background-position:0 -2345px!important}.a2a_i_plusmo{background-position:0 -2362px!important}.a2a_i_podnova{background-position:0 -2379px!important}.a2a_i_posterous{background-position:0 -2396px!important}.a2a_i_print{background-position:0 -2413px!important}.a2a_i_printfriendly{background-position:0 -2430px!important}.a2a_i_propeller{background-position:0 -2447px!important}.a2a_i_protopage{background-position:0 -2464px!important}.a2a_i_pusha{background-position:0 -2481px!important}.a2a_i_rapidfeeds{background-position:0 -2498px!important}.a2a_i_rasasa{background-position:0 -2515px!important}.a2a_i_reader{background-position:0 -2532px!important}.a2a_i_reddit{background-position:0 -2549px!important}.a2a_i_rssfwd{background-position:0 -2566px!important}.a2a_i_segnalo{background-position:0 -2583px!important}.a2a_i_share{background-position:0 -2600px!important}.a2a_i_shoutwire{background-position:0 -2617px!important}.a2a_i_shyftr{background-position:0 -2634px!important}.a2a_i_simpy{background-position:0 -2651px!important}.a2a_i_sitejot{background-position:0 -2668px!important}.a2a_i_skimbit{background-position:0 -2685px!important}.a2a_i_slashdot{background-position:0 -2702px!important}.a2a_i_smaknews{background-position:0 -2719px!important}.a2a_i_sodahead{background-position:0 -2736px!important}.a2a_i_sofomo{background-position:0 -2753px!important}.a2a_i_spaces{background-position:0 -2770px!important}.a2a_i_sphere{background-position:0 -2787px!important}.a2a_i_sphinn{background-position:0 -2803px!important}.a2a_i_spurl{background-position:0 -2820px!important}.a2a_i_squidoo{background-position:0 -2837px!important}.a2a_i_startaid{background-position:0 -2854px!important}.a2a_i_strands{background-position:0 -2871px!important}.a2a_i_stumbleupon{background-position:0 -2888px!important}.a2a_i_stumpedia{background-position:0 -2905px!important}.a2a_i_symbaloo{background-position:0 -2922px!important}.a2a_i_taggly{background-position:0 -2939px!important}.a2a_i_tagza{background-position:0 -2956px!important}.a2a_i_tailrank{background-position:0 -2973px!important}.a2a_i_technet{background-position:0 -2990px!important}.a2a_i_technorati{background-position:0 -3007px!important}.a2a_i_technotizie{background-position:0 -3024px!important}.a2a_i_thefreedictionary{background-position:0 -3041px!important}.a2a_i_thefreelibrary{background-position:0 -3058px!important}.a2a_i_thunderbird{background-position:0 -3075px!important}.a2a_i_tipd{background-position:0 -3092px!important}.a2a_i_toolbar_google{background-position:0 -3109px!important}.a2a_i_tumblr{background-position:0 -3126px!important}.a2a_i_twiddla{background-position:0 -3143px!important}.a2a_i_twine{background-position:0 -3160px!important}.a2a_i_twitter{background-position:0 -3177px!important}.a2a_i_txtvox{background-position:0 -3194px!important}.a2a_i_typepad{background-position:0 -3211px!important}.a2a_i_uarr{background-position:0 -3228px!important}.a2a_i_uarr_wt{background-position:0 -3245px!important}.a2a_i_unalog{background-position:0 -3262px!important}.a2a_i_viadeo{background-position:0 -3279px!important}.a2a_i_webnews{background-position:0 -3296px!important}.a2a_i_webwag{background-position:0 -3314px!important}.a2a_i_wikio{background-position:0 -3331px!important}.a2a_i_windows_mail{background-position:0 -3348px!important}.a2a_i_wink{background-position:0 -3365px!important}.a2a_i_winksite{background-position:0 -3382px!important}.a2a_i_wists{background-position:0 -3399px!important}.a2a_i_wordpress{background-position:0 -3416px!important}.a2a_i_xanga{background-position:0 -3433px!important}.a2a_i_xerpi{background-position:0 -3450px!important}.a2a_i_xianguo{background-position:0 -3467px!important}.a2a_i_yahoo{background-position:0 -3484px!important}.a2a_i_yample{background-position:0 -3501px!important}.a2a_i_yigg{background-position:0 -3518px!important}.a2a_i_yim{background-position:0 -3535px!important}.a2a_i_yoolink{background-position:0 -3552px!important}.a2a_i_youmob{background-position:0 -3569px!important}.a2a_i_yourminis{background-position:0 -3586px!important}.a2a_i_zaptxt{background-position:0 -3603px!important}.a2a_i_zhuaxia{background-position:0 -3620px!important}.a2a_i_zune{background-position:0 -3637px;  }</style></head>
+<body class="single single-post postid-427 single-format-standard col-2-right fixed title-how-to-generate-a-word-docx-from-a-template-with-php category-php category-uncategorized tag-class tag-docx tag-generation tag-github tag-livedocx tag-php tag-phplivedocx tag-word author-admin browser-chrome"><iframe id="a2apage_sm_ifr" height="1" width="1" style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; left: 0px; top: 0px; position: absolute; z-index: 100000; display: none; " transparency="true" allowtransparency="true" frameborder="0" src="./How to generate a word docx from a template with PHP     Made in Paté_files/sm6.htm"></iframe><div style="position: static; "><div id="a2apage_dropdown" class="a2a_menu" onmouseover="a2a.onMouseOver_stay()" onmouseout="a2a.onMouseOut_delay()" style="left: 172px; top: 1753px; display: none; "><div class="a2a_menu_inside"><table><tbody><tr><td><div id="a2apage_title_container" class="a2a_menu_title_container" style="display:none"><input id="a2apage_title" class="a2a_menu_title"></div><div class="a2apage_wide a2a_wide"><div class="a2a_tabs"><div id="a2apage_DEFAULT" class="a2a_tab_selected" style="margin-right:1px" onclick="return a2a.tabs(&#39;DEFAULT&#39;)"><span class="a2a_i_share">Sambung / Simpan</span></div></div><div class="a2a_tabs"><div title="Sambungkan lewat e-mail" id="a2apage_EMAIL" style="margin-right:1px" onclick="return a2a.tabs(&#39;EMAIL&#39;,true)"><span class="a2a_i_email">E-mail</span></div></div><div class="a2a_tabs"><div onclick="a2a.bmBrowser()" title="Bookmark dalam penjelajah anda" id="a2apage_BROWSER" style="margin-left:1px"><span class="a2a_i_bookmark">Bookmark</span></div></div></div><div class="a2a_clear"></div><div id="a2apage_find_container" class="a2a_menu_find_container"><input id="a2apage_find" class="a2a_menu_find" type="text" onclick="a2a.focus_find()" onkeyup="a2a.do_find()" autocomplete="off" onfocus="a2a[&#39;page&#39;].find_focused=true;a2a.onMouseOver_stay()" onblur="a2a.blur_find()" title="Cari penyedia situs anda secara singkat"><span id="a2apage_find_icon" class="a2a_i_find" onclick="a2a.focus_find()"></span></div><table id="a2apage_cols_container" class="a2a_cols_container"><tbody><tr><td class="a2a_cols"><div id="a2apage_col1"><a id="a2apage_facebook" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_facebook">Facebook</span></a><a id="a2apage_delicious" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_delicious">Delicious</span></a><a id="a2apage_google_bookmarks" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_google">Google Bookmarks</span></a><a id="a2apage_myspace" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_myspace">MySpace</span></a><a id="a2apage_live" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_live">Messenger</span></a><a id="a2apage_yahoo_bookmarks" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_yahoo">Yahoo Bookmarks</span></a><a id="a2apage_mister_wong" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_mister-wong">Mister-Wong</span></a><a id="a2apage_google_reader" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_reader">Google Reader</span></a><a id="a2apage_xing" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_default">XING</span></a><a id="a2apage_netvibes_share" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_netvibes">Netvibes Share</span></a><a id="a2apage_posterous" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_posterous">Posterous</span></a><a id="a2apage_business_exchange" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_default">Business Exchange</span></a><a id="a2apage_technet" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_technet">TechNet</span></a><a id="a2apage_arto" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_arto">Arto</span></a><a id="a2apage_smaknews" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_smaknews">SmakNews</span></a><a id="a2apage_aim" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_aim">AIM</span></a><a id="a2apage_identi_ca" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_identica">Identi.ca</span></a><a id="a2apage_blogger_post" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_blogger">Blogger Post</span></a><a id="a2apage_box_net" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_box">Box.net</span></a><a id="a2apage_netlog" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_netlog">Netlog</span></a><a id="a2apage_shoutwire" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_shoutwire">Shoutwire</span></a><a id="a2apage_jumptags" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_jumptags">Jumptags</span></a><a id="a2apage_funp" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_funp">FunP</span></a><a id="a2apage_phonefavs" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_phonefavs">PhoneFavs</span></a><a id="a2apage_netvouz" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_netvouz">Netvouz</span></a><a id="a2apage_diigo" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_diigo">Diigo</span></a><a id="a2apage_blogmarks" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_blogmarks">BlogMarks</span></a><a id="a2apage_startaid" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_startaid">StartAid</span></a><a id="a2apage_khabbr" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_khabbr">Khabbr</span></a><a id="a2apage_yoolink" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_yoolink">Yoolink</span></a><a id="a2apage_technotizie" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_technotizie">Technotizie</span></a><a id="a2apage_multiply" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_multiply">Multiply</span></a><a id="a2apage_plaxo_pulse" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_plaxo">Plaxo Pulse</span></a><a id="a2apage_squidoo" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_squidoo">Squidoo</span></a><a id="a2apage_blinklist" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_blinklist">Blinklist</span></a><a id="a2apage_yigg" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_yigg">YiGG</span></a><a id="a2apage_segnalo" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_segnalo">Segnalo</span></a><a id="a2apage_youmob" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_youmob">YouMob</span></a><a id="a2apage_fark" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_fark">Fark</span></a><a id="a2apage_jamespot" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_jamespot">Jamespot</span></a><a id="a2apage_twiddla" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_twiddla">Twiddla</span></a><a id="a2apage_mindbodygreen" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_mindbodygreen">MindBodyGreen</span></a><a id="a2apage_hugg" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_hugg">Hugg</span></a><a id="a2apage_nowpublic" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_nowpublic">NowPublic</span></a><a id="a2apage_livejournal" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_livejournal">LiveJournal</span></a><a id="a2apage_hellotxt" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_hellotxt">HelloTxt</span></a><a id="a2apage_yample" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_yample">Yample</span></a><a id="a2apage_linkatopia" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_linkatopia">Linkatopia</span></a><a id="a2apage_linkedin" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_linkedin">LinkedIn</span></a><a id="a2apage_ask_com_mystuff" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_ask">Ask.com MyStuff</span></a><a id="a2apage_maple" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_maple">Maple</span></a><a id="a2apage_connotea" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_connotea">Connotea</span></a><a id="a2apage_mylinkvault" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_mylinkvault">MyLinkVault</span></a><a id="a2apage_sphinn" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_sphinn">Sphinn</span></a><a id="a2apage_care2_news" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_care2">Care2 News</span></a><a id="a2apage_sphere" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_sphere">Sphere</span></a><a id="a2apage_gabbr" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_gabbr">Gabbr</span></a><a id="a2apage_tagza" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_tagza">Tagza</span></a><a id="a2apage_vodpod" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_default">VodPod</span></a><a id="a2apage_amazon_wish_list" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_amazon">Amazon Wish List</span></a><a id="a2apage_read_it_later" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_default">Read It Later</span></a><a id="a2apage_email" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_email">Email</span></a></div><div id="a2apage_2_col1" style="display:none"><a id="a2apage_yahoo_mail" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_yahoo">Yahoo Mail</span></a><a id="a2apage_aol_mail" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_aol">AOL Mail</span></a></div></td><td class="a2a_cols"><div id="a2apage_col2"><a id="a2apage_twitter" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_twitter">Twitter</span></a><a id="a2apage_digg" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_digg">Digg</span></a><a id="a2apage_google_buzz" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_google_buzz">Google Buzz</span></a><a id="a2apage_reddit" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_reddit">Reddit</span></a><a id="a2apage_stumbleupon" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_stumbleupon">StumbleUpon</span></a><a id="a2apage_bebo" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_bebo">Bebo</span></a><a id="a2apage_wordpress" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_wordpress">WordPress</span></a><a id="a2apage_orkut" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_orkut">Orkut</span></a><a id="a2apage_evernote" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_evernote">Evernote</span></a><a id="a2apage_strands" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_strands">Strands</span></a><a id="a2apage_dailyme" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_dailyme">DailyMe</span></a><a id="a2apage_msdn" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_msdn">MSDN</span></a><a id="a2apage_expression" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_expression">Expression</span></a><a id="a2apage_tipd" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_tipd">Tipd</span></a><a id="a2apage_plurk" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_plurk">Plurk</span></a><a id="a2apage_yahoo_messenger" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_yim">Yahoo Messenger</span></a><a id="a2apage_mozillaca" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_mozillaca">Mozillaca</span></a><a id="a2apage_typepad_post" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_typepad">TypePad Post</span></a><a id="a2apage_mixx" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_mixx">Mixx</span></a><a id="a2apage_technorati_favorites" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_technorati">Technorati Favorites</span></a><a id="a2apage_citeulike" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_citeulike">CiteULike</span></a><a id="a2apage_hemidemi" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_hemidemi">Hemidemi</span></a><a id="a2apage_instapaper" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_instapaper">Instapaper</span></a><a id="a2apage_xerpi" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_xerpi">Xerpi</span></a><a id="a2apage_wink" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_wink">Wink</span></a><a id="a2apage_bibsonomy" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_bibsonomy">BibSonomy</span></a><a id="a2apage_tailrank" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_tailrank">Tailrank</span></a><a id="a2apage_kledy" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_kledy">Kledy</span></a><a id="a2apage_meneame" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_meneame">Meneame</span></a><a id="a2apage_bookmarks_fr" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_bookmarks_fr">Bookmarks.fr</span></a><a id="a2apage_newsvine" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_newsvine">NewsVine</span></a><a id="a2apage_friendfeed" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_friendfeed">FriendFeed</span></a><a id="a2apage_ping" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_ping">Ping</span></a><a id="a2apage_protopage_bookmarks" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_protopage">Protopage Bookmarks</span></a><a id="a2apage_faves" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_faves">Faves</span></a><a id="a2apage_webnews" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_webnews">Webnews</span></a><a id="a2apage_pusha" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_pusha">Pusha</span></a><a id="a2apage_slashdot" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_slashdot">Slashdot</span></a><a id="a2apage_allvoices" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_allvoices">Allvoices</span></a><a id="a2apage_imera_brazil" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_imera">Imera Brazil</span></a><a id="a2apage_linkagogo" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_linkagogo">LinkaGoGo</span></a><a id="a2apage_unalog" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_unalog">unalog</span></a><a id="a2apage_diglog" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_diglog">Diglog</span></a><a id="a2apage_tumblr" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_tumblr">Tumblr</span></a><a id="a2apage_current" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_current">Current</span></a><a id="a2apage_spurl" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_spurl">Spurl</span></a><a id="a2apage_oneview" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_oneview">Oneview</span></a><a id="a2apage_simpy" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_simpy">Simpy</span></a><a id="a2apage_buddymarks" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_buddymarks">BuddyMarks</span></a><a id="a2apage_viadeo" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_viadeo">Viadeo</span></a><a id="a2apage_wists" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_wists">Wists</span></a><a id="a2apage_backflip" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_backflip">Backflip</span></a><a id="a2apage_sitejot" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_sitejot">SiteJot</span></a><a id="a2apage_dzone" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_dzone">DZone</span></a><a id="a2apage_hyves" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_hyves">Hyves</span></a><a id="a2apage_bitty_browser" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_bitty">Bitty Browser</span></a><a id="a2apage_symbaloo_feeds" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_symbaloo">Symbaloo Feeds</span></a><a id="a2apage_folkd" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_folkd">Folkd</span></a><a id="a2apage_newstrust" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_newstrust">NewsTrust</span></a><a id="a2apage_printfriendly" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_printfriendly">PrintFriendly</span></a><a id="a2apage_tuenti" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_default">Tuenti</span></a><a id="a2apage_rediff" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank" style="display: none; "><span class="a2a_i_default">Rediff MyPage</span></a></div><div id="a2apage_2_col2" style="display:none"><a id="a2apage_google_gmail" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_gmail">Google Gmail</span></a><a id="a2apage_hotmail" rel="nofollow" class="a2a_i" href="http://djpate.com/" target="_blank"><span class="a2a_i_live">Hotmail</span></a></div></td></tr></tbody></table><div id="a2apage_note_BROWSER" class="a2a_note" style="display:none"></div><div id="a2apage_note_EMAIL" class="a2a_note" style="display:none"><div class="a2a_hr"></div><div class="a2a_note_note">Send from any e-mail address or e-mail program:</div><div class="a2a_nowrap"><a href="http://djpate.com/" id="a2apage_any_email" class="a2a_i a2a_emailer" target="_blank" servicename="Email (form)" safename="email_form" customserviceuri="http://www.addtoany.com/email?linkurl=A2A_LINKURL_ENC&amp;linkname=A2A_LINKNAME_ENC" onkeydown="a2a.linker(this)" onmousedown="a2a.linker(this)" onmouseup="a2a.a2a_track(&#39;testShare1&#39;, &#39;Email&#39;);if(a2a.c.track_pub)a2a.a2a_track(&#39;z_&#39;+a2a.c.track_pub+&#39;Share&#39;, &#39;Email&#39;)" style="margin-right:9px"><span class="a2a_i_email">Any email</span></a><a href="http://djpate.com/" class="a2a_i a2a_emailer a2a_email_client" id="a2apage_email_client" servicename="Email (mailto)" safename="email_mailto" customserviceuri="mailto:?subject=A2A_LINKNAME_ENC&amp;body=A2A_LINKURL_ENC" onkeydown="a2a.linker(this)" onmousedown="a2a.linker(this)" onmouseup="a2a.a2a_track(&#39;testShare1&#39;, &#39;Email&#39;);if(a2a.c.track_pub)a2a.a2a_track(&#39;z_&#39;+a2a.c.track_pub+&#39;Share&#39;, &#39;Email&#39;)" style="margin-left:9px"><span class="a2a_i_outlook">&nbsp;</span><span class="a2a_i_windows_mail">&nbsp;</span><span class="a2a_i_apple_mail">&nbsp;</span><span class="a2a_i_thunderbird">&nbsp;</span></a></div></div><div class="a2apage_wide a2a_wide"><a href="javascript:void(0)" id="a2apage_show_more_less" class="a2a_menu_show_more_less" onclick="return a2a.show_more_less(0)" onmouseover="img=this.firstChild;if(a2a.c.color_arrow_hover==&#39;fff&#39;){if(img.className.indexOf(&#39;_wt&#39;)==-1)img.className+=&#39;_wt&#39;}else img.className=img.className.replace(/_wt/,&#39;&#39;)" onmouseout="img=this.firstChild;if(a2a.c.color_arrow==&#39;fff&#39;){if(img.className.indexOf(&#39;_wt&#39;)==-1)img.className+=&#39;_wt&#39;}else img.className=img.className.replace(/_wt/,&#39;&#39;)" title="Tampilkan Semua"><span class="a2a_i_darr"></span></a></div><div class="a2a_menu_powered_by" id="a2apage_powered_by" onmouseover="if(!window.opera)this.innerHTML=this.orig;this.style.textAlign=&#39;center&#39;"><a href="http://www.addtoany.com/" target="_blank" title="Share Buttons">AddToAny</a> by <a href="http://lockerz.com/" target="_blank" title="Social Commerce">Lockerz</a></div></td></tr></tbody></table></div></div></div>
+
+ 
+ <!-- page -->
+ <div id="page">
+
+    <div id="page-ext">
+
+    <!-- header -->
+    <div id="header">
+      <div class="page-content">
+        <div id="site-title" class="clear-block">
+          <div id="logo"><a href="http://djpate.com/">Made <span class="alt">in</span> Paté</a></div>          <div class="headline">A do-it yourself blog</div>        </div>
+      </div>
+
+      <div class="shadow-left page-content">
+        <div class="shadow-right nav nav-main">
+          <div class="menu-menu-pages-container"><ul id="menu-menu-pages" class="menu fadeThis clear-block"><li class="home "><a href="http://djpate.com/" title="Home Page">Home<span class="p"></span></a></li><li class="page-about"><a href="http://djpate.com/about/" title="About me">About me<span class="p"></span></a></li></ul></div>        </div>
+      </div>
+
+    </div>
+    <!-- /header -->
+
+    <!-- main -->
+    <div id="main" class="page-content">
+      <div id="main-ext" class="clear-block">
+
+  <!-- main content: primary + sidebar(s) -->
+  <div id="mask-3" class="clear-block">
+    <div id="mask-2">
+      <div id="mask-1">
+
+        <!-- primary content -->
+        <div id="primary-content">
+
+          
+          
+          
+          <div class="post-links clear-block">
+            <div class="alignleft">« <a href="http://djpate.com/2011/04/18/how-to-compile-spawner-the-sql-data-generator-on-ubuntu/" rel="prev">How to compile Spawner the Sql data generator on Ubuntu</a></div>
+            <div class="alignright"></div>
+          </div>
+
+          <!-- post -->
+          <div id="post-427" class="post-427 post type-post status-publish format-standard hentry category-php category-uncategorized tag-class tag-docx tag-generation tag-github tag-livedocx tag-php tag-phplivedocx tag-word primary count-1 odd author-admin first">
+
+                        <h1 class="title">How to generate a word docx from a template with PHP ?</h1>
+            
+            <div class="post-content clear-block">
+             <p>Hey folks,</p>
+<p>A lot of clients of mine asked for docx generation in the past.</p>
+<p>The only solution that I knew of in PHP is the SOAP client phplivedocx.</p>
+<p>first of all It was kinda slow and I didn’t want to relly on a service and more importantly It was missing the “nested block” feature.</p>
+<p>So I decided to create my own class !</p>
+<p>Have fun &amp; fork me if you need another feature !</p>
+<p><a title="download on github" href="https://github.com/djpate/phpdocx" target="_blank">http://github.com/djpate/phpdocx</a></p>
+<div>
+<h1>PHPDOCX</h1>
+<h2>Features</h2>
+<ul>
+<li>Create valid docx based on a template</li>
+<li>Nested blocks on infinite levels</li>
+</ul>
+<h2>How to create your template</h2>
+<p>Simply open up word 2007+</p>
+<p>If you want to map a single field you can just use #NAME# but you  could use anything you like since it’s just a search &amp; replace</p>
+<p>To create a block</p>
+<pre><code>[start blockname]
+your content
+[start somenestedblock]
+[end somenestedblock]
+[end blockname]
+</code></pre>
+<ul>
+<li>blockname should be unique</li>
+<li>blockname has to match w+ reg ex (a-zA-Z_)</li>
+<li>fields mapped in block has to be unique</li>
+</ul>
+<p>Please check out full template in the repo</p>
+<h2>How to setup</h2>
+<pre><code>require("phpDocx.php");
+$phpdocx = new phpdocx("mytemplate.docx");
+</code></pre>
+<h2>How to assign values</h2>
+<pre><code>$phpdocx-&gt;assign("#TITLE1#","Hello !"); // basic field mapping
+
+$phpdocx-&gt;assignBlock("members",array(array("#NAME#"=&gt;"John","#SURNAME#"=&gt;"DOE"),array("#NAME#"=&gt;"Jane","#SURNAME#"=&gt;"DOE"))); // this would replicate two members block with the associated values
+
+$phpdocx-&gt;assignNestedBlock("pets",array("#PETNAME#"=&gt;"Rex"),array("members"=&gt;1)); // would create a block pets for john doe with the name rex
+$phpdocx-&gt;assignNestedBlock("pets",array("#PETNAME#"=&gt;"Rox"),array("members"=&gt;2)); // would create a block pets for jane doe with the name rox
+
+$phpdocx-&gt;assignNestedBlock("toys",array("#TOYNAME#"=&gt;"Ball"),array("members"=&gt;1,"pets"=&gt;1)); // would create a block toy for rex
+$phpdocx-&gt;assignNestedBlock("toys",array("#TOYNAME#"=&gt;"Frisbee"),array("members"=&gt;2,"pets"=&gt;1)); // would create a block toy for rox
+</code></pre>
+<h2>How to save</h2>
+<pre><code>$phpdocx-&gt;save("somefile.docx");
+</code></pre>
+<h2>More info</h2>
+<h3>Why this pclzip ?</h3>
+<p>I’m using pclzip for the zip process because the zip utility provided with php can cause issue with office</p>
+<h3>What’s the licence ?</h3>
+<p>GPL</p>
+<h3>Anything else ?</h3>
+<p>I’m using three function from the TBS library so congrats to them</p>
+</div>
+<div class="addtoany_share_save_container"><div class="a2a_kit a2a_target addtoany_list" id="wpa2a_1"><a class="a2a_dd addtoany_share_save" href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fdjpate.com%2F2011%2F05%2F18%2Fhow-to-generate-a-word-docx-from-a-template-with-php%2F&title=How%20to%20generate%20a%20word%20docx%20from%20a%20template%20with%20PHP%20%3F&description=Hey%20folks%2C%20A%20lot%20of%20clients%20of%20mine%20asked%20for%20docx%20generation%20in%20the%20past.%20The%20only%20solution%20that%20I%20knew%20of%20in%20PHP%20is%20the%20SOAP%20client"><img src="./How to generate a word docx from a template with PHP     Made in Paté_files/share_save_171_16.png" width="171" height="16" alt="Share"></a></div>
+<script type="text/javascript"><!--
+wpa2a.script_load();
+//--></script>
+</div><h3 class="related_post_title">Related Posts:</h3><ul class="related_post"><li><a href="http://djpate.com/2009/05/22/mysql-class-for-php5-using-singleton/" title="Mysql Class for php5 using singleton">Mysql Class for php5 using singleton</a></li><li><a href="http://djpate.com/2011/02/20/how-to-setup-xdebug-on-ubuntu-10-10/" title="How to setup Xdebug on ubuntu 10.10">How to setup Xdebug on ubuntu 10.10</a></li><li><a href="http://djpate.com/2011/01/14/jtag-a-jquery-plugin-to-tag-pictures-more/" title="jTag : A jQuery plugin to tag pictures &amp; more !">jTag : A jQuery plugin to tag pictures &amp; more !</a></li><li><a href="http://djpate.com/2011/01/13/how-to-write-a-complete-oauth-provider-in-php5/" title="How to write a complete OAuth Provider in PHP5">How to write a complete OAuth Provider in PHP5</a></li><li><a href="http://djpate.com/2010/12/18/gmail-yahoo-live-contact-inviter-script/" title="gmail, yahoo &amp; live messenger contact inviter script">gmail, yahoo &amp; live messenger contact inviter script</a></li></ul>            </div>
+
+            
+                        <div class="post-tags clear-block">
+              <a href="http://djpate.com/tag/class/" rel="tag">class</a> <a href="http://djpate.com/tag/docx/" rel="tag">docx</a> <a href="http://djpate.com/tag/generation/" rel="tag">generation</a> <a href="http://djpate.com/tag/github/" rel="tag">github</a> <a href="http://djpate.com/tag/livedocx/" rel="tag">livedocx</a> <a href="http://djpate.com/tag/php/" rel="tag">PHP</a> <a href="http://djpate.com/tag/phplivedocx/" rel="tag">phplivedocx</a> <a href="http://djpate.com/tag/word/" rel="tag">word</a>            </div>
+            
+
+            
+            <div class="post-meta">
+
+              <div class="details">
+                <p>
+                This entry was posted by <a href="http://djpate.com/author/admin/" title="Posts by Christophe Verbinnen ">Christophe Verbinnen</a> on May 18, 2011 at 2:44 pm, and is filed under <a href="http://djpate.com/category/php/" title="View all posts in PHP" rel="category tag">PHP</a>, <a href="http://djpate.com/category/uncategorized/" title="View all posts in Uncategorized" rel="category tag">Uncategorized</a>. Follow any responses to this post through <a href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/feed/" title="RSS 2.0">RSS 2.0</a>.
+                You can <a href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/#commentform">leave a response</a> or <a href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/trackback/" rel="trackback">trackback</a> from your own site.                </p>
+               </div>
+
+            </div>
+            
+            <div class="controls">
+                          </div>
+
+          </div>
+          <!-- /post -->
+
+          
+          
+
+<h3 class="title">
+  11 comments</h3>
+
+<ul id="comments">
+  
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-15042" class="comment even thread-even depth-1 clear-block with-avatars reader name-cruiz">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/4fe884129205f1c69845f21a97ff4b59" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/www.phpdocx.com" rel="external nofollow" class="url">Cruiz</a></span> <span class="d">(29 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-15042">
+       <div class="comment-content clear-block" id="comment-content-15042">
+
+         
+         <div class="comment-text">
+           <p>And simply, why don’t use the real PHPdocx?</p>
+<p><a href="http://www.phpdocx.com/" rel="nofollow">http://www.phpdocx.com</a></p>
+<p>Greetings</p>
+         </div>
+
+         <a id="comment-reply-15042"></a>
+       </div>
+
+       <div class="controls">
+                  <a class="comment-reply-link" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/?replytocom=15042#respond" onclick="return addComment.moveForm(&quot;comment-content-15042&quot;, &quot;15042&quot;, &quot;respond&quot;, &quot;427&quot;)">Reply <span>↓</span></a>       </div>
+
+    </div>
+
+  </div>
+</li>
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-8920" class="comment odd alt thread-odd thread-alt depth-1 clear-block with-avatars reader name-gerard">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/bb48d985bfa388a84cfe2b13298a9556" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://website/" rel="external nofollow" class="url">GerarD</a></span> <span class="d">(108 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-8920">
+       <div class="comment-content clear-block" id="comment-content-8920">
+
+         
+         <div class="comment-text">
+           <p>Hi there..!.. this is working really good.!.. I hope u get done the img feature soon.. =)..</p>
+         </div>
+
+         <a id="comment-reply-8920"></a>
+       </div>
+
+       <div class="controls">
+                  <a class="comment-reply-link" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/?replytocom=8920#respond" onclick="return addComment.moveForm(&quot;comment-content-8920&quot;, &quot;8920&quot;, &quot;respond&quot;, &quot;427&quot;)">Reply <span>↓</span></a>       </div>
+
+    </div>
+
+  </div>
+<ul class="children">
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-9019" class="comment byuser comment-author-admin bypostauthor even depth-2 clear-block with-avatars role-administrator user-admin">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/10083d566019d1ec9fb39e060850274e" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://www.djpate.com/" rel="external nofollow" class="url">Christophe Verbinnen</a></span> <span class="d">(106 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-9019">
+       <div class="comment-content clear-block" id="comment-content-9019">
+
+         
+         <div class="comment-text">
+           <p>I started working on it but for some reason it’s not working I’m investigating…</p>
+         </div>
+
+         <a id="comment-reply-9019"></a>
+       </div>
+
+       <div class="controls">
+                         </div>
+
+    </div>
+
+  </div>
+</li>
+</ul>
+</li>
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-8914" class="comment odd alt thread-even depth-1 clear-block with-avatars reader name-alan-hart">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/c97815ef97d607e6948b31aa92f3fa85" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://website/" rel="external nofollow" class="url">Alan Hart</a></span> <span class="d">(109 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-8914">
+       <div class="comment-content clear-block" id="comment-content-8914">
+
+         
+         <div class="comment-text">
+           <p>This looks a lot simpler than Livedocx – I might give it a go. Thanks for creating it.</p>
+<p>What happens if you create a table and put [start blockname] in the cell at the start of a row, and [end blockname] in the next row of the table?</p>
+<p>Can you use this technique to create a variable number of table rows? And do the block control [phrases] have to appear in a line all on their own?</p>
+<p>Thanks</p>
+<p>Alan</p>
+         </div>
+
+         <a id="comment-reply-8914"></a>
+       </div>
+
+       <div class="controls">
+                  <a class="comment-reply-link" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/?replytocom=8914#respond" onclick="return addComment.moveForm(&quot;comment-content-8914&quot;, &quot;8914&quot;, &quot;respond&quot;, &quot;427&quot;)">Reply <span>↓</span></a>       </div>
+
+    </div>
+
+  </div>
+</li>
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-8002" class="comment even thread-odd thread-alt depth-1 clear-block with-avatars reader name-gerard">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/bb48d985bfa388a84cfe2b13298a9556" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://website/" rel="external nofollow" class="url">GerarD</a></span> <span class="d">(142 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-8002">
+       <div class="comment-content clear-block" id="comment-content-8002">
+
+         
+         <div class="comment-text">
+           <p>Nevermind, Must be a typo on my template or my code cuz’ today is working fine =)…</p>
+<p>Thanks a lot for the new Download Method… hope you could finish the images method this week… I’ll be following your progress in github..</p>
+<p>Good luck and Good Day sir.. =)</p>
+         </div>
+
+         <a id="comment-reply-8002"></a>
+       </div>
+
+       <div class="controls">
+                  <a class="comment-reply-link" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/?replytocom=8002#respond" onclick="return addComment.moveForm(&quot;comment-content-8002&quot;, &quot;8002&quot;, &quot;respond&quot;, &quot;427&quot;)">Reply <span>↓</span></a>       </div>
+
+    </div>
+
+  </div>
+</li>
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-7989" class="comment odd alt thread-even depth-1 clear-block with-avatars reader name-gerard">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/bb48d985bfa388a84cfe2b13298a9556" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://website/" rel="external nofollow" class="url">GerarD</a></span> <span class="d">(142 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-7989">
+       <div class="comment-content clear-block" id="comment-content-7989">
+
+         
+         <div class="comment-text">
+           <p>Nice man.!.. Thanks a lot. I really love this class… And is nice to know that your working on it.. =)</p>
+<p>BTW, there’s a problem with the assignblock. When i use two blocks, works fine, but when i need more than 2 it just throws a warning: “Undefined index: bloquec”…<br>
+Don’t know if it’s just me, or is a bug but would be nice to check it out…</p>
+         </div>
+
+         <a id="comment-reply-7989"></a>
+       </div>
+
+       <div class="controls">
+                  <a class="comment-reply-link" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/?replytocom=7989#respond" onclick="return addComment.moveForm(&quot;comment-content-7989&quot;, &quot;7989&quot;, &quot;respond&quot;, &quot;427&quot;)">Reply <span>↓</span></a>       </div>
+
+    </div>
+
+  </div>
+<ul class="children">
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-7994" class="comment byuser comment-author-admin bypostauthor even depth-2 clear-block with-avatars role-administrator user-admin">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/10083d566019d1ec9fb39e060850274e" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://www.djpate.com/" rel="external nofollow" class="url">Christophe Verbinnen</a></span> <span class="d">(142 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-7994">
+       <div class="comment-content clear-block" id="comment-content-7994">
+
+         
+         <div class="comment-text">
+           <p>Could you start an issue on github so I can check it out.<br>
+I need your template and your code</p>
+         </div>
+
+         <a id="comment-reply-7994"></a>
+       </div>
+
+       <div class="controls">
+                         </div>
+
+    </div>
+
+  </div>
+</li>
+</ul>
+</li>
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-7972" class="comment odd alt thread-odd thread-alt depth-1 clear-block with-avatars reader name-gerard">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/bb48d985bfa388a84cfe2b13298a9556" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://website/" rel="external nofollow" class="url">GerarD</a></span> <span class="d">(143 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-7972">
+       <div class="comment-content clear-block" id="comment-content-7972">
+
+         
+         <div class="comment-text">
+           <p>Will love to know how to add imgs to my doc… =(</p>
+         </div>
+
+         <a id="comment-reply-7972"></a>
+       </div>
+
+       <div class="controls">
+                  <a class="comment-reply-link" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/?replytocom=7972#respond" onclick="return addComment.moveForm(&quot;comment-content-7972&quot;, &quot;7972&quot;, &quot;respond&quot;, &quot;427&quot;)">Reply <span>↓</span></a>       </div>
+
+    </div>
+
+  </div>
+<ul class="children">
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-7976" class="comment byuser comment-author-admin bypostauthor even depth-2 clear-block with-avatars role-administrator user-admin">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/10083d566019d1ec9fb39e060850274e" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://www.djpate.com/" rel="external nofollow" class="url">Christophe Verbinnen</a></span> <span class="d">(143 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-7976">
+       <div class="comment-content clear-block" id="comment-content-7976">
+
+         
+         <div class="comment-text">
+           <p>I’ll try to add this feature on monday. I just checked and it shouldn’t be too hard to impletement….</p>
+         </div>
+
+         <a id="comment-reply-7976"></a>
+       </div>
+
+       <div class="controls">
+                         </div>
+
+    </div>
+
+  </div>
+</li>
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-8405" class="comment odd alt depth-2 clear-block with-avatars reader name-x6f6b">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/4ec677f3e706f3d4d972101a0ea2ea29" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://website/" rel="external nofollow" class="url">x6f6b</a></span> <span class="d">(125 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-8405">
+       <div class="comment-content clear-block" id="comment-content-8405">
+
+         
+         <div class="comment-text">
+           <p>good work!<br>
+any progress on the adding image feature yet?</p>
+         </div>
+
+         <a id="comment-reply-8405"></a>
+       </div>
+
+       <div class="controls">
+                         </div>
+
+    </div>
+
+  </div>
+</li>
+
+<!-- comment entry -->
+<li class="entry">
+  <div id="comment-8412" class="comment byuser comment-author-admin bypostauthor even depth-2 clear-block with-avatars role-administrator user-admin">
+
+        <div class="avatar">
+      <img alt="" src="./How to generate a word docx from a template with PHP     Made in Paté_files/10083d566019d1ec9fb39e060850274e" class="avatar avatar-48 photo" height="48" width="48">    </div>
+    
+    <div class="comment-head">
+      <div class="ext clear-block">
+        <span class="a"><a href="http://www.djpate.com/" rel="external nofollow" class="url">Christophe Verbinnen</a></span> <span class="d">(125 days)</span>       </div>
+    </div>
+
+    <div class="comment-body" id="comment-body-8412">
+       <div class="comment-content clear-block" id="comment-content-8412">
+
+         
+         <div class="comment-text">
+           <p>I’ve been kinda of busy but will try to give it a go soon !</p>
+         </div>
+
+         <a id="comment-reply-8412"></a>
+       </div>
+
+       <div class="controls">
+                         </div>
+
+    </div>
+
+  </div>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://djpate.com/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required="true"></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>						<p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>						<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment">
+							<input type="hidden" name="comment_post_ID" value="427" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+						</p>
+						<!-- BEGIN: subscribe to comments reloaded --><p><input style="width:30px" type="checkbox" name="subscribe-reloaded" id="subscribe-reloaded" value="yes"> Notify me of followup comments via e-mail. You can also <a href="http://djpate.com/comment-subscriptions?srp=427&sra=s">subscribe</a> without commenting.</p><!-- END: subscribe to comments reloaded -->					<input type="hidden" value="rhegl2fiad3c20r55b88bbb28ec660fa66flax0f3byca803o" name="anti-captcha-token"></form>
+							</div><!-- #respond -->
+						
+          
+
+        </div>
+        <!-- /primary content -->
+
+        
+  <!-- 1st sidebar -->
+  <div id="sidebar">
+
+    <ul class="blocks">
+
+      <li class="block"><div class="block-content block-widget_search clear-block" id="instance-search-3"><div class="title"><h3>Search</h3><div class="bl"></div><div class="br"></div></div>
+<!-- search form -->
+<div class="search-form">
+  <form method="get" class="search-form clear-block" name="search-form" id="search-form" action="http://djpate.com/">
+    <a href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/#" class="submit" onclick="document.getElementById(&#39;search-form&#39;).submit();">Search Website</a>
+    <fieldset>
+      <input type="text" name="s" alt="Search Website" class="text alignleft" value="" placeholder="Search">
+      <input type="hidden" value="submit">
+    </fieldset>
+  </form>
+</div>
+<!-- /search form --></div></li><li class="block"><div class="block-content block-widget_text clear-block" id="instance-text-3"><div class="title"><h3>Great website templates</h3><div class="bl"></div><div class="br"></div></div>			<div class="textwidget"><a href="http://themeforest.net/?ref=djpate"><img src="./How to generate a word docx from a template with PHP     Made in Paté_files/tf_300x250_v1.gif"></a></div>
+		</div></li><li class="block"><div class="block-content block-widget_text clear-block" id="instance-text-4"><div class="title"><h3>Ads</h3><div class="bl"></div><div class="br"></div></div>			<div class="textwidget"><div class="aligncenter">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-6942680117811708";
+/* djpate main */
+google_ad_slot = "9023640546";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript" src="./How to generate a word docx from a template with PHP     Made in Paté_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px"><ins id="aswift_0_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px"><iframe allowtransparency="true" frameborder="0" height="250" hspace="0" marginwidth="0" marginheight="0" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){i+=&#39;.call&#39;;setTimeout(h,0)}else if(h.match){i+=&#39;.nav&#39;;w.location.replace(h)}s.log&amp;&amp;s.log.push(i)}" scrolling="no" vspace="0" width="250" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+</div></div>
+		</div></li>		<li class="block"><div class="block-content block-widget_recent_entries clear-block" id="instance-recent-posts-3">		<div class="title"><h3>Latest posts</h3><div class="bl"></div><div class="br"></div></div>		<ul>
+				<li><a href="./How to generate a word docx from a template with PHP     Made in Paté_files/How to generate a word docx from a template with PHP     Made in Paté.htm" title="How to generate a word docx from a template with PHP ?">How to generate a word docx from a template with PHP ?</a></li>
+				<li><a href="http://djpate.com/2011/04/18/how-to-compile-spawner-the-sql-data-generator-on-ubuntu/" title="How to compile Spawner the Sql data generator on Ubuntu">How to compile Spawner the Sql data generator on Ubuntu</a></li>
+				<li><a href="http://djpate.com/2011/02/25/how-to-make-cross-domain-ajax-request-using-jsonp-jquery/" title="How to make cross-domain ajax request using jsonp &amp; jquery">How to make cross-domain ajax request using jsonp &amp; jquery</a></li>
+				<li><a href="http://djpate.com/2011/02/20/how-to-setup-xdebug-on-ubuntu-10-10/" title="How to setup Xdebug on ubuntu 10.10">How to setup Xdebug on ubuntu 10.10</a></li>
+				<li><a href="http://djpate.com/2011/01/14/jtag-a-jquery-plugin-to-tag-pictures-more/" title="jTag : A jQuery plugin to tag pictures &amp; more !">jTag : A jQuery plugin to tag pictures &amp; more !</a></li>
+				</ul>
+		</div></li><li class="block"><div class="block-content block-widget_recent_comments clear-block" id="instance-recent-comments-3"><div class="title"><h3>Last comments</h3><div class="bl"></div><div class="br"></div></div><ul id="recentcomments"><li class="recentcomments"><a href="http://helloscout.la/" rel="external nofollow" class="url">John</a> on <a href="http://djpate.com/2011/01/01/animated-scrollto-effect-jquery-plugin/comment-page-1/#comment-18792">Animated scrollto effect jQuery plugin</a></li><li class="recentcomments"><a href="http://helloscout.la/" rel="external nofollow" class="url">John</a> on <a href="http://djpate.com/2011/01/01/animated-scrollto-effect-jquery-plugin/comment-page-1/#comment-18786">Animated scrollto effect jQuery plugin</a></li><li class="recentcomments"><a href="http://bayrocket.com/" rel="external nofollow" class="url">craig</a> on <a href="http://djpate.com/2011/01/01/animated-scrollto-effect-jquery-plugin/comment-page-1/#comment-15222">Animated scrollto effect jQuery plugin</a></li><li class="recentcomments">Simon on <a href="http://djpate.com/2011/01/01/animated-scrollto-effect-jquery-plugin/comment-page-1/#comment-15194">Animated scrollto effect jQuery plugin</a></li></ul></div></li>    </ul>
+
+  </div>
+  <!-- /1st sidebar -->
+
+      </div>
+    </div>
+  </div>
+  <!-- /main content -->
+
+
+   </div>
+ </div>
+ <!-- /main -->
+
+ 
+ <!-- footer -->
+ <div class="shadow-left page-content">
+   <div class="shadow-right">
+
+     <div id="footer">
+
+       <div id="copyright">
+
+         <a href="http://djpate.com/" title="Made in Paté" rel="home"><strong>Made in Paté</strong></a>
+
+         © 2011 |
+
+         Powered by <a href="http://wordpress.org/">WordPress</a> and Mystique theme by <a href="http://digitalnature.eu/themes/mystique/">digitalnature</a>
+         <br>
+
+         58 queries in 0.20 seconds
+         (24.03M)
+       </div>
+
+     </div>
+
+   </div>
+ </div>
+ <!-- /footer -->
+
+ <a class="go-top" href="http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/#page">Go to Top</a>
+
+ </div>
+ <!-- /page-ext -->
+
+ </div>
+ <!-- page -->
+
+ 
+<script type="text/javascript"><!--
+wpa2a.targets=[
+{title:'How to generate a word docx from a template with PHP ?',url:'http://djpate.com/2011/05/18/how-to-generate-a-word-docx-from-a-template-with-php/'}];
+wpa2a.html_done=true;if(wpa2a.script_ready&&!wpa2a.done)wpa2a.init();wpa2a.script_load();
+//--></script>
+ <!-- 58 queries in 0.20 seconds -->
+ 
+
+
+</body></html>

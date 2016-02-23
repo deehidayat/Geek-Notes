@@ -1,0 +1,55 @@
+Check if an element is visible
+In the following HTML the div is initially hidden. It might have also been hidden using jQuery after the page has loaded, or via a toggling function or so on.
+
+1
+<div id="foo" style="display:none"></div>
+To check if it is visible use the is() function passing ":visible" as the parameter:
+
+view sourceprint?
+1
+if( $('#foo').is(':visible') ) {
+2
+    // it's visible, do something
+3
+}
+4
+else {
+5
+    // it's not visible so do something else
+6
+}
+Check if an element is hidden
+This is the same as checking if an element is visible but uses :hidden instead and the logic is the reverse:
+
+1
+if( $('#foo').is(':hidden') ) {
+2
+    // it's hidden, do something
+3
+}
+4
+else {
+5
+    // it's not hidden so do something else
+6
+}
+Note: if the element doesn't take up any space in the document, then is(':hidden') will return true even if it is effectively visible. It may be safer to instead do this:
+
+1
+if( !$('#foo').is(':visible') ) {
+2
+    // it's hidden, do something
+3
+}
+4
+else {
+5
+    // it's not hidden so do something else
+6
+}
+
+
+TO SHOW
+$('#foo').show(500); $('#foo').show('slow/fast');
+$('#foo').hide();
+$('#foo').toggle();

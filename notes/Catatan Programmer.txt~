@@ -1,0 +1,108 @@
+HTML5 RTC => Real Time Communication
+End-to-End Web App
+Google I/O
+Angular Lazy Loading
+Lineman - http://linemanjs.com/ - Angular workflow : Nodejs 
+Deep Linking Angular JS
+ Google Places API in order to create an address autocomplete
+ 
+ Immediately-Invoked Function Expression (IIFE) : javascript (function(){ /* code */ }()); http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+ 
+  Asynchronous Module Definition (AMD) design pattern  [http://requirejs.org/docs/whyamd.html]
+
+passport-facebook
+
+## KARMA
+Untuk menjalankan Unti Test
+
+## BOWER : dependency managemen (module untuk nodejs) / Seperti Composer(PHP) [http://bower.io/]
+Bower membutuhkan nodejs minimal 0.8.* 
+bower install <package-name>
+bower uninstall <package-name>
+bower search
+bower init
+
+Create a file .bowerrc in the project root with the content:
+{
+  "directory" : "public/components"
+}
+
+## TIPS
+curl -v GET http://www.mysymfony.wgs/api/twitter/token
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"user":{"username":"foo", "email": "foo@example.org", "password": "hahaha"}}' http://example.com/users
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"restData":{"username":"deehieday@wgs.co.id","password":"deehieday"}}' http://www.mysymfony.wgs/api/users/logins
+
+
+      // I will cause a 1 second delay
+      delay: function($q, $timeout) {
+        var delay = $q.defer();
+        $timeout(delay.resolve, 1000);
+        return delay.promise;
+      }
+      
+      
+My Twitter Apps
+ID : 98081576
+Access level	 Read, write, and direct messages 
+About the application permission model
+Consumer key	WXknJS6bi0u9UeXfe8B2ag
+Consumer secret	rHRWX8nkMYwIe5gQWHbJcU7Lmv3p1rTJKF68ETcmg
+Request token URL	https://api.twitter.com/oauth/request_token
+Authorize URL	https://api.twitter.com/oauth/authorize
+Access token URL	https://api.twitter.com/oauth/access_token
+Callback URL	http://www.mysymfony.wgs
+Sign in with Twitter	Yes
+Twitter tidak menyediakan API untuk mengakses user email, https://dev.twitter.com/discussions/4019
+
+	
+My Facebook apps
+ID : 1664839469
+App ID:	466764413398065
+App Secret:	43bd8d547f43cf3a4e6adcba8da1dc40(reset)
+permisson : https://developers.facebook.com/docs/reference/login/
+http://angular-client-side-auth.herokuapp.com/auth/twitter
+
+
+curl -X POST https://www.googleapis.com/urlshortener/v1/url --header "Content-Type: application/json" --data '{"longUrl": "http://weluse.de/"}'
+
+
+sudo npm install -g yo
+npm install -g generator-webapp
+yo webapp
+npm install -g generator-angular
+yo angular
+yo angular --minsafe
+yo angular:controller myController
+yo angular:directive myDirective
+yo angular:filter myFilter
+yo angular:service myService
+
+http://bower.io/
+npm install -g bower
+bower help
+bower init
+bower install -p (Production)
+
+http://placehold.it/200x200/E8117F/fff/&jpg&text=PlaceHold
+
+function unzipArchive($file, $destinationFolder){
+    // create ZipArchive object
+    $zip = new ZipArchive() ;
+    // open archive
+    if ($zip->open($file) !== TRUE) {
+        die ('Could not open archive');
+    }
+    // extract it's content to destination folder
+    $zip->extractTo($destinationFolder);
+    // close archive
+    $zip->close();
+}
+
+## COMPOSER
+$ curl -s https://getcomposer.org/installer | php
+# Supaya bisa run global
+$ chmod u+x composer.phar atau chmod 755 composer.phar
+$ mv composer.phar /usr/bin/composer
+
+
+

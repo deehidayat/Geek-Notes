@@ -1,0 +1,25 @@
+/*
+Theme Name: Bombax
+Author: itx
+Theme URI: http://themes.itx.web.id/bombax/
+Description: Nicely crafted theme with lots of options, right or left or holy grail or no sidebar, magazine style or traditional style, 5 color schemes, custom header, custom background, and many more options as if it's premium theme. Two menu locations that supports Navigation Menu in WordPress 3.0. Beautiful Tabbed Sidebar Widget included. Supports Greg's High Performance SEO Plugin.
+Version: 1.3
+Author URI: http://itx.web.id/
+Tags: one-column, two-columns, three-columns, flexible-width, fixed-width, right-sidebar, left-sidebar, custom-colors, custom-header, theme-options, threaded-comments, sticky-post, dark, blue, brown, green
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/* WP requirements */
+.highlight {font-weight: bold;}
+.clear {margin: 0;padding: 0;clear: both;}
+.alignleft {float: left;margin: 5px 10px 5px 0;}
+.alignright {float: right;margin: 5px 0 5px 10px;}
+.aligncenter, div.aligncenter {margin: 10px auto;text-align: center;display: block;}
+img.alignleft {float: left;margin: 5px 10px 5px 0;}
+img.alignright {float: right;margin: 5px 0 5px 10px;}
+img.aligncenter {margin: 10px auto;text-align: center;display: block;}
+.wp-caption {border-width: 1px;border-style: solid;text-align: center;padding-top: 4px;-moz-border-radius: 3px;-khtml-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;}
+.wp-caption img {margin: 0;padding: 0;border: none;}
+.wp-caption p.wp-caption-text {font-size: 1.1em;line-height: 1.7em;padding: 0 4px 5px;margin: 0;}
+.gallery-caption{text-align: center;}

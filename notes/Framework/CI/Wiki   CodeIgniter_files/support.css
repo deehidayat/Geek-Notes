@@ -1,0 +1,386 @@
+html {
+background: #fff url(/themes/forum_themes/support/images/page_top.gif) top left repeat-x;
+color: #666;
+font: 76% Arial, Helvetica, sans-serif;
+text-align: center;
+}
+
+body {
+	width:					100%;
+}
+
+.viewport {
+	width:					915px;
+	margin:					0 auto;
+}
+
+#supportMastHead {
+	text-align:				right;
+	padding:				0;
+	background:				#470202 url(/themes/forum_themes/support/images/masthead_bg.gif) bottom left repeat-x;
+}
+
+#supportCenterLink {
+	float:					right;
+}
+
+#homeLink {
+	float:					left;
+	background:				transparent url(/images/design/support/support_nav_bg.gif) bottom right no-repeat;
+	margin-bottom:			-7px;
+	line-height:			25px;
+	padding:				0 12px 4px 12px;
+	font-size:				11px;
+	color:					#fff;	
+}
+
+#homeLink a {
+	color:					#7da9c5;
+}
+
+#supportMenu {
+	margin-bottom:			-7px;
+}
+
+#supportMenu:after {
+	content:				"."; 
+    display:				block; 
+    height:					0; 
+    clear:					both; 
+    visibility:				hidden;	
+}
+
+#supportMenu li {
+	float:					left;
+	background:				transparent url(/images/design/support/support_nav_bg.gif) bottom right no-repeat;
+}
+
+#supportMenu li a:link, #supportMenu li a:visited {
+	display:				block;
+	line-height:			25px;
+	padding:				0 12px 4px 12px;
+	font-size:				11px;
+	color:					#fff;
+}
+
+#supportMenu li a:hover, #supportMenu li.current a:link, #supportMenu li.current a:visited {
+	background:				#f93d00 url(/images/design/support/support_nav_hover_bg.gif) bottom center no-repeat;
+	text-decoration:		none;
+}
+
+#header {
+	background:				#4d0202 url(/themes/forum_themes/support/images/header_bg.gif) top left repeat-x;
+	border-bottom:			1px solid #6c1c06;
+}
+
+#login {
+	line-height:			80px;
+}
+
+#login a:link, #login a:visited {
+	color:					#f46830;
+}
+
+#subheader {
+	height:					33px;
+	line-height:			33px;
+	background-color:		#e73800;
+}
+
+#subheader a {
+	color:					#fff;
+	font-weight:			bold;
+}
+
+.breadcrumb {
+	font-size:				11px;
+	color:					#fff;
+}
+
+#searchBox {
+	float:					right;
+	font-size:				10px;
+	padding-top:			6px;
+	width:					auto;
+	margin-bottom:			-10px;
+}
+
+.textfield {
+	width:					180px;
+	color:					#666;
+	margin:					0;
+	padding:				2px;
+	font:					11px/11px verdana, arial,sans-serif;
+	float:					left;
+}
+
+.search_button {
+	position:				relative;
+	left:					5px;
+	top:					-1px;
+	float:					left;
+}
+
+.advancedSearchLink {
+	float:					right;
+}
+
+#content {
+	width:					925px;
+	margin:					22px auto 0 auto;
+	background-color:		#fff;
+}
+
+#wikiNav {
+	float:					left;
+	width:					211px;
+}
+
+#wikiNav ul {
+	margin-top:				22px;
+	border-top:				4px solid #34454f;
+	background:				transparent url(/themes/wiki_themes/support/images/wiki_nav_ul_bg.gif) top right no-repeat;
+	padding-bottom:			325px;
+}
+
+#wikiNav li {
+	border-bottom:			1px solid #ced3d5;
+	background:				transparent url(/themes/wiki_themes/support/images/wiki_nav_item_hover_bg.gif) top right repeat-y;
+}
+
+#wikiNav li a:link, #wikiNav li a:visited {
+	line-height:			27px;
+	display:				block;
+	color:					#1a6ab3;
+	background:				transparent url(/themes/wiki_themes/support/images/wiki_nav_item_bg.gif) top right repeat-y;
+}
+
+#wikiNav li a:hover {
+	text-decoration:		none;
+	background-image:		none;
+	color:					#0e7fc7;
+}
+
+#wikiNav li.current {
+	background:				transparent url(/themes/wiki_themes/support/images/wiki_nav_current.gif) center left no-repeat;
+	padding-left:			20px;
+	font-weight:			bold;
+}
+
+#wikiNav li.current a {
+	background-image:		none;
+	background-color:		#fff;
+}
+
+
+#article {
+/*	margin-left:			235px; */
+	float:					right;
+	width:					690px;
+}
+
+#articleInfo {
+	height:					38px;
+	line-height:			40px;
+	background-color:		#fdf5c4;
+	border:					1px solid #e9e1ac;
+	font-size:				11px;
+}
+
+#articleInfo a:link, #articleInfo a:visited {
+	text-decoration:		underline;
+}
+
+#articleInfo a:hover {
+	text-decoration:		none;
+}
+
+#articleInfo .editInfo {
+	color:					#666;
+}
+
+#articleInfo img {
+	float:					left;
+}
+
+#article h2 {
+	text-indent:			0;
+	color:					#f93d00;
+	font-size:				22px;
+	font-weight:			normal;
+	min-height:				30px;
+	height:					auto !important;
+	height:					30px;
+}
+
+
+#articleBody h3 {
+	margin:					20px 0 0 0;
+}
+
+#articleBody {
+	line-height:			1.5em;
+	color:					#333;
+	border-bottom:			1px solid #cacaca;
+	padding-bottom:			15px;
+}
+
+
+#articleBody #categories h3 {
+	color:					#f93d00;
+	font-size:				14px;
+	margin-left:			25px;
+}
+
+#articleBody #categories ul {
+	margin-left:			45px;
+	list-style:				upper-roman inside;
+}
+
+#articleBody #categories ul ul {
+	margin-left:			15px;
+	list-style:				lower-roman inside;
+}
+
+#articleBody ul#nav_categories, #articleBody ul#nav_categories ul {
+	list-style-image: url(/themes/wiki_themes/support/images/bullet.gif);
+	padding: 2px 0 5px 20px;
+	line-height:16px;
+}
+
+code {
+	white-space:			nowrap;
+}
+
+.codeblock {
+	background-color:		#fbfbfd;
+	border:					1px solid #dae0e4;
+	font-size:				11px;
+	margin:					10px 4px;
+	padding:				8px;
+	width:					664px;
+	overflow:				auto;
+}
+
+.paginate {
+	background-color:		#faf9c9;
+	border:					1px solid #dad9c9;
+	padding:				5px 12px;
+}
+
+.staffEditLink a:link, .staffEditLink a:visited {
+	color:					#fff;
+	display:				block;
+	font-size:				16px;
+	background-color:		#f93d00;
+	font-weight:			bold;
+	padding:				8px 10px 8px 6px;
+	text-align:				center;
+}
+
+.staffEditLink a:hover {
+	text-decoration:		none;
+	background-color:		#ff7345;
+}
+
+.threeColumn {
+	width:					203px;
+	float:					left;
+	padding-right:			34px;
+}
+
+.twoColumn {
+	width:					325px;
+	float:					left;
+	padding-right:			20px;
+}
+
+.lastColumn {
+	padding-right:			0;
+}
+
+.twoColumn h3 {
+	border-bottom:			1px solid #cacaca;
+	padding-bottom:			4px;
+}
+
+#articleBody h3.catHeading {
+	margin:					0 0 0 0;
+	font-size:				16px;
+	padding:				0;
+}
+
+p.catDescription {
+	margin:					5px 0 15px 0;
+}
+
+ul.kbQuestions {
+	margin-top:				15px;
+	margin-bottom:			30px;
+}
+
+ul.kbQuestions li {
+	background:				transparent url(/images/design/icon_article_link.gif) 0px 3px no-repeat;
+	padding:				0 0 5px 20px;
+	line-height:			18px;
+	margin:					5px 0;
+}
+
+.itemTitle a:link, .itemTitle a:visited {
+	padding-bottom:			1px;
+	border-bottom:			1px solid #1a6ab3;
+}
+
+.itemTitle a:hover {
+	border-bottom:			1px solid #fff;
+}
+
+.itemTitle img {
+	vertical-align:			sub;
+	margin-bottom:			-4px;
+}
+
+.item {
+	margin-bottom:			12px;
+}
+
+.item .description {
+	font-size:				11px;
+	color:					#646464;
+}
+
+
+#supportFooter {
+	clear:					both;
+	background:				#fff url(/images/design/support/footer_bg.gif) top left repeat-x;
+	padding-top:			56px;
+	min-height:				70px;
+	height:					auto !important;
+	height:					70px;
+
+}
+
+#supportFooter:after {
+	content:				"."; 
+    display:				block; 
+    height:					0; 
+    clear:					both; 
+    visibility:				hidden;	
+}
+
+#supportFooter .copyright {
+	float:					left;
+	width:					211px;
+	color:					#646464;
+	font-size:				11px;
+	line-height:			15px;
+}
+
+
+#supportFooter .activeMembers{
+	margin-left:			235px;
+}
+
+#supportFooter .activeMembers a:link, #supportFooter .activeMembers a:visited {
+	color:					#646464;
+}

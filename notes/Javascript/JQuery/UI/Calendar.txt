@@ -1,0 +1,18 @@
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			showButtonPanel: true,
+			showWeek: true,
+			firstDay: 1
+			regional: "id",
+			showAnim: "slide",
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			altField: "#alternate",
+			altFormat: "DD, d MM, yy",
+			
+		});
+	});
+</script>

@@ -1,0 +1,12 @@
+cek form  if (_$("scaleform")) _$("scaleform").scale.value = scale;
+
+
+Now for something a little more sophisticated: We want to add and remove the class when the user hovers the li element, but only on the last element in the list.
+
+ $(document).ready(function() {
+   $("#orderedlist li:last").hover(function() {
+     $(this).addClass("green");
+   },function(){
+     $(this).removeClass("green");
+   });
+ });

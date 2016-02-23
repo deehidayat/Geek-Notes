@@ -1,0 +1,1 @@
+1. Apabila pada saat Konfigurasi Instance MySQL Hang hapus file ib_* dari folder ProgramData

@@ -1,0 +1,75 @@
+http://symfony.com/doc/current/cookbook/security/entity_provider.html
+http://php.net/manual/en/class.serializable.php
+
+Untuk bisa membuat login dengan user dari database sendiri, yang harus dilakukan diantaranya :
+1. Membuat entity (Tabel) baru yang mengimplementasikan UserInterface/AdvancedUserInterface, dan Serializable
+- class User implements AdvancedUserInterface, \Serializable
+2. Membuat repository atau provider yang mengimplementasikan UserProviderInterface
+- class UserRepository extends EntityRepository implements UserProviderInterface
+- class FacebookProvider implements UserProviderInterface
+3. Membuat encoder di security.yml
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+        Symfony\Component\Security\Core\User\User: plaintext        
+        WGS\DeeHiedayBundle\Entity\User: 
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
+4. Membuat provider di security.yml
+        user_db:
+            entity: { class: WGSDeeHiedayBundle:User, property: email }            
+5. Membuat alamat login dan login check tercover oleh firewall (Anonymous at least)
+6. Autentikasi akan dilakukan oleh Symfony dengan mengambil parameter dari Form Login (username, password)
+
+###################################################################################################################
+LoginAction :
+$request = $this -> getRequest();
+$session = $request -> getSession();
+
+// get the login error if there is one
+if ($request -> attributes -> has(SecurityContext::AUTHENTICATION_ERROR)) {
+    $error = $request -> attributes -> get(SecurityContext::AUTHENTICATION_ERROR);
+} else {
+    $error = $session -> get(SecurityContext::AUTHENTICATION_ERROR);
+    $session -> remove(SecurityContext::AUTHENTICATION_ERROR);
+}
+
+return $this -> render('WGSDeeHiedayBundle:Test1:login.html.twig', array(
+// last username entered by the user
+'last_username' => $session -> get(SecurityContext::LAST_USERNAME), 'error' => $error, ));
+
+###################################################################################################################
+
+security:
+    encoders:
+        WGS\DeeHiedayBundle\Entity\User: 
+            algorithm: sha1
+            iterations: 1
+            encode_as_base64: false
+            
+    
+    providers:
+        tbl_user:
+            entity: { class: WGSDeeHiedayBundle:User, property: username }
+            
+    
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            provider: chain_provider
+            anonymous: ~
+            security: true            
+            # http_basic:
+                # realm: "Secured Demo Area / Memory"
+                # provider: in_memory
+            form_login:
+                login_path:  _test1_login
+                check_path:  _test1_check
+                use_forward: false
+            logout:
+                path:   _test1_logout
+                target: _home
+
+    access_control:
+        # DEE
+        - { path: ^/test1/dojo, roles: [ROLE_ADMIN] }

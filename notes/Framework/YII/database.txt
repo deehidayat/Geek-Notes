@@ -1,0 +1,13 @@
+SQLite: sqlite:/path/to/dbfile
+MySQL: mysql:host=localhost;dbname=testdb
+PostgreSQL: pgsql:host=localhost;port=5432;dbname=testdb
+SQL Server: mssql:host=localhost;dbname=testdb
+Oracle: oci:dbname=//localhost:1521/testdb
+
+
+$rowCount=$command->execute();   // execute the non-query SQL
+$dataReader=$command->query();   // execute a query SQL
+$rows=$command->queryAll();      // query and return all rows of result
+$row=$command->queryRow();       // query and return the first row of result
+$column=$command->queryColumn(); // query and return the first column of result
+$value=$command->queryScalar();  // query and return the first field in the first row

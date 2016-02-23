@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+	
+	
+	
+	
+	
+	
+	
+	<style>
+	.ui-progressbar-value { background-image: url(images/pbar-ani.gif); }
+	</style>
+	<script>
+	$(function() {
+		$( "#progressbar" ).progressbar({
+			value: 59
+		});
+	});
+	</script>
+
+
+
+<div class="demo">
+
+<div id="progressbar"></div>
+
+</div><!-- End demo -->
+
+
+
+<div class="demo-description">
+<p>
+This progressbar has an animated fill by setting the
+<code>background-image</code>
+on the
+<code>.ui-progressbar-value</code>
+element, using css.
+</p>
+</div><!-- End demo-description -->

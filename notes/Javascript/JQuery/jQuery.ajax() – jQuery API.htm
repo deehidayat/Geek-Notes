@@ -1,0 +1,2739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jQuery.ajax() &#8211; jQuery API</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="alternate" type="application/rss+xml" title="jQuery API &raquo; jQuery.ajax() Comments Feed" href="http://api.jquery.com/jQuery.ajax/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://api.jquery.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://api.jquery.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='jQuery API' href='http://api.jquery.com/' />
+<link rel='start' title='.addClass()' href='http://api.jquery.com/addClass/' />
+<link rel='prev' title='.length' href='http://api.jquery.com/length/' />
+<link rel='next' title='.load()' href='http://api.jquery.com/load/' />
+<meta name="generator" content="WordPress 3.2.1" />
+<link rel='canonical' href='http://api.jquery.com/jQuery.ajax/' />
+<link rel='shortlink' href='http://api.jquery.com/?p=282' />
+  <link rel="pingback" href="http://api.jquery.com/xmlrpc.php" />
+  <link rel="stylesheet" href="http://static.jquery.com/files/rocker/css/reset.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="http://static.jquery.com/api/style.css" />
+  <link rel="stylesheet" href="http://static.jquery.com/api/prettify.css">
+  <script src="http://code.jquery.com/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://static.jquery.com/files/rocker/scripts/custom.js"></script>
+  <script type="text/javascript" src="http://static.jquery.com/api/jquery.livesearch.js"></script>
+  <script type="text/javascript" src="http://static.jquery.com/api/navi.js"></script>
+  <link rel="shortcut icon" href="http://static.jquery.com/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body id="jq-interior" class="api-jquery-com single">
+
+
+  <div id="jq-siteContain">
+      <div id="jq-header">
+        <a id="jq-siteLogo" href="http://jquery.com/" title="jQuery Home"><img src="http://static.jquery.com/files/rocker/images/logo_jquery_215x53.gif" width="215" height="53" alt="jQuery: Write Less, Do More." /></a>
+        <div id="jq-primaryNavigation">
+          <ul>
+<li class="jq-jquery jq-current"><a href="http://jquery.com/" title="jQuery Home">jQuery</a></li>
+<li class="jq-plugins"><a href="http://plugins.jquery.com/" title="jQuery Plugins">Plugins</a></li>
+<li class="jq-ui"><a href="http://jqueryui.com/" title="jQuery UI">UI</a></li>
+<li class="jq-meetup"><a href="http://meetups.jquery.com/" title="jQuery Meetups">Meetups</a></li>
+<li class="jq-forum"><a href="http://forum.jquery.com/" title="jQuery Forum">Forum</a></li>
+<li class="jq-blog"><a href="http://blog.jquery.com/" title="jQuery Blog">Blog</a></li>
+<li class="jq-about"><a href="http://jquery.org/about" title="About jQuery">About</a></li>
+<li class="jq-donate"><a href="http://jquery.org/donate" title="Donate to jQuery">Donate</a></li>
+          </ul>
+        </div><!-- /#primaryNavigation -->
+
+        <div id="jq-secondaryNavigation">
+          <ul>
+            <li class="jq-download jq-first"><a href="http://docs.jquery.com/Downloading_jQuery">Download</a></li>
+            <li class="jq-documentation jq-current"><a href="http://docs.jquery.com/">Documentation</a></li>
+            <li class="jq-tutorials"><a href="http://docs.jquery.com/Tutorials">Tutorials</a></li>
+            <li class="jq-bugTracker"><a href="http://dev.jquery.com/">Bug Tracker</a></li>
+            <li class="jq-discussion jq-last"><a href="http://docs.jquery.com/Discussion">Discussion</a></li>
+          </ul>
+        </div><!-- /#secondaryNavigation -->
+
+
+
+        <form id="jq-primarySearchForm" action="http://api.jquery.com" method="get" autocomplete="off">
+          <div>
+            <input type="hidden" value="1" name="ns0"/>
+            <label for="jq-primarySearch">Search <span class="jq-jquery">jQuery</span></label>
+            <input type="text" value="" accesskey="f" title="Search jQuery" name="s" id="jq-primarySearch" class=""/>
+            <button type="submit" name="go" id="jq-searchGoButton"><span>Go</span></button>
+          </div>
+        </form>
+
+<!--
+        <h1 id="blog-title"><span><a href="http://api.jquery.com/" title="jQuery API" rel="home">jQuery API</a></span></h1>
+        <div id="blog-description">jQuery API Reference</div>
+-->
+        <h1>jQuery API</h1>
+
+
+      </div><!-- /#header -->
+
+      <div id="jq-content" class="jq-clearfix">
+
+
+
+
+  <div id="access">
+    <div class="skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+    <div id="menu"><ul><li class="page_item page-item-1295"><a href="http://api.jquery.com/api/" title="api">api</a></li><li class="page_item page-item-1772"><a href="http://api.jquery.com/jsonp/" title="jsonp">jsonp</a></li><li class="page_item page-item-3413"><a href="http://api.jquery.com/Types/" title="Types">Types</a></li><li class="page_item page-item-3608"><a href="http://api.jquery.com/extending-ajax/" title="Extending Ajax: Prefilters, Converters, and Transports">Extending Ajax: Prefilters, Converters, and Transports</a></li></ul></div>
+  </div>
+<!-- #access -->
+
+  <div id="jq-primaryContent">
+    <div id="content">
+
+      <div id="post-282" class="hentry p1 post publish category-low-level-interface category-1.0 category-1.5 category-1.5.1 untagged y2009 m11 d14 h06">
+        <div class="entry-content">
+        <div class="entry-title roundTop">
+          
+          <h1 class="jq-clearfix">jQuery.ajax()</h1>
+          <div class="entry-meta jq-clearfix">
+                        Categories:
+            <span class="category"><a href="http://api.jquery.com/category/ajax/" title="View all posts in Ajax">Ajax</a> &gt; <a href="http://api.jquery.com/category/ajax/low-level-interface/" title="View all posts in Low-Level Interface">Low-Level Interface</a></span>
+  
+
+          </div>
+
+</div>
+<div id="jQuery-ajax1" class="entry method">
+<h2 class="jq-clearfix roundTop section-title">
+<span class="name">jQuery.ajax( url [, settings]  )</span> <span class="returns">Returns: <a class="return" href="http://api.jquery.com/Types/#jqXHR">jqXHR</a></span>
+</h2>
+<div class="jq-box roundBottom entry-details">
+<p class="desc"><strong>Description: </strong>Perform an asynchronous HTTP (Ajax) request.</p>
+<ul class="signatures">
+<li class="signature" id="jQuery-ajax-url-settings">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.5/">1.5</a></span>jQuery.ajax( url [, settings] )</h4>
+<p class="arguement"><strong>url</strong>A string containing the URL to which the request is sent.</p>
+<p class="arguement"><strong>settings</strong>A set of key/value pairs that configure the Ajax request. All settings are optional. A default can be set for any option with <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>. See <a href="#jQuery-ajax-settings">jQuery.ajax( settings )</a> below for a complete list of all settings. </p>
+</li>
+<li class="signature" id="jQuery-ajax-settings">
+<h4 class="name">
+<span class="versionAdded">version added: <a href="/category/version/1.0/">1.0</a></span>jQuery.ajax( settings )</h4>
+<p class="arguement"><strong>settings</strong>A set of key/value pairs that configure the Ajax request. All settings are optional. A default can be set for any option with <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>.</p>
+<div class="options">
+<h5 class="option">accepts<span class="type"><a href="http://api.jquery.com/Types#Map">Map</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>depends on DataType</div>
+<p>The content type sent in the request header that tells the server what kind of response it will accept in return. If the <code>accepts</code> setting needs modification, it is recommended to do so once in the <code>$.ajaxSetup()</code> method</p>
+<h5 class="option">async<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>true</div>
+<p>By default, all requests are sent asynchronously (i.e. this is set to <code>true</code> by default). If you need synchronous requests, set this option to <code>false</code>. Cross-domain requests and <code>dataType: "jsonp"</code> requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active.</p>
+<h5 class="option">beforeSend(jqXHR, settings)<span class="type"><a href="http://api.jquery.com/Types#Function">Function</a></span>
+</h5>
+<p>A pre-request callback function that can be used to modify the jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object before it is sent. Use this to set custom headers, etc. The jqXHR and settings maps are passed as arguments. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>. Returning <code>false</code> in the <code>beforeSend</code> function will cancel the request. <strong>As of jQuery 1.5</strong>, the <code>beforeSend</code> option will be called regardless of the type of request.</p>
+<h5 class="option">cache<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>true, false for dataType 'script' and 'jsonp'</div>
+<p>If set to <code>false</code>, it will force requested pages not to be cached by the browser. Setting cache to <code>false</code> also appends a query string parameter, "_=[TIMESTAMP]", to the URL. </p>
+<h5 class="option">complete(jqXHR, textStatus)<span class="type"><a href="http://api.jquery.com/Types#Function,%20Array">Function, Array</a></span>
+</h5>
+<p>A function to be called when the request finishes (after <code>success</code> and <code>error</code> callbacks are executed). The function gets passed two arguments: The jqXHR (in jQuery 1.4.x, XMLHTTPRequest) object and a string categorizing the status of the request (<code>"success"</code>, <code>"notmodified"</code>, <code>"error"</code>, <code>"timeout"</code>, <code>"abort"</code>, or <code>"parsererror"</code>). <strong>As of jQuery 1.5</strong>, the <code>complete</code> setting can accept an array of functions. Each function will be called in turn. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</p>
+<h5 class="option">contents<span class="added">(added 1.5)</span><span class="type"><a href="http://api.jquery.com/Types#Map">Map</a></span>
+</h5>
+<p>A map of string/regular-expression pairs that determine how jQuery will parse the response, given its content type.</p>
+<h5 class="option">contentType<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>'application/x-www-form-urlencoded'</div>
+<p>When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases. If you explicitly pass in a content-type to <code>$.ajax()</code> then it'll always be sent to the server (even if no data is sent). Data will always be transmitted to the server using UTF-8 charset; you must decode this appropriately on the server side.</p>
+<h5 class="option">context<span class="type"><a href="http://api.jquery.com/Types#Object">Object</a></span>
+</h5>
+<p>This object will be made the context of all Ajax-related callbacks. By default, the context is an object that represents the ajax settings used in the call (<code>$.ajaxSettings</code> merged with the settings passed to <code>$.ajax</code>). For example specifying a DOM element as the context will make that the context for the <code>complete</code> callback of a request, like so: <pre>$.ajax({
+  url: "test.html",
+  context: document.body,
+  success: function(){
+    $(this).addClass("done");
+  }
+});</pre></p>
+<h5 class="option">converters<span class="added">(added 1.5)</span><span class="type"><a href="http://api.jquery.com/Types#Map">Map</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>{"* text": window.String, "text html": true, "text json": jQuery.parseJSON, "text xml": jQuery.parseXML}</div>
+<p>A map of dataType-to-dataType converters. Each converter's value is a function that returns the transformed value of the response</p>
+<h5 class="option">crossDomain<span class="added">(added 1.5)</span><span class="type"><a href="http://api.jquery.com/Types#"></a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>false for same-domain requests, true for cross-domain requests</div>
+<p>If you wish to force a crossDomain request (such as JSONP) on the same domain, set the value of crossDomain to <code>true</code>. This allows, for example, server-side redirection to another domain</p>
+<h5 class="option">data<span class="type"><a href="http://api.jquery.com/Types#Object,%20String">Object, String</a></span>
+</h5>
+<p>Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. Object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the <code>traditional</code> setting (described below).</p>
+<h5 class="option">dataFilter(data, type)<span class="type"><a href="http://api.jquery.com/Types#Function">Function</a></span>
+</h5>
+<p>A function to be used to handle the raw response data of XMLHttpRequest.This is a pre-filtering function to sanitize the response. You should return the sanitized data. The function accepts two arguments: The raw data returned from the server and the 'dataType' parameter.</p>
+<h5 class="option">dataType<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>Intelligent Guess (xml, json, script, or html)</div>
+<p>The type of data that you're expecting back from the server. If none is specified, jQuery will try to infer it based on the MIME type of the response (an XML MIME type will yield XML, in 1.4 JSON will yield a JavaScript object, in 1.4 script will execute the script, and anything else will be returned as a string). The available types (and the result passed as the first argument to your success callback) are:
+          <ul>
+            <li>"xml": Returns a XML document that can be processed via jQuery.</li>
+            <li>"html": Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.</li>
+            <li>"script": Evaluates the response as JavaScript and returns it as plain text. Disables caching by appending a query string parameter, "_=[TIMESTAMP]", to the URL unless the <code>cache</code> option is set to <code>true</code>. <strong>Note:</strong> This will turn POSTs into GETs for remote-domain requests. </li>
+            <li>"json": Evaluates the response as JSON and returns a JavaScript object. In jQuery 1.4 the JSON data is parsed in a strict manner; any malformed JSON is rejected and a parse error is thrown. (See <a href="http://json.org/">json.org</a> for more information on proper JSON formatting.)</li>
+            <li>"jsonp": Loads in a JSON block using <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a>. Adds an extra "?callback=?" to the end of your URL to specify the callback. Disables caching by appending a query string parameter, "_=[TIMESTAMP]", to the URL unless the <code>cache</code> option is set to <code>true</code>.</li>
+            <li>"text": A plain text string.</li>
+            <li>multiple, space-separated values: <strong>As of jQuery 1.5</strong>, jQuery can convert a dataType from what it received in the Content-Type header to what you require. For example, if you want a text response to be treated as XML, use "text xml" for the dataType. You can also make a JSONP request, have it received as text, and interpreted by jQuery as XML: "jsonp text xml." Similarly, a shorthand string such as "jsonp xml" will first attempt to convert from jsonp to xml, and, failing that, convert from jsonp to text, and then from text to xml.
+            </li>
+          </ul></p>
+<h5 class="option">error(jqXHR, textStatus, errorThrown)<span class="type"><a href="http://api.jquery.com/Types#Function">Function</a></span>
+</h5>
+<p>A function to be called if the request fails. The function receives three arguments: The jqXHR (in jQuery 1.4.x, XMLHttpRequest) object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides <code>null</code>) are <code>"timeout"</code>, <code>"error"</code>, <code>"abort"</code>, and <code>"parsererror"</code>. When an HTTP error occurs, <code>errorThrown</code> receives the textual portion of the HTTP status, such as "Not Found" or "Internal Server Error."  <strong>As of jQuery 1.5</strong>, the <code>error</code> setting can accept an array of functions. Each function will be called in turn.  <strong>Note:</strong> <em>This handler is not called for cross-domain script and JSONP requests.</em> This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>. </p>
+<h5 class="option">global<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>true</div>
+<p>Whether to trigger global Ajax event handlers for this request. The default is <code>true</code>. Set to <code>false</code> to prevent the global handlers like <code>ajaxStart</code> or <code>ajaxStop</code> from being triggered. This can be used to control various <a href="http://docs.jquery.com/Ajax_Events">Ajax Events</a>.</p>
+<h5 class="option">headers<span class="added">(added 1.5)</span><span class="type"><a href="http://api.jquery.com/Types#Map">Map</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>{}</div>
+<p>A map of additional header key/value pairs to send along with the request. This setting is set before the <code>beforeSend</code> function is called; therefore, any values in the headers setting can be overwritten from within the <code>beforeSend</code> function.</p>
+<h5 class="option">ifModified<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>false</div>
+<p>Allow the request to be successful only if the response has changed since the last request. This is done by checking the Last-Modified header. Default value is <code>false</code>, ignoring the header. In jQuery 1.4 this technique also checks the 'etag' specified by the server to catch unmodified data.</p>
+<h5 class="option">isLocal<span class="added">(added 1.5.1)</span><span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>depends on current location protocol</div>
+<p>Allow the current environment to be recognized as "local," (e.g. the filesystem), even if jQuery does not recognize it as such by default. The following protocols are currently recognized as local: <code>file</code>, <code>*-extension</code>, and <code>widget</code>. If the <code>isLocal</code> setting needs modification, it is recommended to do so once in the <code>$.ajaxSetup()</code> method.  </p>
+<h5 class="option">jsonp<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<p>Override the callback function name in a jsonp request.  This value will be used instead of 'callback' in the 'callback=?' part of the query string in the url.  So <code>{jsonp:'onJSONPLoad'}</code> would result in <code>'onJSONPLoad=?'</code> passed to the server. <strong>As of jQuery 1.5</strong>, setting the <code>jsonp</code> option to <code>false</code> prevents jQuery from adding the "?callback" string to the URL or attempting to use "=?" for transformation. In this case, you should also explicitly set the <code>jsonpCallback</code> setting. For example, <code>{ jsonp: false, jsonpCallback: "callbackName" }</code></p>
+<h5 class="option">jsonpCallback<span class="type"><a href="http://api.jquery.com/Types#String,%20Function">String, Function</a></span>
+</h5>
+<p>Specify the callback function name for a JSONP request.  This value will be used instead of the random name automatically generated by jQuery. It is preferable to let jQuery generate a unique name as it'll make it easier to manage the requests and provide callbacks and error handling. You may want to specify the callback when you want to enable better browser caching of GET requests. <strong>As of jQuery 1.5</strong>, you can also use a function for this setting, in which case the value of <code>jsonpCallback</code> is set to the return value of that function. </p>
+<h5 class="option">mimeType<span class="added">(added 1.5.1)</span><span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<p>A mime type to override the <abbr title="XMLHttpRequest">XHR</abbr> mime type.</p>
+<h5 class="option">password<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<p>A password to be used in response to an HTTP access authentication request.</p>
+<h5 class="option">processData<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>true</div>
+<p>By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string, fitting to the default content-type "application/x-www-form-urlencoded". If you want to send a DOMDocument, or other non-processed data, set this option to <code>false</code>.</p>
+<h5 class="option">scriptCharset<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<p>Only for requests with "jsonp" or "script" dataType and "GET" type. Forces the request to be interpreted as a certain charset. Only needed for charset differences between the remote and local content.</p>
+<h5 class="option">statusCode<span class="added">(added 1.5)</span><span class="type"><a href="http://api.jquery.com/Types#Map">Map</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>{}</div>
+<p>
+            <p>A map of numeric HTTP codes and functions to be called when the response has the corresponding code. For example, the following will alert when the response status is a 404:</p>
+<pre>$.ajax({
+  statusCode: {
+    404: function() {
+      alert('page not found');
+    }
+  }
+});</pre>
+            <p>If the request is successful, the status code functions take the same parameters as the success callback; if it results in an error, they take the same parameters as the <code>error</code> callback.</p>
+          </p>
+<h5 class="option">success(data, textStatus, jqXHR)<span class="type"><a href="http://api.jquery.com/Types#Function,%20Array">Function, Array</a></span>
+</h5>
+<p>A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the <code>dataType</code> parameter; a string describing the status; and the <code>jqXHR</code> (in jQuery 1.4.x, XMLHttpRequest) object. <strong>As of jQuery 1.5</strong>, <em>the success setting can accept an array of functions. Each function will be called in turn.</em> This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</p>
+<h5 class="option">timeout<span class="type"><a href="http://api.jquery.com/Types#Number">Number</a></span>
+</h5>
+<p>Set a timeout (in milliseconds) for the request. This will override any global timeout set with <a href="http://api.jquery.com/jQuery.ajaxSetup">$.ajaxSetup()</a>. The timeout period starts at the point the <code>$.ajax</code> call is made; if several other requests are in progress and the browser has no connections available, it is possible for a request to time out before it can be sent. <strong>In jQuery 1.4.x and below,</strong> the XMLHttpRequest object will be in an invalid state if the request times out; accessing any object members may throw an exception. <strong>In Firefox 3.0+ only,</strong> script and JSONP requests cannot be cancelled by a timeout; the script will run even if it arrives after the timeout period.</p>
+<h5 class="option">traditional<span class="type"><a href="http://api.jquery.com/Types#Boolean">Boolean</a></span>
+</h5>
+<p>Set this to <code>true</code> if you wish to use the traditional style of <a href="/jQuery.param">param serialization</a>.</p>
+<h5 class="option">type<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>'GET'</div>
+<p>The type of request to make ("POST" or "GET"), default is "GET". <strong>Note:</strong> Other HTTP request methods, such as PUT and DELETE, can also be used here, but they are not supported by all browsers.</p>
+<h5 class="option">url<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>The current page</div>
+<p> A string containing the URL to which the request is sent.</p>
+<h5 class="option">username<span class="type"><a href="http://api.jquery.com/Types#String">String</a></span>
+</h5>
+<p>A username to be used in response to an HTTP access authentication request.</p>
+<h5 class="option">xhr<span class="type"><a href="http://api.jquery.com/Types#Function">Function</a></span>
+</h5>
+<div class="default-value">
+<strong>Default: </strong>ActiveXObject when available (IE), the XMLHttpRequest otherwise</div>
+<p>Callback for creating the XMLHttpRequest object. Defaults to the ActiveXObject when available (IE), the XMLHttpRequest otherwise. Override to provide your own implementation for XMLHttpRequest or enhancements to the factory.</p>
+<h5 class="option">xhrFields<span class="added">(added 1.5.1)</span><span class="type"><a href="http://api.jquery.com/Types#Map">Map</a></span>
+</h5>
+<p><p>A map of fieldName-fieldValue pairs to set on the native <code><abbr title="XMLHttpRequest">XHR</abbr></code> object. For example, you can use it to set <code>withCredentials</code> to <code>true</code> for cross-domain requests if needed.
+<pre>$.ajax({
+   url: a_cross_domain_url,
+   xhrFields: {
+      withCredentials: true
+   }
+});</pre>
+<p>
+<strong>In jQuery 1.5</strong>, the <code>withCredentials</code> property was not propagated to the native <code>XHR</code> and thus CORS requests requiring it would ignore this flag. For this reason, we recommend using jQuery 1.5.1+ should you require the use of it.
+</p>
+</p></p>
+</div>
+</li>
+</ul>
+<div class="longdesc">
+<p>The <code>$.ajax()</code> function underlies all Ajax requests sent by jQuery.  It is often unnecessary to directly call this function, as several higher-level alternatives like <code><a href="/jQuery.get">$.get()</a></code> and <code><a href="/load">.load()</a></code> are available and are easier to use. If less common options are required, though, <code>$.ajax()</code> can be used more flexibly.</p>
+<p>At its simplest, the <code>$.ajax()</code> function can be called with no arguments:</p>
+<pre>$.ajax();</pre>
+<p><strong>Note:</strong> Default settings can be set globally by using the <code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code> function.</p>
+<p>This example, using no options, loads the contents of the current page, but does nothing with the result. To use the result, we can implement one of the callback functions.</p>
+<h4 id="jqXHR">The jqXHR Object</h4>
+<p>The jQuery XMLHttpRequest (jqXHR) object returned by <code>$.ajax()</code> <strong>as of jQuery 1.5</strong> is a superset of the browser's native XMLHttpRequest object. For example, it contains <code>responseText</code> and <code>responseXML</code> properties, as well as a <code>getResponseHeader()</code> method. When the transport mechanism is something other than XMLHttpRequest (for example, a script tag for a JSONP request) the <code>jqXHR</code> object simulates native XHR functionality where possible. </p>
+<p><strong>As of jQuery 1.5.1</strong>, the <code>jqXHR</code> object also contains the <code>overrideMimeType()</code> method (it was available in jQuery 1.4.x, as well, but was temporarily removed in jQuery 1.5). The <code>.overrideMimeType()</code> method may be used in the <code>beforeSend()</code> callback function, for example, to modify the response content-type header:</p>
+<pre>
+$.ajax({
+  url: 'http://fiddle.jshell.net/favicon.png',
+  beforeSend: function( xhr ) {
+    xhr.overrideMimeType( 'text/plain; charset=x-user-defined' );
+  },
+  success: function( data ) {
+    if (console &amp;&amp; console.log){
+      console.log( 'Sample of data:', data.slice(0,100) );
+    }
+  }
+});
+</pre>
+<p>The jqXHR objects returned by <code>$.ajax()</code> as of jQuery 1.5 implement the Promise interface, giving them all the properties, methods, and behavior of a Promise (see <a href="http://api.jquery.com/category/deferred-object/">Deferred object</a> for more information).  For convenience and consistency with the callback names used by <code>$.ajax()</code>, jqXHR also provides <code>.error()</code>, <code>.success()</code>, and <code>.complete()</code> methods. These methods take a function argument that is called when the <code>$.ajax()</code> request terminates, and the function receives the same arguments as the correspondingly-named <code>$.ajax()</code> callback. This allows you to assign multiple callbacks on a single request, and even to assign callbacks after the request may have completed. (If the request is already complete, the callback is fired immediately.)</p>
+<blockquote>
+      <p><strong>Deprecation Notice:</strong> The <code>jqXHR.success()</code>, <code>jqXHR.error()</code>, and <code>jqXHR.complete()</code> callbacks will be deprecated in jQuery 1.8. To prepare your code for their eventual removal, use <code>jqXHR.done()</code>, <code>jqXHR.fail()</code>, and <code>jqXHR.always()</code> instead.</p>
+    </blockquote>
+<pre>// Assign handlers immediately after making the request,
+// and remember the jqxhr object for this request
+var jqxhr = $.ajax( "example.php" )
+    .done(function() { alert("success"); })
+    .fail(function() { alert("error"); })
+    .always(function() { alert("complete"); });
+
+// perform other work here ...
+
+// Set another completion function for the request above
+jqxhr.always(function() { alert("second complete"); });</pre>
+<p>For backward compatibility with <code>XMLHttpRequest</code>, a <code>jqXHR</code> object will expose the following properties and methods:</p>
+<ul>
+        <li><code>readyState</code></li>
+        <li><code>status</code></li>
+        <li><code>statusText</code></li>
+        <li>
+<code>responseXML</code> and/or <code>responseText</code> when the underlying request responded with xml and/or text, respectively</li>
+        <li>
+<code>setRequestHeader(name, value)</code> which departs from the standard by replacing the old value with the new one rather than concatenating the new value to the old one</li>
+        <li><code>getAllResponseHeaders()</code></li>
+        <li><code>getResponseHeader()</code></li>
+        <li><code>abort()</code></li>
+      </ul>
+<p>No <code>onreadystatechange</code> mechanism is provided, however, since <code>success</code>, <code>error</code>, <code>complete</code> and <code>statusCode</code> cover all conceivable requirements.</p>
+<h4 id="callback-functions">Callback Function Queues</h4>
+<p>The <code>beforeSend</code>, <code>error</code>, <code>dataFilter</code>, <code>success</code> and <code>complete</code> options all accept callback functions that are invoked at the appropriate times.</p>
+<p><strong>As of jQuery 1.5</strong>, the <code>error</code> (<code>fail</code>), <code>success</code> (<code>done</code>), and <code>complete</code> (<code>always</code>, as of jQuery 1.6) callback hooks are first-in, first-out managed queues. This means you can assign more than one callback for each hook. See <a href="http://api.jquery.com/category/deferred-object/">Deferred object methods</a>, which are implemented internally for these <code>$.ajax()</code> callback hooks.</p>
+<p>The <code>this</code> reference within all callbacks is the object in the <code>context</code> option passed to <code>$.ajax</code> in the settings; if <code>context</code> is not specified, <code>this</code> is a reference to the Ajax settings themselves.</p>
+<p>Some types of Ajax requests, such as JSONP and cross-domain GET requests, do not use XHR; in those cases the <code>XMLHttpRequest</code> and <code>textStatus</code> parameters passed to the callback are <code>undefined</code>.</p>
+<p>Here are the callback hooks provided by <code>$.ajax()</code>:</p>
+<ol>
+        <li>
+<code>beforeSend</code> callback is invoked; it receives the <code>jqXHR</code> object and the <code>settings</code> map as parameters.</li>
+        <li>
+<code>error</code> callbacks are invoked, in the order they are registered, if the request fails. They receive the <code>jqXHR</code>, a string indicating the error type, and an exception object if applicable. Some built-in errors will provide a string as the exception object: "abort", "timeout", "No Transport".</li>
+        <li>
+<code>dataFilter</code> callback is invoked immediately upon successful receipt of response data. It receives the returned data and the value of <code>dataType</code>, and must return the (possibly altered) data to pass on to <code>success</code>.</li>
+        <li>
+<code>success</code> callbacks are then invoked, in the order they are registered, if the request succeeds. They receive the returned data, a string containing the success code, and the <code>jqXHR</code> object.</li>
+        <li>
+<code>complete</code> callbacks fire, in the order they are registered, when the request finishes, whether in failure or success. They receive the <code>jqXHR</code> object, as well as a string containing the success or error code.</li>
+      </ol>
+<p>For example, to make use of the returned HTML, we can implement a <code>success</code> handler:</p>
+<pre>$.ajax({
+  url: 'ajax/test.html',
+  success: function(data) {
+    $('.result').html(data);
+    alert('Load was performed.');
+  }
+});</pre>
+<h4 id="data-types">Data Types</h4>
+<p>The <code>$.ajax()</code> function relies on the server to provide information about the retrieved data. If the server reports the return data as XML, the result can be traversed using normal XML methods or jQuery's selectors. If another type is detected, such as HTML in the example above, the data is treated as text.</p>
+<p>Different data handling can be achieved by using the <code>dataType</code> option. Besides plain <code>xml</code>, the <code>dataType</code> can be <code>html</code>, <code>json</code>, <code>jsonp</code>, <code>script</code>, or <code>text</code>.</p>
+<p>The <code>text</code> and <code>xml</code> types return the data with no processing. The data is simply passed on to the success handler, either through the <code>responseText</code> or <code>responseXML</code> property of the <code>jqXHR</code> object, respectively.</p>
+<p><strong>Note:</strong> We must ensure that the MIME type reported by the web server matches our choice of <code>dataType</code>. In particular, XML must be declared by the server as <code>text/xml</code> or <code>application/xml</code> for consistent results.</p>
+<p>If <code>html</code> is specified, any embedded JavaScript inside the retrieved data is executed before the HTML is returned as a string. Similarly, <code>script</code> will execute the JavaScript that is pulled back from the server, then return nothing.</p>
+<p>The <code>json</code> type parses the fetched data file as a JavaScript object and returns the constructed object as the result data. To do so, it uses <code>jQuery.parseJSON()</code> when the browser supports it; otherwise it uses a <code>Function</code> <strong>constructor</strong>. Malformed JSON data will throw a parse error (see <a href="http://json.org/">json.org</a> for more information). JSON data is convenient for communicating structured data in a way that is concise and easy for JavaScript to parse. If the fetched data file exists on a remote server, specify the <code>jsonp</code> type instead.</p>
+<p>The <code>jsonp</code> type appends a query string parameter of <code>callback=?</code> to the URL. The server should prepend the JSON data with the callback name to form a valid JSONP response. We can specify a parameter name other than <code>callback</code> with the <code>jsonp</code> option to <code>$.ajax()</code>.</p>
+<p><strong>Note:</strong> JSONP is an extension of the JSON format, requiring some server-side code to detect and handle the query string parameter. More information about it can be found in the <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">original post detailing its use</a>.</p>
+<p>When data is retrieved from remote servers (which is only possible using the <code>script</code> or <code>jsonp</code> data types), the <code>error</code> callbacks and global events will never be fired.</p>
+<h4 id="sending-data-to-server">Sending Data to the Server</h4>
+<p>By default, Ajax requests are sent using the GET HTTP method. If the POST method is required, the method can be specified by setting a value for the <code>type</code> option. This option affects how the contents of the <code>data</code> option are sent to the server. POST data will always be transmitted to the server using UTF-8 charset, per the W3C XMLHTTPRequest standard.</p>
+<p>The <code>data</code> option can contain either a query string of the form <code>key1=value1&amp;key2=value2</code>, or a map of the form <code>{key1: 'value1', key2: 'value2'}</code>. If the latter form is used, the data is converted into a query string using <code><a href="http://api.jquery.com/jQuery.param/">jQuery.param()</a></code> before it is sent. This processing can be circumvented by setting <code>processData</code> to <code>false</code>.  The processing might be undesirable if you wish to send an XML object to the server; in this case, change the <code>contentType</code> option from <code>application/x-www-form-urlencoded</code> to a more appropriate MIME type.</p>
+<h4 id="advanced-options">Advanced Options</h4>
+<p>The <code>global</code> option prevents handlers registered using <code><a href="/ajaxSend">.ajaxSend()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code>, and similar methods from firing when this request would trigger them. This can be useful to, for example, suppress a loading indicator that was implemented with <code><a href="/ajaxSend">.ajaxSend()</a></code> if the requests are frequent and brief. With cross-domain script and JSONP requests, the global option is automatically set to <code>false</code>. See the descriptions of these methods below for more details.  See the descriptions of these methods below for more details.</p>
+<p>If the server performs HTTP authentication before providing a response, the user name and password pair can be sent via the <code>username</code> and <code>password</code> options.</p>
+<p>Ajax requests are time-limited, so errors can be caught and handled to provide a better user experience. Request timeouts are usually either left at their default or set as a global default using <code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code> rather than being overridden for specific requests with the <code>timeout</code> option.</p>
+<p>By default, requests are always issued, but the browser may serve results out of its cache. To disallow use of the cached results, set <code>cache</code> to <code>false</code>. To cause the request to report failure if the asset has not been modified since the last request, set <code>ifModified</code> to <code>true</code>.</p>
+<p>The <code>scriptCharset</code> allows the character set to be explicitly specified for requests that use a <code>&lt;script&gt;</code> tag (that is, a type of <code>script</code> or <code>jsonp</code>). This is useful if the script and host page have differing character sets.</p>
+<p>The first letter in Ajax stands for "asynchronous," meaning that the operation occurs in parallel and the order of completion is not guaranteed. The <code>async</code> option to <code>$.ajax()</code> defaults to <code>true</code>, indicating that code execution can continue after the request is made. Setting this option to <code>false</code> (and thus making the call no longer asynchronous) is strongly discouraged, as it can cause the browser to become unresponsive.</p>
+<p>The <code>$.ajax()</code> function returns the <code>XMLHttpRequest</code> object that it creates. Normally jQuery handles the creation of this object internally, but a custom function for manufacturing one can be specified using the <code>xhr</code> option. The returned object can generally be discarded, but does provide a lower-level interface for observing and manipulating the request. In particular, calling <code>.abort()</code> on the object will halt the request before it completes.</p>
+<p><strong>At present</strong>, due to a bug in Firefox where <code>.getAllResponseHeaders()</code> returns the empty string although <code>.getResponseHeader('Content-Type')</code> returns a non-empty string, automatically decoding JSON CORS responses in Firefox with jQuery is not supported.</p>
+<p>A workaround to this is possible by overriding <code>jQuery.ajaxSettings.xhr</code> as follows:</p>
+<pre>
+var _super = jQuery.ajaxSettings.xhr;
+jQuery.ajaxSettings.xhr = function () {
+    var xhr = _super(),
+        getAllResponseHeaders = xhr.getAllResponseHeaders;
+
+    xhr.getAllResponseHeaders = function () {
+        if ( getAllResponseHeaders() ) {
+            return getAllResponseHeaders();
+        }
+        var allHeaders = "";
+        $( ["Cache-Control", "Content-Language", "Content-Type",
+                "Expires", "Last-Modified", "Pragma"] ).each(function (i, header_name) {
+
+            if ( xhr.getResponseHeader( header_name ) ) {
+                allHeaders += header_name + ": " + xhr.getResponseHeader( header_name ) + "\n";
+            }
+            return allHeaders;
+        });
+    };
+    return xhr;
+};
+</pre>
+<h4>Extending Ajax</h4>
+<p><strong>As of jQuery 1.5</strong>, jQuery's Ajax implementation includes prefilters, converters, and transports that allow you to extend Ajax with a great deal of flexibility. For more information about these advanced features, see the <a href="http://api.jquery.com/extending-ajax/">Extending Ajax</a> page.</p>
+</div>
+<h3 id="notes-0">Additional Notes:</h3><div class="longdesc"><ul><li>Due to browser security restrictions, most "Ajax" requests are subject to the <a title="Same Origin Policy on Wikipedia" href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin policy</a>; the request can not successfully retrieve data from a different domain, subdomain, or protocol.</li><li>Script and JSONP requests are not subject to the same origin policy restrictions.</li></ul></div><h3>Examples:</h3>
+<div class="entry-examples" id="entry-examples">
+<div id="example-0">
+<h4>Example: <span class="desc">Save some data to the server and notify the user once it's complete.</span>
+</h4>
+<pre class="prettyprint"><code class="example">$.ajax({
+  type: "POST",
+  url: "some.php",
+  data: "name=John&amp;location=Boston"
+}).done(function( msg ) {
+  alert( "Data Saved: " + msg );
+});</code></pre>
+</div>
+<div id="example-1">
+<h4>Example: <span class="desc">Retrieve the latest version of an HTML page.</span>
+</h4>
+<pre class="prettyprint"><code class="example">$.ajax({
+  url: "test.html",
+  cache: false,
+  success: function(html){
+    $("#results").append(html);
+  }
+});</code></pre>
+</div>
+<div id="example-2">
+<h4>Example: <span class="desc">Send an xml document as data to the server. By setting the processData
+    option to false, the automatic conversion of data to strings is prevented.</span>
+</h4>
+<pre class="prettyprint"><code class="example">var xmlDocument = [create xml document];
+var xmlRequest = $.ajax({
+  url: "page.php",
+  processData: false,
+  data: xmlDocument
+});
+
+xmlRequest.done(handleResponse);</code></pre>
+</div>
+<div id="example-3">
+<h4>Example: <span class="desc">Send an id as data to the server, save some data to the server, and notify the user once it's complete. If the request fails, alert the user.</span>
+</h4>
+<pre class="prettyprint"><code class="example">var menuId = $("ul.nav").first().attr("id");
+var request = $.ajax({
+  url: "script.php",
+  type: "POST",
+  data: {id : menuId},
+  dataType: "html"
+});
+
+request.done(function(msg) {
+  $("#log").html( msg );
+});
+
+request.fail(function(jqXHR, textStatus) {
+  alert( "Request failed: " + textStatus );
+});</code></pre>
+</div>
+<div id="example-4">
+<h4>Example: <span class="desc">Load and execute a JavaScript file.</span>
+</h4>
+<pre class="prettyprint"><code class="example">$.ajax({
+  type: "GET",
+  url: "test.js",
+  dataType: "script"
+});</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+        </div>
+      </div><!-- .post -->
+    <h1 id="comments" class="roundTop section-title">Support and Contributions</h1>
+<div class="jq-box roundBottom">
+  <p>Need help with <strong>jQuery.ajax()</strong> or have a question about it? Visit the <a href="http://forum.jquery.com/">jQuery Forum</a> or the <strong>#jquery</strong> channel on <a href="irc://irc.freenode.net/">irc.freenode.net</a>.</p>
+  <p>Think you've discovered a jQuery bug related to <strong>jQuery.ajax()</strong>? <a href="http://docs.jquery.com/How_to_Report_Bugs">Report it</a> to the jQuery core team.</p>
+
+  <p>Found a problem with this documentation? <a id="api-error" href="#rpt-issue">Report it</a> to the jQuery API team.</p>    <form id="rpt-issue" action="#comments" method="post">
+      * All fields are required      <fieldset>
+        <div style="position:absolute;left:-1000em;">
+          <input type="text" name="address" value="">
+          <input type="hidden" name="date" value="28 Nov 2011">
+        </div>
+        <div>
+          <label for="api_name">Name:</label>
+          <input name="fullname" id="api_name" value="">
+        </div>
+        <div>
+          <label for="api_email">Email Address:</label>
+          <input name="email" id="api_email" value="">
+        </div>
+        <div>
+          <label for="api_title">Subject:</label>
+          <input id="api_title" name="api_title" value="Documentation problem with jQuery.ajax()" />
+        </div>
+        <div>
+          <label for="api_comment">Comment:</label>
+          <textarea id="api_comment" name="api_comment"></textarea>
+        </div>
+        <button type="submit" disabled="disabled">Report</button>
+      </fieldset>
+    </form>
+
+          <script>jQuery(function($) { $('#rpt-issue').hide();$('#api-error').bind('click',function(e) {e.preventDefault();$('#rpt-issue').slideDown().find('button').prop('disabled', false);});});</script>  <!-- <ul class="comment-instructions">
+    <li><h3 style="margin-top: 0; font-size: 1.4em">Support requests, bug reports, and off-topic comments will be <em>deleted</em> without warning.</h3></li>
+    <li>Please do post corrections or additional examples for jQuery.ajax() below. We aim to quickly move corrections into the documentation.</li>
+    <li>If you need help, post at the <a href="http://forum.jquery.com/">forums</a> or in the #jquery IRC channel.</li>
+    <li>Report bugs on the <a href="http://dev.jquery.com/newticket/">bug tracker</a> or the <a href="http://forum.jquery.com/developing-jquery-core">jQuery Forum</a>.</li>
+    <li>Discussions about the API specifically should be addressed in the <a href="http://forum.jquery.com/developing-jquery-core">Developing jQuery Core forum</a>.</li>
+  </ul> -->
+<div style="margin-top:2em;">
+
+<div id="disqus_thread">
+                    <div id="dsq-content">
+            <ul id="dsq-comments">
+                    <li id="dsq-comment-8836">
+                    <div id="dsq-comment-header-8836" class="dsq-comment-header">
+                        <cite id="dsq-cite-8836">
+    http://twitter.com/TweetKishore                            <span id="dsq-author-user-8836">TweetKishore</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8836" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8836" class="dsq-comment-message"><p>I dont see support for passing HTTP Headers to the Server. Is this not supported?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8901">
+                    <div id="dsq-comment-header-8901" class="dsq-comment-header">
+                        <cite id="dsq-cite-8901">
+                                <span id="dsq-author-user-8901">Anonymous</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8901" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8901" class="dsq-comment-message"><p>Is there any additional documentation available for ETag support with .ajax?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8987">
+                    <div id="dsq-comment-header-8987" class="dsq-comment-header">
+                        <cite id="dsq-cite-8987">
+                                <span id="dsq-author-user-8987">Mike</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8987" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8987" class="dsq-comment-message"><p>Any chance you could expose the JSON-parsing guts of the (undocumented?) httpData function as a public helper? We occasionally need to parse JSON that hasn&#8217;t arrived via an AJAX request, and it feels a bit silly having to copy&amp;paste this code.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9146">
+                    <div id="dsq-comment-header-9146" class="dsq-comment-header">
+                        <cite id="dsq-cite-9146">
+                                <span id="dsq-author-user-9146">AreN</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9146" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9146" class="dsq-comment-message"><p>There&#8217;s no description from which version of jQuery any key was added.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9149">
+                    <div id="dsq-comment-header-9149" class="dsq-comment-header">
+                        <cite id="dsq-cite-9149">
+    http://slightlymore.co.uk/                            <span id="dsq-author-user-9149">Clinton Montague</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9149" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9149" class="dsq-comment-message"><p>You can do this with: beforeSend(XMLHttpRequest)</p>
+<p>Example:</p>
+<p>$.ajax({<br />
+  beforeSend: function (xhr) { xhr.setRequestHeader(&#8220;X-Your-Header&#8221;, &#8220;Your-value&#8221;) },<br />
+  &#8230;,<br />
+  &#8230;<br />
+});</p>
+<p>(Note: This code hasn&#8217;t been tested &#8211; so there might be a typo, but you can see the overall flavour of adding headers.)</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9362">
+                    <div id="dsq-comment-header-9362" class="dsq-comment-header">
+                        <cite id="dsq-cite-9362">
+    http://twitter.com/dovidweisz                            <span id="dsq-author-user-9362">Dovid Weisz</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9362" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9362" class="dsq-comment-message"><p>Do files requested with ajax have a different cache than css background images? </p>
+<p>What I&#8217;m trying to do is make sprite buttons accessible for users that have background images disabled, and thought i would be able to  detect that by requesting that same image with ajax<br />
+$.ajax({url:&#8221;someImage.jpg&#8221;, ifModified:true  });<br />
+.. then check the response header<br />
+but it keeps comming back with a 200</p>
+<p>however if i request it again through ajax i get the 304 i was looking for.</p>
+<p>it seems like this is done for security reasons &#8212; anybody have any insight?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9422">
+                    <div id="dsq-comment-header-9422" class="dsq-comment-header">
+                        <cite id="dsq-cite-9422">
+                                <span id="dsq-author-user-9422">Anonymous</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9422" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9422" class="dsq-comment-message"><p>Would you please describe the returned value(s) ?</p>
+<p>(I gathered this [from a debugger] after calling something that didn&#8217;t exist)</p>
+<p>	{<br />
+		&#8220;readyState&#8221;: 4,<br />
+		&#8220;responseXML&#8221;: null,<br />
+		&#8220;onload&#8221;: null,<br />
+		&#8220;onerror&#8221;: null,<br />
+		&#8220;onloadstart&#8221;: null,<br />
+		&#8220;status&#8221;: 404,<br />
+		&#8220;onabort&#8221;: null,<br />
+		&#8220;upload&#8221;: {<br />
+			&#8220;onabort&#8221;: null,<br />
+			&#8220;onload&#8221;: null,<br />
+			&#8220;onprogress&#8221;: null,<br />
+			&#8220;onerror&#8221;: null,<br />
+			&#8220;onloadstart&#8221;: null<br />
+		},<br />
+		&#8220;onreadystatechange&#8221;: null,<br />
+		&#8220;onprogress&#8221;: null,<br />
+		&#8220;withCredentials&#8221;: false,<br />
+		&#8220;responseText&#8221;: &#8220;&#8221;,<br />
+		&#8220;statusText&#8221;: &#8220;OK&#8221;<br />
+	}</p>
+<p>thanks!</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9468">
+                    <div id="dsq-comment-header-9468" class="dsq-comment-header">
+                        <cite id="dsq-cite-9468">
+    http://twitter.com/profulla                            <span id="dsq-author-user-9468">profulla</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9468" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9468" class="dsq-comment-message"><p>HTTP code: 404 (file/resource at the URI does not exist <img src='http://api.jquery.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />  )</p>
+<p>Wikepedia: The 404 or Not Found error message is a HTTP standard response code indicating that the client was able to communicate with the server but the server could not find what was requested.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9485">
+                    <div id="dsq-comment-header-9485" class="dsq-comment-header">
+                        <cite id="dsq-cite-9485">
+                                <span id="dsq-author-user-9485">JNat</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9485" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9485" class="dsq-comment-message"><p>async: false only seems to work as expected in Firefox.  A workaround can be found here:<br />
+<a href="http://blog.s-gray.com/2009/07/27/jquery-retrieving-the-data-from-an-ajax-call-into-the-global-scope/" rel="nofollow">http://blog.s-gray.com/2009/07/27/jquery-retrieving-the-data-from-an-ajax-call-into-the-global-scope/</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9616">
+                    <div id="dsq-comment-header-9616" class="dsq-comment-header">
+                        <cite id="dsq-cite-9616">
+    http://www.jscolton.com/                            <span id="dsq-author-user-9616">Jeremy Colton</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9616" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9616" class="dsq-comment-message"><p>It seems that the success callback in JQuery 1.3.2 does not receive the XMLHttpRequest object as its 3rd parameter since doing the following shows &#8216;unefined&#8217;:</p>
+<p>	$.ajaxSetup({<br />
+  		success: function(data, status, xhr) {<br />
+  			alert(&#8220;xhr: &#8221; + xhr);<br />
+  		}<br />
+	});</p>
+<p>I can&#8217;t find any reference to this working via Google.  What stupid thing am i doing?  I want to read the HTTP Headers in the response.</p>
+<p>many thanks<br />
+Jeremy</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9618">
+                    <div id="dsq-comment-header-9618" class="dsq-comment-header">
+                        <cite id="dsq-cite-9618">
+                                <span id="dsq-author-user-9618">oops</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9618" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9618" class="dsq-comment-message"><p>&#8220;Please do post corrections or additional examples for jQuery.ajax() below. We aim to quickly move corrections into the documentation.&#8221;</p>
+<p>jQuery.ajax does not support requests to absolute URLs such as accessing &#8220;http://&#8230;&#8221;, only relative urls.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9619">
+                    <div id="dsq-comment-header-9619" class="dsq-comment-header">
+                        <cite id="dsq-cite-9619">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-9619">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9619" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9619" class="dsq-comment-message"><p>Hi Jeremy,<br />
+Sorry about the confusion. The XMLHttpRequest object is only available to the success callback as of jQuery 1.4. You can access it in 1.3.2 via the complete callback.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9620">
+                    <div id="dsq-comment-header-9620" class="dsq-comment-header">
+                        <cite id="dsq-cite-9620">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-9620">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9620" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9620" class="dsq-comment-message"><p>That&#8217;s a limitation imposed by some browser vendors, not jQuery, for security reasons. Do you think we should still note it somewhere?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9627">
+                    <div id="dsq-comment-header-9627" class="dsq-comment-header">
+                        <cite id="dsq-cite-9627">
+                                <span id="dsq-author-user-9627">oops</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9627" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9627" class="dsq-comment-message"><p>Same Origin Policy strikes again! (in this case, the SOP correctly applied when trying to access a.b.c.com from b.c.com)</p>
+<p>Yes I feel it should be noted; there are in fact Google hits with confused devs asking &#8220;Why doesn&#8217;t jQuery ajax support absolute urls? I don&#8217;t see any examples.&#8221;, etc.</p>
+<p>Granted, they&#8217;d get the same results with other XHR wrappers, but I personally used jQuery precisely because I incorrectly thought my own XHR functions were bugging up.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9639">
+                    <div id="dsq-comment-header-9639" class="dsq-comment-header">
+                        <cite id="dsq-cite-9639">
+    http://www.jscolton.com/                            <span id="dsq-author-user-9639">Jeremy Colton</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9639" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9639" class="dsq-comment-message"><p>Hi Karl,</p>
+<p>Many thanks for your fast reply.  I thought about using the &#8216;complete&#8217; handler, but the problem with it for me is as follows:</p>
+<p>My ajax request is to a Struts action which adds a HTTP header.  The result of the struts action is a JSP.  But this JSP loads a .js file.  So the &#8216;complete&#8217; handler only fires after the .js file has loaded signalling the end of the initial ajax request.  Problem is, the HTTP headers that the XMLHttpRequest object provides is for the final HTTP request (ie the .js file) that is part of the initial ajax request.  The  HTTP headers in the response for .js file don&#8217;t have the additional HTTP header.  </p>
+<p>Whereas, the &#8216;success&#8217; handler fires for every request triggered as part of the initial ajax request and here I would see the added HTTP header in the XMLHTTPRequest object accompanying the loading of the JSP.  Hope this makes sense&#8230;</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-1248">
+                    <div id="dsq-comment-header-1248" class="dsq-comment-header">
+                        <cite id="dsq-cite-1248">
+                                <span id="dsq-author-user-1248">joelangeway</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-1248" class="dsq-comment-body">
+                        <div id="dsq-comment-message-1248" class="dsq-comment-message"><p>It looks like $.ajax() does a deep copy with $.extend(true, &#8230;) of the options passed into it, including the context of the callbacks. Firstly, this seams to mean the page hangs if my context object has a circular reference. Secondly, do my callbacks get the right context? Am I totally wrong?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9826">
+                    <div id="dsq-comment-header-9826" class="dsq-comment-header">
+                        <cite id="dsq-cite-9826">
+                                <span id="dsq-author-user-9826">Sybiam</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9826" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9826" class="dsq-comment-message"><p>It seems that when using dataType as &#8220;script&#8221; JQuery always send a parameters called &#8216;_&#8217;.<br />
+For example, if we use:<br />
+$.ajax({&#8216;url&#8217;: &#8216;test.com&#8217;, &#8216;type&#8217;: &#8216;GET&#8217;})<br />
+This is sent as OPTIONS<br />
+and<br />
+$.ajax({&#8216;url&#8217;: &#8216;test.com&#8217;, &#8216;dataType&#8217;: &#8216;script&#8217;, &#8216;type&#8217;: &#8216;GET&#8217;})<br />
+This is sent as GET with extra parameters</p>
+<p>I use firefox. I don&#8217;t know if it&#8217;s a browser thing or JQuery. </p>
+<p>Technically the &#8216;_&#8217; param isn&#8217;t a problem by itself. But I have something that create a signature from all the parameters except &#8216;sig&#8217;. In other word I build a sig from all the parameters then the ajax method send the extra params _ and the sig can&#8217;t be validated since I never know what this param will be and I do not have access to the other server. And for some reasons. The &#8220;OPTIONS&#8221; mode doesn&#8217;t work.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9835">
+                    <div id="dsq-comment-header-9835" class="dsq-comment-header">
+                        <cite id="dsq-cite-9835">
+                                <span id="dsq-author-user-9835">webb230</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9835" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9835" class="dsq-comment-message"><p>Word of caution. I was using a function like:<br />
+$.ajax({<br />
+url: [some_url],<br />
+async:false<br />
+}).responseText;</p>
+<p>Worked fine in firefox, but in Safari, responseText was returning an empty value (just blank, no NaN, null, etc).  Turns out, really simple solution. My browser url was set at <a href="http://somedomain.com" rel="nofollow">http://somedomain.com</a>, while my ajax request url was <a href="http://www.somedomain.com" rel="nofollow">http://www.somedomain.com</a>. In other words, for the ajax request url, be sure and use the exact same domain as entered in the browser.</p>
+<p>jquery ajax responseText blank</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-9907">
+                    <div id="dsq-comment-header-9907" class="dsq-comment-header">
+                        <cite id="dsq-cite-9907">
+                                <span id="dsq-author-user-9907">Anonymous</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-9907" class="dsq-comment-body">
+                        <div id="dsq-comment-message-9907" class="dsq-comment-message"><p>I&#8217;ve found a handy way of dealing with this is to use window.location, then you get the url the browser is looking at <img src='http://api.jquery.com/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' /> </p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-1415">
+                    <div id="dsq-comment-header-1415" class="dsq-comment-header">
+                        <cite id="dsq-cite-1415">
+    http://www.535design.com/people/ben.blank/                            <span id="dsq-author-user-1415">Ben Blank</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-1415" class="dsq-comment-body">
+                        <div id="dsq-comment-message-1415" class="dsq-comment-message"><p>It appears that same-domain scripts loaded via this method cannot be debugged in Venkman or Firebug.  Such scripts are inserted into the document via jQuery.globalEval, which removes the relevant &lt;script&gt; node after inserting it, so no source is available to debuggers.  Breakpoints (&#8220;debugger;&#8221;) are silently swallowed.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10028">
+                    <div id="dsq-comment-header-10028" class="dsq-comment-header">
+                        <cite id="dsq-cite-10028">
+    http://www.tekfix.com.au/                            <span id="dsq-author-user-10028">Tony</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10028" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10028" class="dsq-comment-message"><p>Hey, can we get an example of using this function over https? I&#8217;m wondering if the only way is o put in the full link in the url vairable.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-1555">
+                    <div id="dsq-comment-header-1555" class="dsq-comment-header">
+                        <cite id="dsq-cite-1555">
+                                <span id="dsq-author-user-1555">notzippy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-1555" class="dsq-comment-body">
+                        <div id="dsq-comment-message-1555" class="dsq-comment-message"><p>The documented dataType = &#39;html&#39; is specified two different ways on this page. <br />1)&#8221;html&#8221;: Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.<br />2) If html is specified, any embedded JavaScript inside the retrieved data is executed before the HTML is returned as a string.</p>
+<p>I believe the second case is wrongly documented since it leads you to believe that the script will be evaluated (executed) before you manually place the returned content inside the DOM.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10108">
+                    <div id="dsq-comment-header-10108" class="dsq-comment-header">
+                        <cite id="dsq-cite-10108">
+                                <span id="dsq-author-user-10108">Michael</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10108" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10108" class="dsq-comment-message"><p>With &#8220;jsonp&#8221;, a request will cause the complete-function being trigged two times.<br />
+$.ajax({<br />
+	url: 		&#8220;something.php&#8221;,<br />
+	dataType:	&#8220;jsonp&#8221;,<br />
+	success:	function(data, text, request) {	do_something(); } ,<br />
+	complete:	function(xhr, status) {console.log(status); return false; },<br />
+});</p>
+<p>will show the status 2 times at the console. Is there a work around for this? Or a better way to call the function at &#8220;onComplete&#8221;?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10129">
+                    <div id="dsq-comment-header-10129" class="dsq-comment-header">
+                        <cite id="dsq-cite-10129">
+    http://mathiasbynens.be/                            <span id="dsq-author-user-10129">Mathias Bynens</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10129" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10129" class="dsq-comment-message"><p>As a developer, you should decide between <a href="http://www.example.com" rel="nofollow">http://www.example.com</a> and example.com, and serve 301 redirects to the URI of choice. It will save you a lot of trouble (webb230’s comment is just one of the many examples), and it’s better for SEO. Ideally, every document should only have one URI.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10134">
+                    <div id="dsq-comment-header-10134" class="dsq-comment-header">
+                        <cite id="dsq-cite-10134">
+                                <span id="dsq-author-user-10134">Tagny Daggart</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10134" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10134" class="dsq-comment-message"><p>If you are using JSONP for simply sending data and don&#8217;t really require any data back, be sure to send a jsonp-ified &#8216;true&#8217; or something back, because if you simply return nothing, jQuery will not trigger your success handler.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-1657">
+                    <div id="dsq-comment-header-1657" class="dsq-comment-header">
+                        <cite id="dsq-cite-1657">
+                                <span id="dsq-author-user-1657">Jeremy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-1657" class="dsq-comment-body">
+                        <div id="dsq-comment-message-1657" class="dsq-comment-message"><p>Please note, that when using dataType:  XML that both the client and server haveto be in the same domain.  This means that you cannot run the client (your javascript) on <a href="http://myCompany/" rel="nofollow">http://myCompany/</a> while trying to retrieve data from <a href="http://anotherCompany/service" rel="nofollow">http://anotherCompany/service</a>.  However, you can do this when using dataType:  Script or dataType: JSON</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10141">
+                    <div id="dsq-comment-header-10141" class="dsq-comment-header">
+                        <cite id="dsq-cite-10141">
+                                <span id="dsq-author-user-10141">Jeremy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10141" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10141" class="dsq-comment-message"><p>Woops&#8230; I should have pointed out that Firefox and IE work differently in regards to this.  IE allows you to go across domains&#8230; Firefox does not.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10452">
+                    <div id="dsq-comment-header-10452" class="dsq-comment-header">
+                        <cite id="dsq-cite-10452">
+                                <span id="dsq-author-user-10452">Anonymous</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10452" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10452" class="dsq-comment-message"><p>You can get at the settings object using the &#8216;this&#8217; keyword.</p>
+<p>beforeSend: function(xhr) { log(this.data); } //log the querystring sent</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10518">
+                    <div id="dsq-comment-header-10518" class="dsq-comment-header">
+                        <cite id="dsq-cite-10518">
+                                <span id="dsq-author-user-10518">Adam Parsley</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10518" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10518" class="dsq-comment-message"><p>For some reason it does not take any data after an &amp; symbol. If someone types &#8220;example 1 &amp; example 2 &#8230; etc&#8221; then all that will get posted is &#8220;example 1 &#8221;</p>
+<p>Any help would be greatly appreciated</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10524">
+                    <div id="dsq-comment-header-10524" class="dsq-comment-header">
+                        <cite id="dsq-cite-10524">
+                                <span id="dsq-author-user-10524">sly foxxx</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10524" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10524" class="dsq-comment-message"><p>Adam,</p>
+<p>it is probably interpreting everything after the &#8216;&amp;&#8217; symbol as a new argument.  So, in the data string that gets passed you might have something like this: ?fieldName=example1&amp;example2&#8230;  it actually thinks that example2 is the name of the next filed.  try url encoding the data string.  Hope this helps</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10542">
+                    <div id="dsq-comment-header-10542" class="dsq-comment-header">
+                        <cite id="dsq-cite-10542">
+                                <span id="dsq-author-user-10542">Guest</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10542" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10542" class="dsq-comment-message"><p>Checking that if file exists:</p>
+<p>$.ajax({url:&#8217;somefile.dat&#8217;,type:&#8217;HEAD&#8217;,error:do_something})</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10549">
+                    <div id="dsq-comment-header-10549" class="dsq-comment-header">
+                        <cite id="dsq-cite-10549">
+                                <span id="dsq-author-user-10549">AndyJ</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10549" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10549" class="dsq-comment-message"><p>Safari doesn&#8217;t either.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-2587">
+                    <div id="dsq-comment-header-2587" class="dsq-comment-header">
+                        <cite id="dsq-cite-2587">
+                                <span id="dsq-author-user-2587">mjuhl24</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-2587" class="dsq-comment-body">
+                        <div id="dsq-comment-message-2587" class="dsq-comment-message"><p>When making a cross-domain request, this method seems to fail silently in Opera.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-10897">
+                    <div id="dsq-comment-header-10897" class="dsq-comment-header">
+                        <cite id="dsq-cite-10897">
+    http://twitter.com/tprochazka                            <span id="dsq-author-user-10897">Tomáš Procházka</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-10897" class="dsq-comment-body">
+                        <div id="dsq-comment-message-10897" class="dsq-comment-message"><p>I think that context description and example is bad. I have trouble with this and than I found, that is necessary use $this.context in callback function to access context which is defined in ajax() call.</p>
+<p>For example this:<br />
+$(document).ready(function() {<br />
+	$(&#8216;.acontrol a&#8217;).click(function() {<br />
+		$.ajax({ url: &#8220;main_rpc.php&#8221;, context: $(this).parent(), success: function(data, textStatus){<br />
+			this.context.html(&#8216;ok&#8217;);<br />
+    }});<br />
+		return false;<br />
+	});<br />
+});</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3039">
+                    <div id="dsq-comment-header-3039" class="dsq-comment-header">
+                        <cite id="dsq-cite-3039">
+    http://www.apexwork.com                            <span id="dsq-author-user-3039">test</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3039" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3039" class="dsq-comment-message"><p>As a developer, you should decide between <a href="http://www.apexwork.com" rel="nofollow">http://www.example.com</a>, and serve 301 redirects to the URI of choice. It will save you a lot of trouble (webb230’s comment is just one of the many examples), and it’s better for SEO. Ideally, every document should only have one URI.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11343">
+                    <div id="dsq-comment-header-11343" class="dsq-comment-header">
+                        <cite id="dsq-cite-11343">
+    http://patricklynchart.com                            <span id="dsq-author-user-11343">Patrick</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11343" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11343" class="dsq-comment-message"><p>For anyone who is having problems with getting their success callback to work, I tried many many things and read through the forums for why the JSON object could not be parsed or why I got empty strings and why it just won&#8217;t work.  All I had to do in the end was upload everything to a web server and it worked fine.  Even though Charles (web debugging proxy) showed the response coming back properly when testing locally, for some reason the JSON object could not be parsed and the ajax called would fail silently.  So&#8230; UPLOAD IT TO A WEB SERVER!</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3348">
+                    <div id="dsq-comment-header-3348" class="dsq-comment-header">
+                        <cite id="dsq-cite-3348">
+                                <span id="dsq-author-user-3348">Nepherim</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3348" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3348" class="dsq-comment-message"><p>Note, that a POST will always send using UTF8 regardless of what contentType/charset is set (ref <a href="http://stackoverflow.com/questions/657871/another-jquery-encoding-problem-on-ie" rel="nofollow">http://stackoverflow.com/questions/657871/anoth&#8230;</a>). This needs to be documented, as it is totally unexpected behavior.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3377">
+                    <div id="dsq-comment-header-3377" class="dsq-comment-header">
+                        <cite id="dsq-cite-3377">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-3377">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3377" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3377" class="dsq-comment-message"><p>Thanks for bringing this to the attention of those who might be coming across this problem.<br />If you haven&#39;t filed a bug at <a href="http://dev.jquery.com/" rel="nofollow">http://dev.jquery.com/</a> or reported the issue at <a href="http://forum.jquery.com/" rel="nofollow">http://forum.jquery.com/</a> I would strongly encourage you to do so. Nobody will do anything to help fix the problem if you only post it here (or <a href="http://stackoverflow.com" rel="nofollow">stackoverflow.com</a>). Thanks.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11515">
+                    <div id="dsq-comment-header-11515" class="dsq-comment-header">
+                        <cite id="dsq-cite-11515">
+                                <span id="dsq-author-user-11515">adam2</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11515" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11515" class="dsq-comment-message"><p>In 1.4.2 jquery doesn&#8217;t call ajax error callback on timeout/connection error,<br />
+to fix this:<br />
+remove the trailing &#8221; || xhr.status === 0&#8243;  from httpSuccess function</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3439">
+                    <div id="dsq-comment-header-3439" class="dsq-comment-header">
+                        <cite id="dsq-cite-3439">
+                                <span id="dsq-author-user-3439">Mat</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3439" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3439" class="dsq-comment-message"><p>Erf I have not taken into account the same origin policy, it works fine using file_get_contents with allow url fopen activate.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3451">
+                    <div id="dsq-comment-header-3451" class="dsq-comment-header">
+                        <cite id="dsq-cite-3451">
+    http://twitter.com/steida                            <span id="dsq-author-user-3451">Daniel Steigerwald</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3451" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3451" class="dsq-comment-message"><p>Please fix doc for type option. The sentence &#8220;can also be used here, but they are not supported by all browsers.&#8221; in not correct for XmlHttpRequest object. <a href="http://stackoverflow.com/questions/165779/are-the-put-delete-head-etc-methods-available-in-most-web-browsers" rel="nofollow">http://stackoverflow.com/questions/165779/are-t&#8230;</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11545">
+                    <div id="dsq-comment-header-11545" class="dsq-comment-header">
+                        <cite id="dsq-cite-11545">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-11545">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11545" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11545" class="dsq-comment-message"><p>does it work if you set the timeout option?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3476">
+                    <div id="dsq-comment-header-3476" class="dsq-comment-header">
+                        <cite id="dsq-cite-3476">
+                                <span id="dsq-author-user-3476">Nepherim</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3476" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3476" class="dsq-comment-message"><p>Done: <a href="http://dev.jquery.com/ticket/6645" rel="nofollow">http://dev.jquery.com/ticket/6645</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3535">
+                    <div id="dsq-comment-header-3535" class="dsq-comment-header">
+                        <cite id="dsq-cite-3535">
+                                <span id="dsq-author-user-3535">blindfish</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3535" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3535" class="dsq-comment-message"><p>Just been tearing my hair out and have just figured out why testing locally on Firefox/IE was working/broken.  For the benefit of other noobs like me; it&#39;s probably worth mentioning this will fail when testing locally on IE (and it would appear Chrome); but work fine once uploaded to a server.  Presumably a security issue working with local files?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-3846">
+                    <div id="dsq-comment-header-3846" class="dsq-comment-header">
+                        <cite id="dsq-cite-3846">
+                                <span id="dsq-author-user-3846">Heshanh</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-3846" class="dsq-comment-body">
+                        <div id="dsq-comment-message-3846" class="dsq-comment-message"><p>if you are trying to check if the request is json its  &#8220;HTTP_X_REQUESTED_WITH&#8221;</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11796">
+                    <div id="dsq-comment-header-11796" class="dsq-comment-header">
+                        <cite id="dsq-cite-11796">
+    http://www.superiordesign.com                            <span id="dsq-author-user-11796">Matt</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11796" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11796" class="dsq-comment-message"><p>Thank you for posting this!  I had a very similar issue. Running the .ajax() function on my local machine (or a box on my network) would freeze the browser, After uploading it to another server it worked fine.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11797">
+                    <div id="dsq-comment-header-11797" class="dsq-comment-header">
+                        <cite id="dsq-cite-11797">
+                                <span id="dsq-author-user-11797">FIRAT</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11797" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11797" class="dsq-comment-message"><p>i think timeout doesn&#8217;t work on sync transfers.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11850">
+                    <div id="dsq-comment-header-11850" class="dsq-comment-header">
+                        <cite id="dsq-cite-11850">
+                                <span id="dsq-author-user-11850">Nimesha</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11850" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11850" class="dsq-comment-message"><p>what is the different between Ajax complete: &amp; Ajax success:</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11854">
+                    <div id="dsq-comment-header-11854" class="dsq-comment-header">
+                        <cite id="dsq-cite-11854">
+                                <span id="dsq-author-user-11854">Praveen Prasad</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11854" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11854" class="dsq-comment-message"><p>ajax compelete is always called doesnt matter success or error- after suc/err handler fns are called</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11862">
+                    <div id="dsq-comment-header-11862" class="dsq-comment-header">
+                        <cite id="dsq-cite-11862">
+                                <span id="dsq-author-user-11862">Some guy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11862" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11862" class="dsq-comment-message"><p>Getting an AJAX error when trying to fire an ajax request from keypress event. After capturing the keypress event I&#8217;m able to trigger the click event but then my ajax request fails. This only happens in Firefox 3.6.6.   My code is similar to the following:</p>
+<p>$(selector)<br />
+   .click(function(){<br />
+        $.ajax({<br />
+			url: jsonURL,<br />
+			dataType: &#8220;jsonp&#8221;,<br />
+			jsonp: &#8220;jsoncallback&#8221;,<br />
+			success: function(json)<br />
+			{<br />
+				console.log(json);<br />
+			},<br />
+			error: someErrorFunc<br />
+		});<br />
+   });</p>
+<p>When using $(selector).trigger(&#8220;click&#8221;) in Firefox 3.6.6 I get an ajax error. Any ideas?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11871">
+                    <div id="dsq-comment-header-11871" class="dsq-comment-header">
+                        <cite id="dsq-cite-11871">
+                                <span id="dsq-author-user-11871">Chrstian</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11871" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11871" class="dsq-comment-message"><p>I&#8217;ve the same problem, probably introduced with the xhr customization function</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11890">
+                    <div id="dsq-comment-header-11890" class="dsq-comment-header">
+                        <cite id="dsq-cite-11890">
+                                <span id="dsq-author-user-11890">Some Guy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11890" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11890" class="dsq-comment-message"><p>I&#8217;m still pondering this one, any ideas would be appreciated. Works in Chrome, IE but not in FF 3.6.6. Will work in FF if I actually clicked on the object [a.k.a $(selector) ] but not if I trigger the click.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-4270">
+                    <div id="dsq-comment-header-4270" class="dsq-comment-header">
+                        <cite id="dsq-cite-4270">
+                                <span id="dsq-author-user-4270">Raphael Coulonvaux</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-4270" class="dsq-comment-body">
+                        <div id="dsq-comment-message-4270" class="dsq-comment-message"><p>Hi,</p>
+<p>Size does matter&#8230;</p>
+<p>Any idea of the json content maximum size supported by the parser depending on the browser ?</p>
+<p>When getting locally a 4,8MB .json file, I get a &#8220;parseerrror&#8221; with FF 3.6.6 while no error with IE7.<br />No error with FF 3.6.6 if I remove any (syntactycally correct) entry in the array of the .json file !</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11962">
+                    <div id="dsq-comment-header-11962" class="dsq-comment-header">
+                        <cite id="dsq-cite-11962">
+    http://twitter.com/jeremyckahn                            <span id="dsq-author-user-11962">Jeremy Kahn</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11962" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11962" class="dsq-comment-message"><p>Not that you can&#8217;t find this out elsewhere, but I&#8217;ll say it here:  JSONP calls allow you to make requests not only to servers other than the one that the request originated from, but also from local files.</p>
+<p>To make a JSONP request, simply append &#8220;callback=?&#8221; to the URL you are trying to reach, as specified in the documentation for jQuery.getJSON().  Remember, jQuery.getJSON() is just a wrapper for jQuery.ajax()</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-4450">
+                    <div id="dsq-comment-header-4450" class="dsq-comment-header">
+                        <cite id="dsq-cite-4450">
+    http://twitter.com/john_hamelink                            <span id="dsq-author-user-4450">s0l1dsnak3123</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-4450" class="dsq-comment-body">
+                        <div id="dsq-comment-message-4450" class="dsq-comment-message"><p>I wrote an article on how to combat cross-domain POSTing using jQuery. Take a look at it here: <a href="http://www.johnhamelink.com/2010/07/combat-crossdomain-post-problems-ajax/" rel="nofollow">http://www.johnhamelink.com/2010/07/combat-cros&#8230;</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11969">
+                    <div id="dsq-comment-header-11969" class="dsq-comment-header">
+                        <cite id="dsq-cite-11969">
+                                <span id="dsq-author-user-11969">Sumit</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11969" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11969" class="dsq-comment-message"><p>i am using jquery and 2 request is making in a few sec difference. The problem is that the second response is waiting for first request completion or first response.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-11991">
+                    <div id="dsq-comment-header-11991" class="dsq-comment-header">
+                        <cite id="dsq-cite-11991">
+    http://tuckedgraphics.com                            <span id="dsq-author-user-11991">Tucker Graczkowski</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-11991" class="dsq-comment-body">
+                        <div id="dsq-comment-message-11991" class="dsq-comment-message"><p>I would add the second request to the callback function of the first.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12030">
+                    <div id="dsq-comment-header-12030" class="dsq-comment-header">
+                        <cite id="dsq-cite-12030">
+                                <span id="dsq-author-user-12030">Muhammad</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12030" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12030" class="dsq-comment-message"><p>How can i send an event from the server to the client ?<br />
+i tried a timer to check if a new event exists to handle it<br />
+but i didn&#8217;t find that a good solution</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12031">
+                    <div id="dsq-comment-header-12031" class="dsq-comment-header">
+                        <cite id="dsq-cite-12031">
+    http://perfect-flowers.ru                            <span id="dsq-author-user-12031">bdiang</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12031" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12031" class="dsq-comment-message"><p>search keywords: COMET, long polling</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12033">
+                    <div id="dsq-comment-header-12033" class="dsq-comment-header">
+                        <cite id="dsq-cite-12033">
+    http://twitter.com/CallMeLaNN                            <span id="dsq-author-user-12033">CallMeLaNN</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12033" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12033" class="dsq-comment-message"><p>Your server keep sending an integer no as an ID, when new event occur, server increase the no.<br />
+You can also use other way like UID or hash no as long as it unique.<br />
+When client keep requests by polling check this number in few second/minute, notice the changes, then client will request the data of the events. This will make your app handy and lightweight. Gmail inbox check and twitter API to external web uses this way in my opinion.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12087">
+                    <div id="dsq-comment-header-12087" class="dsq-comment-header">
+                        <cite id="dsq-cite-12087">
+                                <span id="dsq-author-user-12087">AM</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12087" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12087" class="dsq-comment-message"><p>if our server function return datatable or other types of data then how to get it?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12138">
+                    <div id="dsq-comment-header-12138" class="dsq-comment-header">
+                        <cite id="dsq-cite-12138">
+                                <span id="dsq-author-user-12138">Isaac Diaz</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12138" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12138" class="dsq-comment-message"><p>Hi,<br />
+take a look to <a href="http://www.json.org" rel="nofollow">http://www.json.org</a></p>
+<p>If you are using json you can encode your results and access them as types in the result object.  give it a try and use firebug to see the structure of the objects.</p>
+<p>Hope this helps.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12148">
+                    <div id="dsq-comment-header-12148" class="dsq-comment-header">
+                        <cite id="dsq-cite-12148">
+                                <span id="dsq-author-user-12148">Steve_the_fiend</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12148" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12148" class="dsq-comment-message"><p>Ideally you should think about what you are returning and what the best format for that data is. For example if you dont have many concurrent connections and you intend to display a small datatable as an html table that will be dynamically appended to your dom, why not construct the html table server side and return it in a state that is ready to be appended. If the table is large you will most likely be better off using JSON as previously mentioned see <a href="http://blog.andremakram.com/?p=7" rel="nofollow">http://blog.andremakram.com/?p=7</a> for more details</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5302">
+                    <div id="dsq-comment-header-5302" class="dsq-comment-header">
+                        <cite id="dsq-cite-5302">
+                                <span id="dsq-author-user-5302">Jason</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5302" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5302" class="dsq-comment-message"><p>Tip:<br />PHP provides function which converts from Associative Array to JSON object.<br /><a href="http://php.net/manual/en/function.json-encode.php" rel="nofollow">http://php.net/manual/en/function.json-encode.php</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5305">
+                    <div id="dsq-comment-header-5305" class="dsq-comment-header">
+                        <cite id="dsq-cite-5305">
+                                <span id="dsq-author-user-5305">Albert Asensio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5305" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5305" class="dsq-comment-message"><p>very interesting, thanks</p>
+<p><a href="http://no-suelo.blogspot.com/" rel="nofollow">http://no-suelo.blogspot.com/</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5378">
+                    <div id="dsq-comment-header-5378" class="dsq-comment-header">
+                        <cite id="dsq-cite-5378">
+    http://twitter.com/jokeyrhyme                            <span id="dsq-author-user-5378">Ron Waldon</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5378" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5378" class="dsq-comment-message"><p>I am working on a project where we currently display a circular (infinite / indefinite) progress animation while performing AJAX requests. I would really like to transition to more precise linear progress animations (0-100%), but we&#39;d need 2 pieces of information:<br />- how big the server response is<br />- how far we are through receiving it</p>
+<p>Does jQuery expose this information? I&#39;d really like to avoid having to fire off additional AJAX requests just to fetch this progress information.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5418">
+                    <div id="dsq-comment-header-5418" class="dsq-comment-header">
+                        <cite id="dsq-cite-5418">
+    http://twitter.com/aasensiog                            <span id="dsq-author-user-5418">Albert Asensio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5418" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5418" class="dsq-comment-message"><p>A detailed explanation How use AJAX with Jquery.</p>
+<p><a href="http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html" rel="nofollow">http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5419">
+                    <div id="dsq-comment-header-5419" class="dsq-comment-header">
+                        <cite id="dsq-cite-5419">
+    http://twitter.com/aasensiog                            <span id="dsq-author-user-5419">Albert Asensio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5419" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5419" class="dsq-comment-message"><p>A detailed explanation How use AJAX with Jquery.</p>
+<p><a href="http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html" rel="nofollow">http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5420">
+                    <div id="dsq-comment-header-5420" class="dsq-comment-header">
+                        <cite id="dsq-cite-5420">
+    http://twitter.com/aasensiog                            <span id="dsq-author-user-5420">Albert Asensio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5420" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5420" class="dsq-comment-message"><p>A detailed explanation How use AJAX with Jquery.</p>
+<p><a href="http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html" rel="nofollow">http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5422">
+                    <div id="dsq-comment-header-5422" class="dsq-comment-header">
+                        <cite id="dsq-cite-5422">
+    http://twitter.com/aasensiog                            <span id="dsq-author-user-5422">Albert Asensio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5422" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5422" class="dsq-comment-message"><p>A detailed explanation How use AJAX with Jquery.</p>
+<p><a href="http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html" rel="nofollow">http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5421">
+                    <div id="dsq-comment-header-5421" class="dsq-comment-header">
+                        <cite id="dsq-cite-5421">
+    http://twitter.com/aasensiog                            <span id="dsq-author-user-5421">Albert Asensio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5421" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5421" class="dsq-comment-message"><p>A detailed explanation How use AJAX with Jquery.</p>
+<p><a href="http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html" rel="nofollow">http://no-suelo.blogspot.com/2010/09/llamada-ajax-con-jquery-parametros.html</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5442">
+                    <div id="dsq-comment-header-5442" class="dsq-comment-header">
+                        <cite id="dsq-cite-5442">
+    http://twitter.com/aasensiog                            <span id="dsq-author-user-5442">Albert Asensio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5442" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5442" class="dsq-comment-message"><p>Nice post.</p>
+<p>A detailed description how use JQuery and AJAX:</p>
+<p><a href="http://no-suelo.blogspot.com/2010/09/calling-ajax-with-jquery.html" rel="nofollow">http://no-suelo.blogspot.com/2010/09/calling-ajax-with-jquery.html</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5478">
+                    <div id="dsq-comment-header-5478" class="dsq-comment-header">
+                        <cite id="dsq-cite-5478">
+    http://www.igmarkets.co.uk/                            <span id="dsq-author-user-5478">CFD Trading</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5478" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5478" class="dsq-comment-message"><p>&gt;&gt;When using $(selector).trigger(&#8220;click&#8221;) in Firefox 3.6.6 I get an ajax error. Any ideas? </p>
+<p>same here&#8230;has anyone find a solution or work around this?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5485">
+                    <div id="dsq-comment-header-5485" class="dsq-comment-header">
+                        <cite id="dsq-cite-5485">
+                                <span id="dsq-author-user-5485">Dumdidum</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5485" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5485" class="dsq-comment-message"><p>I searched for this a long time, so i&#39;ll link it here:<br /><a href="http://groups.google.com/group/jquery-en/browse_thread/thread/8f064b556114ba73?pli=1" rel="nofollow">http://groups.google.com/group/jquery-en/browse_thread/thread/8f064b556114ba73?pli=1</a></p>
+<p>It&#39;s about what the server-code must do, that the &#8220;error:&#8221;-part is reached.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5484">
+                    <div id="dsq-comment-header-5484" class="dsq-comment-header">
+                        <cite id="dsq-cite-5484">
+                                <span id="dsq-author-user-5484">Dumdidum</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5484" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5484" class="dsq-comment-message"><p>I searched for this a long time, so i&#39;ll link it here:<br /><a href="http://groups.google.com/group/jquery-en/browse_thread/thread/8f064b556114ba73?pli=1" rel="nofollow">http://groups.google.com/group/jquery-en/browse_thread/thread/8f064b556114ba73?pli=1</a></p>
+<p>It&#39;s about what the server-code must do, that the &#8220;error:&#8221;-part is reached.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5846">
+                    <div id="dsq-comment-header-5846" class="dsq-comment-header">
+                        <cite id="dsq-cite-5846">
+    http://bigasterisk.com/                            <span id="dsq-author-user-5846">drewp</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5846" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5846" class="dsq-comment-message"><p>Apparently on server response of 303 (standard for a POST response), jquery 1.4.2 calls the error handler instead of the success one. I am even getting undefined for the 3rd arg to my callback. This is working for me: error: function(xhr, text, err) { if (xhr.status == 302) { xhr.getResponseHeader(&#39;Location&#39;) &#8230;</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5922">
+                    <div id="dsq-comment-header-5922" class="dsq-comment-header">
+                        <cite id="dsq-cite-5922">
+                                <span id="dsq-author-user-5922">Axelvitali</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5922" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5922" class="dsq-comment-message"><p>calling a Webservice &#8211; Webmethod Hello(). Got a response {&#8220;d&#8221;,&#8221;hello&#8221;}. In FireFox call to Success function first and then Error function .In Crhome just call the success. In IE 8 just call the error and giving a parsererror. Any ideas? Thanks</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-5989">
+                    <div id="dsq-comment-header-5989" class="dsq-comment-header">
+                        <cite id="dsq-cite-5989">
+                                <span id="dsq-author-user-5989">ph1g</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-5989" class="dsq-comment-body">
+                        <div id="dsq-comment-message-5989" class="dsq-comment-message"><p>300 codes are for redirect. Shouldn&#39;t a post return a 2xx code?</p>
+<p><a href="http://en.wikipedia.org/wiki/HTTP_response_codes#3xx_Redirection" rel="nofollow">http://en.wikipedia.org/wiki/HTTP_response_codes#3xx_Redirection</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6058">
+                    <div id="dsq-comment-header-6058" class="dsq-comment-header">
+                        <cite id="dsq-cite-6058">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-6058">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6058" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6058" class="dsq-comment-message"><p>look at the other options, such as success and complete.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6084">
+                    <div id="dsq-comment-header-6084" class="dsq-comment-header">
+                        <cite id="dsq-cite-6084">
+                                <span id="dsq-author-user-6084">Aka6</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6084" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6084" class="dsq-comment-message"><p>lol</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6091">
+                    <div id="dsq-comment-header-6091" class="dsq-comment-header">
+                        <cite id="dsq-cite-6091">
+                                <span id="dsq-author-user-6091">millepag</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6091" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6091" class="dsq-comment-message"><p>&#8220;POST data will always be transmitted to the server using UTF-8 charset, per the W3C XMLHTTPRequest standard.&#8221;</p>
+<p>Actually, that doesn&#39;t seem to be true for IE7, which wanted to send my POST data using iso-8859-1. Easily fixed by adding:<br />contentType: &#8220;application/x-www-form-urlencoded; charset=utf-8&#8243;</p>
+<p>For all you brave IE coders <img src='http://api.jquery.com/wp-includes/images/smilies/icon_wink.gif' alt=';)' class='wp-smiley' /> </p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6201">
+                    <div id="dsq-comment-header-6201" class="dsq-comment-header">
+                        <cite id="dsq-cite-6201">
+                                <span id="dsq-author-user-6201">Hola</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6201" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6201" class="dsq-comment-message"><p>excelente</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6210">
+                    <div id="dsq-comment-header-6210" class="dsq-comment-header">
+                        <cite id="dsq-cite-6210">
+    http://www.pric.co.uk                            <span id="dsq-author-user-6210">N_hayath</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6210" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6210" class="dsq-comment-message"><p>ow thanks</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6215">
+                    <div id="dsq-comment-header-6215" class="dsq-comment-header">
+                        <cite id="dsq-cite-6215">
+                                <span id="dsq-author-user-6215">Musaddiq</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6215" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6215" class="dsq-comment-message"><p>When we load a php page, then how we can call a specific function of this page&#8230;<br />thanks in advance&#8230;</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6268">
+                    <div id="dsq-comment-header-6268" class="dsq-comment-header">
+                        <cite id="dsq-cite-6268">
+                                <span id="dsq-author-user-6268">Birder</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6268" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6268" class="dsq-comment-message"><p>How should I do if I have a loading function but want to put the result on the existing one&#8230; <br />I have ex.: <br />1 apa <br />14 kamel <br />and when i re&#8221;load&#8221; again I want to put the new one on &#8220;1 apa&#8221;, is it possible?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6277">
+                    <div id="dsq-comment-header-6277" class="dsq-comment-header">
+                        <cite id="dsq-cite-6277">
+                                <span id="dsq-author-user-6277">Masterhard</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6277" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6277" class="dsq-comment-message"><p>The same issue has google chrome. At least 7.0.517.36 beta <img src='http://api.jquery.com/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /> </p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6359">
+                    <div id="dsq-comment-header-6359" class="dsq-comment-header">
+                        <cite id="dsq-cite-6359">
+    http://codebad.com/                            <span id="dsq-author-user-6359">Donny Viszneki</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6359" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6359" class="dsq-comment-message"><p>The optional &#8220;complete&#8221; callback does not seem to fire if an exception is thrown by the &#8220;success&#8221; or &#8220;error&#8221; callbacks.</p>
+<p>Exceptions thrown by &#8220;success&#8221; or &#8220;error&#8221; callbacks DISAPPEAR SILENTLY if async:true (default option.)</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6381">
+                    <div id="dsq-comment-header-6381" class="dsq-comment-header">
+                        <cite id="dsq-cite-6381">
+                                <span id="dsq-author-user-6381">whatevssssss</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6381" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6381" class="dsq-comment-message"><p>Note: as a personal experience, catching an exception thrown from an asynchronous call cannot be caught (with try &#8230; catch) in most browsers (in Firefox the exception gets caught, at least in Firefox 3.6.10).</p>
+<p>In jquery 1.4.2, even with &#8220;async: false&#8221; the exceptions thrown by &#8220;error&#8221; callbacks DISAPPEAR SILENTLY. After doing some debugging I saw this line:</p>
+<p>var onreadystatechange = xhr.onreadystatechange = function( isTimeout ) {</p>
+<p>which makes the synchronous calls to behave asynchronous, thus making it impossible to catch an exception thrown by the error callback.</p>
+<p>To fix this the line should change to:</p>
+<p>var onreadystatechange = function( isTimeout ) {<br />&#8230;.<br />(and after the onreadystatechange block add) <br />if (s.async)<br />{<br />	xhr.onreadystatechange = onreadystatechange;<br />}</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6416">
+                    <div id="dsq-comment-header-6416" class="dsq-comment-header">
+                        <cite id="dsq-cite-6416">
+                                <span id="dsq-author-user-6416">Kozie</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6416" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6416" class="dsq-comment-message"><p>For users who also want to execute an AJAX request, in safari, in the close events.. use the synchronous method; asynchronous methods are ignored.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6441">
+                    <div id="dsq-comment-header-6441" class="dsq-comment-header">
+                        <cite id="dsq-cite-6441">
+                                <span id="dsq-author-user-6441">Ramarao55u</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6441" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6441" class="dsq-comment-message"><p>hi i can&#39;t navigate to traget url .can any one help me please</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6488">
+                    <div id="dsq-comment-header-6488" class="dsq-comment-header">
+                        <cite id="dsq-cite-6488">
+    http://twitter.com/criptkiller                            <span id="dsq-author-user-6488">jonathan fontes</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6488" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6488" class="dsq-comment-message"><p>Hello,</p>
+<p>i can do this : </p>
+<p>beforeSend(e) : {<br />alert((e.loaded/e.total)*100);<br />}</p>
+<p>???</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6624">
+                    <div id="dsq-comment-header-6624" class="dsq-comment-header">
+                        <cite id="dsq-cite-6624">
+                                <span id="dsq-author-user-6624">Abe Tobing</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6624" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6624" class="dsq-comment-message"><p>true</p>
+<p>i think it&#39;s some of 1.4.2 bugs</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6673">
+                    <div id="dsq-comment-header-6673" class="dsq-comment-header">
+                        <cite id="dsq-cite-6673">
+                                <span id="dsq-author-user-6673">Coxixx</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6673" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6673" class="dsq-comment-message"><p>see this <a href="http://www.metalbaz.com" rel="nofollow">http://www.metalbaz.com</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6699">
+                    <div id="dsq-comment-header-6699" class="dsq-comment-header">
+                        <cite id="dsq-cite-6699">
+                                <span id="dsq-author-user-6699">Nikopiero</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6699" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6699" class="dsq-comment-message"><p>i have a problem on this row in jquery file:<br />xhr.send( type === &#8220;POST&#8221; || type === &#8220;PUT&#8221; || type === &#8220;DELETE&#8221; ? s.data : null ); </p>
+<p>?????</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6713">
+                    <div id="dsq-comment-header-6713" class="dsq-comment-header">
+                        <cite id="dsq-cite-6713">
+    http://twitter.com/criptkiller                            <span id="dsq-author-user-6713">jonathan fontes</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6713" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6713" class="dsq-comment-message"><p>Hello, any one can help me to do a progressbar client-side with javascript&#8230; ??</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6714">
+                    <div id="dsq-comment-header-6714" class="dsq-comment-header">
+                        <cite id="dsq-cite-6714">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-6714">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6714" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6714" class="dsq-comment-message"><p>Please direct this question to the appropriate forum at <a href="http://forum.jquery.com" rel="nofollow">http://forum.jquery.com</a>/ <br />You&#39;ll have a much better chance of having the questions answered there.</p>
+<p>Thanks for understanding.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6715">
+                    <div id="dsq-comment-header-6715" class="dsq-comment-header">
+                        <cite id="dsq-cite-6715">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-6715">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6715" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6715" class="dsq-comment-message"><p>If you think you&#39;ve discovered a bug, please report it on the <a href="http://bugs.jquery.com/" rel="nofollow">jQuery bug tracker</a>. Thanks!</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6747">
+                    <div id="dsq-comment-header-6747" class="dsq-comment-header">
+                        <cite id="dsq-cite-6747">
+                                <span id="dsq-author-user-6747">Claudio M. Alessi</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6747" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6747" class="dsq-comment-message"><p>I think there should be a paragraph about ajax file uploads, which seems to be a common misunderstanding of the $.ajax() jQuery method. It would be nice to explain that, for portability reasons, the http PUT should *not* be used and that you *can&#39;t* upload files via $.ajax() without using an iframe (or non javascript-based technologies like flash, java, and so forth).</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6752">
+                    <div id="dsq-comment-header-6752" class="dsq-comment-header">
+                        <cite id="dsq-cite-6752">
+    http://sedition.com/                            <span id="dsq-author-user-6752">apv</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6752" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6752" class="dsq-comment-message"><p>No. Posts should return redirects. <a href="http://en.wikipedia.org/wiki/Post/Redirect/Get" rel="nofollow"></a><a href="http://en.wikipedia.org/wiki/Post/Redirect/Get" rel="nofollow">http://en.wikipedia.org/wiki/Post/Redirect/Get</a>&#8220;&gt;<a href="http://en.wikipedia.org/wiki/Post/Redirect/Get" rel="nofollow">http://en.wikipedia.org/wiki/Post/Redirect/Get</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6753">
+                    <div id="dsq-comment-header-6753" class="dsq-comment-header">
+                        <cite id="dsq-cite-6753">
+    http://coherence.seovic.com                            <span id="dsq-author-user-6753">Aleks</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6753" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6753" class="dsq-comment-message"><p>Actually, Post/Redirect/Get idiom doesn&#39;t make much sense when POST is performed asynchronously. Its primary purpose is to prevent duplicate submissions by forcing browser to perform a GET to a result page, which is not an issue with Ajax, as the page didn&#39;t really change and there is no record of the POST in the browser history.</p>
+<p>Now, what the POST *should* return depends on how it is used. If it is used for what it was intended, it should probably return 201 &#8211; Created and the Location header to a new resource. Unfortunately, POST is quite often used as a replacement for PUT and DELETE as well, due to the fact that some browsers only support GET and POST, in which case it should probably return 204 &#8211; No Content.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6757">
+                    <div id="dsq-comment-header-6757" class="dsq-comment-header">
+                        <cite id="dsq-cite-6757">
+    http://sedition.com/                            <span id="dsq-author-user-6757">apv</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6757" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6757" class="dsq-comment-message"><p>I agree about the response status options but I don&#39;t think that the backend should behave differently or should be coded to behave a particular way because one assumes only one kind of request will ever go to that URI.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6763">
+                    <div id="dsq-comment-header-6763" class="dsq-comment-header">
+                        <cite id="dsq-cite-6763">
+    http://coherence.seovic.com                            <span id="dsq-author-user-6763">Aleks</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6763" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6763" class="dsq-comment-message"><p>I absolutely agree &#8212; backend should send the appropriate response based on the task performed. </p>
+<p>The thing to keep in mind though is that you *can* differentiate between all HTTP verbs on the backend &#8212; it is the browser that forces us to jump through the hoops and use POSTs even when we shouldn&#39;t.</p>
+<p></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6878">
+                    <div id="dsq-comment-header-6878" class="dsq-comment-header">
+                        <cite id="dsq-cite-6878">
+                                <span id="dsq-author-user-6878">Dave_degraaf</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6878" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6878" class="dsq-comment-message"><p>when i use the second example then i get the source code in the alert box</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6910">
+                    <div id="dsq-comment-header-6910" class="dsq-comment-header">
+                        <cite id="dsq-cite-6910">
+                                <span id="dsq-author-user-6910">408880660</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6910" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6910" class="dsq-comment-message"><p>whoa</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6911">
+                    <div id="dsq-comment-header-6911" class="dsq-comment-header">
+                        <cite id="dsq-cite-6911">
+                                <span id="dsq-author-user-6911">408880660</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6911" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6911" class="dsq-comment-message"><p>whoa</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6913">
+                    <div id="dsq-comment-header-6913" class="dsq-comment-header">
+                        <cite id="dsq-cite-6913">
+                                <span id="dsq-author-user-6913">408880660</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6913" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6913" class="dsq-comment-message"><p>whoa</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6951">
+                    <div id="dsq-comment-header-6951" class="dsq-comment-header">
+                        <cite id="dsq-cite-6951">
+    http://twitter.com/meherranjan                            <span id="dsq-author-user-6951">Meher Ranjan</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6951" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6951" class="dsq-comment-message"><p>make use of the datatype parameter, like if its a json use data type json and then you can use it as json. Though jQuery intelligently understands the data, sometimes specifying explicitly makes it easy. See the last example for usage.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6985">
+                    <div id="dsq-comment-header-6985" class="dsq-comment-header">
+                        <cite id="dsq-cite-6985">
+                                <span id="dsq-author-user-6985">Hola</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6985" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6985" class="dsq-comment-message"><p>dfsfsfsdf</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6988">
+                    <div id="dsq-comment-header-6988" class="dsq-comment-header">
+                        <cite id="dsq-cite-6988">
+                                <span id="dsq-author-user-6988">Xiaozishousovmusic</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6988" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6988" class="dsq-comment-message"><p>how to send  sepcial data ,for example ,+ ,×,<br />please give suggestion,thanks!</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-6987">
+                    <div id="dsq-comment-header-6987" class="dsq-comment-header">
+                        <cite id="dsq-cite-6987">
+                                <span id="dsq-author-user-6987">Xiaozishousovmusic</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-6987" class="dsq-comment-body">
+                        <div id="dsq-comment-message-6987" class="dsq-comment-message"><p>how to send  sepcial data ,for example ,+ ,×,<br />please give suggestion,thanks!</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7112">
+                    <div id="dsq-comment-header-7112" class="dsq-comment-header">
+                        <cite id="dsq-cite-7112">
+                                <span id="dsq-author-user-7112">Kthejoker</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7112" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7112" class="dsq-comment-message"><p>It would be nice to see the jQuery.param() documentation linked from the area on &#8220;sending data to the server.&#8221; I came to this page via Google looking exactly for such a jQuery function, and only after I had been defeated and just started moving around the rest of the documentation did I come across it (under Miscellaneous.)</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7201">
+                    <div id="dsq-comment-header-7201" class="dsq-comment-header">
+                        <cite id="dsq-cite-7201">
+                                <span id="dsq-author-user-7201">TheBizzTech</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7201" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7201" class="dsq-comment-message"><p>In my php script I was getting back the source code of the html in the page so I just used echo to only return the data I needed via ajax.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7252">
+                    <div id="dsq-comment-header-7252" class="dsq-comment-header">
+                        <cite id="dsq-cite-7252">
+    http://www.learningjquery.com/                            <span id="dsq-author-user-7252">Karl Swedberg</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7252" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7252" class="dsq-comment-message"><p>done.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12651">
+                    <div id="dsq-comment-header-12651" class="dsq-comment-header">
+                        <cite id="dsq-cite-12651">
+                                <span id="dsq-author-user-12651">MattK</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12651" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12651" class="dsq-comment-message"><p>Which browsers/versions have a problem with PUT/DELETE?  &#8230; anyone have a good up-to-date comparison chart?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7359">
+                    <div id="dsq-comment-header-7359" class="dsq-comment-header">
+                        <cite id="dsq-cite-7359">
+                                <span id="dsq-author-user-7359">Greasy Sneakers</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7359" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7359" class="dsq-comment-message"><p>Here is a plugin i found to make ajax calls for user input more efficient:</p>
+<p><a href="http://github.com/dougle/jQuery-Ajax-Singleton" rel="nofollow">http://github.com/dougle/jQuer&#8230;</a></p>
+<p>I&#39;m using this plugin to limit load on my server, working well so far.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7486">
+                    <div id="dsq-comment-header-7486" class="dsq-comment-header">
+                        <cite id="dsq-cite-7486">
+    http://twitter.com/mtspbr                            <span id="dsq-author-user-7486">marcelo</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7486" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7486" class="dsq-comment-message"><p>How I can send a multipart form-data uploading form with jQuery Ajax? I have a form sending text fields and image file. When image file is large, greater than server is setting, the text fields and image file are null on the server loosing the data of forms on response. I would like use Ajax (with jQuery) to solve this issue, but $(&#39;form&#39;).serialize() don&#39;t work with image tag.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7512">
+                    <div id="dsq-comment-header-7512" class="dsq-comment-header">
+                        <cite id="dsq-cite-7512">
+                                <span id="dsq-author-user-7512">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7512" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7512" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7513">
+                    <div id="dsq-comment-header-7513" class="dsq-comment-header">
+                        <cite id="dsq-cite-7513">
+                                <span id="dsq-author-user-7513">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7513" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7513" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7514">
+                    <div id="dsq-comment-header-7514" class="dsq-comment-header">
+                        <cite id="dsq-cite-7514">
+                                <span id="dsq-author-user-7514">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7514" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7514" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7515">
+                    <div id="dsq-comment-header-7515" class="dsq-comment-header">
+                        <cite id="dsq-cite-7515">
+                                <span id="dsq-author-user-7515">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7515" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7515" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7516">
+                    <div id="dsq-comment-header-7516" class="dsq-comment-header">
+                        <cite id="dsq-cite-7516">
+                                <span id="dsq-author-user-7516">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7516" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7516" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7517">
+                    <div id="dsq-comment-header-7517" class="dsq-comment-header">
+                        <cite id="dsq-cite-7517">
+                                <span id="dsq-author-user-7517">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7517" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7517" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7518">
+                    <div id="dsq-comment-header-7518" class="dsq-comment-header">
+                        <cite id="dsq-cite-7518">
+                                <span id="dsq-author-user-7518">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7518" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7518" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7519">
+                    <div id="dsq-comment-header-7519" class="dsq-comment-header">
+                        <cite id="dsq-cite-7519">
+                                <span id="dsq-author-user-7519">Hello</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7519" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7519" class="dsq-comment-message"><p>The callback does not invoke.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7569">
+                    <div id="dsq-comment-header-7569" class="dsq-comment-header">
+                        <cite id="dsq-cite-7569">
+                                <span id="dsq-author-user-7569">Willis_john85</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7569" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7569" class="dsq-comment-message"><p>I like Jquery</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7575">
+                    <div id="dsq-comment-header-7575" class="dsq-comment-header">
+                        <cite id="dsq-cite-7575">
+                                <span id="dsq-author-user-7575">Mail</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7575" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7575" class="dsq-comment-message"><p>Is dataType json?<br />Is returned data a valid json?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7603">
+                    <div id="dsq-comment-header-7603" class="dsq-comment-header">
+                        <cite id="dsq-cite-7603">
+                                <span id="dsq-author-user-7603">Washplanjack</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7603" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7603" class="dsq-comment-message"><p>Hi Marcelo have you tried using an input type image and pass in a name attribute as well as a Id attribute to get this to work</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7639">
+                    <div id="dsq-comment-header-7639" class="dsq-comment-header">
+                        <cite id="dsq-cite-7639">
+                                <span id="dsq-author-user-7639">dongdongzhang</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7639" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7639" class="dsq-comment-message"><p>test inputbox</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7667">
+                    <div id="dsq-comment-header-7667" class="dsq-comment-header">
+                        <cite id="dsq-cite-7667">
+                                <span id="dsq-author-user-7667">Luis2</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7667" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7667" class="dsq-comment-message"><p>hola</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7670">
+                    <div id="dsq-comment-header-7670" class="dsq-comment-header">
+                        <cite id="dsq-cite-7670">
+                                <span id="dsq-author-user-7670">Guest</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7670" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7670" class="dsq-comment-message"><p>great&#8230;</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7671">
+                    <div id="dsq-comment-header-7671" class="dsq-comment-header">
+                        <cite id="dsq-cite-7671">
+                                <span id="dsq-author-user-7671">Kingdom_0</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7671" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7671" class="dsq-comment-message"><p>The same issue has google chrome. At least 7.0.517.36 beta</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7679">
+                    <div id="dsq-comment-header-7679" class="dsq-comment-header">
+                        <cite id="dsq-cite-7679">
+                                <span id="dsq-author-user-7679">Chrissy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7679" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7679" class="dsq-comment-message"><p>Is there anyway to set priority?  I do 50 $.ajax calls to get certain information regarding the results.  Once the page loads ($.ajax posts are still coming back) and the user clicks on the link, then that new ajax xhr is at the bottom of the list.  Am I not utilizing this properly?  Kind of confused on what my options are.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7721">
+                    <div id="dsq-comment-header-7721" class="dsq-comment-header">
+                        <cite id="dsq-cite-7721">
+                                <span id="dsq-author-user-7721">José</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7721" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7721" class="dsq-comment-message"><p>is provably having problems when url  contains % &#8230;.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7735">
+                    <div id="dsq-comment-header-7735" class="dsq-comment-header">
+                        <cite id="dsq-cite-7735">
+                                <span id="dsq-author-user-7735">effulgentsia</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7735" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7735" class="dsq-comment-message"><p>This documentation page lists beforeSend() as taking a XMLHttpRequest parameter only. But the code is s.beforeSend.call(callbackContext, xhr, s), and as far back as 1.2.5, was s.beforeSend(xhr, s). Should the docs be updated to say beforeSend(XMLHttpRequest, options)?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-7745">
+                    <div id="dsq-comment-header-7745" class="dsq-comment-header">
+                        <cite id="dsq-cite-7745">
+                                <span id="dsq-author-user-7745">Aa</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-7745" class="dsq-comment-body">
+                        <div id="dsq-comment-message-7745" class="dsq-comment-message"><p>engane padikum</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8096">
+                    <div id="dsq-comment-header-8096" class="dsq-comment-header">
+                        <cite id="dsq-cite-8096">
+    http://twitter.com/xiian                            <span id="dsq-author-user-8096">Tom Sartain</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8096" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8096" class="dsq-comment-message"><p>You should probably consider restructuring the way that you&#39;re doing things. </p>
+<p>Try to consolidate your calls to the server when you can. If you know that you&#39;ll need to do so many calls as soon as the page loads, batch them up into a handful of calls instead.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8158">
+                    <div id="dsq-comment-header-8158" class="dsq-comment-header">
+                        <cite id="dsq-cite-8158">
+                                <span id="dsq-author-user-8158">Sf</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8158" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8158" class="dsq-comment-message"><p>sfdsfds</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8201">
+                    <div id="dsq-comment-header-8201" class="dsq-comment-header">
+                        <cite id="dsq-cite-8201">
+                                <span id="dsq-author-user-8201">Devlshone</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8201" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8201" class="dsq-comment-message"><p>Could someone explain to me why this line would be causing my application to bomb:</p>
+<p>			xhr.send( noContent || s.data == null ? null : s.data );</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-12695">
+                    <div id="dsq-comment-header-12695" class="dsq-comment-header">
+                        <cite id="dsq-cite-12695">
+                                <span id="dsq-author-user-12695">MB</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-12695" class="dsq-comment-body">
+                        <div id="dsq-comment-message-12695" class="dsq-comment-message"><p>What is the need to redirect when doing AJAX?<br />
+This technique if for preventing double posts if users refresh the browser</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8219">
+                    <div id="dsq-comment-header-8219" class="dsq-comment-header">
+                        <cite id="dsq-cite-8219">
+                                <span id="dsq-author-user-8219">Iwona</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8219" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8219" class="dsq-comment-message"><p>Hello, can somebody help me, please: my $.ajax calls an .asmx web service class that catches various exceptions returning errormessages (strings) &#8211; this is a return type of success-function. THe problem is I never get hold of them cause if sth doesnt succeed, it returns error callback instead of success-callback. Any suggestions how I can make errors &#8220;customized&#8221; in this case? Thanks in advance.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8355">
+                    <div id="dsq-comment-header-8355" class="dsq-comment-header">
+                        <cite id="dsq-cite-8355">
+                                <span id="dsq-author-user-8355">McCoy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8355" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8355" class="dsq-comment-message"><p>I have the following 3 lines:<br />$(document).ready(function(){<br />1  $(&#8220;#personSearchForm &#8220;).submit(function(){<br />2          $(&#8220;body&#8221;).css(&#8220;cursor&#8221;, &#8220;progress&#8221;) ;<br />3           jsonobj=$.ajax({url:server_url, async:false&#8230;&#8230;&#8230;.</p>
+<p>Changing the cursor to progress gets executed after the ajax call &#8211; weird !</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8414">
+                    <div id="dsq-comment-header-8414" class="dsq-comment-header">
+                        <cite id="dsq-cite-8414">
+    http://linus.unnebäck.se/                            <span id="dsq-author-user-8414">Linus Unnebäck</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8414" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8414" class="dsq-comment-message"><p>It&#39;s not weird since you have async:false. The page then never gets to update the styles, or for that matter anything. Use setTimeout(&#8230;, 0); or async:true to work around the issue.</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8435">
+                    <div id="dsq-comment-header-8435" class="dsq-comment-header">
+                        <cite id="dsq-cite-8435">
+                                <span id="dsq-author-user-8435">Hgfdh</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8435" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8435" class="dsq-comment-message"><p>hhfdhfdhfghfdhfd</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8477">
+                    <div id="dsq-comment-header-8477" class="dsq-comment-header">
+                        <cite id="dsq-cite-8477">
+                                <span id="dsq-author-user-8477">Privacy</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8477" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8477" class="dsq-comment-message"><p>fuck u mother fucker</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8482">
+                    <div id="dsq-comment-header-8482" class="dsq-comment-header">
+                        <cite id="dsq-cite-8482">
+    http://www.ovhenri.com                            <span id="dsq-author-user-8482">OVHenri</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8482" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8482" class="dsq-comment-message"><p>qweqweqwesadqwq</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8514">
+                    <div id="dsq-comment-header-8514" class="dsq-comment-header">
+                        <cite id="dsq-cite-8514">
+    http://twitter.com/paxos                            <span id="dsq-author-user-8514">paxos</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8514" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8514" class="dsq-comment-message"><p>cache<br />Default: true, false for dataType &#39;script&#39; and &#39;jsonp&#39;</p>
+<p>Thats definitly a bug! You have to explicit set cache to FALSE even when you use dataType script! This causes strange bugs on firefox, so be careful!</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8531">
+                    <div id="dsq-comment-header-8531" class="dsq-comment-header">
+                        <cite id="dsq-cite-8531">
+    https://www.google.com/accounts/o8/id?id=AItOawlYHmUOtJHeoIjVtmAyNIyP3XgOk-ue9gw                            <span id="dsq-author-user-8531">Nyuszika7H</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8531" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8531" class="dsq-comment-message"><p>If <code>s.data</code> is null, you don&#39;t need another check for it. Just use this:<br /><code>xhr.send(noContent || s.data)</code></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8539">
+                    <div id="dsq-comment-header-8539" class="dsq-comment-header">
+                        <cite id="dsq-cite-8539">
+                                <span id="dsq-author-user-8539">Anton-ny</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8539" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8539" class="dsq-comment-message"><p>Страница некорректно загружается из-за неправильного закрытия тэгов<br />Например &#8220;/&gt;&#8221; вместо &#8220;&gt;&#8221;</p>
+<p>Page loaded incorrectly due to improper closing tags<br />For example &#8220;/&gt;&#8221; instead of &#8220;&gt;&#8221;</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8541">
+                    <div id="dsq-comment-header-8541" class="dsq-comment-header">
+                        <cite id="dsq-cite-8541">
+                                <span id="dsq-author-user-8541">Asdas</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8541" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8541" class="dsq-comment-message"><p>how i can send string: !@#$%^&amp;*()&#8221;</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8553">
+                    <div id="dsq-comment-header-8553" class="dsq-comment-header">
+                        <cite id="dsq-cite-8553">
+                                <span id="dsq-author-user-8553">Saranghdave</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8553" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8553" class="dsq-comment-message"><p>How to send $.ajax() PUT request with XML data ?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8598">
+                    <div id="dsq-comment-header-8598" class="dsq-comment-header">
+                        <cite id="dsq-cite-8598">
+                                <span id="dsq-author-user-8598">Bob</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8598" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8598" class="dsq-comment-message"><p>ajax-in-function-with-custom-parameter-for-persistence &#8211; <a href="http://forum.jquery.com/topic/ajax-in-function-with-custom-parameter-for-persistance" rel="nofollow">http://forum.jquery.com/topic/&#8230;</a></p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8646">
+                    <div id="dsq-comment-header-8646" class="dsq-comment-header">
+                        <cite id="dsq-cite-8646">
+                                <span id="dsq-author-user-8646">fredrick</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8646" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8646" class="dsq-comment-message"><p>Here is a good usage example<br /><a href="http://sharepoint-snippets.com/ajax-calls-sharepoint-web-services-using-jquery" rel="nofollow">http://sharepoint-snippets.com&#8230;</a>/</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8660">
+                    <div id="dsq-comment-header-8660" class="dsq-comment-header">
+                        <cite id="dsq-cite-8660">
+                                <span id="dsq-author-user-8660">felipe</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8660" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8660" class="dsq-comment-message"><p>is possible to use server push ??</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8661">
+                    <div id="dsq-comment-header-8661" class="dsq-comment-header">
+                        <cite id="dsq-cite-8661">
+                                <span id="dsq-author-user-8661">felipe</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8661" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8661" class="dsq-comment-message"><p>is possible to use server push ??</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8699">
+                    <div id="dsq-comment-header-8699" class="dsq-comment-header">
+                        <cite id="dsq-cite-8699">
+                                <span id="dsq-author-user-8699">Albanx</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8699" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8699" class="dsq-comment-message"><p>user encodeuricomponent(!@#$%^&amp;*()&#8221; )</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8712">
+                    <div id="dsq-comment-header-8712" class="dsq-comment-header">
+                        <cite id="dsq-cite-8712">
+                                <span id="dsq-author-user-8712">Mohammad</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8712" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8712" class="dsq-comment-message"><p>Hi<br />Thank you for your example. Could you please tell me why I can&#39;t give a url? I mean it only works when I give relative path of say html files but not an URL address say <a href="http://www.awebsite.com" rel="nofollow">http://www.awebsite.com</a> ?</p>
+</div>
+                    </div>
+                </li>
+                    <li id="dsq-comment-8731">
+                    <div id="dsq-comment-header-8731" class="dsq-comment-header">
+                        <cite id="dsq-cite-8731">
+                                <span id="dsq-author-user-8731">Dio</span>
+                            </cite>
+                    </div>
+                    <div id="dsq-comment-body-8731" class="dsq-comment-body">
+                        <div id="dsq-comment-message-8731" class="dsq-comment-message"><p>Hi, I want to send the char &#8220;+&#8221; with ajax, but the result in the $_POST in php is interval. So the $.ajax is replacing the &#8220;+&#8221; with interval. I tried encodeURIComponent, serialization, base64 and a lot more things but nothing had worked. Please give me some advice.</p>
+</div>
+                    </div>
+                </li>
+                </ul>
+        </div>
+    </div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var disqus_url = 'http://api.jquery.com/jQuery.ajax/';
+    var disqus_identifier = '282 http://api.jquery.com/?p=282';
+    var disqus_container_id = 'disqus_thread';
+    var disqus_domain = 'disqus.com';
+    var disqus_shortname = 'jquery';
+    var disqus_title = "jQuery.ajax()";
+        var disqus_config = function () {
+        var config = this; // Access to the config object
+
+        /* 
+           All currently supported events:
+            * preData — fires just before we request for initial data
+            * preInit - fires after we get initial data but before we load any dependencies
+            * onInit  - fires when all dependencies are resolved but before dtpl template is rendered
+            * afterRender - fires when template is rendered but before we show it
+            * onReady - everything is done
+         */
+
+        config.callbacks.preData.push(function() {
+            // clear out the container (its filled for SEO/legacy purposes)
+            document.getElementById(disqus_container_id).innerHTML = '';
+        });
+                config.callbacks.onReady.push(function() {
+            // sync comments in the background so we don't block the page
+            DISQUS.request.get('?cf_action=sync_comments&post_id=282');
+        });
+                    };
+    var facebookXdReceiverPath = 'http://api.jquery.com/wp-content/plugins/disqus-comment-system/xd_receiver.htm';
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+    var DsqLocal = {
+        'trackbacks': [
+        ],
+        'trackback_url': "http:\/\/api.jquery.com\/jQuery.ajax\/trackback\/"    };
+/* ]]> */
+</script>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.' + disqus_domain + '/embed.js?pname=wordpress&pver=2.67';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+/* ]]> */
+</script>
+</div>
+</div>
+    </div><!-- #content -->
+  </div><!-- #jq-primaryContent -->
+
+  <div id="jq-interiorNavigation" >
+    <h2 class="jq-clearfix roundTop section-title"><a href="/">jQuery API</a></h2>
+    <div class="roundBottom jq-box">
+      <ul class="xoxo">
+        <li>
+          <ul>
+            <li><a href="http://api.jquery.com/category/version/1.7/">New or Changed in 1.7</a></li>
+            <li><a href="http://api.jquery.com/api/" >Raw XML API Dump</a></li>
+            <li><a href="http://api.jquery.com/browser/">Dynamic API Browser</a></li>
+            <li><a href="http://www.packtpub.com/jquery-1-4-reference-guide/book">jQuery API Book</a></li>
+          </ul>
+      </ul>
+<!--
+      <br />
+      <div class="sideBarFeature">
+        <strong>Dynamic API Browser</strong>
+        <a href="http://api.jquery.com/browser/" style="border:0px;"><img src="http://static.jquery.com/api/images/badge.jpg" style="border:0px;width:100%;"/></a>
+      </div>
+      <div class="sideBarFeature">
+        <strong>jQuery API Book</strong>
+        <a href="http://www.packtpub.com/" style="border-width:0;"><img src="http://static.jquery.com/books/jquery-ref-guide.png" style="border-width:0;"/></a>
+      </div>
+-->
+    </div>
+
+    <h2 class="jq-clearfix roundTop section-title">Browse the jQuery API</h2>
+    <div class="roundBottom jq-box">
+    <ul class="xoxo">
+
+      <li id="categories">
+        <ul>
+        <li><a href="/">All</a></li>
+	<li class="cat-item cat-item-13"><a href="http://api.jquery.com/category/ajax/" title="View all posts filed under Ajax">Ajax</a>
+<ul class='children'>
+	<li class="cat-item cat-item-39"><a href="http://api.jquery.com/category/ajax/global-ajax-event-handlers/" title="View all posts filed under Global Ajax Event Handlers">Global Ajax Event Handlers</a>
+</li>
+	<li class="cat-item cat-item-40"><a href="http://api.jquery.com/category/ajax/helper-functions/" title="View all posts filed under Helper Functions">Helper Functions</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="http://api.jquery.com/category/ajax/low-level-interface/" title="View all posts filed under Low-Level Interface">Low-Level Interface</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="http://api.jquery.com/category/ajax/shorthand-methods/" title="View all posts filed under Shorthand Methods">Shorthand Methods</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://api.jquery.com/category/attributes/" title="View all posts filed under Attributes">Attributes</a>
+</li>
+	<li class="cat-item cat-item-99"><a href="http://api.jquery.com/category/callbacks-object/" title="View all posts filed under Callbacks Object">Callbacks Object</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://api.jquery.com/category/core/" title="View all posts filed under Core">Core</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://api.jquery.com/category/css/" title="View all posts filed under CSS">CSS</a>
+</li>
+	<li class="cat-item cat-item-51"><a href="http://api.jquery.com/category/data/" title="View all posts filed under Data">Data</a>
+</li>
+	<li class="cat-item cat-item-93"><a href="http://api.jquery.com/category/deferred-object/" title="View all posts filed under Deferred Object">Deferred Object</a>
+</li>
+	<li class="cat-item cat-item-97"><a href="http://api.jquery.com/category/deprecated/" title="View all posts filed under Deprecated">Deprecated</a>
+</li>
+	<li class="cat-item cat-item-50"><a href="http://api.jquery.com/category/dimensions/" title="View all posts filed under Dimensions">Dimensions</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://api.jquery.com/category/effects/" title="View all posts filed under Effects">Effects</a>
+<ul class='children'>
+	<li class="cat-item cat-item-52"><a href="http://api.jquery.com/category/effects/basics/" title="View all posts filed under Basics">Basics</a>
+</li>
+	<li class="cat-item cat-item-55"><a href="http://api.jquery.com/category/effects/custom-effects/" title="View all posts filed under Custom">Custom</a>
+</li>
+	<li class="cat-item cat-item-54"><a href="http://api.jquery.com/category/effects/fading/" title="View all posts filed under Fading">Fading</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://api.jquery.com/category/effects/sliding/" title="View all posts filed under Sliding">Sliding</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://api.jquery.com/category/events/" title="View all posts filed under Events">Events</a>
+<ul class='children'>
+	<li class="cat-item cat-item-36"><a href="http://api.jquery.com/category/events/browser-events/" title="View all posts filed under Browser Events">Browser Events</a>
+</li>
+	<li class="cat-item cat-item-32"><a href="http://api.jquery.com/category/events/document-loading/" title="View all posts filed under Document Loading">Document Loading</a>
+</li>
+	<li class="cat-item cat-item-31"><a href="http://api.jquery.com/category/events/event-handler-attachment/" title="View all posts filed under Event Handler Attachment">Event Handler Attachment</a>
+</li>
+	<li class="cat-item cat-item-66"><a href="http://api.jquery.com/category/events/event-object/" title="View all posts filed under Event Object">Event Object</a>
+</li>
+	<li class="cat-item cat-item-34"><a href="http://api.jquery.com/category/events/form-events/" title="View all posts filed under Form Events">Form Events</a>
+</li>
+	<li class="cat-item cat-item-35"><a href="http://api.jquery.com/category/events/keyboard-events/" title="View all posts filed under Keyboard Events">Keyboard Events</a>
+</li>
+	<li class="cat-item cat-item-33"><a href="http://api.jquery.com/category/events/mouse-events/" title="View all posts filed under Mouse Events">Mouse Events</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-56"><a href="http://api.jquery.com/category/forms/" title="View all posts filed under Forms">Forms</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="http://api.jquery.com/category/internals/" title="View all posts filed under Internals">Internals</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://api.jquery.com/category/manipulation/" title="View all posts filed under Manipulation">Manipulation</a>
+<ul class='children'>
+	<li class="cat-item cat-item-25"><a href="http://api.jquery.com/category/manipulation/class-attribute/" title="View all posts filed under Class Attribute">Class Attribute</a>
+</li>
+	<li class="cat-item cat-item-29"><a href="http://api.jquery.com/category/manipulation/copying/" title="View all posts filed under Copying">Copying</a>
+</li>
+	<li class="cat-item cat-item-28"><a href="http://api.jquery.com/category/manipulation/dom-insertion-around/" title="View all posts filed under DOM Insertion, Around">DOM Insertion, Around</a>
+</li>
+	<li class="cat-item cat-item-27"><a href="http://api.jquery.com/category/manipulation/dom-insertion-inside/" title="View all posts filed under DOM Insertion, Inside">DOM Insertion, Inside</a>
+</li>
+	<li class="cat-item cat-item-48"><a href="http://api.jquery.com/category/manipulation/dom-insertion-outside/" title="View all posts filed under DOM Insertion, Outside">DOM Insertion, Outside</a>
+</li>
+	<li class="cat-item cat-item-30"><a href="http://api.jquery.com/category/manipulation/dom-removal/" title="View all posts filed under DOM Removal">DOM Removal</a>
+</li>
+	<li class="cat-item cat-item-26"><a href="http://api.jquery.com/category/manipulation/dom-replacement/" title="View all posts filed under DOM Replacement">DOM Replacement</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://api.jquery.com/category/manipulation/general-attributes/" title="View all posts filed under General Attributes">General Attributes</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="http://api.jquery.com/category/manipulation/style-properties/" title="View all posts filed under Style Properties">Style Properties</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-41"><a href="http://api.jquery.com/category/miscellaneous/" title="View all posts filed under Miscellaneous">Miscellaneous</a>
+<ul class='children'>
+	<li class="cat-item cat-item-44"><a href="http://api.jquery.com/category/miscellaneous/collection-manipulation/" title="View all posts filed under Collection Manipulation">Collection Manipulation</a>
+</li>
+	<li class="cat-item cat-item-45"><a href="http://api.jquery.com/category/miscellaneous/data-storage/" title="View all posts filed under Data Storage">Data Storage</a>
+</li>
+	<li class="cat-item cat-item-43"><a href="http://api.jquery.com/category/miscellaneous/dom-element-methods/" title="View all posts filed under DOM Element Methods">DOM Element Methods</a>
+</li>
+	<li class="cat-item cat-item-42"><a href="http://api.jquery.com/category/miscellaneous/setup-methods/" title="View all posts filed under Setup Methods">Setup Methods</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-49"><a href="http://api.jquery.com/category/offset/" title="View all posts filed under Offset">Offset</a>
+</li>
+	<li class="cat-item cat-item-85"><a href="http://api.jquery.com/category/plugins/" title="View all posts filed under Plugins">Plugins</a>
+<ul class='children'>
+	<li class="cat-item cat-item-87"><a href="http://api.jquery.com/category/plugins/data-link/" title="View all posts filed under Data Link">Data Link</a>
+</li>
+	<li class="cat-item cat-item-83"><a href="http://api.jquery.com/category/plugins/templates/" title="View all posts filed under Templates">Templates</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-68"><a href="http://api.jquery.com/category/properties/" title="View all posts filed under Properties">Properties</a>
+<ul class='children'>
+	<li class="cat-item cat-item-59"><a href="http://api.jquery.com/category/properties/jquery-object-instance-properties/" title="View all posts filed under Properties of jQuery Object Instances">Properties of jQuery Object Instances</a>
+</li>
+	<li class="cat-item cat-item-58"><a href="http://api.jquery.com/category/properties/global-jquery-object-properties/" title="View all posts filed under Properties of the Global jQuery Object">Properties of the Global jQuery Object</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://api.jquery.com/category/selectors/" title="View all posts filed under Selectors">Selectors</a>
+<ul class='children'>
+	<li class="cat-item cat-item-17"><a href="http://api.jquery.com/category/selectors/attribute-selectors/" title="View all posts filed under Attribute">Attribute</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://api.jquery.com/category/selectors/basic-css-selectors/" title="View all posts filed under Basic">Basic</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="http://api.jquery.com/category/selectors/basic-filter-selectors/" title="View all posts filed under Basic Filter">Basic Filter</a>
+</li>
+	<li class="cat-item cat-item-65"><a href="http://api.jquery.com/category/selectors/child-filter-selectors/" title="View all posts filed under Child Filter">Child Filter</a>
+</li>
+	<li class="cat-item cat-item-62"><a href="http://api.jquery.com/category/selectors/content-filter-selector/" title="View all posts filed under Content Filter">Content Filter</a>
+</li>
+	<li class="cat-item cat-item-18"><a href="http://api.jquery.com/category/selectors/form-selectors/" title="View all posts filed under Form">Form</a>
+</li>
+	<li class="cat-item cat-item-60"><a href="http://api.jquery.com/category/selectors/hierarchy-selectors/" title="View all posts filed under Hierarchy">Hierarchy</a>
+</li>
+	<li class="cat-item cat-item-96"><a href="http://api.jquery.com/category/selectors/jquery-selector-extensions/" title="View all posts filed under jQuery Extensions">jQuery Extensions</a>
+</li>
+	<li class="cat-item cat-item-63"><a href="http://api.jquery.com/category/selectors/visibility-filter-selectors/" title="View all posts filed under Visibility Filter">Visibility Filter</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://api.jquery.com/category/traversing/" title="View all posts filed under Traversing">Traversing</a>
+<ul class='children'>
+	<li class="cat-item cat-item-20"><a href="http://api.jquery.com/category/traversing/filtering/" title="View all posts filed under Filtering">Filtering</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://api.jquery.com/category/traversing/miscellaneous-traversal/" title="View all posts filed under Miscellaneous Traversing">Miscellaneous Traversing</a>
+</li>
+	<li class="cat-item cat-item-21"><a href="http://api.jquery.com/category/traversing/tree-traversal/" title="View all posts filed under Tree Traversal">Tree Traversal</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-14"><a href="http://api.jquery.com/category/utilities/" title="View all posts filed under Utilities">Utilities</a>
+</li>
+	<li class="cat-item cat-item-69"><a href="http://api.jquery.com/category/version/" title="View all posts filed under Version">Version</a>
+<ul class='children'>
+	<li class="cat-item cat-item-70"><a href="http://api.jquery.com/category/version/1.0/" title="View all posts filed under Version 1.0">Version 1.0</a>
+</li>
+	<li class="cat-item cat-item-71"><a href="http://api.jquery.com/category/version/1.0.4/" title="View all posts filed under Version 1.0.4">Version 1.0.4</a>
+</li>
+	<li class="cat-item cat-item-72"><a href="http://api.jquery.com/category/version/1.1/" title="View all posts filed under Version 1.1">Version 1.1</a>
+</li>
+	<li class="cat-item cat-item-73"><a href="http://api.jquery.com/category/version/1.1.2/" title="View all posts filed under Version 1.1.2">Version 1.1.2</a>
+</li>
+	<li class="cat-item cat-item-74"><a href="http://api.jquery.com/category/version/1.1.3/" title="View all posts filed under Version 1.1.3">Version 1.1.3</a>
+</li>
+	<li class="cat-item cat-item-75"><a href="http://api.jquery.com/category/version/1.1.4/" title="View all posts filed under Version 1.1.4">Version 1.1.4</a>
+</li>
+	<li class="cat-item cat-item-76"><a href="http://api.jquery.com/category/version/1.2/" title="View all posts filed under Version 1.2">Version 1.2</a>
+</li>
+	<li class="cat-item cat-item-77"><a href="http://api.jquery.com/category/version/1.2.3/" title="View all posts filed under Version 1.2.3">Version 1.2.3</a>
+</li>
+	<li class="cat-item cat-item-78"><a href="http://api.jquery.com/category/version/1.2.6/" title="View all posts filed under Version 1.2.6">Version 1.2.6</a>
+</li>
+	<li class="cat-item cat-item-79"><a href="http://api.jquery.com/category/version/1.3/" title="View all posts filed under Version 1.3">Version 1.3</a>
+</li>
+	<li class="cat-item cat-item-80"><a href="http://api.jquery.com/category/version/1.4/" title="View all posts filed under Version 1.4">Version 1.4</a>
+</li>
+	<li class="cat-item cat-item-81"><a href="http://api.jquery.com/category/version/1.4.1/" title="View all posts filed under Version 1.4.1">Version 1.4.1</a>
+</li>
+	<li class="cat-item cat-item-82"><a href="http://api.jquery.com/category/version/1.4.2/" title="View all posts filed under Version 1.4.2">Version 1.4.2</a>
+</li>
+	<li class="cat-item cat-item-90"><a href="http://api.jquery.com/category/version/1.4.3/" title="View all posts filed under Version 1.4.3">Version 1.4.3</a>
+</li>
+	<li class="cat-item cat-item-91"><a href="http://api.jquery.com/category/version/1.4.4/" title="View all posts filed under Version 1.4.4">Version 1.4.4</a>
+</li>
+	<li class="cat-item cat-item-92"><a href="http://api.jquery.com/category/version/1.5/" title="View all posts filed under Version 1.5">Version 1.5</a>
+</li>
+	<li class="cat-item cat-item-94"><a href="http://api.jquery.com/category/version/1.5.1/" title="View all posts filed under Version 1.5.1">Version 1.5.1</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="http://api.jquery.com/category/version/1.6/" title="View all posts filed under Version 1.6">Version 1.6</a>
+</li>
+	<li class="cat-item cat-item-98"><a href="http://api.jquery.com/category/version/1.7/" title="View all posts filed under Version 1.7">Version 1.7</a>
+</li>
+</ul>
+</li>
+        </ul>
+      </li>
+
+  </ul>
+  </div>
+  </div><!-- #jq-interiorNavigation -->
+  </div><!-- /#secondaryNavigation -->
+
+  <div id="jq-footer" class="jq-clearfix">
+    <div id="jq-credits">
+<p id="jq-copyright">&copy; 2010 <a href="http://jquery.org/">The jQuery Project</a></p>
+<p id="jq-hosting">Sponsored by <a href="http://mediatemple.net" class="jq-mediaTemple">Media Temple</a> and <a href="http://jquery.org/sponsors">others</a>.</p>
+    </div>
+  
+    <div id="jq-footerNavigation">
+      <ul>
+        <li class="jq-download jq-first"><a href="http://docs.jquery.com/Downloading_jQuery">Download</a></li>
+        <li class="jq-documentation"><a href="http://docs.jquery.com">Documentation</a></li>
+        <li class="jq-tutorials"><a href="http://docs.jquery.com/Tutorials">Tutorials</a></li>
+        <li class="jq-bugTracker"><a href="http://dev.jquery.com/">Bug Tracker</a></li>
+        <li class="jq-discussion jq-last"><a href="http://docs.jquery.com/Discussion">Discussion</a></li>
+      </ul>
+    </div><!-- /#jq-footerNavigation -->
+  </div><!-- /#jq-footer -->
+</div><!-- /#siteContain -->
+
+<script type="text/javascript">
+var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-1076265-1']); _gaq.push(['_trackPageview']); _gaq.push(['_setDomainName', '.jquery.com']);
+(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);})();
+</script>
+
+  <script src="http://static.jquery.com/api/prettify.js"></script>
+  <!-- <script src="/wp-content/themes/jquery.0002/demos.js?v=20110228"></script> -->
+  <script src="http://static.jquery.com/api/demo.js?v=20110228"></script>
+</body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: basic
+Database Caching 4/7 queries in 0.012 seconds using disk: basic
+Object Caching 1137/1299 objects using disk: basic
+
+Served from: api.jquery.com @ 2011-11-28 01:07:45 -->

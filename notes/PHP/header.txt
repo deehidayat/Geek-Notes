@@ -1,0 +1,5 @@
+header("content-type:application/rss+xml"); Downloadable 
+
+header("content-type:text/xml"); XML
+
+header("Content-type: text/json");

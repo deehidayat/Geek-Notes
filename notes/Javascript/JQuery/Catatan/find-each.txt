@@ -1,0 +1,24 @@
+ $(document).ready(function() {
+   $("#orderedlist").find("li").each(function(i) {
+     $(this).append( " BAM! " + i );
+   });
+ });
+find() allows you to further search the descendants of the already selected elements, therefore $("#orderedlist").find("li") is mostly the same as $("#orderedlist li").
+
+each() iterates over every element and allows further processing. Most methods, like addClass(), use each() themselves.
+
+In this example, append() is used to append some text to it and set it as text to the end of each element.
+
+
+This code selects the first form element and calls reset() on it. In case you had more than one form, you could also do this:
+
+ $(document).ready(function() {
+   // use this to reset several forms at once
+   $("#reset").click(function() {
+     $("form").each(function() {
+       this.reset();
+     });
+   });
+ });
+
+$("form").reset() to reset all the forms on the page.

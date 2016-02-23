@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+<title>Load dan Menyimpan Data XML ke Database dengan PHP-Mysql</title>
+
+<link rel="stylesheet" href="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector.css?v=2.0.4.1" type="text/css" media="all" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest post RSS" href="http://itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest comment RSS" href="http://itx.web.id/comments/feed/" />
+<link rel="pingback" href="http://itx.web.id/xmlrpc.php" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie6.css">
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie7.css">
+<![endif]-->
+<link rel="stylesheet" href="http://itx.web.id/wp-content/themes/bombax/style.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Feed" href="http://itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Comments Feed" href="http://itx.web.id/comments/feed/" />
+<meta name="description" content="Hal yang juga menarik: var sitti_pub_id = 'BC0004948'; var sitti_ad_width = '250'; var sitti_ad_height = '250'; var sitti_ad_type = '10'; var sitti_ad_number =..." />
+<meta name="keywords" content="load xml, parse xml with php, save xml to database, xml parsing, xml to mysql" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<link rel="canonical" href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" />
+<link rel='stylesheet' id='openid-css'  href='http://itx.web.id/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all' />
+<link rel='stylesheet' id='itx-css'  href='http://itx.web.id/?itx=css&#038;ver=3.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='http://itx.web.id/wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<script type='text/javascript' src='http://itx.web.id/?itx=js&#038;ver=3.0.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://itx.web.id/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://itx.web.id/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita' href='http://itx.web.id/' />
+<link rel='start' title='Postingan pertama kita:' href='http://itx.web.id/selingan/postingan-pertama-kita/' />
+<link rel='prev' title='Mengapa harus merelease theme WordPress Gratis?' href='http://itx.web.id/wordpress/mengapa-harus-merelease-theme-wordpress-gratis/' />
+<link rel='next' title='Dasar WordPress.com: Surprise Me (Fun Mode)' href='http://itx.web.id/wordpress/dasar-wordpress-com-surprise-me-fun-mode/' />
+<meta name="generator" content="WordPress 3.0.3" />
+<link rel='shortlink' href='http://wp.me/pQDEl-ny' />
+<meta name="framework" content="Alkivia Framework 0.8" />
+<!-- WALL= --><script type="text/javascript">
+function limitChars(textid, limit, infodiv)
+{
+	var text = jQuery('#'+textid).val();	
+	var textlength = text.length;
+	if(textlength > limit)
+	{
+		jQuery('#' + infodiv).html('You cannot write more then '+limit+' characters!');
+		jQuery('#'+textid).val(text.substr(0,limit));
+		return false;
+	}
+	else
+	{
+		jQuery('#' + infodiv).html('You have '+ (limit - textlength) +' characters left.');
+		return true;
+	}
+}
+function displayVals() {
+      var t3 = jQuery("#t3").val();
+      var amount = jQuery("#amount").val();
+      if(t3 != 0){
+	    jQuery('#a3').val(amount);
+	    jQuery('#p3').val(1);
+		jQuery('#cmd').val('_xclick-subscriptions')
+	  }else{
+	  	jQuery('#a3').val(0);
+	  	jQuery('#p3').val(0);
+	  	jQuery('#cmd').val('_donations');
+	  }
+	  if( !t3 ) jQuery('#cmd').val('_donations');
+	  
+}
+
+jQuery(function(){
+ 	jQuery('#donor_comment').keyup(function(){
+ 		limitChars('donor_comment', 199, 'charinfo');
+ 	})
+
+ 	jQuery("#amount").change(displayVals);
+ 	jQuery("#t3").change(displayVals);
+ 	displayVals();
+ 	
+ 	var WallOps1 = '<p class="show_onwall" id="wallops"><input type="hidden" name="item_number" value="0:0" /></p>';
+ 	var WallOps2 = '<p class="show_onwall" id="wallops"><label for="show_onwall">Show on Wall:</label><br /><select name="item_number"><option value="1:0">Donation Amount, User Details &amp; Comments</option><option value="2:0">User Details &amp; Comments Only</option></select></p>';
+
+ 	if( jQuery('#recognize').is(':checked') == false){ 
+ 		jQuery('#wallinfo').hide();
+ 		jQuery("#wallops").html(WallOps1);
+ 	}
+ 	
+ 	jQuery("#recognize").click(function(){
+ 		jQuery("#wallinfo").toggle('slow');
+ 		if(jQuery('#wallops input').val() == '0:0'){ 
+ 			jQuery("#wallops").html(WallOps2);
+ 		}else{
+ 			jQuery("#wallops").html(WallOps1);
+ 		}
+ 	})
+ 	
+		
+});
+
+</script>
+        <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '113869198637480', status: true, cookie: true, xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<script type="text/javascript">var icl_lang = 'id';var icl_home = 'http://itx.web.id/';</script>
+<script type="text/javascript" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js"></script>
+<meta name="generator" content="WPML ver:2.0.4.1 stt:25,1;0;0;0" />
+<meta name="tweetmeme-title" content="Load dan Menyimpan Data XML ke Database dengan PHP-Mysql" /><meta http-equiv="X-XRDS-Location" content="http://itx.web.id/?xrds" />
+<meta http-equiv="X-Yadis-Location" content="http://itx.web.id/?xrds" />
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3" />
+<!-- Google Analytics Tracking by Google Analyticator 6.2: http://ronaldheft.com/code/analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2930741-12']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+<body class="single single-post postid-1460">
+    <div class="wrap">
+        <div id="top-menu">
+            <ul id="menu-atas" class="sf-menu top-menu"><li id="menu-item-356" class="menu-item menu-item-type-custom menu-item-home menu-item-356"><a href="http://itx.web.id/">Home</a></li>
+<li id="menu-item-354" class="menu-item menu-item-type-post_type menu-item-354"><a href="http://itx.web.id/donate/">Donate</a></li>
+<li id="menu-item-355" class="menu-item menu-item-type-post_type menu-item-355"><a href="http://itx.web.id/tentang-kita/">Tentang kita :</a></li>
+<li id="menu-item-1969" class="menu-item menu-item-type-post_type menu-item-1969"><a href="http://itx.web.id/menggunakan-jasa-itx/">Menggunakan Jasa itx</a></li>
+<li id="menu-item-1702" class="menu-item menu-item-type-custom menu-item-1702"><a title="PulsaSuper" href="http://itx.web.id/selingan/pulsasuper-pulsa-elektronik-yang-handal-cepat-dan-murah/">Bonus Pulsa</a></li>
+</ul>        </div>
+    </div>
+    
+        <div id="headerwrap"><div class="clear"></div>
+        <div id="header" class="wrap"><div class="header"><a href="http://itx.web.id/">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a></div><span class="tagline">bukan untuk membenci, bukan untuk mencaci, tapi untuk memahami</span>
+        </div>
+        </div>    <div id="menucont" class="ui-widget-header">
+        <div class="wrap">
+            <div id="menu">
+                <ul id="menu-standar" class="sf-menu"><li id="menu-item-349" class="menu-item menu-item-type-taxonomy current-post-ancestor current-menu-parent current-post-parent menu-item-349"><a href="http://itx.web.id/category/php/">PHP</a></li>
+<li id="menu-item-351" class="menu-item menu-item-type-taxonomy menu-item-351"><a href="http://itx.web.id/category/wordpress/">WordPress</a>
+<ul class="sub-menu">
+	<li id="menu-item-352" class="menu-item menu-item-type-taxonomy menu-item-352"><a href="http://itx.web.id/category/wordpress/plugin/">WordPress Plugins</a></li>
+</ul>
+</li>
+<li id="menu-item-345" class="menu-item menu-item-type-taxonomy menu-item-345"><a href="http://itx.web.id/category/english/">Bahasa Inggris</a></li>
+<li id="menu-item-346" class="menu-item menu-item-type-taxonomy menu-item-346"><a href="http://itx.web.id/category/indonesia/">Indonesia</a></li>
+<li id="menu-item-1359" class="menu-item menu-item-type-taxonomy menu-item-1359"><a href="http://itx.web.id/category/jawa/">Jawa</a></li>
+<li id="menu-item-348" class="menu-item menu-item-type-taxonomy menu-item-348"><a href="http://itx.web.id/category/jquery/">jQuery</a></li>
+<li id="menu-item-350" class="menu-item menu-item-type-taxonomy menu-item-350"><a href="http://itx.web.id/category/selingan/">Selingan</a></li>
+<li id="menu-item-353" class="menu-item menu-item-type-post_type menu-item-353"><a title="Lowongan Penulis Lepas / Freelance Writer" href="http://itx.web.id/lowongan-penulis/">Lowongan Penulis</a></li>
+</ul>		<ul id="links">
+		<li>
+		<a href="http://twitter.com/itx_" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/twitter.png" alt ="my twitter" title="Follow our twitter" />
+		</a></li>
+		
+		<li>
+		<a href="http://www.facebook.com/itxitx" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/facebook.png" alt ="my facebook" title="Follow our facebook" />
+		</a></li>
+		
+				<li><a href="http://itx.web.id/feed/">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/rss.png" alt="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita" title="Follow our RSS" />
+		</a></li>
+			</ul>
+	                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div id="on" class="sidebaron"></div><div id="off" class="sidebaroff"></div>
+<div class="clear"></div><div id="main" class="wrap">
+<div id="mainwrap">
+<div id="content">
+<div id="contentpad">
+<div id="contentwrap">
+    <div class="post-1460 post type-post hentry category-php tag-load-xml tag-parse-xml-with-php tag-save-xml-to-database tag-xml-parsing tag-xml-to-mysql singlepost">
+        <div class="postwrap ui-widget-content">
+			<div class="titlewrap">
+																<h1 class="title">
+					<a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" rel="bookmark">Load dan Menyimpan Data XML ke Database dengan PHP-Mysql</a>
+				</h1>
+								<div class="clear"></div>
+				<div class="meta ui-state-default">
+					<div class='date '>January 12, 2011</div>					<div class='author '>by <a href="http://itx.web.id/author/littleflow3r/" title="Posts by littleflow3r">littleflow3r</a></div>					<div class="clear"></div>
+				</div>
+				<small></small>
+			</div>
+			<div class="entry">
+			<!-- Chitika|Premium - WordPress Plugin --><div class="chitika-adspace above"><script type="text/javascript"><!--
+ch_client = "itx";
+ch_type = "mpu";
+ch_width = 500;
+ch_height = 250;
+ch_color_bg = "";
+ch_color_title = "";
+ch_color_site_link = "";
+ch_color_text = "";
+ch_non_contextual = 4;
+ch_vertical = "premium";
+ch_font_title = "";
+ch_font_text = "";
+ch_sid = "itx";
+var ch_queries = new Array( );
+var ch_selected=Math.floor((Math.random()*ch_queries.length));
+if ( ch_selected < ch_queries.length ) {
+ch_query = ch_queries[ch_selected];
+}
+//--></script>
+<script  src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript"></script></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Fload-dan-menyimpan-data-xml-ke-database-dengan-php-mysql%2F" style="margin:0px 0px 0px 0px;"></fb:like><div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/"></a></div>
+<p><strong>Studi Kasus </strong>: Mengambil data dari XML dan menyimpannya ke dalam database (mysql)<br />
+<strong>Kebutuhan</strong> : Webserver Packages, <em>already installed.</em></p>
+<p><em>OKAY, no need for trivial chit-chat. Let&#8217;s just practice <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' class='wp-smiley' /> </em></p>
+<p><strong>Step 1 : Persiapkan Database</strong></p>
+<ol>
+<li>Buat database dengan nama <strong>db_tutorial</strong></li>
+<li>Siapkan tabel dengan nama <strong>tb_dataxml</strong>, dengan struktur tabel seperti gambar dibawah ini.<br />
+<a rel="attachment wp-att-1461" href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/attachment/xmltabel/"><img class="aligncenter size-full wp-image-1461" src="http://itx.web.id/uploads/2011/01/xmltabel.png" alt="" width="527" height="130" /></a></li>
+<li><em>Done!</em></li>
+</ol>
+<p><strong>Step 2 : Persiapkan Folder Kerja</strong></p>
+<ol>
+<li>Buat folder dengan nama <strong>tutorphp</strong> dalam document root anda</li>
+<li>Simpan semua file dalam tutorial ini dalam folder tersebut.</li>
+</ol>
+<p><strong>Step 3 : Membuat script koneksi ke DB</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+$host = &quot;localhost&quot;;
+$user = &quot;root&quot;; //adjust according to your mysql setting
+$pass = &quot;&quot;; //adjust according to your mysql setting
+$dbName = &quot;db_tutorial&quot;;
+mysql_connect($host, $user, $pass);
+mysql_select_db($dbName)
+or die (&quot;Connect Failed !! : &quot;.mysql_error());
+?&gt;
+</pre>
+</li>
+<li>simpan dengan nama<strong> connect.php</strong></li>
+</ol>
+<p><strong>Step 4 : Menyiapkan data XML</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;
+&lt;data&gt;
+  &lt;record&gt;
+    &lt;title&gt;Time to Go&lt;/title&gt;
+    &lt;author&gt;June Sushan&lt;/author&gt;
+    &lt;publisher&gt;Gramedia Inc&lt;/publisher&gt;
+    &lt;date&gt;
+      &lt;month&gt;June&lt;/month&gt;
+      &lt;year&gt;1989&lt;/year&gt;
+    &lt;/date&gt;
+    &lt;/record&gt;
+
+	&lt;record&gt;
+    &lt;title&gt;Time to Come&lt;/title&gt;
+    &lt;author&gt;Alan Smart&lt;/author&gt;
+    &lt;publisher&gt;Elexmedia Inc&lt;/publisher&gt;
+    &lt;date&gt;
+      &lt;month&gt;April&lt;/month&gt;
+      &lt;year&gt;1989&lt;/year&gt;
+    &lt;/date&gt;
+    &lt;/record&gt;
+
+&lt;/data&gt;
+</pre>
+</li>
+<li>simpan dengan nama<strong> record.xml</strong></li>
+</ol>
+<p><strong>Step 5 : Membuat script untuk me-load XML, menyimpan ke database, dan menampilkan XML<br />
+</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+include 'connect.php';
+    if( !$xml = simplexml_load_file('record.xml') ) //using simplexml_load_file function to load xml file
+    {
+        echo 'load XML failed ! ';
+    }
+    else
+    {
+        echo '&lt;h1&gt;This is the Data&lt;/h1&gt;';
+		foreach( $xml as $record ) //parse the xml file into object
+        {
+			$title = $record-&gt;title; //get the childnode title
+			$author = $record-&gt;author; //get the child node author
+			$publisher = $record-&gt;publisher; //get the child node publisher
+			$month = $record-&gt;date-&gt;month; //get the child node month
+			$year = $record-&gt;date-&gt;year;	 //get the child node year
+
+            echo 'Title : '.$title.'&lt;br /&gt;';
+            echo 'Author : '.$author.'&lt;br /&gt;';
+			echo 'Publisher : '.$publisher.'&lt;br /&gt;';
+			echo 'Month : '.$month.'&lt;br /&gt;';
+			echo 'Year : '.$year.'&lt;br /&gt;';
+			echo '&lt;br&gt;';
+
+//save to database
+			$q = &quot;INSERT INTO tb_dataxml VALUES('','$title','$author','$publisher','$month $year')&quot;;
+			$result = mysql_query($q);
+        }
+			if ($result) {
+			echo '&lt;h2&gt;Success Save to Database &lt;/h2&gt;';
+			}
+			else echo '&lt;h2&gt;Failed Save to Databaase&lt;/h2&gt;';
+    }
+?&gt; </pre>
+</li>
+<li>simpan dengan nama <strong>loadxml.php</strong></li>
+</ol>
+<p><strong>Step 6 : Testing Code</strong></p>
+<ol>
+<li>Pergi ke http://localhost/tutorphp/loadxml.php. Anda akan melihat data dari record.xml telah diparsing dan ditampilkan seperti gambar dibawah <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' class='wp-smiley' /><br />
+<a rel="attachment wp-att-1462" href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/attachment/xmlsucess/"><img class="aligncenter size-full wp-image-1462" src="http://itx.web.id/uploads/2011/01/xmlsucess.png" alt="" width="254" height="315" /></a></li>
+<li>Cek database anda, pastikan bahwa data dari XML telah tersimpan dalam tabel yang telah anda siapkan pada step 1<br />
+<a rel="attachment wp-att-1463" href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/attachment/xmlresult/"><img class="aligncenter size-full wp-image-1463" src="http://itx.web.id/uploads/2011/01/xmlresult.png" alt="" width="366" height="63" /></a></li>
+</ol>
+<p><em>So, this is time to trivial chit-chat Ha Ha </em> <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' class='wp-smiley' />  XML adalah <em>extensible Markup Language</em>.<br />
+<em>Why XML?</em> XML adalah format data standar (yang telah disepakati) yang digunakan dalam pertukaran data. Karena ke-global-an XML itulah, XML sering digunakan dalam komunikasi data karena formatnya yang platform independent <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' class='wp-smiley' /><br />
+Hal yang juga menarik:<br />
+<script>
+var sitti_pub_id = "BC0004948";
+var sitti_ad_width = "250";
+var sitti_ad_height = "250";
+var sitti_ad_type = "10";
+var sitti_ad_number = "3";
+var sitti_ad_name = "bawah post";
+var sitti_dep_id = "8111";
+</script><br />
+<script src="http://202.52.131.5/delivery/sittiad.b1.js"></script></p>
+<blockquote><h3>Hak Cipta</h3>
+<p>Semua skrip dan teknik dalam artikel di itx.web.id boleh digunakan sebagaimana kehendakmu tanpa perlu mencantumkan sumber. Kamu tidak boleh mengkopi seluruh artikel, dalam Bahasa Indonesia ataupun diterjemahkan ke dalam bahasa lain.
+</p></blockquote>
+<div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/"></a></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Fload-dan-menyimpan-data-xml-ke-database-dengan-php-mysql%2F" style="margin:0px 0px 0px 0px;"></fb:like><h4>Pencarian ke sini:</h4><div> <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="php xml">php xml</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="simpan data dalam php">simpan data dalam php</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="database xml">database xml</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="membuat xml dengan php">membuat xml dengan php</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="xml dengan php">xml dengan php</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="script php mysql xml gambar">script php mysql xml gambar</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="menyimpan data xml">menyimpan data xml</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="cara membuat database dengan xml">cara membuat database dengan xml</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="input gambar ke xml database">input gambar ke xml database</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="save database mysql to xml">save database mysql to xml</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="php xml login">php xml login</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="scrip xml untuk menyimpan">scrip xml untuk menyimpan</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="menyimpan data kedalam my sql">menyimpan data kedalam my sql</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="php vs xml">php vs xml</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="php rtf">php rtf</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="menyimpan data php">menyimpan data php</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="menyimpan data php dan mysql">menyimpan data php dan mysql</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="menyimpan database">menyimpan database</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="menyimpan php">menyimpan php</a>, <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" title="menyimpan scrip xml di blogspot">menyimpan scrip xml di blogspot</a>.</div><p>This post is also available in: <a href="http://en.itx.web.id/php-en/load-and-save-the-xml-data-to-database-with-php-mysql/">English</a></p><div class='clear'></div><br><h3>Related Articles:</h3><ul id="related_posts_thumbnails"><li ><a href="http://itx.web.id/php/validasi-form-dalam-codeigniter/" ><img alt="Validasi Form dalam CodeIgniter" src="http://itx.web.id/uploads/2010/11/formSalah-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/validasi-form-dalam-codeigniter/"><span>Validasi Form dalam CodeIgniter</span></a></li><li ><a href="http://itx.web.id/php/pemrograman-mobile-sederhana-dengan-php-dan-deviceatlas/" ><img alt="Pemrograman Mobile Sederhana dengan PHP dan DeviceAtlas" src="http://itx.web.id/uploads/2010/12/nokia-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/pemrograman-mobile-sederhana-dengan-php-dan-deviceatlas/"><span>Pemrograman Mobile Sederhana dengan PHP dan DeviceAtlas</span></a></li><li ><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/" ><img alt="Tutorial Membuat AJAX-Tab Sederhana dengan AJAX dan PHP" src="http://itx.web.id/uploads/2010/12/load1-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/tutorial-membuat-ajax-tab-sederhana-dengan-ajax-dan-php/"><span>Tutorial Membuat AJAX-Tab Sederhana dengan AJAX dan PHP</span></a></li><li ><a href="http://itx.web.id/php/pemrograman-berorientasi-object-dengan-php/" ><img alt="Pemrograman Berorientasi Object dengan PHP" src="http://itx.web.id/uploads/2011/03/phpoop-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/pemrograman-berorientasi-object-dengan-php/"><span>Pemrograman Berorientasi Object dengan PHP</span></a></li><li ><a href="http://itx.web.id/php/melewatkan-variable-antar-halaman-php-dengan-url-dan-session/" ><img alt="Melewatkan Variable antar Halaman PHP dengan URL dan Session" src="http://itx.web.id/uploads/2011/03/result1-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/melewatkan-variable-antar-halaman-php-dengan-url-dan-session/"><span>Melewatkan Variable antar Halaman PHP dengan URL dan Session</span></a></li><li ><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/" ><img alt="Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI" src="http://itx.web.id/uploads/2011/03/memberlist-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/"><span>Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI</span></a></li></ul><div style="clear: both"></div>			</div>
+			<div class="clear"></div>
+            <div class="linkpages"></div>
+            <div class="clear"></div>
+                        <div class="footmeta">
+                <div class='categories '><span class="ui-icon ui-icon-folder-open"></span> : <a href="http://itx.web.id/category/php/" title="View all posts in PHP" rel="category tag">PHP</a></div><div class='tags '><span class="ui-icon ui-icon-tag"></span> : <a href="http://itx.web.id/tag/load-xml/" rel="tag">load xml</a>, <a href="http://itx.web.id/tag/parse-xml-with-php/" rel="tag">parse xml with php</a>, <a href="http://itx.web.id/tag/save-xml-to-database/" rel="tag">save xml to database</a>, <a href="http://itx.web.id/tag/xml-parsing/" rel="tag">xml parsing</a>, <a href="http://itx.web.id/tag/xml-to-mysql/" rel="tag">xml to mysql</a></div><div class='author_info '><h4>About the author</h4><img alt='' src='http://1.gravatar.com/avatar/1d76e024a2685e42d489efd861e08325?s=48&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' /><span>obviously, a girl. with sweet smile, off course. turning her 21 years trapped on Informatics departement and just started to having some crush with it lately. she uses wordpress. she loves php. she lo</span><div class="author_url"><a href="http://littleflow3r.wordpress.com/">littleflow3r.wordpress.com/</a></div><div class="clear"></div></div>            </div>
+                        <div class="clear"></div>
+        
+<div id="comments">
+
+			<!-- If comments are closed. -->
+		<p class="nocomments">Comments are closed.</p>
+	
+<div class="clear"></div>
+
+								</div>        </div>
+	</div>
+	<div class="clear"></div>
+    <div class="clear"></div>
+    <div id="extrastuff">
+        			<span id="rssleft"><a href='http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/feed/'><abbr title="Really Simple Syndication">RSS</abbr> feed for this post (comments)</a></span>
+        			<span id="trackright"></span>
+        		<div class="clear"></div>
+    </div>
+
+</div>
+    <div class="nextprevious ui-state-active">
+        <div class="alignleft"><span>Previous Post</span><br />&laquo; <a href="http://itx.web.id/wordpress/mengapa-harus-merelease-theme-wordpress-gratis/" rel="prev">Mengapa harus merelease theme WordPress Gratis?</a></div>
+        <div class="alignright"><span>Next Post</span><br /><a href="http://itx.web.id/wordpress/dasar-wordpress-com-surprise-me-fun-mode/" rel="next">Dasar WordPress.com: Surprise Me (Fun Mode)</a> &raquo;</div>
+        <div class="clear"></div>
+    </div>
+</div>
+</div> <!--/content-->
+<div id="sidebar-left" class="sidebar"><div class='sidebar-1'><ul><li id="text-6" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget">Like <b>itx.web.id</b>? <br>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://itx.web.id" show_faces="true" width="150"></fb:like></div>
+		</div></li><li id="text-8" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget"><div>
+<a href="http://sambadafarm.com">Domba Garut</a>
+<br>	
+<a href="http://sambadafarm.com/produk/">Domba Kurban</a>
+<br>	
+<a href="http://agromaret.com/jual/33529/domba_kurban_qurban_wilayah_yogyakarta">Domba Kurban</a>
+<br>
+<a href="http://www.kaskus.us/showthread.php?t=11046165">Domba Kurban</a>
+</div></div>
+		</div></li><li id="search-3" class="widget left widget_search"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Search</h3><form method="get" action="http://itx.web.id/" id="searchform"><div id="searchformwrap">
+<div class="searchbox"><div class="scont">
+<input type="text" value="Search here ...." name="s" id="searchbox" onfocus="this.value=''"/>
+</div></div>
+<div class="searchopen"></div>
+<div class="searchclose"><button type="submit" class="submitbutton" value="search"></button></div>
+</div></form></div></li><li id="itx_tabbed_sidebar-3" class="widget left itx_tabbed_sidebar"><div class="widgetwrap  ">
+<script type="text/javascript">/* <![CDATA[ */
+jQuery(function () {
+    jQuery("#widget-itx_tabbed_sidebar-3-thetab").tabs({ event: "mouseover" });
+});
+/* ]]> */</script>
+	<div class="tabbed" id="widget-itx_tabbed_sidebar-3-thetab"><ul class="tabheader"><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab0">Hai</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab1">Posts</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab2">Comments</a></li></ul><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab0"><div>Inilah blog itx.... seorang yang suka pemrograman web khususnya PHP dan WordPress... jangan ragu tinggalkan pesan di sini ... :)
+<br>
+Sebagian besar artikel di sini <b>tidak</b> saya tulis, melainkan ditulis oleh teman-teman author (penulis lepas). Jadi kalo menyapa jangan salah alamat yaaa... lihat dulu siapa penulis artikel ybs.</div></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab1"><ul>	<li><a href='http://itx.web.id/wordpress/membuat-multi-user-dalam-cms-wordpress/' title='Membuat Multi-user dalam CMS WordPress'>Membuat Multi-user dalam CMS WordPress</a></li>
+	<li><a href='http://itx.web.id/php/fungsi-sorting-pengurutan-instan-dengan-php/' title='Fungsi Sorting (Pengurutan) Instan dengan PHP'>Fungsi Sorting (Pengurutan) Instan dengan PHP</a></li>
+	<li><a href='http://itx.web.id/wordpress/menginstall-tema-baru-dalam-cms-wordpress/' title='Menginstall Tema Baru dalam CMS WordPress'>Menginstall Tema Baru dalam CMS WordPress</a></li>
+	<li><a href='http://itx.web.id/wordpress/membuat-halaman-statis-page-dalam-wordpress-beginner-only/' title='Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)'>Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)</a></li>
+	<li><a href='http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/' title='Code Igniter : Export Data ke File PDF'>Code Igniter : Export Data ke File PDF</a></li>
+	<li><a href='http://itx.web.id/php/fungsi-fungsi-string-dalam-php/' title='Fungsi &#8211; Fungsi String dalam PHP'>Fungsi &#8211; Fungsi String dalam PHP</a></li>
+	<li><a href='http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/' title='Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI'>Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI</a></li>
+	<li><a href='http://itx.web.id/php/pembulatan-bilangan-dalam-php/' title='Pembulatan Bilangan dalam PHP'>Pembulatan Bilangan dalam PHP</a></li>
+	<li><a href='http://itx.web.id/wordpress/memasang-album-foto-flickr-dalam-wordpress/' title='Memasang Album Foto Flickr dalam WordPress'>Memasang Album Foto Flickr dalam WordPress</a></li>
+	<li><a href='http://itx.web.id/wordpress/memasukkan-gambar-dalam-postingan-wordpress-untuk-pemula/' title='Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)'>Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)</a></li>
+</ul></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab2"><ul><li class="recentcomments"><strong><a href='http://www.juust.org/index.php/2010/12/' rel='external nofollow' class='url'>wordpress search engine optimization by juust</a>: </strong><a href="http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/#comment-4189">Thanks for the auspicious writeup. It if truth be told was once a entertainment account it. Glance complex to far ...</a></li><li class="recentcomments"><strong>edy: </strong><a href="http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/#comment-4184">kenapa belum bisa ya? statement yang keluar seperti ini :
+
+Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource ...</a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4182">problem had been resolved... <img src='http://itx.web.id/wp-includes/images/smilies/dance.gif' alt='(dance)' class='wp-smiley' /> 
+ありがとうございますのマスタ―　arigatou gozaimasu no masutaa <img src='http://itx.web.id/wp-includes/images/smilies/yupi.gif' alt='(yahoo)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4181">kakang master kayanya udah cape ngeladenin orang2 di atas ya... <img src='http://itx.web.id/wp-includes/images/smilies/laugh.gif' alt='(lol)' class='wp-smiley' /> 
+sekedar bertanya, sukur2 dijawab... image kaga nampil nih kang.. ...</a></li><li class="recentcomments"><strong>lutfia: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4179">kok muncul error seperti ini ?
+"Cannot use object of type stdClass as array in C:\wamp\www\Intranet\application\libraries\cezpdf.php on line 695" </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4178">jaahh.....yg ane malah undefine index si picturenya.... aneh. <img src='http://itx.web.id/wp-includes/images/smilies/eyeroll.gif' alt='(eyeroll)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong><a href='http://oke-djiextray.blogspot.com' rel='external nofollow' class='url'>Djiextray</a>: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4177">wah thanks gan ... work .... walaupun dengan mgutak ngatik lagi... tadi sempat ga bisa.. terus di otak atik lagi ...</a></li><li class="recentcomments"><strong>agung: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4176">k.. gambarnya ga bisa nampil 
+muncul ini
+Warning: mysql_fetch_array() expects parameter 1 to be resource, boolean given in E:\Local\xampp\htdocs\coba\helloMobile\proses.php on line ...</a></li><li class="recentcomments"><strong>Eric Winslet: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4175">saat saya coba buka url ini
+
+http://localhost/www/CodeIgniter/index.php/member_con
+
+kug gini ya? salahnya apa ya?
+
+Deprecated: Assigning the return value of new by reference is ...</a></li><li class="recentcomments"><strong>dudiriadi: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4174">saya tertarik menjadi penulis, usernya dudiriadi </a></li><li class="recentcomments"><strong>iska: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4171">mas kta menulis topiknya PHP atau wordpres maksudnya gimana ya?  <img src='http://itx.web.id/wp-includes/images/smilies/wink.gif' alt=';-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong>nora: </strong><a href="http://itx.web.id/menggunakan-jasa-itx/#comment-4169">mas sy mau tanya bagaimana caranya membuat icon web jika thema sy tdk include dgn program utk membuat icon,,,, sy ...</a></li><li class="recentcomments"><strong><a href='http://tombolenter.blogspot.com/' rel='external nofollow' class='openid_link url'>kharisma</a>: </strong><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/#comment-4168">nice tutorial, keep sharing <img src='http://itx.web.id/wp-includes/images/smilies/drinking.gif' alt='(drinking)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>mentari: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4166">kak aaq tetarik mau jadi penulis part time, tapi musti punya blogspot ya?? <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong><a href='http://lailatoel.wordpress.com/2011/11/20/login-multi-user-php/' rel='external nofollow' class='url'>Login Multi User PHP | L41Latul</a>: </strong><a href="http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/#comment-4165">[...] Kalo mau artikel yang asli masuk aja ke http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/ [...] </a></li></ul></div></div></div></li><li id="wppp-3" class="widget left widget_wppp"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Postingan populer</h3>
+<ul class='wppp_list'>
+	<li><a href='http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/' title='Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql'>Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/membuat-form-combobox-dinamis-dari-database-mysql-dengan-php/' title='Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP'>Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP</a></li>
+	<li><a href='http://itx.web.id/php/form-input-tanggal-php-dengan-datetimepicker-jquery/' title='Form Input Tanggal PHP dengan Datetimepicker JQuery'>Form Input Tanggal PHP dengan Datetimepicker JQuery</a></li>
+	<li><a href='http://itx.web.id/php/tutorial-searching-pencarian-data-dengan-php-dan-mysql/' title='Tutorial Searching / Pencarian Data dengan PHP dan Mysql'>Tutorial Searching / Pencarian Data dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/editor-php-gratisan-untuk-kita/' title='Editor PHP gratisan untuk kita:'>Editor PHP gratisan untuk kita:</a></li>
+	<li><a href='http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/' title='Membuat Fungsi Update Data dalam Database dengan PHP Mysql'>Membuat Fungsi Update Data dalam Database dengan PHP Mysql</a></li>
+	<li><a href='http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/' title='Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami'>Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami</a></li>
+</ul>
+</div></li><li id="tag_cloud-4" class="widget left widget_tag_cloud"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Tags</h3><div><a href='http://itx.web.id/tag/ajax/' class='tag-link-15' title='4 topics' style='font-size: 14.3636363636pt;'>ajax</a>
+<a href='http://itx.web.id/tag/basic/' class='tag-link-48' title='4 topics' style='font-size: 14.3636363636pt;'>basic</a>
+<a href='http://itx.web.id/tag/cms-wordpress/' class='tag-link-72' title='3 topics' style='font-size: 12.7727272727pt;'>cms wordpress</a>
+<a href='http://itx.web.id/tag/codeigniter/' class='tag-link-66' title='6 topics' style='font-size: 16.75pt;'>codeigniter</a>
+<a href='http://itx.web.id/tag/codeigniter-export-to-excel/' class='tag-link-106' title='2 topics' style='font-size: 10.8636363636pt;'>codeigniter export to excel</a>
+<a href='http://itx.web.id/tag/date-function/' class='tag-link-81' title='2 topics' style='font-size: 10.8636363636pt;'>date function</a>
+<a href='http://itx.web.id/tag/device-recognition/' class='tag-link-91' title='2 topics' style='font-size: 10.8636363636pt;'>device recognition</a>
+<a href='http://itx.web.id/tag/effect/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>effect</a>
+<a href='http://itx.web.id/tag/fadeout/' class='tag-link-16' title='1 topic' style='font-size: 8pt;'>fadeout</a>
+<a href='http://itx.web.id/tag/form-validation/' class='tag-link-79' title='2 topics' style='font-size: 10.8636363636pt;'>form validation</a>
+<a href='http://itx.web.id/tag/free-wordpress-theme/' class='tag-link-23' title='3 topics' style='font-size: 12.7727272727pt;'>free wordpress theme</a>
+<a href='http://itx.web.id/tag/fun-mode/' class='tag-link-52' title='2 topics' style='font-size: 10.8636363636pt;'>fun mode</a>
+<a href='http://itx.web.id/tag/gpl/' class='tag-link-29' title='2 topics' style='font-size: 10.8636363636pt;'>GPL</a>
+<a href='http://itx.web.id/tag/javascript/' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>JavaScript</a>
+<a href='http://itx.web.id/tag/javascript-library/' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>JavaScript Library</a>
+<a href='http://itx.web.id/tag/jquery/' class='tag-link-13' title='2 topics' style='font-size: 10.8636363636pt;'>jQuery</a>
+<a href='http://itx.web.id/tag/jquery-ui/' class='tag-link-166' title='3 topics' style='font-size: 12.7727272727pt;'>jquery UI</a>
+<a href='http://itx.web.id/tag/kelirumologi/' class='tag-link-6' title='2 topics' style='font-size: 10.8636363636pt;'>kelirumologi</a>
+<a href='http://itx.web.id/tag/koneksi/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>koneksi</a>
+<a href='http://itx.web.id/tag/login-multi-user/' class='tag-link-75' title='2 topics' style='font-size: 10.8636363636pt;'>login multi user</a>
+<a href='http://itx.web.id/tag/mobile-programming/' class='tag-link-89' title='2 topics' style='font-size: 10.8636363636pt;'>mobile programming</a>
+<a href='http://itx.web.id/tag/multisite/' class='tag-link-33' title='3 topics' style='font-size: 12.7727272727pt;'>multisite</a>
+<a href='http://itx.web.id/tag/mysql/' class='tag-link-63' title='8 topics' style='font-size: 18.3409090909pt;'>mysql</a>
+<a href='http://itx.web.id/tag/mysql-to-excel/' class='tag-link-109' title='2 topics' style='font-size: 10.8636363636pt;'>mysql to excel</a>
+<a href='http://itx.web.id/tag/openid/' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>OpenID</a>
+<a href='http://itx.web.id/tag/pagination/' class='tag-link-101' title='2 topics' style='font-size: 10.8636363636pt;'>pagination</a>
+<a href='http://itx.web.id/tag/paging/' class='tag-link-103' title='2 topics' style='font-size: 10.8636363636pt;'>paging</a>
+<a href='http://itx.web.id/tag/parse-xml-with-php/' class='tag-link-156' title='2 topics' style='font-size: 10.8636363636pt;'>parse xml with php</a>
+<a href='http://itx.web.id/tag/personal-settings/' class='tag-link-50' title='2 topics' style='font-size: 10.8636363636pt;'>personal settings</a>
+<a href='http://itx.web.id/tag/php/' class='tag-link-10' title='14 topics' style='font-size: 22pt;'>PHP</a>
+<a href='http://itx.web.id/tag/php-string/' class='tag-link-213' title='2 topics' style='font-size: 10.8636363636pt;'>php string</a>
+<a href='http://itx.web.id/tag/post/' class='tag-link-168' title='2 topics' style='font-size: 10.8636363636pt;'>post</a>
+<a href='http://itx.web.id/tag/posting-code/' class='tag-link-115' title='2 topics' style='font-size: 10.8636363636pt;'>posting code</a>
+<a href='http://itx.web.id/tag/posting-sourcecode/' class='tag-link-116' title='2 topics' style='font-size: 10.8636363636pt;'>posting sourcecode</a>
+<a href='http://itx.web.id/tag/splitting-content/' class='tag-link-169' title='2 topics' style='font-size: 10.8636363636pt;'>splitting content</a>
+<a href='http://itx.web.id/tag/surprise-me/' class='tag-link-51' title='2 topics' style='font-size: 10.8636363636pt;'>surprise me</a>
+<a href='http://itx.web.id/tag/syntax-highlighter/' class='tag-link-117' title='2 topics' style='font-size: 10.8636363636pt;'>syntax highlighter</a>
+<a href='http://itx.web.id/tag/theme/' class='tag-link-31' title='3 topics' style='font-size: 12.7727272727pt;'>theme</a>
+<a href='http://itx.web.id/tag/users/' class='tag-link-49' title='2 topics' style='font-size: 10.8636363636pt;'>users</a>
+<a href='http://itx.web.id/tag/wordpress/' class='tag-link-11' title='3 topics' style='font-size: 12.7727272727pt;'>WordPress</a>
+<a href='http://itx.web.id/tag/wordpress-com/' class='tag-link-47' title='4 topics' style='font-size: 14.3636363636pt;'>wordpress.com</a>
+<a href='http://itx.web.id/tag/wordpress-mobile/' class='tag-link-188' title='2 topics' style='font-size: 10.8636363636pt;'>wordpress mobile</a>
+<a href='http://itx.web.id/tag/wordpress-plugin/' class='tag-link-39' title='2 topics' style='font-size: 10.8636363636pt;'>wordpress plugin</a>
+<a href='http://itx.web.id/tag/wordpress-theme/' class='tag-link-24' title='3 topics' style='font-size: 12.7727272727pt;'>wordpress theme</a>
+<a href='http://itx.web.id/tag/xml-to-mysql/' class='tag-link-154' title='2 topics' style='font-size: 10.8636363636pt;'>xml to mysql</a></div>
+</div></li></ul><div class="clear"></div></div></div><div id="sidebar-right" class="sidebar"><div class='sidebar-2'><ul><li id="language-selector" class="widget right icl_languages_selector"><div class="widgetwrap  ">		
+<div id="lang_sel_list">           
+            <ul>
+                                <li class="icl-en">          
+                    <a href="http://en.itx.web.id/php-en/load-and-save-the-xml-data-to-database-with-php-mysql/" class="lang_sel_other">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" />&nbsp;                    
+                                        English                    </a>
+                </li>
+                                <li class="icl-id">          
+                    <a href="http://itx.web.id/php/load-dan-menyimpan-data-xml-ke-database-dengan-php-mysql/" class="lang_sel_sel">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/id.png" alt="id" />&nbsp;                    
+                                        Indonesia                    </a>
+                </li>
+                            </ul>
+</div>
+</div></li><li id="text-2" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Theme Buatan itx</h3>			<div class="textwidget"><h4><a href="http://albizia.itx.web.id">
+Albizia Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/albizia" rel="nofollow">
+- Download Albizia
+</a></h4>
+<h4><a href="http://bombax.itx.web.id">
+Bombax Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/bombax" rel="nofollow">
+- Download Bombax
+</a></h4>
+<h4><a href="http://calotropis.itx.web.id">
+Calotropis Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/calotropis" rel="nofollow">
+- Download Calotropis 
+</a></h4></div>
+		</div></li><li id="text-3" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Plugin Buatan itx</h3>			<div class="textwidget"><h4><a href="http://itx.web.id/wordpress/plugins/exclude-plugins/">
+Exclude Plugins
+</a><br />
+<a href=" http://wordpress.org/extend/plugins/exclude-plugins/" rel="nofollow">
+- Download Exclude Plugins
+</a></h4></div>
+		</div></li><li id="text-4" class="widget right widget_text"><div class="widgetwrap  ">			<div class="textwidget">Jika memiliki pertanyaan tentang theme atau plugin buatan itx, silahkan menuju <a href="http://forum.itx.web.id">forum</a>.
+</div>
+		</div></li>												<li id="ask2link" class="widget right widget_ask2link"><div class="widgetwrap  "><!-- zz,b78dc8fc3eccc96c396b1312211272,1312211949 -->
+</div></li>		<li id="advanced_text-7" class="widget right advanced_text"><div class="widgetwrap  "><div class='AdvancedText'><br></div></div></li>
+						</ul><div class="clear"></div></div></div><div class="clear"></div>
+</div>
+</div> <!--/main-->
+<div id="footwrap">
+    <div id="footwrap2">
+    <div class="wrap">
+    <div id="footer" class="footer"><div class='footer-'></div></div>    <div class="clear"></div>
+    </div>
+	</div>
+	<div id="footerfoot">
+	<div class="wrap">
+		<div id="footerleft">
+		<a href="http://itx.web.id">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a>
+				</div><div id="footerright">
+<a href="http://themes.itx.web.id/bombax/"><strong>Bombax Theme</strong> designed by <strong>itx</itx></a></div></div></div></div><!-- bombax 1.3 -->
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.core.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.tabs.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.color.js?ver=2.0-4561m'></script>
+<script src="http://itx.web.id/wp-content/plugins/tweetmeme/button.js" type="text/javascript"></script><script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201148.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'12545473',v:'ext',post:'1460'});
+var load_cmc = function(){linktracker_init(12545473,1460,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+</body>
+</html>

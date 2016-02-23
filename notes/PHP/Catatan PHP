@@ -1,0 +1,14 @@
+## [COMPOSER](http://getcomposer.org)
+#Install
+curl -s https://getcomposer.org/installer | php
+chmod u+x composer.phar atau chmod 755 composer.phar
+mv composer.phar /usr/bin/composer
+php composer.phar create-project symfony/framework-standard-edition /path/to/webroot/Symfony 2.3.0
+php composer.phar update doctrine/doctrine-fixtures-bundle
+php composer.phar require doctrine/doctrine-fixtures-bundle:@dev
+php composer.phar require friendsofsymfony/rest-bundle 1.0.*  ## Menambahkan module kedalam composer.json
+php composer.phar update # Update seluruh repository
+
+#Upgrade
+php composer.phar self-update
+

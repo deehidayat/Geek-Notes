@@ -1,0 +1,76 @@
+# CONFIG
+git config --global user.name 
+git config --global user.email 
+git config --global alias.co checkout
+git config --global alias.unstage ’reset HEAD --’
+git config --global alias.last ’log -1 HEAD’
+
+git config --global credential.helper ’cache --timeout=3600’
+
+
+# BASIC
+git init
+git clone [git://github.com/schacon/grit.git] [mygrit]
+git add [README .. ..] / * / .
+git status
+git log [-p] [-2]
+git log --pretty=oneline
+git show [branch/tag]
+git diff --cached
+git rm [--cached] [nama_file]
+git mv [old] [new]
+git reset HEAD [file]			# Unstaging a Staged File
+
+# REMOTE
+git remote -v	 			# Menampilkan nama_remote dan url
+git remote show [nama_remote]		# Menampilkan detail dari remote
+git remote add [nama_remote] [url] 	# Menambah Remote
+git remote rename [old] [new]		# Merubah nama remote
+git remote rm [remote]			# Menghapus remote
+git fetch [nama_remote/url] 		# pulls down all the data from that remote project that you don’t have yet
+git push [nama_remote/url] [branch]	# mengirim data ke server
+git push origin [nama_tag]		# Mengirim tag ke server
+git push origin --tags			# Mengirim semua tag ke server
+
+# COMMIT
+git commit -m [pesan]			# Commit untuk stage 
+git commit -a -m [pesan]		# Menambahkan sekaligus Commit
+git commit --amend			# Merubah commit terakhir
+
+# TAG
+# A lightweight tag is very much like a branch that doesn’t change — it’s just a pointer to a specific commit
+# Annotated tags, however, are stored as full objects in the Git database. They’re checksummed; contain the tagger name, e-mail, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG).
+git tag -a v1.4 -m ’my version 1.4’	# Mebuat annonated Tag baru
+git tag -l ’v1.4.2.*’			# Menampilkan nama tag
+git tag -d [nama_tag]			# Menghapus tag
+git show [tag]				# Menampilkan detail dari tag
+git tag -s v1.5 -m ’my signed 1.5 tag’	# Signed Tags
+git tag -v v1.4.2.1			# Verify Tags
+git tag -a [nama_tag] [9fceb02]		# kombinasi dg log --prety
+
+# BRANCH
+git branch -v				# To see the last commit on each branch
+git branch [--merged --no-merged]
+git branch [nama_branch_baru]		# Membuat branchbaru
+git branch -d [nama_branch]		# Menghapus tag
+
+# CHECKOUT
+git checkout -- [nama_file]		# Unmodifying a Modified File
+git checkout [branch/tag]		# untuk memindahkan HEAD[Pointer] ke branch/tag
+git checkout -b [nama_branch_baru]	# Membuat branch baru dan langsung pindahkan Pointer
+git checkout -b old-state 0d1d7fc32 # Kembali ke commit tertentu dan buat branch baru
+
+
+# MERGE
+git merge [branch]
+
+# TIPS
+git config [--global] alias.[nama_alias] "perintah"
+
+
+# SSH https://help.github.com/articles/generating-ssh-keys
+cd ~/.ssh atau ls
+ssh-keygen -t rsa -C "your_email@example.com"
+ssh-add id_rsa
+
+Baru halaman : 56

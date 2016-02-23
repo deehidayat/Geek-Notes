@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"  />
+<title>Export dari Database ke File Excel dalam CodeIgniter</title>
+
+<link rel="stylesheet" href="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/css/language-selector.css?v=2.0.4.1" type="text/css" media="all" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest post RSS" href="http://itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita latest comment RSS" href="http://itx.web.id/comments/feed/" />
+<link rel="pingback" href="http://itx.web.id/xmlrpc.php" />
+<!--[if lt IE 7]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie6.css">
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="http://itx.web.id/wp-content/themes/bombax/css/ie7.css">
+<![endif]-->
+<link rel="stylesheet" href="http://itx.web.id/wp-content/themes/bombax/style.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Feed" href="http://itx.web.id/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Comments Feed" href="http://itx.web.id/comments/feed/" />
+<meta name="description" content="Hal yang juga menarik: var sitti_pub_id = 'BC0004948'; var sitti_ad_width = '250'; var sitti_ad_height = '250'; var sitti_ad_type = '10'; var sitti_ad_number =..." />
+<link rel="alternate" type="application/rss+xml" title="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita &raquo; Export dari Database ke File Excel dalam CodeIgniter Comments Feed" href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/feed/" />
+<meta name="keywords" content="codeigniter export to excel, database to excel, export excel, mysql to excel, php export to excel" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<link rel="canonical" href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" />
+<link rel='stylesheet' id='openid-css'  href='http://itx.web.id/wp-content/plugins/openid/f/openid.css?ver=519' type='text/css' media='all' />
+<link rel='stylesheet' id='itx-css'  href='http://itx.web.id/?itx=css&#038;ver=3.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_dlmp_styles-css'  href='http://itx.web.id/wp-content/plugins/download-monitor/page-addon/styles.css?ver=3.0.3' type='text/css' media='all' />
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.js?ver=1.4.2'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/openid/f/openid.js?ver=519'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/comment-reply.js?ver=20090102'></script>
+<script type='text/javascript' src='http://itx.web.id/?itx=js&#038;ver=3.0.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/google-analyticator/external-tracking.min.js?ver=6.2'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://itx.web.id/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://itx.web.id/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita' href='http://itx.web.id/' />
+<link rel='start' title='Postingan pertama kita:' href='http://itx.web.id/selingan/postingan-pertama-kita/' />
+<link rel='prev' title='Sistem Login simple MD5 (+Logout) dengan CodeIgniter' href='http://itx.web.id/php/sistem-login-simple-md5-logout-dengan-codeigniter/' />
+<link rel='next' title='Posting Source Code dalam WordPress MUDAH dengan SyntaxHighlighter' href='http://itx.web.id/wordpress/plugin/posting-source-code-dalam-wordpress-mudah-dengan-syntaxhighlighter/' />
+<meta name="generator" content="WordPress 3.0.3" />
+<link rel='shortlink' href='http://wp.me/pQDEl-hS' />
+<meta name="framework" content="Alkivia Framework 0.8" />
+<!-- WALL= --><script type="text/javascript">
+function limitChars(textid, limit, infodiv)
+{
+	var text = jQuery('#'+textid).val();	
+	var textlength = text.length;
+	if(textlength > limit)
+	{
+		jQuery('#' + infodiv).html('You cannot write more then '+limit+' characters!');
+		jQuery('#'+textid).val(text.substr(0,limit));
+		return false;
+	}
+	else
+	{
+		jQuery('#' + infodiv).html('You have '+ (limit - textlength) +' characters left.');
+		return true;
+	}
+}
+function displayVals() {
+      var t3 = jQuery("#t3").val();
+      var amount = jQuery("#amount").val();
+      if(t3 != 0){
+	    jQuery('#a3').val(amount);
+	    jQuery('#p3').val(1);
+		jQuery('#cmd').val('_xclick-subscriptions')
+	  }else{
+	  	jQuery('#a3').val(0);
+	  	jQuery('#p3').val(0);
+	  	jQuery('#cmd').val('_donations');
+	  }
+	  if( !t3 ) jQuery('#cmd').val('_donations');
+	  
+}
+
+jQuery(function(){
+ 	jQuery('#donor_comment').keyup(function(){
+ 		limitChars('donor_comment', 199, 'charinfo');
+ 	})
+
+ 	jQuery("#amount").change(displayVals);
+ 	jQuery("#t3").change(displayVals);
+ 	displayVals();
+ 	
+ 	var WallOps1 = '<p class="show_onwall" id="wallops"><input type="hidden" name="item_number" value="0:0" /></p>';
+ 	var WallOps2 = '<p class="show_onwall" id="wallops"><label for="show_onwall">Show on Wall:</label><br /><select name="item_number"><option value="1:0">Donation Amount, User Details &amp; Comments</option><option value="2:0">User Details &amp; Comments Only</option></select></p>';
+
+ 	if( jQuery('#recognize').is(':checked') == false){ 
+ 		jQuery('#wallinfo').hide();
+ 		jQuery("#wallops").html(WallOps1);
+ 	}
+ 	
+ 	jQuery("#recognize").click(function(){
+ 		jQuery("#wallinfo").toggle('slow');
+ 		if(jQuery('#wallops input').val() == '0:0'){ 
+ 			jQuery("#wallops").html(WallOps2);
+ 		}else{
+ 			jQuery("#wallops").html(WallOps1);
+ 		}
+ 	})
+ 	
+		
+});
+
+</script>
+        <div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '113869198637480', status: true, cookie: true, xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+<script type="text/javascript">var icl_lang = 'id';var icl_home = 'http://itx.web.id/';</script>
+<script type="text/javascript" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/js/sitepress.js"></script>
+<meta name="generator" content="WPML ver:2.0.4.1 stt:25,1;0;0;0" />
+<meta name="tweetmeme-title" content="Export dari Database ke File Excel dalam CodeIgniter" /><meta http-equiv="X-XRDS-Location" content="http://itx.web.id/?xrds" />
+<meta http-equiv="X-Yadis-Location" content="http://itx.web.id/?xrds" />
+<meta id="syntaxhighlighteranchor" name="syntaxhighlighter-version" content="3.1.3" />
+<!-- Google Analytics Tracking by Google Analyticator 6.2: http://ronaldheft.com/code/analyticator/ -->
+<script type="text/javascript">
+	var analyticsFileTypes = [''];
+	var analyticsEventTracking = 'enabled';
+</script>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-2930741-12']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+</head>
+<body class="single single-post postid-1108">
+    <div class="wrap">
+        <div id="top-menu">
+            <ul id="menu-atas" class="sf-menu top-menu"><li id="menu-item-356" class="menu-item menu-item-type-custom menu-item-home menu-item-356"><a href="http://itx.web.id/">Home</a></li>
+<li id="menu-item-354" class="menu-item menu-item-type-post_type menu-item-354"><a href="http://itx.web.id/donate/">Donate</a></li>
+<li id="menu-item-355" class="menu-item menu-item-type-post_type menu-item-355"><a href="http://itx.web.id/tentang-kita/">Tentang kita :</a></li>
+<li id="menu-item-1969" class="menu-item menu-item-type-post_type menu-item-1969"><a href="http://itx.web.id/menggunakan-jasa-itx/">Menggunakan Jasa itx</a></li>
+<li id="menu-item-1702" class="menu-item menu-item-type-custom menu-item-1702"><a title="PulsaSuper" href="http://itx.web.id/selingan/pulsasuper-pulsa-elektronik-yang-handal-cepat-dan-murah/">Bonus Pulsa</a></li>
+</ul>        </div>
+    </div>
+    
+        <div id="headerwrap"><div class="clear"></div>
+        <div id="header" class="wrap"><div class="header"><a href="http://itx.web.id/">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a></div><span class="tagline">bukan untuk membenci, bukan untuk mencaci, tapi untuk memahami</span>
+        </div>
+        </div>    <div id="menucont" class="ui-widget-header">
+        <div class="wrap">
+            <div id="menu">
+                <ul id="menu-standar" class="sf-menu"><li id="menu-item-349" class="menu-item menu-item-type-taxonomy current-post-ancestor current-menu-parent current-post-parent menu-item-349"><a href="http://itx.web.id/category/php/">PHP</a></li>
+<li id="menu-item-351" class="menu-item menu-item-type-taxonomy menu-item-351"><a href="http://itx.web.id/category/wordpress/">WordPress</a>
+<ul class="sub-menu">
+	<li id="menu-item-352" class="menu-item menu-item-type-taxonomy menu-item-352"><a href="http://itx.web.id/category/wordpress/plugin/">WordPress Plugins</a></li>
+</ul>
+</li>
+<li id="menu-item-345" class="menu-item menu-item-type-taxonomy menu-item-345"><a href="http://itx.web.id/category/english/">Bahasa Inggris</a></li>
+<li id="menu-item-346" class="menu-item menu-item-type-taxonomy menu-item-346"><a href="http://itx.web.id/category/indonesia/">Indonesia</a></li>
+<li id="menu-item-1359" class="menu-item menu-item-type-taxonomy menu-item-1359"><a href="http://itx.web.id/category/jawa/">Jawa</a></li>
+<li id="menu-item-348" class="menu-item menu-item-type-taxonomy menu-item-348"><a href="http://itx.web.id/category/jquery/">jQuery</a></li>
+<li id="menu-item-350" class="menu-item menu-item-type-taxonomy menu-item-350"><a href="http://itx.web.id/category/selingan/">Selingan</a></li>
+<li id="menu-item-353" class="menu-item menu-item-type-post_type menu-item-353"><a title="Lowongan Penulis Lepas / Freelance Writer" href="http://itx.web.id/lowongan-penulis/">Lowongan Penulis</a></li>
+</ul>		<ul id="links">
+		<li>
+		<a href="http://twitter.com/itx_" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/twitter.png" alt ="my twitter" title="Follow our twitter" />
+		</a></li>
+		
+		<li>
+		<a href="http://www.facebook.com/itxitx" rel="nofollow">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/facebook.png" alt ="my facebook" title="Follow our facebook" />
+		</a></li>
+		
+				<li><a href="http://itx.web.id/feed/">
+			<img src="http://itx.web.id/wp-content/themes/bombax/images/rss.png" alt="Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita" title="Follow our RSS" />
+		</a></li>
+			</ul>
+	                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div id="on" class="sidebaron"></div><div id="off" class="sidebaroff"></div>
+<div class="clear"></div><div id="main" class="wrap">
+<div id="mainwrap">
+<div id="content">
+<div id="contentpad">
+<div id="contentwrap">
+    <div class="post-1108 post type-post hentry category-php tag-codeigniter-export-to-excel tag-database-to-excel tag-export-excel tag-mysql-to-excel tag-php-export-to-excel singlepost">
+        <div class="postwrap ui-widget-content">
+			<div class="titlewrap">
+				<div class='commentcount ui-state-hover'><span class="ui-icon ui-icon-comment"></span><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comments">13</a></div>												<h1 class="title">
+					<a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" rel="bookmark">Export dari Database ke File Excel dalam CodeIgniter</a>
+				</h1>
+								<div class="clear"></div>
+				<div class="meta ui-state-default">
+					<div class='date '>December 15, 2010</div>					<div class='author '>by <a href="http://itx.web.id/author/littleflow3r/" title="Posts by littleflow3r">littleflow3r</a></div>					<div class="clear"></div>
+				</div>
+				<small></small>
+			</div>
+			<div class="entry">
+			<!-- Chitika|Premium - WordPress Plugin --><div class="chitika-adspace above"><script type="text/javascript"><!--
+ch_client = "itx";
+ch_type = "mpu";
+ch_width = 500;
+ch_height = 250;
+ch_color_bg = "";
+ch_color_title = "";
+ch_color_site_link = "";
+ch_color_text = "";
+ch_non_contextual = 4;
+ch_vertical = "premium";
+ch_font_title = "";
+ch_font_text = "";
+ch_sid = "itx";
+var ch_queries = new Array( );
+var ch_selected=Math.floor((Math.random()*ch_queries.length));
+if ( ch_selected < ch_queries.length ) {
+ch_query = ch_queries[ch_selected];
+}
+//--></script>
+<script  src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript"></script></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Fexport-dari-database-ke-file-excel-dalam-codeigniter%2F" style="margin:0px 0px 0px 0px;"></fb:like><div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/"></a></div>
+<p>Studi Kasus : Melakukan Export data dari Database (Mysql) ke file Excel dalam CodeIgniter</p>
+<p>Requirements : Webserver Package, already installed. CodeIgniter.</p>
+<p>Export data sangat dibutuhkan apabila kita mendevelop aplikasi, terutama untuk aplikasi perkantoran. Sebagian besar perkantoran masih menggunakan excel untuk memanage data mereka, karena excel memang salah satu aplikasi paling awal yang digunakan untuk memanajemen data perkantoran.</p>
+<p><strong>Step 1 : Konfigurasi CI </strong></p>
+<ol>
+<li>Buka file <strong>config.php</strong> yang berada dalam folder system<strong>-application-config-config.php</strong></li>
+<li>Ubah <em>base url</em>, sesuaikan dengan lokasi dimana folder CI-mu berada      (tempat ekstrak-an tadi). Contoh : Folder CI anda berada dalam folder      www/ci<br />
+maka ubah baris      <code>$config['base_url']="http://example.com/";</code><br />
+<em>dengan</em><br />
+<code>$config['base_url']      = "http://localhost/ci/";</code></li>
+<li>Setting database. Buka file <em>database.php</em> yang berada dalam      folder yang sama dengan <em>config.php</em>. Ubah <em>hostname</em>, <em>username</em>, <em>password</em>, dan nama database. Sesuaikan dengan pengaturan <em>mysql</em> anda. Contoh :<br />
+<code>$db['default']['hostname']      = "localhost";<br />
+$db['default']['username'] = "root";<br />
+$db['default']['password'] = "";<br />
+$db['default']['database'] = "db_tutorial";</code></li>
+</ol>
+<p><strong>Step 2 : Siapkan Database</strong></p>
+<ol>
+<li>Buat database dengan nama <strong>db_tutorial</strong> (via <em>phpmyadmin</em>)</li>
+<li>Siapkan tabel dengan nama <strong>tb_book</strong> (untuk strukturnya, lihat gambar dibawah ini)<br />
+<a rel="attachment wp-att-1014" href="http://itx.web.id/?attachment_id=1014"><img class="aligncenter size-full wp-image-1014" src="http://itx.web.id/uploads/2010/12/tabelstruk.png" alt="" width="513" height="87" /></a></li>
+<li>Insertkan beberapa sample data, sebagai contoh insertkan data seperti tabel dibawah ini.<br />
+<a rel="attachment wp-att-1018" href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/attachment/sampledata/"><img class="aligncenter size-full wp-image-1018" src="http://itx.web.id/uploads/2010/12/sampledata.png" alt="" width="218" height="89" /></a></li>
+<li>Ok, <em>we&#8217;re done with database !</em></li>
+</ol>
+<p><strong>Step 3 : Membuat Controller</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+class Buku_con extends Controller {
+public function Buku_con() {
+parent::__construct();
+$this-&gt;load-&gt;model('buku_model');//load the model
+$this-&gt;load-&gt;library('pagination');
+}
+//function to get the data from tb_book
+function getBuku() {
+$data['title'] = 'menampilkan isi buku';
+$data['detail'] = $this-&gt;buku_model-&gt;getBuku();//call the model and save the result in $detail
+$this-&gt;load-&gt;view('buku_view', $data);
+}
+//function to export to excel
+function toExcelAll() {
+$query['data1'] = $this-&gt;buku_model-&gt;ToExcelAll();
+$this-&gt;load-&gt;view('excel_view',$query);
+}
+}
+?&gt;</pre>
+</li>
+<li> Simpan dengan nama buku_con dalam folder <strong>system-application-controllers</strong></li>
+<li><strong>Penjelasan :</strong>Lihat di komen script.</li>
+</ol>
+<p><strong>Step 4 : Membuat Model</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+class Buku_model extends Model {
+function Buku_model() {
+parent::Model();
+}
+function getBuku() {
+$this-&gt;db-&gt;select('*');
+$this-&gt;db-&gt;from('tb_book');
+$this-&gt;db-&gt;order_by('id','DESC');
+$getData = $this-&gt;db-&gt;get();
+if($getData-&gt;num_rows() &gt; 0)
+return $getData-&gt;result_array();
+else
+return null;
+}
+//query for get all data
+function toExcelAll() {
+$this-&gt;db-&gt;select('*');
+$this-&gt;db-&gt;from('tb_book');
+$this-&gt;db-&gt;order_by('id','desc');
+$getData = $this-&gt;db-&gt;get();
+if($getData-&gt;num_rows() &gt; 0)
+return $getData-&gt;result_array();
+else
+return null;
+}
+}
+?&gt;
+</pre>
+</li>
+<li>Simpan dalam folder <strong>system-application-models</strong>, dengan nama <strong>buku_model.php</strong></li>
+</ol>
+<p><strong>Step 5 : Membuat View (yang menampilkan link untuk export) </strong></strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;h4&gt;Book Data&lt;/h4&gt;
+&lt;?php if(count($detail) &gt; 0) { ?&gt;
+&lt;table border=&quot;1&quot;&gt;
+&lt;tr&gt;
+&lt;th&gt;ID&lt;/th&gt;
+&lt;th&gt;Title&lt;/th&gt;
+&lt;th&gt;Author&lt;/th&gt;
+&lt;/tr&gt;
+&lt;?php
+foreach($detail as $rows) {
+echo &quot;&lt;tr&gt;&quot;;
+echo &quot;
+&lt;td&gt;&quot;.  $rows['id'].&quot;&lt;/td&gt;
+&lt;td&gt;&quot;. $rows['title'] .&quot;&lt;/td&gt;
+&lt;td&gt;&quot;. $rows['author'] .&quot;&lt;/td&gt;
+&quot;; } ?&gt;
+&lt;/table&gt;
+&lt;?php } ?&gt;
+&lt;br&gt; &lt;br&gt;
+&lt;a href='toExcelAll'&gt;&lt;span style='color:green;'&gt;Export All Data&lt;/span&gt;&lt;/a&gt;
+</pre>
+</li>
+<li>Simpan dalam folder <strong>system-application-views</strong>, dengan nama <strong>buku_view.php</strong></li>
+<li><strong>Penjelasan : </strong><code>$detail</code> didapatkan dari controller, variabel ini berisi data dari <strong>tb_book</strong> (hasil dari model). Kemudian data ditampilkan dalam bentuk arrays.</li>
+</ol>
+<p><strong>Step 6 : Membuat View (view untuk menconvert ke excel)</strong></p>
+<ol>
+<li>Ketikkan script berikut,
+<pre class="brush: php; title: ; notranslate" title="">
+&lt;?php
+header(&quot;Content-type: application/octet-stream&quot;);
+header(&quot;Content-Disposition: attachment; filename=exceldata.xls&quot;);
+header(&quot;Pragma: no-cache&quot;);
+header(&quot;Expires: 0&quot;);
+?&gt;
+&lt;table border='1' width=&quot;70%&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;ID&lt;/td&gt;
+&lt;td&gt;TITLE&lt;/td&gt;
+&lt;td&gt;AUTHOR&lt;/td&gt;
+&lt;/tr&gt;
+&lt;?
+foreach($data1 as $item) {
+?&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;?=$item['id']?&gt;&lt;/td&gt;
+&lt;td&gt;&lt;?=$item['title']?&gt;&lt;/td&gt;
+&lt;td&gt;&lt;?=$item['author']?&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;? } ?&gt;
+&lt;/table&gt;
+</pre>
+</li>
+<li>Simpan dalam folder <strong>system-application-views</strong>, dengan nama <strong>excel_view.php</strong></li>
+</ol>
+<p><strong>Step 7 : Testing Code</strong></p>
+<ol>
+<li>Buka browser, pergi ke <strong>http://localhost/namaFolderCIKamu/buku_con/getBuku</strong></li>
+<li>Anda akan melihat tampilan seperti berikut,<br />
+<a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/attachment/data/" rel="attachment wp-att-1112"><img src="http://itx.web.id/uploads/2010/12/data.png" alt="" width="226" height="190" class="aligncenter size-full wp-image-1112" /></a>
+</li>
+<li>Klik pada link Export to excell, maka browser akan otomatis mendownload file excel,<br />
+<a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/attachment/download/" rel="attachment wp-att-1113"><img src="http://itx.web.id/uploads/2010/12/download.png" alt="" width="405" height="284" class="aligncenter size-full wp-image-1113" /></a>
+</li>
+<li>Buka file excel yang telah di download, maka data dari tb_book akan ditampilkan <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /><br />
+<a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/attachment/exc/" rel="attachment wp-att-1114"><img src="http://itx.web.id/uploads/2010/12/exc.png" alt="" width="911" height="89" class="aligncenter size-full wp-image-1114" /></a>
+</li>
+</ol>
+<p>Silahkan mencoba <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' />  Happy Coding <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' class='wp-smiley' /><br />
+Hal yang juga menarik:<br />
+<script>
+var sitti_pub_id = "BC0004948";
+var sitti_ad_width = "250";
+var sitti_ad_height = "250";
+var sitti_ad_type = "10";
+var sitti_ad_number = "3";
+var sitti_ad_name = "bawah post";
+var sitti_dep_id = "8111";
+</script><br />
+<script src="http://202.52.131.5/delivery/sittiad.b1.js"></script></p>
+<blockquote><h3>Hak Cipta</h3>
+<p>Semua skrip dan teknik dalam artikel di itx.web.id boleh digunakan sebagaimana kehendakmu tanpa perlu mencantumkan sumber. Kamu tidak boleh mengkopi seluruh artikel, dalam Bahasa Indonesia ataupun diterjemahkan ke dalam bahasa lain.
+</p></blockquote>
+<div class="tweetmeme_button" style="padding-top:12px;"><a class="tm_button" rel="&amp;style=compact&amp;b=2" href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/"></a></div>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="http%3A%2F%2Fitx.web.id%2Fphp%2Fexport-dari-database-ke-file-excel-dalam-codeigniter%2F" style="margin:0px 0px 0px 0px;"></fb:like><h4>Pencarian ke sini:</h4><div> <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="codeigniter excel">codeigniter excel</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="convert file to excel in ci">convert file to excel in ci</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="mysql to excel codeigniter">mysql to excel codeigniter</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="excel codeigniter">excel codeigniter</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="codeigniter export to excel">codeigniter export to excel</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="export to excel php codeigniter">export to excel php codeigniter</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="export to excel codeigniter">export to excel codeigniter</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="function to export to excel">function to export to excel</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="codeigniter export as excel">codeigniter export as excel</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="export mysql kepada excel php">export mysql kepada excel php</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="membuka file db">membuka file db</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="excel plugins codeigniter">excel plugins codeigniter</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="contoh membuat data base dengan exel">contoh membuat data base dengan exel</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="excelversi bahasa indonesia">excelversi bahasa indonesia</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="codeigniter php to xls">codeigniter php to xls</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="script php save as excel">script php save as excel</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="export to excel in codeigniter">export to excel in codeigniter</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="codeigniter export ke excel library">codeigniter export ke excel library</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="export to excel">export to excel</a>, <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" title="export table mysql to excel php">export table mysql to excel php</a>.</div><p>This post is also available in: <a href="http://en.itx.web.id/php-en/export-from-database-to-excel-file-in-the-codeigniter/">English</a></p><div class='clear'></div><br><h3>Related Articles:</h3><ul id="related_posts_thumbnails"><li ><a href="http://itx.web.id/php/editor-php-gratisan-untuk-kita/" ><img alt="Editor PHP gratisan untuk kita:" src="http://itx.web.id/wp-content/plugins/related-posts-thumbnails/img/default.png" width="16" height="16" /></a><a href="http://itx.web.id/php/editor-php-gratisan-untuk-kita/"><span>Editor PHP gratisan untuk kita:</span></a></li><li ><a href="http://itx.web.id/php/validasi-form-dalam-codeigniter/" ><img alt="Validasi Form dalam CodeIgniter" src="http://itx.web.id/uploads/2010/11/formSalah-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/validasi-form-dalam-codeigniter/"><span>Validasi Form dalam CodeIgniter</span></a></li><li ><a href="http://itx.web.id/php/sistem-login-simple-md5-logout-dengan-codeigniter/" ><img alt="Sistem Login simple MD5 (+Logout) dengan CodeIgniter" src="http://itx.web.id/uploads/2010/12/formlog-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/sistem-login-simple-md5-logout-dengan-codeigniter/"><span>Sistem Login simple MD5 (+Logout) dengan CodeIgniter</span></a></li><li ><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/" ><img alt="Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql" src="http://itx.web.id/uploads/2011/01/suks-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/"><span>Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql</span></a></li><li ><a href="http://itx.web.id/php/membuat-form-combobox-dinamis-dari-database-mysql-dengan-php/" ><img alt="Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP" src="http://itx.web.id/uploads/2011/02/form-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/membuat-form-combobox-dinamis-dari-database-mysql-dengan-php/"><span>Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP</span></a></li><li ><a href="http://itx.web.id/php/fungsi-delete-data-dalam-mysql-dengan-php/" ><img alt="Fungsi Delete Data dalam Mysql dengan PHP" src="http://itx.web.id/uploads/2011/02/suks2-16x16.png" width="16" height="16" /></a><a href="http://itx.web.id/php/fungsi-delete-data-dalam-mysql-dengan-php/"><span>Fungsi Delete Data dalam Mysql dengan PHP</span></a></li></ul><div style="clear: both"></div>			</div>
+			<div class="clear"></div>
+            <div class="linkpages"></div>
+            <div class="clear"></div>
+                        <div class="footmeta">
+                <div class='categories '><span class="ui-icon ui-icon-folder-open"></span> : <a href="http://itx.web.id/category/php/" title="View all posts in PHP" rel="category tag">PHP</a></div><div class='tags '><span class="ui-icon ui-icon-tag"></span> : <a href="http://itx.web.id/tag/codeigniter-export-to-excel/" rel="tag">codeigniter export to excel</a>, <a href="http://itx.web.id/tag/database-to-excel/" rel="tag">database to excel</a>, <a href="http://itx.web.id/tag/export-excel/" rel="tag">export excel</a>, <a href="http://itx.web.id/tag/mysql-to-excel/" rel="tag">mysql to excel</a>, <a href="http://itx.web.id/tag/php-export-to-excel/" rel="tag">php export to excel</a></div><div class='author_info '><h4>About the author</h4><img alt='' src='http://1.gravatar.com/avatar/1d76e024a2685e42d489efd861e08325?s=48&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D48&amp;r=G' class='avatar avatar-48 photo' height='48' width='48' /><span>obviously, a girl. with sweet smile, off course. turning her 21 years trapped on Informatics departement and just started to having some crush with it lately. she uses wordpress. she loves php. she lo</span><div class="author_url"><a href="http://littleflow3r.wordpress.com/">littleflow3r.wordpress.com/</a></div><div class="clear"></div></div>            </div>
+                        <div class="clear"></div>
+        
+<div id="comments">
+    
+    
+    <div class="commentmeta ui-state-default ">
+	<h3 id="commentstitle"><b>13</b> Comments</h3>
+            </div>
+    <ul class="commentlist">
+				<li class="comment even thread-even depth-1" id="comment-1184">
+				<div id="div-comment-1184" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/8eb18ce3b9b136d69d8b3acbff1d91fd?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://nugroho.net' rel='external nofollow' class='url'>Nugs</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-1184">
+			January 3, 2011 at 10:48 pm</a>		</div>
+
+		<p>Tips yang bagus sekali untuk database, makasih <img src='http://itx.web.id/wp-includes/images/smilies/icon_lol.gif' alt=':lol:' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=1184#respond' onclick='return addComment.moveForm("div-comment-1184", "1184", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1237">
+				<div id="div-comment-1237" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/17d6a2b125d2891f79a90ba9680d542e?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://www.catatankaki.com' rel='external nofollow' class='url'>fadh</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-1237">
+			January 8, 2011 at 6:31 am</a>		</div>
+
+		<p>Nice share. Mohon bantuannya untuk buat worksheet yang lebih 1.<br />
+ <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=1237#respond' onclick='return addComment.moveForm("div-comment-1237", "1237", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-1403">
+				<div id="div-comment-1403" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/695f4b4b9e9d4cf419863a792ff9e3d6?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://www.opensource2010.wordpress.com' rel='external nofollow' class='url'>awan(bali)</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-1403">
+			January 25, 2011 at 1:38 pm</a>		</div>
+
+		<p>wew..mas..yang ini udah sesuai tutor saya ikuti tapi ga mau juga&#8230;.gimana ini&#8230;.???? kalao di settingan routesnya emang ga dirubah ya, trus autoloadnya juga??? kasi yang complate ya mas&#8230;..kalau bisa kirimkan ke fb saya mas, email : <a href="mailto:alien_awan44@yahoo.com">alien_awan44@yahoo.com</a> makasihh mas&#8230;. lg butuhh ini</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=1403#respond' onclick='return addComment.moveForm("div-comment-1403", "1403", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1404">
+				<div id="div-comment-1404" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/695f4b4b9e9d4cf419863a792ff9e3d6?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://opensource2010.wordpress.com/' rel='external nofollow' class='openid_link url'>awan(bali)</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-1404">
+			January 25, 2011 at 1:38 pm</a>		</div>
+
+		<p>wew..mas..yang ini udah sesuai tutor saya ikuti tapi ga mau juga&#8230;.gimana ini&#8230;.???? kalao di settingan routesnya emang ga dirubah ya, trus autoloadnya juga??? kasi yang complate ya mas&#8230;..kalau bisa kirimkan ke fb saya mas, email : <a href="mailto:alien_awan44@yahoo.com">alien_awan44@yahoo.com</a> makasihh mas&#8230;.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=1404#respond' onclick='return addComment.moveForm("div-comment-1404", "1404", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-1992">
+				<div id="div-comment-1992" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/892d65791889e3cc7f14ce743f33ff5c?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://bestseowebhosting.blogspot.com/' rel='external nofollow' class='url'>linuxers</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-1992">
+			February 20, 2011 at 10:14 am</a>		</div>
+
+		<p>wadowh panjang banget&#8221;" ijin ngikuti kang maklum newbie nih</p>
+<p>salam from hpnokia.blogspot.com</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=1992#respond' onclick='return addComment.moveForm("div-comment-1992", "1992", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2744">
+				<div id="div-comment-2744" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/054547310eebb2acce44fde6a342c2c4?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">ratna</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-2744">
+			April 14, 2011 at 11:22 am</a>		</div>
+
+		<p>kalo misalnya tampilan yg udah jadi di web..trus upload ke excel bisa? jadi sumber&#8217;a bkn dari database tapi dari tampilan view web&#8217;a?</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=2744#respond' onclick='return addComment.moveForm("div-comment-2744", "2744", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3367">
+				<div id="div-comment-3367" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/e07e2ccb4e558dd274be41dc155feacd?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">yudi</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-3367">
+			June 17, 2011 at 4:25 am</a>		</div>
+
+		<p>biar bisa, ubah setting autoload na seperti ini&#8230;<br />
+$autoload['libraries'] = array(&#8216;database&#8217;);</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=3367#respond' onclick='return addComment.moveForm("div-comment-3367", "3367", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3475">
+				<div id="div-comment-3475" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/4b67a76d5d647890a39a2756eec549d7?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">Mahrizal</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-3475">
+			July 20, 2011 at 1:58 pm</a>		</div>
+
+		<p>Thank you<br />
+it works for me</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=3475#respond' onclick='return addComment.moveForm("div-comment-3475", "3475", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-3541">
+				<div id="div-comment-3541" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://0.gravatar.com/avatar/4fe864f13f2aa6e56c9085c9936a077c?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">Randy</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-3541">
+			August 11, 2011 at 12:28 am</a>		</div>
+
+		<p>thx infonya&#8230;<br />
+udah aq coba, tp klo record berisi (misal) 9223372036854775807 ato number lebih dari 15 digit, di excel jadinya 9.22337E+18 dan klo aq ganti ke text/lainnya malah berubah sm yg di dB.<br />
+mohon pencerahannya  <img src='http://itx.web.id/wp-includes/images/smilies/grin.gif' alt=':-D' class='wp-smiley' /><br />
+thx</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=3541#respond' onclick='return addComment.moveForm("div-comment-3541", "3541", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3879">
+				<div id="div-comment-3879" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/bd5158290af85347de79ced1c27ba5ef?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn"><a href='http://-' rel='external nofollow' class='url'>Ratna</a></cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-3879">
+			September 27, 2011 at 11:42 am</a>		</div>
+
+		<p>Makasih banget buat sharingnya. kebetulan bgt sesuai dengan yg saya cari&#8230;.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=3879#respond' onclick='return addComment.moveForm("div-comment-3879", "3879", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-4018">
+				<div id="div-comment-4018" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/3a93bd045a354a117902eca543813f77?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">rara</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-4018">
+			October 28, 2011 at 9:58 am</a>		</div>
+
+		<p>&#8220;thx infonya…<br />
+udah aq coba, tp klo record berisi (misal) 9223372036854775807 ato number lebih dari 15 digit, di excel jadinya 9.22337E+18 dan klo aq ganti ke text/lainnya malah berubah sm yg di dB.<br />
+mohon pencerahannya<br />
+thx&#8221;</p>
+<p>samaaa&#8230;mhon pencerahannya&#8230; <img src='http://itx.web.id/wp-includes/images/smilies/dance_moves.gif' alt='(funkydance)' class='wp-smiley' /> </p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=4018#respond' onclick='return addComment.moveForm("div-comment-4018", "4018", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4064">
+				<div id="div-comment-4064" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/3a0ebabee5c1c0a207d7cc01c82778a5?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">iwan</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-4064">
+			November 3, 2011 at 11:54 am</a>		</div>
+
+		<p>Mau tanya, klo file hasil exportnya Read Only bagaimana ya. Thx, mohon reply nya.</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=4064#respond' onclick='return addComment.moveForm("div-comment-4064", "4064", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+		<li class="comment even thread-even depth-1" id="comment-4148">
+				<div id="div-comment-4148" class="comment-body">
+				<div class="comment-author vcard">
+		<img alt='' src='http://1.gravatar.com/avatar/99aafc27db18efae7514a09a506dfab1?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G' class='avatar avatar-60 photo' height='60' width='60' />		<cite class="fn">MeiloJr</cite> <span class="says">says:</span>		</div>
+
+		<div class="comment-meta commentmetadata"><a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/#comment-4148">
+			November 16, 2011 at 4:06 pm</a>		</div>
+
+		<p>Thanks yah gan</p>
+
+		<div class="reply">
+		<a rel='nofollow' class='comment-reply-link' href='/php/export-dari-database-ke-file-excel-dalam-codeigniter/?replytocom=4148#respond' onclick='return addComment.moveForm("div-comment-4148", "4148", "respond", "1108")'>Reply</a>		</div>
+				</div>
+		</li>
+    </ul>
+    
+    
+    
+
+<div class="clear"></div>
+
+								<div id="respond">
+				<h3 id="reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/php/export-dari-database-ke-file-excel-dalam-codeigniter/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://itx.web.id/wp-comments-post.php" method="post" id="commentform">
+																			<p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name</label> <span class="required">*</span><input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email</label> <span class="required">*</span><input id="email" name="email" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label><input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label><textarea id="comment" name="comment" cols="45" rows="8" aria-required="true"></textarea></p>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='1108' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="c9c903ee4e" /></p>
+	<!-- Custom Smilies - Version 2.9.1 -->
+	<style type="text/css">
+	img.wp-smiley-select {cursor: pointer;}
+	</style>
+    <script type="text/javascript">
+    function grin(tag) {
+    	if (typeof tinyMCE != 'undefined') {
+    		grin_tinymcecomments(tag);
+    	} else {
+    		grin_plain(tag);
+    	}
+    }
+    function grin_tinymcecomments(tag) {
+    	tinyMCE.execCommand('mceInsertContent', false, ' ' + tag + ' ');
+    }
+    
+    function grin_plain(tag) {
+    	var myField;
+    	var myCommentTextarea = "comment";
+    	tag = ' ' + tag + ' ';
+        if (document.getElementById(myCommentTextarea) && document.getElementById(myCommentTextarea).type == 'textarea') {
+    		myField = document.getElementById(myCommentTextarea);
+    	} else {
+    		return false;
+    	}
+    	if (document.selection) {
+    		myField.focus();
+    		sel = document.selection.createRange();
+    		sel.text = tag;
+    		myField.focus();
+    	}
+    	else if (myField.selectionStart || myField.selectionStart == '0') {
+    		var startPos = myField.selectionStart;
+    		var endPos = myField.selectionEnd;
+    		var cursorPos = endPos;
+    		myField.value = myField.value.substring(0, startPos)
+    					  + tag
+    					  + myField.value.substring(endPos, myField.value.length);
+    		cursorPos += tag.length;
+    		myField.focus();
+    		myField.selectionStart = cursorPos;
+    		myField.selectionEnd = cursorPos;
+    	}
+    	else {
+    		myField.value += tag;
+    		myField.focus();
+    	}
+    }
+    
+    function moreSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'inline';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:lessSmilies()">&laquo;&nbsp;less</a></span>';
+    }
+    
+    function lessSmilies() {
+    	document.getElementById('wp-smiley-more').style.display = 'none';
+    	document.getElementById('wp-smiley-toggle').innerHTML = '<a href="javascript:moreSmilies()">more&nbsp;&raquo;</a>';
+    }
+    </script>
+<img src='http://itx.web.id/wp-includes/images/smilies/angry1.gif' alt='x(' onclick='grin("x(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/angry_002.gif' alt='X-(' onclick='grin("X-(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cool.gif' alt='B-)' onclick='grin("B-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/wink.gif' alt=';-)' onclick='grin(";-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_wink.gif' alt=':wink:' onclick='grin(":wink:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_twisted.gif' alt=':twisted:' onclick='grin(":twisted:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_rolleyes.gif' alt=':roll:' onclick='grin(":roll:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_redface.gif' alt=':oops:' onclick='grin(":oops:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_mrgreen.gif' alt=':mrgreen:' onclick='grin(":mrgreen:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_lol.gif' alt=':lol:' onclick='grin(":lol:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_idea.gif' alt=':idea:' onclick='grin(":idea:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_evil.gif' alt=':evil:' onclick='grin(":evil:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_cry.gif' alt=':cry:' onclick='grin(":cry:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_arrow.gif' alt=':arrow:' onclick='grin(":arrow:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_biggrin.gif' alt=':D' onclick='grin(":D")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_question.gif' alt=':?:' onclick='grin(":?:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_neutral.gif' alt=':-|' onclick='grin(":-|")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_mad.gif' alt=':-x' onclick='grin(":-x")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/surprised.gif' alt=':-o' onclick='grin(":-o")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tongue.gif' alt=':-P' onclick='grin(":-P")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/grin.gif' alt=':-D' onclick='grin(":-D")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_confused.gif' alt=':-?' onclick='grin(":-?")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/joyful.gif' alt=':-))' onclick='grin(":-))")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' onclick='grin(":-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/crying.gif' alt=':-(' onclick='grin(":-(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/sick.gif' alt=':-&' onclick='grin(":-&")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_smile.gif' alt=':)' onclick='grin(":)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_sad.gif' alt=':(' onclick='grin(":(")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_exclaim.gif' alt=':!:' onclick='grin(":!:")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_eek.gif' alt='8-O' onclick='grin("8-O")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/nerd.gif' alt='8-)' onclick='grin("8-)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/icon_cool.gif' alt='8)' onclick='grin("8)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/russian.gif' alt='(Русский)' onclick='grin("(Русский)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/yupi.gif' alt='(yahoo)' onclick='grin("(yahoo)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/worship.gif' alt='(worship)' onclick='grin("(worship)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/w00t.gif' alt='(woot)' onclick='grin("(woot)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bye.gif' alt='(wave)' onclick='grin("(wave)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/unsure_002.gif' alt='(unsure)' onclick='grin("(unsure)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tongue_002.gif' alt='(tongue)' onclick='grin("(tongue)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/thinking.gif' alt='(thinking)' onclick='grin("(thinking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tears.gif' alt='(tears)' onclick='grin("(tears)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/taser.gif' alt='(taser)' onclick='grin("(taser)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/smiley-dance.gif' alt='(smileydance)' onclick='grin("(smileydance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/sleeping.gif' alt='(sleeping)' onclick='grin("(sleeping)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fever.gif' alt='(sick)' onclick='grin("(sick)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/scenic.gif' alt='(scenic)' onclick='grin("(scenic)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lol.gif' alt='(rofl)' onclick='grin("(rofl)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/rock_n_roll.gif' alt='(rock)' onclick='grin("(rock)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/party.gif' alt='(party)' onclick='grin("(party)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/startled.gif' alt='(panic)' onclick='grin("(panic)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/unsure1.gif' alt='(okok)' onclick='grin("(okok)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/not_talking.gif' alt='(nottalking)' onclick='grin("(nottalking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/ninja.gif' alt='(ninja)' onclick='grin("(ninja)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/listening_music.gif' alt='(music)' onclick='grin("(music)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/muscle.gif' alt='(muscle)' onclick='grin("(muscle)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/muhaha.gif' alt='(muhaha)' onclick='grin("(muhaha)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/money.gif' alt='(money)' onclick='grin("(money)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/like_food.gif' alt='(mmm)' onclick='grin("(mmm)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lonely.gif' alt='(lonely)' onclick='grin("(lonely)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/laugh.gif' alt='(lol)' onclick='grin("(lol)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/lmao.gif' alt='(lmao)' onclick='grin("(lmao)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/idiot.gif' alt='(idiot)' onclick='grin("(idiot)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/hungry.gif' alt='(hungry)' onclick='grin("(hungry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/wave.gif' alt='(highfive)' onclick='grin("(highfive)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/heart_beat.gif' alt='(heart_beat)' onclick='grin("(heart_beat)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/heart.gif' alt='(heart)' onclick='grin("(heart)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/headspin.gif' alt='(headspin)' onclick='grin("(headspin)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/silly_couple.gif' alt='(hassle)' onclick='grin("(hassle)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/haha.gif' alt='(haha)' onclick='grin("(haha)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/gym.gif' alt='(gym)' onclick='grin("(gym)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/gril_tongue.png' alt='(griltongue)' onclick='grin("(griltongue)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fingerscrossed.gif' alt='(goodluck)' onclick='grin("(goodluck)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/girl_kiss.gif' alt='(girlkiss)' onclick='grin("(girlkiss)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/dance_moves.gif' alt='(funkydance)' onclick='grin("(funkydance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/fish-hit.gif' alt='(fish_hit)' onclick='grin("(fish_hit)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/eyeroll.gif' alt='(eyeroll)' onclick='grin("(eyeroll)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/evilsmirk.gif' alt='(evilsmirk)' onclick='grin("(evilsmirk)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/evil_grin.gif' alt='(evil_grin)' onclick='grin("(evil_grin)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/drinking.gif' alt='(drinking)' onclick='grin("(drinking)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/doh.gif' alt='(doh)' onclick='grin("(doh)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/devil.gif' alt='(devil)' onclick='grin("(devil)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/dance.gif' alt='(dance)' onclick='grin("(dance)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cry.gif' alt='(cry)' onclick='grin("(cry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/cozy.gif' alt='(cozy)' onclick='grin("(cozy)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/coffee.gif' alt='(coffee)' onclick='grin("(coffee)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/broken_heart.gif' alt='(brokenheart)' onclick='grin("(brokenheart)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bring_it_on.gif' alt='(bringit)' onclick='grin("(bringit)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/blush.gif' alt='(blush)' onclick='grin("(blush)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/big_eyed.gif' alt='(bigeyes)' onclick='grin("(bigeyes)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/beer.gif' alt='(beer)' onclick='grin("(beer)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/bananarock.gif' alt='(banana_rock)' onclick='grin("(banana_rock)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/banana-ninja.gif' alt='(banana_ninja)' onclick='grin("(banana_ninja)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/banana_cool.gif' alt='(banana_cool)' onclick='grin("(banana_cool)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/applause.gif' alt='(applause)' onclick='grin("(applause)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/annoyed.gif' alt='(annoyed)' onclick='grin("(annoyed)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/angry.gif' alt='(angry)' onclick='grin("(angry)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/kiss.gif' alt='(K)' onclick='grin("(K)")' class='wp-smiley-select' /> <img src='http://itx.web.id/wp-includes/images/smilies/tired.gif' alt='(:' onclick='grin("(:")' class='wp-smiley-select' /> 		<span id="openid_comment">
+			<label>
+				<input type="checkbox" id="login_with_openid" name="login_with_openid" checked="checked" />
+				Authenticate this comment using <span class="openid_link">OpenID</span>.			</label>
+		</span>
+		<script type="text/javascript">jQuery(function(){ add_openid_to_comment_form('http://itx.web.id/index.php', '30e3e98b04') })</script>
+        
+        <input type="hidden" name="icl_comment_language" value="id" />
+        
+          
+        					</form>
+							</div><!-- #respond -->
+						</div>        </div>
+	</div>
+	<div class="clear"></div>
+    <div class="clear"></div>
+    <div id="extrastuff">
+        			<span id="rssleft"><a href='http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/feed/'><abbr title="Really Simple Syndication">RSS</abbr> feed for this post (comments)</a></span>
+        			<span id="trackright"> &#183; <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/trackback/" rel="trackback">TrackBack <abbr title="Uniform Resource Identifier">URI</abbr></a></span>
+        		<div class="clear"></div>
+    </div>
+
+</div>
+    <div class="nextprevious ui-state-active">
+        <div class="alignleft"><span>Previous Post</span><br />&laquo; <a href="http://itx.web.id/php/sistem-login-simple-md5-logout-dengan-codeigniter/" rel="prev">Sistem Login simple MD5 (+Logout) dengan CodeIgniter</a></div>
+        <div class="alignright"><span>Next Post</span><br /><a href="http://itx.web.id/wordpress/plugin/posting-source-code-dalam-wordpress-mudah-dengan-syntaxhighlighter/" rel="next">Posting Source Code dalam WordPress MUDAH dengan SyntaxHighlighter</a> &raquo;</div>
+        <div class="clear"></div>
+    </div>
+</div>
+</div> <!--/content-->
+<div id="sidebar-left" class="sidebar"><div class='sidebar-1'><ul><li id="text-6" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget">Like <b>itx.web.id</b>? <br>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://itx.web.id" show_faces="true" width="150"></fb:like></div>
+		</div></li><li id="text-8" class="widget left widget_text"><div class="widgetwrap  ">			<div class="textwidget"><div>
+<a href="http://sambadafarm.com">Domba Garut</a>
+<br>	
+<a href="http://sambadafarm.com/produk/">Domba Kurban</a>
+<br>	
+<a href="http://agromaret.com/jual/33529/domba_kurban_qurban_wilayah_yogyakarta">Domba Kurban</a>
+<br>
+<a href="http://www.kaskus.us/showthread.php?t=11046165">Domba Kurban</a>
+</div></div>
+		</div></li><li id="search-3" class="widget left widget_search"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Search</h3><form method="get" action="http://itx.web.id/" id="searchform"><div id="searchformwrap">
+<div class="searchbox"><div class="scont">
+<input type="text" value="Search here ...." name="s" id="searchbox" onfocus="this.value=''"/>
+</div></div>
+<div class="searchopen"></div>
+<div class="searchclose"><button type="submit" class="submitbutton" value="search"></button></div>
+</div></form></div></li><li id="itx_tabbed_sidebar-3" class="widget left itx_tabbed_sidebar"><div class="widgetwrap  ">
+<script type="text/javascript">/* <![CDATA[ */
+jQuery(function () {
+    jQuery("#widget-itx_tabbed_sidebar-3-thetab").tabs({ event: "mouseover" });
+});
+/* ]]> */</script>
+	<div class="tabbed" id="widget-itx_tabbed_sidebar-3-thetab"><ul class="tabheader"><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab0">Hai</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab1">Posts</a></li><li><a class="tabbed-a" href="#widget-itx_tabbed_sidebar-3-thetab2">Comments</a></li></ul><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab0"><div>Inilah blog itx.... seorang yang suka pemrograman web khususnya PHP dan WordPress... jangan ragu tinggalkan pesan di sini ... :)
+<br>
+Sebagian besar artikel di sini <b>tidak</b> saya tulis, melainkan ditulis oleh teman-teman author (penulis lepas). Jadi kalo menyapa jangan salah alamat yaaa... lihat dulu siapa penulis artikel ybs.</div></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab1"><ul>	<li><a href='http://itx.web.id/wordpress/membuat-multi-user-dalam-cms-wordpress/' title='Membuat Multi-user dalam CMS WordPress'>Membuat Multi-user dalam CMS WordPress</a></li>
+	<li><a href='http://itx.web.id/php/fungsi-sorting-pengurutan-instan-dengan-php/' title='Fungsi Sorting (Pengurutan) Instan dengan PHP'>Fungsi Sorting (Pengurutan) Instan dengan PHP</a></li>
+	<li><a href='http://itx.web.id/wordpress/menginstall-tema-baru-dalam-cms-wordpress/' title='Menginstall Tema Baru dalam CMS WordPress'>Menginstall Tema Baru dalam CMS WordPress</a></li>
+	<li><a href='http://itx.web.id/wordpress/membuat-halaman-statis-page-dalam-wordpress-beginner-only/' title='Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)'>Membuat Halaman Statis (Page) dalam WordPress (Beginner Only)</a></li>
+	<li><a href='http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/' title='Code Igniter : Export Data ke File PDF'>Code Igniter : Export Data ke File PDF</a></li>
+	<li><a href='http://itx.web.id/php/fungsi-fungsi-string-dalam-php/' title='Fungsi &#8211; Fungsi String dalam PHP'>Fungsi &#8211; Fungsi String dalam PHP</a></li>
+	<li><a href='http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/' title='Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI'>Menampilkan Data dari Database dengan CodeIgniter + AJAX dalam Template JQuery UI</a></li>
+	<li><a href='http://itx.web.id/php/pembulatan-bilangan-dalam-php/' title='Pembulatan Bilangan dalam PHP'>Pembulatan Bilangan dalam PHP</a></li>
+	<li><a href='http://itx.web.id/wordpress/memasang-album-foto-flickr-dalam-wordpress/' title='Memasang Album Foto Flickr dalam WordPress'>Memasang Album Foto Flickr dalam WordPress</a></li>
+	<li><a href='http://itx.web.id/wordpress/memasukkan-gambar-dalam-postingan-wordpress-untuk-pemula/' title='Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)'>Memasukkan Gambar dalam Postingan WordPress (untuk Pemula)</a></li>
+</ul></div><div class="tabbedtab" id="widget-itx_tabbed_sidebar-3-thetab2"><ul><li class="recentcomments"><strong><a href='http://www.juust.org/index.php/2010/12/' rel='external nofollow' class='url'>wordpress search engine optimization by juust</a>: </strong><a href="http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/#comment-4189">Thanks for the auspicious writeup. It if truth be told was once a entertainment account it. Glance complex to far ...</a></li><li class="recentcomments"><strong>edy: </strong><a href="http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/#comment-4184">kenapa belum bisa ya? statement yang keluar seperti ini :
+
+Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource ...</a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4182">problem had been resolved... <img src='http://itx.web.id/wp-includes/images/smilies/dance.gif' alt='(dance)' class='wp-smiley' /> 
+ありがとうございますのマスタ―　arigatou gozaimasu no masutaa <img src='http://itx.web.id/wp-includes/images/smilies/yupi.gif' alt='(yahoo)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4181">kakang master kayanya udah cape ngeladenin orang2 di atas ya... <img src='http://itx.web.id/wp-includes/images/smilies/laugh.gif' alt='(lol)' class='wp-smiley' /> 
+sekedar bertanya, sukur2 dijawab... image kaga nampil nih kang.. ...</a></li><li class="recentcomments"><strong>lutfia: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4179">kok muncul error seperti ini ?
+"Cannot use object of type stdClass as array in C:\wamp\www\Intranet\application\libraries\cezpdf.php on line 695" </a></li><li class="recentcomments"><strong>deche: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4178">jaahh.....yg ane malah undefine index si picturenya.... aneh. <img src='http://itx.web.id/wp-includes/images/smilies/eyeroll.gif' alt='(eyeroll)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong><a href='http://oke-djiextray.blogspot.com' rel='external nofollow' class='url'>Djiextray</a>: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4177">wah thanks gan ... work .... walaupun dengan mgutak ngatik lagi... tadi sempat ga bisa.. terus di otak atik lagi ...</a></li><li class="recentcomments"><strong>agung: </strong><a href="http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/#comment-4176">k.. gambarnya ga bisa nampil 
+muncul ini
+Warning: mysql_fetch_array() expects parameter 1 to be resource, boolean given in E:\Local\xampp\htdocs\coba\helloMobile\proses.php on line ...</a></li><li class="recentcomments"><strong>Eric Winslet: </strong><a href="http://itx.web.id/php/code-igniter-export-data-ke-file-pdf/#comment-4175">saat saya coba buka url ini
+
+http://localhost/www/CodeIgniter/index.php/member_con
+
+kug gini ya? salahnya apa ya?
+
+Deprecated: Assigning the return value of new by reference is ...</a></li><li class="recentcomments"><strong>dudiriadi: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4174">saya tertarik menjadi penulis, usernya dudiriadi </a></li><li class="recentcomments"><strong>iska: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4171">mas kta menulis topiknya PHP atau wordpres maksudnya gimana ya?  <img src='http://itx.web.id/wp-includes/images/smilies/wink.gif' alt=';-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong>nora: </strong><a href="http://itx.web.id/menggunakan-jasa-itx/#comment-4169">mas sy mau tanya bagaimana caranya membuat icon web jika thema sy tdk include dgn program utk membuat icon,,,, sy ...</a></li><li class="recentcomments"><strong><a href='http://tombolenter.blogspot.com/' rel='external nofollow' class='openid_link url'>kharisma</a>: </strong><a href="http://itx.web.id/php/menampilkan-data-dari-database-dengan-codeigniter-ajax-dalam-template-jquery-ui/#comment-4168">nice tutorial, keep sharing <img src='http://itx.web.id/wp-includes/images/smilies/drinking.gif' alt='(drinking)' class='wp-smiley' /> </a></li><li class="recentcomments"><strong>mentari: </strong><a href="http://itx.web.id/lowongan-penulis/#comment-4166">kak aaq tetarik mau jadi penulis part time, tapi musti punya blogspot ya?? <img src='http://itx.web.id/wp-includes/images/smilies/smile.gif' alt=':-)' class='wp-smiley' />  </a></li><li class="recentcomments"><strong><a href='http://lailatoel.wordpress.com/2011/11/20/login-multi-user-php/' rel='external nofollow' class='url'>Login Multi User PHP | L41Latul</a>: </strong><a href="http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/#comment-4165">[...] Kalo mau artikel yang asli masuk aja ke http://itx.web.id/php/login-multi-user-dengan-php-dan-mysql/ [...] </a></li></ul></div></div></div></li><li id="wppp-3" class="widget left widget_wppp"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Postingan populer</h3>
+<ul class='wppp_list'>
+	<li><a href='http://itx.web.id/php/tutorial-upload-menyimpan-dan-menampilkan-gambar-dengan-php-dan-mysql/' title='Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql'>Tutorial Upload, Menyimpan, dan Menampilkan Gambar dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/membuat-form-combobox-dinamis-dari-database-mysql-dengan-php/' title='Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP'>Membuat Form ComboBox Dinamis dari Database (Mysql) dengan PHP</a></li>
+	<li><a href='http://itx.web.id/php/form-input-tanggal-php-dengan-datetimepicker-jquery/' title='Form Input Tanggal PHP dengan Datetimepicker JQuery'>Form Input Tanggal PHP dengan Datetimepicker JQuery</a></li>
+	<li><a href='http://itx.web.id/php/tutorial-searching-pencarian-data-dengan-php-dan-mysql/' title='Tutorial Searching / Pencarian Data dengan PHP dan Mysql'>Tutorial Searching / Pencarian Data dengan PHP dan Mysql</a></li>
+	<li><a href='http://itx.web.id/php/editor-php-gratisan-untuk-kita/' title='Editor PHP gratisan untuk kita:'>Editor PHP gratisan untuk kita:</a></li>
+	<li><a href='http://itx.web.id/php/membuat-fungsi-update-data-dalam-database-dengan-php-mysql/' title='Membuat Fungsi Update Data dalam Database dengan PHP Mysql'>Membuat Fungsi Update Data dalam Database dengan PHP Mysql</a></li>
+	<li><a href='http://itx.web.id/selingan/tidak-aktifnya-situs-sd-ppdbdki-org-ternyata-juga-sangat-berpengaruh-pada-kami/' title='Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami'>Tidak aktifnya situs sd.ppdbdki.org ternyata juga sangat berpengaruh pada kami</a></li>
+</ul>
+</div></li><li id="tag_cloud-4" class="widget left widget_tag_cloud"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Tags</h3><div><a href='http://itx.web.id/tag/ajax/' class='tag-link-15' title='4 topics' style='font-size: 14.3636363636pt;'>ajax</a>
+<a href='http://itx.web.id/tag/basic/' class='tag-link-48' title='4 topics' style='font-size: 14.3636363636pt;'>basic</a>
+<a href='http://itx.web.id/tag/cms-wordpress/' class='tag-link-72' title='3 topics' style='font-size: 12.7727272727pt;'>cms wordpress</a>
+<a href='http://itx.web.id/tag/codeigniter/' class='tag-link-66' title='6 topics' style='font-size: 16.75pt;'>codeigniter</a>
+<a href='http://itx.web.id/tag/codeigniter-export-to-excel/' class='tag-link-106' title='2 topics' style='font-size: 10.8636363636pt;'>codeigniter export to excel</a>
+<a href='http://itx.web.id/tag/date-function/' class='tag-link-81' title='2 topics' style='font-size: 10.8636363636pt;'>date function</a>
+<a href='http://itx.web.id/tag/device-recognition/' class='tag-link-91' title='2 topics' style='font-size: 10.8636363636pt;'>device recognition</a>
+<a href='http://itx.web.id/tag/effect/' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>effect</a>
+<a href='http://itx.web.id/tag/fadeout/' class='tag-link-16' title='1 topic' style='font-size: 8pt;'>fadeout</a>
+<a href='http://itx.web.id/tag/form-validation/' class='tag-link-79' title='2 topics' style='font-size: 10.8636363636pt;'>form validation</a>
+<a href='http://itx.web.id/tag/free-wordpress-theme/' class='tag-link-23' title='3 topics' style='font-size: 12.7727272727pt;'>free wordpress theme</a>
+<a href='http://itx.web.id/tag/fun-mode/' class='tag-link-52' title='2 topics' style='font-size: 10.8636363636pt;'>fun mode</a>
+<a href='http://itx.web.id/tag/gpl/' class='tag-link-29' title='2 topics' style='font-size: 10.8636363636pt;'>GPL</a>
+<a href='http://itx.web.id/tag/javascript/' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>JavaScript</a>
+<a href='http://itx.web.id/tag/javascript-library/' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>JavaScript Library</a>
+<a href='http://itx.web.id/tag/jquery/' class='tag-link-13' title='2 topics' style='font-size: 10.8636363636pt;'>jQuery</a>
+<a href='http://itx.web.id/tag/jquery-ui/' class='tag-link-166' title='3 topics' style='font-size: 12.7727272727pt;'>jquery UI</a>
+<a href='http://itx.web.id/tag/kelirumologi/' class='tag-link-6' title='2 topics' style='font-size: 10.8636363636pt;'>kelirumologi</a>
+<a href='http://itx.web.id/tag/koneksi/' class='tag-link-19' title='1 topic' style='font-size: 8pt;'>koneksi</a>
+<a href='http://itx.web.id/tag/login-multi-user/' class='tag-link-75' title='2 topics' style='font-size: 10.8636363636pt;'>login multi user</a>
+<a href='http://itx.web.id/tag/mobile-programming/' class='tag-link-89' title='2 topics' style='font-size: 10.8636363636pt;'>mobile programming</a>
+<a href='http://itx.web.id/tag/multisite/' class='tag-link-33' title='3 topics' style='font-size: 12.7727272727pt;'>multisite</a>
+<a href='http://itx.web.id/tag/mysql/' class='tag-link-63' title='8 topics' style='font-size: 18.3409090909pt;'>mysql</a>
+<a href='http://itx.web.id/tag/mysql-to-excel/' class='tag-link-109' title='2 topics' style='font-size: 10.8636363636pt;'>mysql to excel</a>
+<a href='http://itx.web.id/tag/openid/' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>OpenID</a>
+<a href='http://itx.web.id/tag/pagination/' class='tag-link-101' title='2 topics' style='font-size: 10.8636363636pt;'>pagination</a>
+<a href='http://itx.web.id/tag/paging/' class='tag-link-103' title='2 topics' style='font-size: 10.8636363636pt;'>paging</a>
+<a href='http://itx.web.id/tag/parse-xml-with-php/' class='tag-link-156' title='2 topics' style='font-size: 10.8636363636pt;'>parse xml with php</a>
+<a href='http://itx.web.id/tag/personal-settings/' class='tag-link-50' title='2 topics' style='font-size: 10.8636363636pt;'>personal settings</a>
+<a href='http://itx.web.id/tag/php/' class='tag-link-10' title='14 topics' style='font-size: 22pt;'>PHP</a>
+<a href='http://itx.web.id/tag/php-string/' class='tag-link-213' title='2 topics' style='font-size: 10.8636363636pt;'>php string</a>
+<a href='http://itx.web.id/tag/post/' class='tag-link-168' title='2 topics' style='font-size: 10.8636363636pt;'>post</a>
+<a href='http://itx.web.id/tag/posting-code/' class='tag-link-115' title='2 topics' style='font-size: 10.8636363636pt;'>posting code</a>
+<a href='http://itx.web.id/tag/posting-sourcecode/' class='tag-link-116' title='2 topics' style='font-size: 10.8636363636pt;'>posting sourcecode</a>
+<a href='http://itx.web.id/tag/splitting-content/' class='tag-link-169' title='2 topics' style='font-size: 10.8636363636pt;'>splitting content</a>
+<a href='http://itx.web.id/tag/surprise-me/' class='tag-link-51' title='2 topics' style='font-size: 10.8636363636pt;'>surprise me</a>
+<a href='http://itx.web.id/tag/syntax-highlighter/' class='tag-link-117' title='2 topics' style='font-size: 10.8636363636pt;'>syntax highlighter</a>
+<a href='http://itx.web.id/tag/theme/' class='tag-link-31' title='3 topics' style='font-size: 12.7727272727pt;'>theme</a>
+<a href='http://itx.web.id/tag/users/' class='tag-link-49' title='2 topics' style='font-size: 10.8636363636pt;'>users</a>
+<a href='http://itx.web.id/tag/wordpress/' class='tag-link-11' title='3 topics' style='font-size: 12.7727272727pt;'>WordPress</a>
+<a href='http://itx.web.id/tag/wordpress-com/' class='tag-link-47' title='4 topics' style='font-size: 14.3636363636pt;'>wordpress.com</a>
+<a href='http://itx.web.id/tag/wordpress-mobile/' class='tag-link-188' title='2 topics' style='font-size: 10.8636363636pt;'>wordpress mobile</a>
+<a href='http://itx.web.id/tag/wordpress-plugin/' class='tag-link-39' title='2 topics' style='font-size: 10.8636363636pt;'>wordpress plugin</a>
+<a href='http://itx.web.id/tag/wordpress-theme/' class='tag-link-24' title='3 topics' style='font-size: 12.7727272727pt;'>wordpress theme</a>
+<a href='http://itx.web.id/tag/xml-to-mysql/' class='tag-link-154' title='2 topics' style='font-size: 10.8636363636pt;'>xml to mysql</a></div>
+</div></li></ul><div class="clear"></div></div></div><div id="sidebar-right" class="sidebar"><div class='sidebar-2'><ul><li id="language-selector" class="widget right icl_languages_selector"><div class="widgetwrap  ">		
+<div id="lang_sel_list">           
+            <ul>
+                                <li class="icl-en">          
+                    <a href="http://en.itx.web.id/php-en/export-from-database-to-excel-file-in-the-codeigniter/" class="lang_sel_other">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png" alt="en" />&nbsp;                    
+                                        English                    </a>
+                </li>
+                                <li class="icl-id">          
+                    <a href="http://itx.web.id/php/export-dari-database-ke-file-excel-dalam-codeigniter/" class="lang_sel_sel">
+                                    
+                    <img  class="iclflag" src="http://itx.web.id/wp-content/plugins/sitepress-multilingual-cms/res/flags/id.png" alt="id" />&nbsp;                    
+                                        Indonesia                    </a>
+                </li>
+                            </ul>
+</div>
+</div></li><li id="text-2" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Theme Buatan itx</h3>			<div class="textwidget"><h4><a href="http://albizia.itx.web.id">
+Albizia Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/albizia" rel="nofollow">
+- Download Albizia
+</a></h4>
+<h4><a href="http://bombax.itx.web.id">
+Bombax Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/bombax" rel="nofollow">
+- Download Bombax
+</a></h4>
+<h4><a href="http://calotropis.itx.web.id">
+Calotropis Theme
+</a><br />
+<a href="http://wordpress.org/extend/themes/calotropis" rel="nofollow">
+- Download Calotropis 
+</a></h4></div>
+		</div></li><li id="text-3" class="widget right widget_text"><div class="widgetwrap  "><h3 class="ui-widget-header ui-corner-all">Plugin Buatan itx</h3>			<div class="textwidget"><h4><a href="http://itx.web.id/wordpress/plugins/exclude-plugins/">
+Exclude Plugins
+</a><br />
+<a href=" http://wordpress.org/extend/plugins/exclude-plugins/" rel="nofollow">
+- Download Exclude Plugins
+</a></h4></div>
+		</div></li><li id="text-4" class="widget right widget_text"><div class="widgetwrap  ">			<div class="textwidget">Jika memiliki pertanyaan tentang theme atau plugin buatan itx, silahkan menuju <a href="http://forum.itx.web.id">forum</a>.
+</div>
+		</div></li>												<li id="ask2link" class="widget right widget_ask2link"><div class="widgetwrap  "><!-- zz,b78dc8fc3eccc96c396b1312211272,1312211949 -->
+</div></li>		<li id="advanced_text-7" class="widget right advanced_text"><div class="widgetwrap  "><div class='AdvancedText'><br></div></div></li>
+						</ul><div class="clear"></div></div></div><div class="clear"></div>
+</div>
+</div> <!--/main-->
+<div id="footwrap">
+    <div id="footwrap2">
+    <div class="wrap">
+    <div id="footer" class="footer"><div class='footer-'></div></div>    <div class="clear"></div>
+    </div>
+	</div>
+	<div id="footerfoot">
+	<div class="wrap">
+		<div id="footerleft">
+		<a href="http://itx.web.id">Bahasa Mesin :: Bahasa Manusia :: Bahasa Kita</a>
+				</div><div id="footerright">
+<a href="http://themes.itx.web.id/bombax/"><strong>Bombax Theme</strong> designed by <strong>itx</itx></a></div></div></div></div><!-- bombax 1.3 -->
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.core.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/ui.tabs.js?ver=1.7.3'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-includes/js/jquery/jquery.color.js?ver=2.0-4561m'></script>
+<script src="http://itx.web.id/wp-content/plugins/tweetmeme/button.js" type="text/javascript"></script><script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://itx.web.id/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+<!--stats_footer_test--><script src="http://stats.wordpress.com/e-201148.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'12545473',v:'ext',post:'1108'});
+var load_cmc = function(){linktracker_init(12545473,1108,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+sudo gedit /etc/init.d/rc.local [Auto Run Folder]
+
+passwd -> merubah password user
+sudo gedit /etc/init.d/rc.local [Auto Run Folder]
+
+service apache2 status|start|stop|restart
+php -v
+mysql -v
+mysql root:12345678
+
+sudo gedit /etc/hosts # Menambahkan VHost
+
+cd ~ untuk pindah ke Home/User
+sudo chmod 777 namafolder atau file [-R untuk Rekrusif]
+
+Program Files => /opt
+Link Shortcut app => /usr/share/applications/AptanaStudio3.desktop
+
+
+
+--
+sudo apt-get install php5-intl
+php -m #untuk cek module yang terinstall di php
+Intl::getIcuVersion();
+Intl::getIcuDataVersion();
+--
+
+Upgrading composer.
+
+php composer.phar self-update
+php composer.phar update # Update seluruh repository
+
+
+## Upgrade NODEJS
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:richarvey/nodejs
+sudo apt-get update
+sudo apt-get install nodejs
+
+## POST Data via CLI
+curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d '{"user":{"name":"nama","username":"foo", "email": "foo@example.org", "password":{"first":"hahaha","second":"hahaha"}}}' http://www.mysymfony.wgs/api/users
+
+Zip Contents of current directory
+zip -r zipfile.zip *
+
+Unzip Contents into current directory
+unzip zipfile.zip
+
+Unzip (and extract) the tar'd, gzipped archive (tarball) Contents into current directory
+tar zxvf  tarballfile.tar.gz
+
+Remove a directory and its contents (Use with extra care)
+rm -rf directoryname
+
+Backup Database
+mysqldump dbname -uUSERNAME -pPASSWORD --host HOST > filename.sql
+
+Restore Database
+mysql -u root -p[root_password] [database_name] < dumpfilename.sql
+
+Copy all files / directories from one server to other (Both servers should have SSH Support)
+rsync -avz --progress username@servername:sourcefolder destinationfolder
+
+sudo apt-get remove package / sudo apt-get --purge remove package
+sudo apt-get install ssmtp
+ssmtp deehieday@gmail.com < file [to: from: subject: body:]
+
+
+/usr/bin/composer ; usr/bin/drush

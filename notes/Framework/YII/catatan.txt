@@ -1,0 +1,137 @@
+echo Yii::getPathOfAlias('webroot');exit();
+ // directori webroot C://blabla	
+echo Yii::app()->baseUrl;exit();    // base URL index.php /gisstrahan
+echo YII::app()->basePath;exit();   // Path dari Controller/Model/View File di Config file
+
+'expression'=>'!YII::app()->user->isGuest && (int)YII::app()->user->getState("userLogin")->lid===1'
+
+
+<?php
+$flashMessages = Yii::app()->user->getFlashes();
+if ($flashMessages) {
+    echo '<ul class="flashes">';
+    foreach($flashMessages as $key => $message) {
+        echo '<li><div class="flash-' . $key . '">' . $message . "</div></li>\n";
+    }
+    echo '</ul>';
+}
+?>
+
+<?php
+Yii::app()->clientScript->registerScript(
+   'myHideEffect',
+   '$(".info").animate({opacity: 1.0}, 3000).fadeOut("slow");',
+   CClientScript::POS_READY
+);
+?>
+
+<?php
+if($flashes = Yii::app()->user->getFlashes()) {
+    foreach($flashes as $key => $message) {
+        if($key != 'counters') {
+            $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+                        'id'=>$key,
+                        'options'=>array(
+                            'show' => 'blind',
+                            'hide' => 'explode',
+                            'modal' => 'true',
+                            'title' => $message['title'],
+                            'autoOpen'=>true,
+                            ),
+                        ));
+ 
+            printf('<span class="dialog">%s</span>', $message['content']);
+ 
+            $this->endWidget('zii.widgets.jui.CJuiDialog');
+        }
+    }
+}
+?>
+
+<?php $this->renderPartial('//site/dialog'); ?>
+
+$output=$this->renderPartial($view,$data,true); # Mengembalikan $view ke $output
+
+Yii::app()->browser
+
+CHtml::listData(Level::model()->findAll(),'lid','level');
+
+<?php
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$.fn.yiiGridView.update('user-grid', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+");
+?>
+
+
+yii::app()->request->getParam('name');
+
+Yii::app()->request->isPostRequest;
+
+
+
+$this->model->validate(array($this->attribute));
+if ($this->model->hasErrors()) {
+	$this->error($this->model->getError($this->attribute));
+}
+
+
+#$transaction = Yii::app()->db->beginTransaction();
+	
+#$transaction->rollBack();
+			
+#$transaction->commit();
+
+ User::model()->exists("$_POST[name]=:value",array('value'=>$_POST['value']));
+ 
+ $es->onBeforeUpdate = function($event) {
+				if($_POST['name']==='pass')
+					$event->sender->setAttribute('pass', md5($_POST['value']));
+				#$event->sender->model->addError('pass','deee');
+			};
+
+
+Yii::app()->user->checkAccess('deletePost');
+
+
+	/*
+	public function actionCreates()
+	{
+		if(Yii::app()->request->isPostRequest) {
+			$model = new User;
+			$model->attributes = $_POST;
+			if($model->save()) {
+				echo CJSON::encode(array('id' => $model->primaryKey));
+			} else {
+				$errors = array_map(function($v){ return join(', ', $v); }, $model->getErrors());
+				echo CJSON::encode(array('errors' => $errors));
+			}
+		} else {
+		  throw new CHttpException(400, 'Invalid 
+request');  
+		}
+	}
+	*/
+
+
+			/* $model->onBeforeSave=function($event){
+				# Abaikan apabila user login mencoba menaikan level
+				if($event->sender->lid < Yii::app()->user->getState('userLogin')->l->lid )
+					throw new CHttpException(404,'The requested page does not exist.');
+			}; */
+
+'onclick'=>new CJavaScriptExpression('function(){alert("Yes");}'),
+
+
+$this->options = CJSON::decode($this->options);
+$this->options = CMap::mergeArray($defaultOptions, $this->options);
+$jsOptions = CJavaScript::encode($this->options);
+
